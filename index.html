@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unLEMA | Resultados de Encuesta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card:hover { transform: translateY(-10px); transition: 0.3s; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <header class="gradient-bg text-white h-screen flex flex-col justify-center items-center text-center p-6">
+        <h1 class="text-6xl font-bold mb-4">unLEMA</h1>
+        <p class="text-xl max-w-2xl italic">"Más de 500 voces, un solo futuro. Descubre el camino de nuestra próxima generación de egresados."</p>
+        <div class="mt-10 animate-bounce">↓</div>
+    </header>
+
+    <section class="py-20 px-10">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">¿Qué planean hacer al graduarse?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-blue-500">
+                <span class="text-5xl">🎓</span>
+                <h3 class="text-2xl font-bold mt-4">Estudiar</h3>
+                <p class="text-4xl font-black text-blue-600 my-2">40%</p>
+                <p class="text-gray-500">Buscan especialización inmediata.</p>
+            </div>
+            <div class="card bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-green-500">
+                <span class="text-5xl">💼</span>
+                <h3 class="text-2xl font-bold mt-4">Trabajar</h3>
+                <p class="text-4xl font-black text-green-600 my-2">35%</p>
+                <p class="text-gray-500">Listos para el mercado laboral.</p>
+            </div>
+            <div class="card bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-purple-500">
+                <span class="text-5xl">🚀</span>
+                <h3 class="text-2xl font-bold mt-4">Emprender</h3>
+                <p class="text-4xl font-black text-purple-600 my-2">25%</p>
+                <p class="text-gray-500">Apostando por ideas propias.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-20 px-10">
+        <h2 class="text-3xl font-bold text-center mb-8">Nuestra Comunidad</h2>
+        <div class="columns-1 md:columns-3 gap-4 space-y-4">
+            <div class="bg-white p-4 rounded shadow">
+                <p class="italic">"Quiero transformar mi entorno a través de la tecnología."</p>
+                <p class="font-bold mt-2">- Estudiante de Ingeniería</p>
+            </div>
+            <img src="https://via.placeholder.com/400x300" class="rounded shadow w-full" alt="Foto estudiante">
+            <div class="bg-blue-600 text-white p-6 rounded shadow">
+                <p class="text-xl">500+ Encuestados</p>
+            </div>
+            <img src="https://via.placeholder.com/400x500" class="rounded shadow w-full" alt="Foto grupo">
+            <div class="bg-white p-4 rounded shadow border-l-4 border-yellow-500">
+                <p>"Mi meta es crear empleo para otros jóvenes."</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-gray-600 border-t">
+        <p>&copy; 2024 unLEMA - Acompañamiento Integral</p>
+    </footer>
+
+</body>
+</html>
