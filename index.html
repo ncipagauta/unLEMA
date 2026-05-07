@@ -3,68 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>unLEMA | Laboratorio de expectativas próximas a el egreso </title>
+    <title>Expectativas ante el Egreso UN | unLEMA</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #FF5733 0%, #FF5733 100%);
+        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+        
+        /* Colores unLEMA */
+        .bg-movilidad { background-color: #CFD938; }
+        .bg-emprendimiento { background-color: #EC7920; }
+        .bg-laboral { background-color: #00A19B; }
+        .bg-academico { background-color: #DF0832; }
+        
+        .text-laboral { color: #00A19B; }
+        .text-emprendimiento { color: #EC7920; }
+        .text-academico { color: #DF0832; }
+
+        .gradient-un {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
-        .card:hover { transform: translateY(-10px); transition: 0.3s; }
+        
+        .hero-border {
+            border-bottom: 8px solid;
+            border-image: linear-gradient(to right, #00A19B, #EC7920, #CFD938, #DF0832) 1;
+        }
+
+        .card-shadow {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .card-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-white text-gray-800">
 
-    <header class="gradient-bg text-white h-screen flex flex-col justify-center items-center text-center p-6">
-        <h1 class="text-6xl font-bold mb-4">unLEMA</h1>
-        <p class="text-xl max-w-2xl italic">"Más de 500 voces, un solo futuro. Descubre el camino de nuestra próxima generación de egresados."</p>
-        <div class="mt-10 animate-bounce">↓</div>
+    <header class="gradient-un pt-20 pb-12 px-6 text-center hero-border">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-sm font-bold tracking-widest text-gray-500 uppercase">Acompañamiento Integral - SAE</span>
+            <h1 class="text-3xl md:text-5xl font-black mt-4 mb-6 leading-tight">
+                Encuesta entre realidades y paradigmas: <br>
+                <span class="text-gray-700 font-light italic">Expectativas ante el Egreso UN</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                Un análisis profundo de las motivaciones y desafíos de 522 estudiantes de la Sede Bogotá frente a su futuro profesional.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#datos" class="bg-gray-900 text-white px-8 py-3 rounded-full font-bold hover:bg-gray-700 transition">Ver Resultados</a>
+                <a href="#boletines" class="border-2 border-gray-900 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition">Boletines</a>
+            </div>
+        </div>
     </header>
 
-    <section class="py-20 px-10">
-        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">¿Qué planean hacer al graduarse?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="card bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-blue-500">
-                <span class="text-5xl">🎓</span>
-                <h3 class="text-2xl font-bold mt-4">Estudiar</h3>
-                <p class="text-4xl font-black text-blue-600 my-2">40%</p>
-                <p class="text-gray-500">Buscan especialización inmediata.</p>
+    <section class="py-12 flex flex-wrap justify-center gap-2 px-4">
+        <div class="px-6 py-2 rounded-full text-white font-bold bg-laboral">Laboral</div>
+        <div class="px-6 py-2 rounded-full text-white font-bold bg-emprendimiento">Emprendimiento</div>
+        <div class="px-6 py-2 rounded-full text-white font-bold bg-movilidad text-gray-800">Movilidad</div>
+        <div class="px-6 py-2 rounded-full text-white font-bold bg-academico">Académico</div>
+    </section>
+
+    <section class="py-16 bg-gray-50 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl border-l-8 border-laboral card-shadow">
+                <i data-lucide="users" class="mb-4 text-laboral"></i>
+                <h3 class="text-4xl font-black mb-2">522</h3>
+                <p class="text-gray-500 font-bold uppercase text-xs tracking-widest">Estudiantes encuestados</p>
+                <p class="mt-4 text-sm">Estudiantes con avance superior al 70%, voces reales de la UNAL Sede Bogotá.</p>
             </div>
-            <div class="card bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-green-500">
-                <span class="text-5xl">💼</span>
-                <h3 class="text-2xl font-bold mt-4">Trabajar</h3>
-                <p class="text-4xl font-black text-green-600 my-2">35%</p>
-                <p class="text-gray-500">Listos para el mercado laboral.</p>
+            <div class="bg-white p-8 rounded-2xl border-l-8 border-emprendimiento card-shadow">
+                <i data-lucide="trending-up" class="mb-4 text-emprendimiento"></i>
+                <h3 class="text-4xl font-black mb-2">63.3%</h3>
+                <p class="text-gray-500 font-bold uppercase text-xs tracking-widest">Prioridad Laboral</p>
+                <p class="mt-4 text-sm">La mayoría de los próximos egresados busca vincularse al mercado laboral inmediatamente.</p>
             </div>
-            <div class="card bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-purple-500">
-                <span class="text-5xl">🚀</span>
-                <h3 class="text-2xl font-bold mt-4">Emprender</h3>
-                <p class="text-4xl font-black text-purple-600 my-2">25%</p>
-                <p class="text-gray-500">Apostando por ideas propias.</p>
+            <div class="bg-white p-8 rounded-2xl border-l-8 border-academico card-shadow">
+                <i data-lucide="lightbulb" class="mb-4 text-academico"></i>
+                <h3 class="text-xl font-black mb-2 italic">Dato Curioso</h3>
+                <p class="text-gray-600 italic">"La seguridad económica es el motor principal para el 58.4% de quienes eligen el camino laboral."</p>
             </div>
         </div>
     </section>
 
-    <section class="bg-gray-100 py-20 px-10">
-        <h2 class="text-3xl font-bold text-center mb-8">Nuestra Comunidad</h2>
-        <div class="columns-1 md:columns-3 gap-4 space-y-4">
-            <div class="bg-white p-4 rounded shadow">
-                <p class="italic">"Quiero transformar mi entorno a través de la tecnología."</p>
-                <p class="font-bold mt-2">- Estudiante de Ingeniería</p>
+    <section id="datos" class="py-20 px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold">Planes a corto plazo después del grado</h2>
+            <p class="text-gray-500">¿Qué camino eligen nuestros estudiantes?</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <canvas id="chartPlanes"></canvas>
             </div>
-            <img src="https://via.placeholder.com/400x300" class="rounded shadow w-full" alt="Foto estudiante">
-            <div class="bg-blue-600 text-white p-6 rounded shadow">
-                <p class="text-xl">500+ Encuestados</p>
-            </div>
-            <img src="https://via.placeholder.com/400x500" class="rounded shadow w-full" alt="Foto grupo">
-            <div class="bg-white p-4 rounded shadow border-l-4 border-yellow-500">
-                <p>"Mi meta es crear empleo para otros jóvenes."</p>
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-4 h-4 rounded-full bg-laboral"></div>
+                    <p><strong>Trabajar (63.3%):</strong> Buscan estabilidad y experiencia práctica.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-4 h-4 rounded-full bg-academico"></div>
+                    <p><strong>Estudiar (31.4%):</strong> Motivaciones personales y especialización.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-4 h-4 rounded-full bg-emprendimiento"></div>
+                    <p><strong>Emprender (5.0%):</strong> Independencia y generación de empleo.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-gray-600 border-t">
-        <p>&copy; 2024 unLEMA - Acompañamiento Integral</p>
+    <section class="py-20 bg-gray-900 text-white px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-300">Profundizando en las Motivaciones</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="border border-gray-700 p-6 rounded-xl hover:bg-gray-800 transition">
+                    <h4 class="text-laboral font-bold mb-4 uppercase tracking-widest text-sm">Motivación Laboral</h4>
+                    <ul class="text-sm space-y-3">
+                        <li>• 58.4% Seguridad económica</li>
+                        <li>• 30.7% Preferencia por práctica</li>
+                        <li class="text-gray-500 italic">• 0.9% Influencia familiar</li>
+                    </ul>
+                </div>
+                <div class="border border-gray-700 p-6 rounded-xl hover:bg-gray-800 transition">
+                    <h4 class="text-academico font-bold mb-4 uppercase tracking-widest text-sm">Motivación Académica</h4>
+                    <ul class="text-sm space-y-3">
+                        <li>• 36.0% Metas personales</li>
+                        <li>• 21.6% Influencia del pregrado</li>
+                        <li>• 13.6% Becas</li>
+                    </ul>
+                </div>
+                <div class="border border-gray-700 p-6 rounded-xl hover:bg-gray-800 transition">
+                    <h4 class="text-emprendimiento font-bold mb-4 uppercase tracking-widest text-sm">Motivación Emprender</h4>
+                    <ul class="text-sm space-y-3">
+                        <li>• 23% Independencia laboral</li>
+                        <li>• 19.2% Independencia financiera</li>
+                        <li>• 15.4% Generación de empleo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="boletines" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold">Boletines Informativos</h2>
+                    <p class="text-gray-500">Descarga los resultados detallados semanalmente.</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-gray-200 text-gray-700 text-xs px-3 py-1 rounded-full font-bold">Mayo 2025</span>
+                        <i data-lucide="file-text" class="text-gray-400"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">Boletín #1: Realidades y Paradigmas</h4>
+                    <p class="text-sm text-gray-600 mb-6">Primer análisis sobre las intenciones de empleabilidad vs. conocimiento.</p>
+                    <a href="archivo.pdf" target="_blank" class="text-laboral font-bold flex items-center gap-2 hover:underline">
+                        Descargar PDF <i data-lucide="download" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                <div class="border-2 border-dashed border-gray-200 p-6 rounded-xl flex items-center justify-center text-gray-400">
+                    <p class="text-sm">Próximo boletín disponible el lunes...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 py-12 border-t border-gray-200 px-6 text-center">
+        <p class="font-bold text-gray-800 mb-2">Universidad Nacional de Colombia - Sede Bogotá</p>
+        <p class="text-sm text-gray-500">Sistema de Acompañamiento Estudiantil - SAE</p>
+        <div class="mt-6 flex justify-center gap-4 text-gray-400">
+             <i data-lucide="instagram" class="w-5 h-5 cursor-pointer hover:text-gray-900"></i>
+             <i data-lucide="globe" class="w-5 h-5 cursor-pointer hover:text-gray-900"></i>
+        </div>
     </footer>
 
+    <script>
+        // Inicializar Iconos
+        lucide.createIcons();
+
+        // Configuración de la Gráfica
+        const ctx = document.getElementById('chartPlanes').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Trabajar', 'Estudiar', 'Emprender'],
+                datasets: [{
+                    data: [63.3, 31.4, 5.0],
+                    backgroundColor: ['#00A19B', '#DF0832', '#EC7920'],
+                    borderWidth: 0,
+                    hoverOffset: 20
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: { display: false }
+                },
+                cutout: '70%'
+            }
+        });
+    </script>
 </body>
 </html>
