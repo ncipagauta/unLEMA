@@ -388,6 +388,45 @@
     <script>
         lucide.createIcons();
 
+        <!-- FOOTER -->
+    <footer class="py-12 text-center text-gray-400 text-xs tracking-widest uppercase border-t">
+        <p>Universidad Nacional de Colombia | unLEMA | Red de Acompañamiento Integral REDai 2026</p>
+        <p>Tatiana Cipagauta | Nicolas Rodriguez | Daniel Contreras | Maria Fernanda Cardenas | Jean Ruiz</p>
+    </footer>
+
+    <!-- CONTROLADORES JAVASCRIPT -->
+    <script>
+        lucide.createIcons();
+
+        // --- LÓGICA DEL ÁLBUM DESLIZANTE DE REDAI ---
+        let currentRedaiIndex = 0;
+        const totalRedaiSlides = 10; // Tus 10 fotos requeridas
+        const redaiCarousel = document.getElementById('redai-carousel');
+
+        function updateRedaiCarousel() {
+            redaiCarousel.style.transform = `translateX(-${currentRedaiIndex * 100}%)`;
+        }
+
+        function nextRedaiSlide() {
+            currentRedaiIndex = (currentRedaiIndex + 1) % totalRedaiSlides;
+            updateRedaiCarousel();
+            resetRedaiTimer();
+        }
+
+        function prevRedaiSlide() {
+            currentRedaiIndex = (currentRedaiIndex - 1 + totalRedaiSlides) % totalRedaiSlides;
+            updateRedaiCarousel();
+            resetRedaiTimer();
+        }
+
+        // Deslizamiento automático cada 4 segundos
+        let redaiTimer = setInterval(nextRedaiSlide, 4000);
+
+        function resetRedaiTimer() {
+            clearInterval(redaiTimer);
+            redaiTimer = setInterval(nextRedaiSlide, 4000);
+        }
+
         // Gráfica General
         new Chart(document.getElementById('chartGeneral'), {
             type: 'bar',
