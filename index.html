@@ -87,6 +87,10 @@
             33% { background-image: url('img/1000132518.jpg'); }
             66% { background-image: url('img/Image_20260328_151446_153.jpeg'); }
         }
+
+        /* Ocultar barra de scroll en el carrusel de créditos */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-white">
@@ -495,47 +499,170 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-12 text-center text-gray-400 text-xs tracking-widest uppercase border-t">
+    <!-- SECCIÓN DE CRÉDITOS Y EQUIPO (CON LÍNEA DEGRADADA Y CAROUSEL MUTLI-TARJETA) -->
+    <section class="relative pt-12 pb-20 bg-white overflow-hidden">
+        <!-- LÍNEA EN DEGRADADO LEMA COMPLETA A LO ANCHO -->
+        <div class="absolute top-0 left-0 w-full h-[5px]" style="background: linear-gradient(to right, #00A19B, #EC7920, #CFD938, #DF0832);"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative">
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-10 gap-4">
+                <div>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Reconocimientos</span>
+                    <h3 class="text-2xl font-black text-gray-900 uppercase">Equipo de Trabajo unLEMA</h3>
+                </div>
+                <!-- Flechas de Control Manual -->
+                <div class="flex gap-2">
+                    <button onclick="scrollCredits('left')" class="bg-gray-100 hover:bg-gray-200 text-gray-800 p-2.5 rounded-full transition shadow-sm">
+                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                    </button>
+                    <button onclick="scrollCredits('right')" class="bg-gray-100 hover:bg-gray-200 text-gray-800 p-2.5 rounded-full transition shadow-sm">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contenedor Deslizable de Tarjetas (Snap Scroll) -->
+            <div id="credits-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-6 pb-4">
+                
+                <!-- Integrante 1 -->
+                <div class="snap-start flex-shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] bg-gray-50/60 p-6 rounded-2xl border border-gray-100 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#00A19B] shadow-sm">
+                        <img src="img/credito-tatiana.jpg" class="w-full h-full object-cover" alt="Tatiana Cipagauta">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base leading-tight">Tatiana Cipagauta</h4>
+                    <p class="text-xs text-gray-400 font-medium mt-1">Carrera / Pregrado</p>
+                    <p class="text-xs text-gray-500 italic mt-3 border-t pt-2 border-gray-200/60">Coordinación general e investigación de campo.</p>
+                </div>
+
+                <!-- Integrante 2 -->
+                <div class="snap-start flex-shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] bg-gray-50/60 p-6 rounded-2xl border border-gray-100 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#EC7920] shadow-sm">
+                        <img src="img/credito-nicolas.jpg" class="w-full h-full object-cover" alt="Nicolas Rodriguez">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base leading-tight">Nicolas Rodriguez</h4>
+                    <p class="text-xs text-gray-400 font-medium mt-1">Carrera / Pregrado</p>
+                    <p class="text-xs text-gray-500 italic mt-3 border-t pt-2 border-gray-200/60">Análisis estadístico y procesamiento de datos.</p>
+                </div>
+
+                <!-- Integrante 3 -->
+                <div class="snap-start flex-shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] bg-gray-50/60 p-6 rounded-2xl border border-gray-100 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#CFD938] shadow-sm">
+                        <img src="img/credito-daniel.jpg" class="w-full h-full object-cover" alt="Daniel Contreras">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base leading-tight">Daniel Contreras</h4>
+                    <p class="text-xs text-gray-400 font-medium mt-1">Carrera / Pregrado</p>
+                    <p class="text-xs text-gray-500 italic mt-3 border-t pt-2 border-gray-200/60">Diseño metodológico y estructuración de la encuesta.</p>
+                </div>
+
+                <!-- Integrante 4 -->
+                <div class="snap-start flex-shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] bg-gray-50/60 p-6 rounded-2xl border border-gray-100 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#DF0832] shadow-sm">
+                        <img src="img/credito-maria.jpg" class="w-full h-full object-cover" alt="Maria Fernanda Cardenas">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base leading-tight">Maria Fernanda Cardenas</h4>
+                    <p class="text-xs text-gray-400 font-medium mt-1">Carrera / Pregrado</p>
+                    <p class="text-xs text-gray-500 italic mt-3 border-t pt-2 border-gray-200/60">Redacción de boletines y comunicación estratégica.</p>
+                </div>
+
+                <!-- Integrante 5 -->
+                <div class="snap-start flex-shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] bg-gray-50/60 p-6 rounded-2xl border border-gray-100 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#00A19B] shadow-sm">
+                        <img src="img/credito-jean.jpg" class="w-full h-full object-cover" alt="Jean Ruiz">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base leading-tight">Jean Ruiz</h4>
+                    <p class="text-xs text-gray-400 font-medium mt-1">Carrera / Pregrado</p>
+                    <p class="text-xs text-gray-500 italic mt-3 border-t pt-2 border-gray-200/60">Desarrollo técnico y visualización del laboratorio.</p>
+                </div>
+
+                <!-- Integrante 6 -->
+                <div class="snap-start flex-shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] bg-gray-50/60 p-6 rounded-2xl border border-gray-100 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#EC7920] shadow-sm">
+                        <img src="img/credito-persona6.jpg" class="w-full h-full object-cover" alt="Integrante 6">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base leading-tight">Nombre Integrante 6</h4>
+                    <p class="text-xs text-gray-400 font-medium mt-1">Carrera / Pregrado</p>
+                    <p class="text-xs text-gray-500 italic mt-3 border-t pt-2 border-gray-200/60">Aporte específico realizado al proyecto de investigación.</p>
+                </div>
+
+                <!-- Integrante 7 -->
+                <div class="snap-start flex-shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] bg-gray-50/60 p-6 rounded-2xl border border-gray-100 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#CFD938] shadow-sm">
+                        <img src="img/credito-persona7.jpg" class="w-full h-full object-cover" alt="Integrante 7">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base leading-tight">Nombre Integrante 7</h4>
+                    <p class="text-xs text-gray-400 font-medium mt-1">Carrera / Pregrado</p>
+                    <p class="text-xs text-gray-500 italic mt-3 border-t pt-2 border-gray-200/60">Aporte específico realizado al proyecto de investigación.</p>
+                </div>
+
+                <!-- Integrante 8 -->
+                <div class="snap-start flex-shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] bg-gray-50/60 p-6 rounded-2xl border border-gray-100 text-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#DF0832] shadow-sm">
+                        <img src="img/credito-persona8.jpg" class="w-full h-full object-cover" alt="Integrante 8">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base leading-tight">Nombre Integrante 8</h4>
+                    <p class="text-xs text-gray-400 font-medium mt-1">Carrera / Pregrado</p>
+                    <p class="text-xs text-gray-500 italic mt-3 border-t pt-2 border-gray-200/60">Aporte específico realizado al proyecto de investigación.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA MÍNIMO INSTITUCIONAL -->
+    <footer class="py-8 text-center text-gray-400 text-[10px] tracking-widest uppercase border-t bg-gray-50/50">
         <p>Universidad Nacional de Colombia | unLEMA | Red de Acompañamiento Integral REDai 2026</p>
-        <p>Tatiana Cipagauta | Nicolas Rodriguez | Daniel Contreras | Maria Fernanda Cardenas | Jean Ruiz</p>
     </footer>
 
     <!-- CONTROLADORES JAVASCRIPT -->
-    <script>
-        lucide.createIcons();
+<script>
+    // 1. Inicializar íconos de Lucide
+    lucide.createIcons();
 
-        // --- LÓGICA DEL ÁLBUM DESLIZANTE DE REDAI ---
-        let currentRedaiIndex = 0;
-        const totalRedaiSlides = 10; //  10 fotos requeridas
+    // 2. Variables del Álbum REDai
+    let currentRedaiIndex = 0;
+    const totalRedaiSlides = 10;
+    let redaiTimer;
+
+    document.addEventListener("DOMContentLoaded", function() {
         const redaiCarousel = document.getElementById('redai-carousel');
+        const creditsContainer = document.getElementById('credits-container');
 
-        function updateRedaiCarousel() {
-            redaiCarousel.style.transform = `translateX(-${currentRedaiIndex * 100}%)`;
+        // --- LÓGICA DE REDAI ---
+        window.updateRedaiCarousel = function() {
+            if (redaiCarousel) {
+                redaiCarousel.style.transform = `translateX(-${currentRedaiIndex * 100}%)`;
+            }
         }
-
-        function nextRedaiSlide() {
+        window.nextRedaiSlide = function() {
             currentRedaiIndex = (currentRedaiIndex + 1) % totalRedaiSlides;
             updateRedaiCarousel();
             resetRedaiTimer();
         }
-
-        function prevRedaiSlide() {
+        window.prevRedaiSlide = function() {
             currentRedaiIndex = (currentRedaiIndex - 1 + totalRedaiSlides) % totalRedaiSlides;
             updateRedaiCarousel();
             resetRedaiTimer();
         }
-
-        // Deslizamiento automático cada 4 segundos
-        let redaiTimer = setInterval(nextRedaiSlide, 4000);
-
-        function resetRedaiTimer() {
+        window.resetRedaiTimer = function() {
             clearInterval(redaiTimer);
             redaiTimer = setInterval(nextRedaiSlide, 4000);
         }
+        redaiTimer = setInterval(nextRedaiSlide, 4000);
 
+        // --- LÓGICA DE CRÉDITOS (Desplazamiento Inteligente por Bloques) ---
+        window.scrollCredits = function(direction) {
+            if (creditsContainer) {
+                // Calcula el ancho de una tarjeta individual para saber cuánto desplazarse
+                const scrollAmount = creditsContainer.clientWidth / (window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 1);
+                if (direction === 'left') {
+                    creditsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                } else {
+                    creditsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }
+        }
 
-        // --- LÓGICA GRÁFICAS (CHART.JS) ---
+        // --- 3. INICIALIZACIÓN DE LAS GRÁFICAS (CHART.JS) ---
         // Gráfica General
         new Chart(document.getElementById('chartGeneral'), {
             type: 'bar',
@@ -586,6 +713,7 @@
                 }]
             }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
