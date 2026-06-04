@@ -18,6 +18,16 @@
         .color-M { background-color: #CFD938; } /* Movilidad */
         .color-A { background-color: #DF0832; } /* Académico */
 
+        /* Línea Divisoria en Degradado LEMA */
+        .linea-degradado-lema {
+            background: linear-gradient(to right, #00A19B, #EC7920, #CFD938, #DF0832);
+            height: 5px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
         /* Efecto Hover para los cuadros LEMA */
         .lema-box {
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,7 +76,7 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0;
-            opacity: 0.08; /* Tono tenue, sobrio y sutil */
+            opacity: 0.18; /* Tono tenue, sobrio y sutil */
             background-size: cover;
             background-position: center;
             animation: changeBg 18s infinite ease-in-out;
@@ -80,19 +90,21 @@
 </head>
 <body class="bg-white">
 
-    <!-- CABECERA CON FONDO CREMA E IMÁGENES TENUES -->
-    <header class="relative py-24 px-6 text-center bg-[#FDFBF7] border-b border-gray-100 overflow-hidden">
-        <!-- Contenedor de imágenes en movimiento sutil -->
+    <!-- CABECERA CON FONDO CREMA, IMÁGENES MÁS VIVAS Y LÍNEA DEGRADADA -->
+    <header class="relative py-28 px-6 text-center bg-[#FDFBF7] overflow-hidden">
+        <!-- Contenedor de imágenes -->
         <div class="slideshow-bg"></div>
         
-        <!-- Contenido principal encima de la máscara -->
+        <!-- Contenido de la portada -->
         <div class="relative max-w-5xl mx-auto z-10">
-            <p class="text-xs font-bold tracking-[0.3em] text-gray-400 uppercase mb-4">Red Estudiantil de Acompañamiento Integral - REDai</p>
-            <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-8">
+            <p class="text-xs font-bold tracking-[0.3em] text-gray-400 uppercase mb-5">Red Estudiantil de Acompañamiento Integral - REDai</p>
+            <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-4">
                 Laboratorio Estudiantil de Proyección Profesional
             </h1>
-            <div class="w-24 h-1 bg-gray-300 mx-auto mb-8"></div>
         </div>
+
+        <!-- LA LÍNEA EN DEGRADADO UNLEMA QUE SEPARA LA PORTADA -->
+        <div class="linea-degradado-lema"></div>
     </header>
 
     <!-- CONTEXTUALIZACIÓN RESUMIDA -->
