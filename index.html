@@ -11,7 +11,7 @@
 
     <style>
         body { font-family: 'Montserrat', sans-serif; }
-
+        
         /* Colores unLEMA */
         .color-L { background-color: #00A19B; } /* Laboral */
         .color-E { background-color: #EC7920; } /* Emprendimiento */
@@ -71,20 +71,21 @@
             background: linear-gradient(180deg, #fdfdfd 0%, #f3f4f6 100%);
         }
 
-        /* Animación suave para las imágenes de fondo de la cabecera */
+        /* Animación y visibilidad de las imágenes de fondo */
         .slideshow-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0;
-            opacity: 0.18; /* Tono tenue, sobrio y sutil */
+            opacity: 0.25; 
             background-size: cover;
             background-position: center;
             animation: changeBg 18s infinite ease-in-out;
         }
+        
         @keyframes changeBg {
-            0%, 100% { background-image: url('img/IMG_2482.jpg'); }
-            33% { background-image: url('img/Image_20260328_151446_153.jpeg'); }
-            66% { background-image: url('img/Image_20260410_154119_350.jpeg'); }
+            0%, 100% { background-image: url('img/1000069852.jpg'); }
+            33% { background-image: url('img/1000132518.jpg'); }
+            66% { background-image: url('img/1000184544.jpg'); }
         }
     </style>
 </head>
@@ -92,18 +93,13 @@
 
     <!-- CABECERA CON FONDO CREMA, IMÁGENES MÁS VIVAS Y LÍNEA DEGRADADA -->
     <header class="relative py-28 px-6 text-center bg-[#FDFBF7] overflow-hidden">
-        <!-- Contenedor de imágenes -->
         <div class="slideshow-bg"></div>
-
-        <!-- Contenido de la portada -->
         <div class="relative max-w-5xl mx-auto z-10">
             <p class="text-xs font-bold tracking-[0.3em] text-gray-400 uppercase mb-5">Red Estudiantil de Acompañamiento Integral - REDai</p>
             <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-4">
                 Laboratorio Estudiantil de Proyección Profesional
             </h1>
         </div>
-
-        <!-- LA LÍNEA EN DEGRADADO UNLEMA QUE SEPARA LA PORTADA -->
         <div class="linea-degradado-lema"></div>
     </header>
 
@@ -147,7 +143,7 @@
                         <i data-lucide="target" class="text-blue-500"></i> Horizontes de la Investigación
                     </h2>
                 </div>
-
+                
                 <!-- Objetivo General -->
                 <div class="mb-12 p-6 bg-blue-50/50 rounded-2xl border-l-4 border-blue-500">
                     <h3 class="font-bold text-blue-900 text-lg mb-2">Objetivo General</h3>
@@ -188,30 +184,24 @@
         </div>
     </section>
 
-    <!-- DOS COLUMNAS: QUIÉNES SOMOS (REDai vs unLEMA) -->
-   <!-- DOS COLUMNAS: QUIÉNES SOMOS (REDai CON ALBUM DESLIZANTE vs unLEMA) -->
+    <!-- DOS COLUMNAS: QUIÉNES SOMOS (REDai CON ALBUM DESLIZANTE vs unLEMA) -->
     <section class="py-20 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 border-b border-gray-100">
-        <!-- Columna Izquierda: REDai -->
         
         <!-- Columna Izquierda: REDai con ALBUM DESLIZANTE -->
         <div class="space-y-6">
-            <div class="h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner flex items-center justify-center text-gray-400 relative">
-                <!-- Foto de REDai -->
-                <img src="img/Image_20260410_170407_665.jpeg" class="w-full h-full object-cover opacity-90" alt="Equipo REDai">
-                <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full font-bold">Comunidad REDai</span>
             <div class="relative h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner group">
                 <!-- Contenedor Deslizable Interno (Soporta las 10 imágenes) -->
                 <div id="redai-carousel" class="flex w-full h-full transition-transform duration-500 ease-in-out">
-                    <img src="img/1000069852.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 1">
-                    <img src="img/1000132518.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 2">
-                    <img src="img/1000184544.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 3">
-                    <img src="img/DSC_0707.JPG" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 4">
-                    <img src="img/DSC_0714.JPG" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 5">
-                    <img src="img/IMG-20230826-WA0033.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 6">
-                    <img src="img/IMG_20231014_111050.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 7">
-                    <img src="img/IMG_20231117_161504.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 8">
-                    <img src="img/IMG_20240510_170451.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 9">
-                    <img src="img/Image_20250517_122539_417.jpeg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 10">
+                    <img src="img/DSC_0707.JPG" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 1">
+                    <img src="img/IMG_20230901_165801.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 2">
+                    <img src="img/DSC_0714.JPG" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 3">
+                    <img src="img/IMG_20231014_111050.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 4">
+                    <img src="img/IMG_20231021_115850.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 5">
+                    <img src="img/IMG_20231117_161504.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 6">
+                    <img src="img/IMG_20240510_170451.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 7">
+                    <img src="img/IMG_2482.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 8">
+                    <img src="img/Image_20250517_122539_417.jpeg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 9">
+                    <img src="img/Image_20250705_112508_846.jpeg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 10">
                 </div>
                 
                 <!-- Etiqueta sobre el Álbum -->
@@ -230,15 +220,14 @@
                 <span class="w-3 h-3 rounded-full bg-blue-600"></span> ¿Quiénes Somos? — REDai
             </h3>
             <p class="text-sm text-gray-600 leading-relaxed">
-                La <strong class="text-gray-900">Red Estudiantil de Acompañamiento Integral (REDai)</strong> es una estrategia de liderazgo nacida en el seno del Área de Acompañamiento Integral de la Sede Bogotá. Desde 2017, impulsa iniciativas gestionadas por estudiantes para fortalecer la permanencia formativa, enriquecer la experiencia en los campus y nutrir el perfil profesional de nuestra comunidad universitaria.
+                La <strong class="text-gray-900">Red Estudiantil de Acompañamiento Integral (REDai)</strong> es una estrategia de liderazgo del Área de Acompañamiento Integral de la Sede Bogotá. Desde 2017, impulsa iniciativas gestionadas por estudiantes para fortalecer la permanencia formativa, enriquecer la experiencia en los campus y nutrir el perfil profesional de nuestra comunidad universitaria.
             </p>
         </div>
 
         <!-- Columna Derecha: unLEMA -->
         <div class="space-y-6">
             <div class="h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner flex items-center justify-center text-gray-400 relative">
-                <!-- Reemplazar src por la ruta de la foto de unLEMA -->
-                <img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?q=80&w=600" class="w-full h-full object-cover opacity-90" alt="Proyecto unLEMA">
+                <img src="img/foto-unlema.jpg" class="w-full h-full object-cover opacity-90" alt="Proyecto unLEMA">
                 <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full font-bold">Iniciativa unLEMA</span>
             </div>
             <h3 class="text-2xl font-black text-gray-950 flex items-center gap-2">
@@ -250,7 +239,7 @@
         </div>
     </section>
 
-    <!-- COMPONENTE: RAZONES DE LA ENCUESTA (SINTETIZADO Y LLAMATIVO) -->
+    <!-- COMPONENTE: RAZONES DE LA ENCUESTA -->
     <section class="py-20 px-6 bg-gray-50 border-b border-gray-100">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
@@ -259,7 +248,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                <!-- Razón 1 -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                     <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center font-bold mb-4">1</div>
                     <h4 class="font-bold text-gray-900 mb-2 text-sm">Asimetrías en Miedos Percibidos</h4>
@@ -267,7 +255,6 @@
                         Existen profundas disparidades disciplinares: mientras Ciencias Humanas e Ingenierías temen a un mercado laboral saturado, disciplinas como Artes y Odontología priorizan el emprendimiento autónomo. Paralelamente, carreras clave exhiben una baja asistencia a orientación sin causas identificadas.
                     </p>
                 </div>
-                <!-- Razón 2 -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                     <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold mb-4">2</div>
                     <h4 class="font-bold text-gray-900 mb-2 text-sm">Falta de Mediciones Normativas</h4>
@@ -275,17 +262,15 @@
                         Pese a las exigencias del <strong class="text-gray-800">Acuerdo 028 de 2010 (SAE)</strong> sobre la preparación para el cambio y del <strong class="text-gray-800">Acuerdo 16 de 2017</strong> sobre el monitoreo socioeconómico, académico-laboral y familiar, la institución carecía de instrumentos sistemáticos para medir los temores e intenciones reales de egreso.
                     </p>
                 </div>
-                <!-- Razón 3 -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                     <div class="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center font-bold mb-4">3</div>
                     <h4 class="font-bold text-gray-900 mb-2 text-sm">Interés por Explorar Miedos y Retos</h4>
                     <p class="text-xs text-gray-600 leading-relaxed">
-                        Los estudiantes demandan espacios para evaluar sus habilidades blandas y retos futuros a nivel personal (toma de decisiones informadas y transiciones más amenas) y a nivel colectivo (insumos clave para robustecer los talleres del Área de Acompañamiento Integral).
+                        Los estudiantes de la UNAL demandan espacios para evaluar sus habilidades blandas y retos futuros a nivel personal (toma de decisiones informadas y transiciones más amenas) y a nivel colectivo (insumos clave para robustecer los talleres del Área de Acompañamiento Integral).
                     </p>
                 </div>
             </div>
 
-            <!-- BOTÓN DE DESCARGA DE FICHA TÉCNICA -->
             <div class="text-center">
                 <a href="ficha_tecnica.pdf" target="_blank" class="inline-flex items-center gap-2 bg-gray-900 text-white font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-full hover:bg-gray-800 transition shadow-md">
                     <i data-lucide="download-cloud" class="w-4 h-4"></i> Descargar Ficha Técnica de la Encuesta
@@ -294,13 +279,13 @@
         </div>
     </section>
 
-    <!-- PRIMERA GRÁFICA: PLANES (CONSERVADO IGUAL) -->
+    <!-- PRIMERA GRÁFICA: PLANES -->
     <section class="py-20 px-6 max-w-6xl mx-auto">
         <div class="text-center mb-12">
             <h3 class="text-3xl font-black text-gray-800 mb-2">¿Qué planes tienen a corto plazo?</h3>
             <p class="text-gray-500 italic">Muestra: 522 estudiantes</p>
         </div>
-
+        
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center border-b pb-20">
             <div>
                 <canvas id="chartGeneral" height="250"></canvas>
@@ -322,13 +307,13 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE MOTIVACIONES CON GRÁFICAS (CONSERVADO IGUAL) -->
+    <!-- SECCIÓN DE MOTIVACIONES CON GRÁFICAS -->
     <section class="py-20 px-6 bg-white">
         <div class="max-w-6xl mx-auto">
             <h3 class="text-center text-3xl font-black mb-16">Profundizando en las Motivaciones</h3>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-
+                
                 <div class="bg-white border rounded-3xl p-6 shadow-sm">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-10 h-10 color-L rounded-full flex items-center justify-center text-white font-bold">L</div>
@@ -360,7 +345,7 @@
         </div>
     </section>
 
-    <!-- BOLETINES (CONSERVADO IGUAL) -->
+    <!-- BOLETINES -->
     <section class="py-20 bg-gray-50 px-6 border-t">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
             <div class="md:w-1/2">
@@ -384,16 +369,47 @@
         </div>
     </section>
 
-    <!-- FOOTER (CONSERVADO IGUAL) -->
+    <!-- FOOTER -->
     <footer class="py-12 text-center text-gray-400 text-xs tracking-widest uppercase border-t">
         <p>Universidad Nacional de Colombia | unLEMA | Red de Acompañamiento Integral REDai 2026</p>
         <p>Tatiana Cipagauta | Nicolas Rodriguez | Daniel Contreras | Maria Fernanda Cardenas | Jean Ruiz</p>
     </footer>
 
-    <!-- LOGS DE INICIALIZACIÓN DE COMPONENTES DE JS (CONSERVADO IGUAL) -->
+    <!-- CONTROLADORES JAVASCRIPT -->
     <script>
         lucide.createIcons();
 
+        // --- LÓGICA DEL ÁLBUM DESLIZANTE DE REDAI ---
+        let currentRedaiIndex = 0;
+        const totalRedaiSlides = 10; //  10 fotos requeridas
+        const redaiCarousel = document.getElementById('redai-carousel');
+
+        function updateRedaiCarousel() {
+            redaiCarousel.style.transform = `translateX(-${currentRedaiIndex * 100}%)`;
+        }
+
+        function nextRedaiSlide() {
+            currentRedaiIndex = (currentRedaiIndex + 1) % totalRedaiSlides;
+            updateRedaiCarousel();
+            resetRedaiTimer();
+        }
+
+        function prevRedaiSlide() {
+            currentRedaiIndex = (currentRedaiIndex - 1 + totalRedaiSlides) % totalRedaiSlides;
+            updateRedaiCarousel();
+            resetRedaiTimer();
+        }
+
+        // Deslizamiento automático cada 4 segundos
+        let redaiTimer = setInterval(nextRedaiSlide, 4000);
+
+        function resetRedaiTimer() {
+            clearInterval(redaiTimer);
+            redaiTimer = setInterval(nextRedaiSlide, 4000);
+        }
+
+
+        // --- LÓGICA GRÁFICAS (CHART.JS) ---
         // Gráfica General
         new Chart(document.getElementById('chartGeneral'), {
             type: 'bar',
