@@ -232,10 +232,25 @@
 
         <!-- Columna Derecha: unLEMA -->
         <div class="space-y-6">
-            <div class="h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner flex items-center justify-center text-gray-400 relative">
-                <img src="img/foto-unlema.jpg" class="w-full h-full object-cover opacity-90" alt="Proyecto unLEMA">
-                <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full font-bold">Iniciativa unLEMA</span>
+            <div class="relative h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner group">
+                <div id="unlema-carousel" class="flex w-full h-full transition-transform duration-500 ease-in-out">
+                    <img src="img/unlema-foto1.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 1">
+                    <img src="img/unlema-foto2.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 2">
+                    <img src="img/unlema-foto3.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 3">
+                    <img src="img/unlema-foto4.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 4">
+                    <img src="img/unlema-foto5.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 5">
+                </div>
+                
+                <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full font-bold z-10">Iniciativa unLEMA</span>
+
+                <button onclick="prevUnlemaSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+                <button onclick="nextUnlemaSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
             </div>
+
             <h3 class="text-2xl font-black text-gray-950 flex items-center gap-2">
                 <span class="w-3 h-3 rounded-full bg-[#00A19B]"></span> ¿Quiénes Somos? — unLEMA
             </h3>
@@ -651,6 +666,137 @@
             redaiTimer = setInterval(nextRedaiSlide, 4000);
         }
         redaiTimer = setInterval(nextRedaiSlide, 4000);
+
+        <script>
+    // 1. Inicializar íconos de Lucide
+    lucide.createIcons();
+
+    // 2. Variables Globales de los Álbumes
+    let currentRedaiIndex = 0;
+    const totalRedaiSlides = 10;
+    let redaiTimer;
+
+    let currentUnlemaIndex = 0;
+    const totalUnlemaSlides = 5; // Tus 5 fotos de unLEMA
+    let unlemaTimer;
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const redaiCarousel = document.getElementById('redai-carousel');
+        const unlemaCarousel = document.getElementById('unlema-carousel');
+        const creditsContainer = document.getElementById('credits-container');
+
+        // --- 3. LÓGICA ÁLBUM REDai (10 FOTOS) ---
+        window.updateRedaiCarousel = function() {
+            if (redaiCarousel) {
+                redaiCarousel.style.transform = `translateX(-${currentRedaiIndex * 100}%)`;
+            }
+        }
+        window.nextRedaiSlide = function() {
+            currentRedaiIndex = (currentRedaiIndex + 1) % totalRedaiSlides;
+            updateRedaiCarousel();
+            resetRedaiTimer();
+        }
+        window.prevRedaiSlide = function() {
+            currentRedaiIndex = (currentRedaiIndex - 1 + totalRedaiSlides) % totalRedaiSlides;
+            updateRedaiCarousel();
+            resetRedaiTimer();
+        }
+        window.resetRedaiTimer = function() {
+            clearInterval(redaiTimer);
+            redaiTimer = setInterval(nextRedaiSlide, 4000);
+        }
+        redaiTimer = setInterval(nextRedaiSlide, 4000);
+
+
+        // --- 4. LÓGICA ÁLBUM unLEMA (5 FOTOS) ---
+        window.updateUnlemaCarousel = function() {
+            if (unlemaCarousel) {
+                unlemaCarousel.style.transform = `translateX(-${currentUnlemaIndex * 100}%)`;
+            }
+        }
+        window.nextUnlemaSlide = function() {
+            currentUnlemaIndex = (currentUnlemaIndex + 1) % totalUnlemaSlides;
+            updateUnlemaCarousel();
+            resetUnlemaTimer();
+        }
+        window.prevUnlemaSlide = function() {
+            currentUnlemaIndex = (currentUnlemaIndex - 1 + totalUnlemaSlides) % totalUnlemaSlides;
+            updateUnlemaCarousel();
+            resetUnlemaTimer();
+        }
+        window.resetUnlemaTimer = function() {
+            clearInterval(unlemaTimer);
+            unlemaTimer = setInterval(nextUnlemaSlide, 4000);
+        }
+        unlemaTimer = setInterval(nextUnlemaSlide, 4000); // Automático cada 4 segundos
+
+
+        // --- 5. LÓGICA DE CARRUSEL DE CRÉDITOS ---
+        window.scrollCredits = function(direction) {
+            if (creditsContainer) {
+                const scrollAmount = creditsContainer.clientWidth / (window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 1);
+                if (direction === 'left') {
+                    creditsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                } else {
+                    creditsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }
+        }
+
+
+        // --- 6. INICIALIZACIÓN DE LAS GRÁFICAS (CHART.JS) ---
+        // Gráfica General
+        new Chart(document.getElementById('chartGeneral'), {
+            type: 'bar',
+            data: {
+                labels: ['Trabajar', 'Estudiar', 'Emprender'],
+                datasets: [{
+                    label: '% de Interés',
+                    data: [63.3, 31.4, 5.0],
+                    backgroundColor: ['#00A19B', '#DF0832', '#EC7920'],
+                    borderRadius: 15
+                }]
+            },
+            options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100 } } }
+        });
+
+        // Motivación Laboral
+        new Chart(document.getElementById('chartMotLaboral'), {
+            type: 'pie',
+            data: {
+                labels: ['Seguridad Econ.', 'Exp. Práctica', 'Otros'],
+                datasets: [{
+                    data: [58.4, 30.7, 10.9],
+                    backgroundColor: ['#00A19B', '#4dbdb8', '#b3e2df']
+                }]
+            }
+        });
+
+        // Motivación Académica
+        new Chart(document.getElementById('chartMotAcademica'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Personal', 'Influencia Pregrado', 'Becas', 'Trabajo/Doble'],
+                datasets: [{
+                    data: [36.05, 21.58, 13.68, 28.69],
+                    backgroundColor: ['#DF0832', '#e7465b', '#f19ba6', '#f8d2d6']
+                }]
+            }
+        });
+
+        // Motivación Emprendimiento
+        new Chart(document.getElementById('chartMotEmprender'), {
+            type: 'polarArea',
+            data: {
+                labels: ['Indep. Laboral', 'Indep. Finan.', 'Generar Empleo', 'Otros'],
+                datasets: [{
+                    data: [23, 19.2, 15.4, 42.4],
+                    backgroundColor: ['#EC7920', '#f1944d', '#f7bd90', '#fde5d2']
+                }]
+            }
+        });
+    });
+</script>
 
         // --- LÓGICA DE CRÉDITOS (Desplazamiento Inteligente por Bloques) ---
         window.scrollCredits = function(direction) {
