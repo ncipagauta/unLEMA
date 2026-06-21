@@ -249,7 +249,7 @@
                             <img src="img/IMG_20250424_161007.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 2">
                             <img src="img/IMG_20250424_162622.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 3">
                             <img src="img/IMG_20250531_101638.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 4">
-                            <img src="img/IMG_20251114_161827.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 5">
+                            <img src="img/DSC06294.JPG" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 5">
                         </div>
                         <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full font-bold z-10">Iniciativa unLEMA</span>
                         <button onclick="prevUnlemaSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
@@ -267,7 +267,7 @@
             <section class="py-16 px-6 bg-white max-w-4xl mx-auto text-center border-b border-gray-50">
                 <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Contextualización</h2>
                 <p class="text-base md:text-lg text-gray-600 leading-relaxed font-light">
-                    Esta sección presenta los resultados de la <span class="font-bold text-gray-950">Encuesta de Percepción para el Egreso</span>, una iniciativa desarrollada por el <span class="font-bold text-gray-950">equipo unLEMA</span> de REDai para comprender las expectativas, miedos y retos que enfrentan los estudiantes próximos a finalizar su formación universitaria. La encuesta surge de la necesidad de fortalecer el acompañamiento institucional durante la transición hacia la vida profesional, el emprendimiento y el desarrollo del conocimiento, generando información que contribuya tanto a la toma de decisiones de los estudiantes como al diseño de estrategias de apoyo más pertinentes y efectivas. 
+                    Esta sección presenta los resultados de la <span class="font-bold text-gray-950">Encuesta de Percepción hacia el Egreso</span>, una iniciativa desarrollada por el <span class="font-bold text-gray-950">equipo unLEMA</span> de REDai para comprender las expectativas, miedos y retos que enfrentan los estudiantes próximos a finalizar su formación universitaria. La encuesta surge de la necesidad de fortalecer el acompañamiento institucional durante la transición hacia la vida profesional, el emprendimiento y el desarrollo del conocimiento, generando información que contribuya tanto a la toma de decisiones de los estudiantes como al diseño de estrategias de apoyo más pertinentes y efectivas. 
                 </p>
             </section>
 
@@ -644,10 +644,27 @@
             </section>
         </div>
 
-        <div id="tab-content-2" class="tab-content hidden py-20 px-6 text-center max-w-xl mx-auto">
-            <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="briefcase" class="w-8 h-8"></i></div>
-            <h2 class="text-2xl font-black text-gray-900 mb-2">Informe #02:  Contexto y caracterización de las trayectorias de egreso.</h2>
-            <p class="text-gray-500 font-light text-sm">El equipo unLEMA se encuentra consolidando la información. Muy pronto estará disponible.</p>
+        <div id="tab-content-2" class="tab-content hidden py-16 px-6 max-w-5xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-gray-100 text-gray-600 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-2">Informe #02</span>
+                <h2 class="text-3xl font-black text-gray-900 mb-6">Contexto y caracterización de las trayectorias de egreso</h2>
+                <p class="text-gray-600 text-sm md:text-base leading-relaxed max-w-3xl mx-auto font-light text-justify">
+                    ¿Qué esperan los estudiantes después de graduarse? A partir de una encuesta aplicada a <span class="font-bold text-gray-900">522 estudiantes</span> de la Universidad Nacional (2025-1), el LEPP analiza tres rutas de proyección profesional: empleabilidad, emprendimiento y desarrollo del conocimiento. El 63,6 % planea ingresar al mercado laboral, el 31,4 % continuar su formación y el 5 % emprender.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 max-w-3xl mx-auto">
+                <h3 class="text-center font-bold text-gray-900 mb-2 text-lg">Decisión de los estudiantes después del egreso</h3>
+                <p class="text-center text-xs text-gray-500 mb-6">Distribución porcentual de 522 estudiantes</p>
+                
+                <div class="relative h-80 w-full flex justify-center">
+                    <canvas id="graficoTrayectorias"></canvas>
+                </div>
+                
+                <p class="text-center text-xs text-gray-400 mt-6 flex items-center justify-center gap-2">
+                    <i data-lucide="mouse-pointer-click" class="w-4 h-4"></i> Pasa el cursor sobre cada sección para ver la cantidad exacta de estudiantes.
+                </p>
+            </div>
         </div>
         <div id="tab-content-3" class="tab-content hidden py-20 px-6 text-center max-w-xl mx-auto">
             <div class="w-16 h-16 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="lightbulb" class="w-8 h-8"></i></div>
@@ -877,6 +894,61 @@
     document.addEventListener("DOMContentLoaded", function() {
         // Inicializar Pestaña y Banner
         showTab(1, false);
+
+        // Inicializar el Gráfico Interactivo del Informe 2
+        const ctxTrayectorias = document.getElementById('graficoTrayectorias');
+        if (ctxTrayectorias) {
+            new Chart(ctxTrayectorias, {
+                type: 'pie', // Puedes cambiarlo a 'doughnut' si prefieres que tenga un hueco en el centro
+                data: {
+                    labels: ['Trabajar', 'Estudiar', 'Emprender'],
+                    datasets: [{
+                        data: [63.6, 31.4, 5.0],
+                        counts: [332, 164, 26], // Cantidades reales ocultas para el tooltip interactivo
+                        backgroundColor: [
+                            '#F15A5A', // Rojo claro (Trabajar)
+                            '#F29B9B', // Salmón (Estudiar)
+                            '#9D0A2C'  // Vino tinto (Emprender)
+                        ],
+                        borderWidth: 3,
+                        borderColor: '#ffffff',
+                        hoverOffset: 12 // Efecto de explosión al pasar el mouse
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                font: { family: "'Montserrat', sans-serif", size: 13, weight: '500' },
+                                color: '#374151',
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(17, 24, 39, 0.9)', // Fondo oscuro moderno
+                            padding: 14,
+                            titleFont: { family: "'Montserrat', sans-serif", size: 14, weight: 'bold' },
+                            bodyFont: { family: "'Montserrat', sans-serif", size: 13 },
+                            cornerRadius: 8,
+                            callbacks: {
+                                // Esta función personaliza el texto que sale al hacer hover
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const percentage = context.raw || 0;
+                                    const count = context.dataset.counts[context.dataIndex];
+                                    return ` ${label}: ${percentage}% (${count} estudiantes)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
         
         if(lemaBoxes.length > 0) {
             lemaBoxes.forEach(box => {
