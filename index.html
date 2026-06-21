@@ -664,6 +664,51 @@
                 <p class="text-center text-xs text-gray-400 mt-6 flex items-center justify-center gap-2">
                     <i data-lucide="mouse-pointer-click" class="w-4 h-4"></i> Pasa el cursor sobre cada sección para ver la cantidad exacta de estudiantes.
                 </p>
+                <!-- Separador visual -->
+            <div class="w-full flex justify-center my-12">
+                <span class="w-24 h-1 bg-gray-200 rounded-full"></span>
+            </div>
+
+            <!-- Gancho: Hallazgos Destacados -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-black text-gray-900 text-center mb-6">El Panorama por Facultades</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-[#F15A5A]/10 p-6 rounded-2xl border border-[#F15A5A]/20 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-[#F15A5A] text-white rounded-full flex items-center justify-center mb-3 shadow-md">
+                            <i data-lucide="briefcase" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-sm mb-1">Vocación Laboral</h4>
+                        <p class="text-xs text-gray-600"><strong>Ciencias Agrarias (84.6%)</strong> y <strong>Odontología (78.6%)</strong> lideran la intención de ingresar directamente al mercado laboral.</p>
+                    </div>
+                    
+                    <div class="bg-[#F29B9B]/10 p-6 rounded-2xl border border-[#F29B9B]/30 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-[#F29B9B] text-white rounded-full flex items-center justify-center mb-3 shadow-md">
+                            <i data-lucide="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-sm mb-1">Foco Académico</h4>
+                        <p class="text-xs text-gray-600">La <strong>Facultad de Ciencias (54.2%)</strong> es la única donde la mayoría prioriza continuar con su desarrollo formativo e investigativo.</p>
+                    </div>
+
+                    <div class="bg-[#9D0A2C]/10 p-6 rounded-2xl border border-[#9D0A2C]/20 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-[#9D0A2C] text-white rounded-full flex items-center justify-center mb-3 shadow-md">
+                            <i data-lucide="rocket" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-sm mb-1">Espíritu Emprendedor</h4>
+                        <p class="text-xs text-gray-600"><strong>Medicina Veterinaria y Zootecnia (22.2%)</strong> y <strong>Artes (12.5%)</strong> destacan por su alta inclinación hacia la creación de empresa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor del Gráfico de Barras Apiladas -->
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 max-w-5xl mx-auto w-full">
+                <h3 class="text-center font-bold text-gray-900 mb-2 text-lg md:text-xl">Distribución de trayectorias posteriores al egreso</h3>
+                <p class="text-center text-xs text-gray-500 mb-8">Porcentaje de inclinación según la facultad de origen</p>
+                
+                <!-- Le damos un alto mayor para que las facultades no se aprieten -->
+                <div class="relative h-[500px] w-full">
+                    <canvas id="graficoFacultades"></canvas>
+                </div>
+            </div>
             </div>
         </div>
         <div id="tab-content-3" class="tab-content hidden py-20 px-6 text-center max-w-xl mx-auto">
@@ -948,6 +993,103 @@
                     }
                 }
             });
+
+            // Inicializar el Gráfico de Barras Apiladas (Facultades)
+        const ctxFacultades = document.getElementById('graficoFacultades');
+        if (ctxFacultades) {
+            new Chart(ctxFacultades, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Artes', 'Ciencias', 'C. Agrarias', 'C. Económicas', 
+                        'C. Humanas', 'Derecho, C.P. y S.', 'Enfermería', 
+                        'Ingeniería', 'Medicina', 'Med. Veterinaria y Z.', 'Odontología'
+                    ],
+                    datasets: [
+                        {
+                            label: 'Trabajar',
+                            data: [52.1, 44.4, 84.6, 72.6, 56.2, 67.6, 64.7, 74.0, 69.2, 66.7, 78.6],
+                            counts: [25, 32, 11, 53, 54, 25, 11, 77, 27, 6, 11], // Datos exactos
+                            backgroundColor: '#F15A5A',
+                            borderWidth: 1,
+                            borderColor: '#ffffff'
+                        },
+                        {
+                            label: 'Estudiar',
+                            data: [35.4, 54.2, 7.7, 21.9, 40.6, 29.7, 35.3, 21.1, 23.1, 11.1, 21.4],
+                            counts: [17, 39, 1, 16, 39, 11, 6, 22, 9, 1, 3], // Datos exactos
+                            backgroundColor: '#F29B9B',
+                            borderWidth: 1,
+                            borderColor: '#ffffff'
+                        },
+                        {
+                            label: 'Emprender',
+                            data: [12.5, 1.4, 7.7, 5.5, 3.1, 2.7, 0.0, 4.8, 7.7, 22.2, 0.0],
+                            counts: [6, 1, 1, 4, 3, 1, 0, 5, 3, 2, 0], // Datos exactos
+                            backgroundColor: '#9D0A2C',
+                            borderWidth: 1,
+                            borderColor: '#ffffff'
+                        }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y', // Convierte las barras a horizontales
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) { return value + '%'; },
+                                font: { family: "'Ancizar Sans', sans-serif", size: 11 }
+                            },
+                            grid: { color: '#f3f4f6' }
+                        },
+                        y: {
+                            stacked: true,
+                            ticks: { font: { family: "'Ancizar Sans', sans-serif", size: 12, weight: '500' } },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: { family: "'Ancizar Sans', sans-serif", size: 12 },
+                                usePointStyle: true,
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(17, 24, 39, 0.9)',
+                            padding: 12,
+                            titleFont: { family: "'Ancizar Sans', sans-serif", size: 13, weight: 'bold' },
+                            bodyFont: { family: "'Ancizar Sans', sans-serif", size: 13 },
+                            cornerRadius: 8,
+                            callbacks: {
+                                // Aquí hacemos la magia para mostrar Porcentaje y Número de personas
+                                label: function(context) {
+                                    const label = context.dataset.label;
+                                    const percentage = context.raw;
+                                    const count = context.dataset.counts[context.dataIndex];
+                                    
+                                    // Si hay 0 personas, cambia el texto un poco para que sea más claro
+                                    if (count === 0) {
+                                        return ` ${label}: 0% (Ningún estudiante)`;
+                                    }
+                                    
+                                    // Si es solo 1 persona, escribe "estudiante" en vez de "estudiantes"
+                                    const textoEstudiantes = count === 1 ? 'estudiante' : 'estudiantes';
+                                    
+                                    return ` ${label}: ${percentage}% (${count} ${textoEstudiantes})`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
         }
         
         if(lemaBoxes.length > 0) {
