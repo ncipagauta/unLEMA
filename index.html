@@ -191,28 +191,6 @@
             </div>
         </div>
     </section>
-
-    <nav class="max-w-6xl mx-auto px-6 mb-12">
-        <div class="text-center mb-8">
-            <span class="inline-block bg-[#FBF1E9] text-[#9C0623] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-2">Índice de Resultados</span>
-            <h2 class="text-2xl md:text-3xl font-black text-gray-900">Selecciona un Informe</h2>
-        </div>
-        
-        <div class="flex flex-wrap justify-center gap-3">
-            <button id="btn-inf-1" onclick="showTab(1, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">01. Contextualización y metodología</button>
-            <button id="btn-inf-2" onclick="showTab(2, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">02. Contexto y caracterización de las trayectorias de egreso</button>
-            <button id="btn-inf-3" onclick="showTab(3, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">03. Motivaciones frente al egreso</button>
-            <button id="btn-inf-4" onclick="showTab(4, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">04. Desafíos percibidos frente al egreso</button>
-            <button id="btn-inf-5" onclick="showTab(5, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">05. Miedos y preocupaciones frente al egreso</button>
-            <button id="btn-inf-6" onclick="showTab(6, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">06. Recursos y redes de apoyo</button>
-            <button id="btn-inf-7" onclick="showTab(7, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">07. Expectativas futuras y acompañamiento institucional</button>
-            <button id="btn-inf-8" onclick="showTab(8, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">08. Informe final</button>
-        </div>
-    </nav>
-
-    <main id="contenido-informes" class="relative min-h-[400px] border-t border-gray-100">
-
-        <div id="tab-content-1" class="tab-content hidden">
             
             <!-- SECCIÓN QUIÉNES SOMOS MOVIDA AQUÍ (SOLO VISIBLE EN INFORME 1) -->
             <section class="py-16 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 border-b border-gray-100">
@@ -263,6 +241,28 @@
                     </p>
                 </div>
             </section>
+
+        <nav class="max-w-6xl mx-auto px-6 mb-12">
+        <div class="text-center mb-8">
+            <span class="inline-block bg-[#FBF1E9] text-[#9C0623] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-2">Índice de Resultados</span>
+            <h2 class="text-2xl md:text-3xl font-black text-gray-900">Selecciona un Informe</h2>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-3">
+            <button id="btn-inf-1" onclick="showTab(1, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">01. Contextualización y metodología</button>
+            <button id="btn-inf-2" onclick="showTab(2, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">02. Contexto y caracterización de las trayectorias de egreso</button>
+            <button id="btn-inf-3" onclick="showTab(3, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">03. Motivaciones frente al egreso</button>
+            <button id="btn-inf-4" onclick="showTab(4, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">04. Desafíos percibidos frente al egreso</button>
+            <button id="btn-inf-5" onclick="showTab(5, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">05. Miedos y preocupaciones frente al egreso</button>
+            <button id="btn-inf-6" onclick="showTab(6, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">06. Recursos y redes de apoyo</button>
+            <button id="btn-inf-7" onclick="showTab(7, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">07. Expectativas futuras y acompañamiento institucional</button>
+            <button id="btn-inf-8" onclick="showTab(8, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">08. Informe final</button>
+        </div>
+    </nav>
+
+    <main id="contenido-informes" class="relative min-h-[400px] border-t border-gray-100">
+
+        <div id="tab-content-1" class="tab-content hidden">
 
             <section class="py-16 px-6 bg-white max-w-4xl mx-auto text-center border-b border-gray-50">
                 <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Contextualización</h2>
