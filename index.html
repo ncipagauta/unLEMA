@@ -696,17 +696,30 @@
                 <!-- Gráficos de Evolución y Tasa de Ocupación -->
                <div class="mb-16">
             <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 w-full">
-                <h4 class="text-center font-bold text-gray-900 mb-2 text-sm md:text-base">Flujo del Mercado Laboral Juvenil</h4>
-                <p class="text-center text-xs text-gray-500 mb-6">Diagrama de Sankey • Proporciones en Millones (Jun-Ago 2025)</p>
-                
-                <div id="graficoSankey" style="height: 420px;" class="w-full"></div>
-                
-                <p class="text-xs text-gray-500 mt-6 text-justify max-w-4xl mx-auto">
-                    Este diagrama de flujo representa proporcionalmente la distribución macro de la población joven en edad de trabajar, visibilizando con precisión la transición hacia la fuerza laboral activa y los subgrupos fuera de ella.
-                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-4 flex flex-col justify-center">
+                        <span class="text-[#DF0832] text-xs font-bold uppercase tracking-widest mb-2 block">Perspectiva Nacional</span>
+                        <h4 class="font-black text-gray-900 mb-3 text-xl md:text-2xl leading-tight">Flujo del Mercado Laboral Juvenil</h4>
+                        <p class="text-xs text-gray-400 mb-6 font-medium">Trimestre Móvil Junio - Agosto 2025</p>
+                        
+                        <div class="space-y-4 text-xs text-gray-600 text-justify border-l-2 border-gray-100 pl-4">
+                            <p>
+                                Este diagrama de flujo representa proporcionalmente la distribución macro de los <strong>11,1 millones de jóvenes</strong> en edad de trabajar en Colombia.
+                            </p>
+                            <p>
+                                Permite visibilizar con precisión matemática la transición de la población hacia la fuerza laboral activa (ocupados y desocupados) y aquellos subgrupos que se encuentran fuera de ella, como los denominados <strong>NINIs</strong> (2,38 M).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-8 bg-gray-50/50 p-4 rounded-2xl border border-gray-50">
+                        <div id="graficoSankey" style="height: 420px;" class="w-full"></div>
+                    </div>
+
+                </div>
             </div>
         </div>
-
                 <!-- CONTEXTO EMPRENDIMIENTO Y ACADÉMICO (Textos) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Emprendimiento -->
@@ -1026,7 +1039,10 @@
             activeContent.classList.add('block');
             setTimeout(() => {
                 activeContent.classList.add('active');
-            }, 10);
+
+                if (tabIndex ===2){
+                    Plotly.Plots.resize('graficoSankey');
+            }, 50);
         }
 
         // Hacer Scroll Suave al Contenedor si el usuario hizo clic
@@ -1248,7 +1264,6 @@
             
         }
 
-            // Gráfico DANE - Desocupación
        // Gráfico DANE - Diagrama de Sankey con Plotly
         const divSankey = document.getElementById('graficoSankey');
         if (divSankey) {
