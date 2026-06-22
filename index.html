@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
 
     <style>
         /* Tipografía Ancizar Sans */
@@ -698,7 +699,16 @@
                         <h4 class="text-center font-bold text-gray-900 mb-2 text-sm md:text-base">Evolución de la desocupación nacional</h4>
                         <p class="text-center text-xs text-gray-500 mb-6">Variación porcentual (May 2025 - Feb 2026)</p>
                         <div class="relative h-64 w-full">
-                            <canvas id="graficoDesocupacion"></canvas>
+                            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
+                        <h4 class="text-center font-bold text-gray-900 mb-2 text-sm md:text-base">Flujo del Mercado Laboral Juvenil</h4>
+                        <p class="text-center text-xs text-gray-500 mb-4">Diagrama de Sankey • Proporciones en Millones (Jun-Ago 2025)</p>
+                        
+                        <div id="graficoSankey" style="height: 290px;" class="w-full"></div>
+                        
+                        <p class="text-xs text-gray-500 mt-4 text-justify">
+                            Este diagrama de flujo representa proporcionalmente la distribución macro de la población joven en edad de trabajar, visibilizando con precisión la transición hacia la fuerza laboral activa y los subgrupos fuera de ella.
+                        </p>
+                    </div>
                         </div>
                         <p class="text-xs text-gray-500 mt-4 text-justify">El periodo inició en 9.0%, alcanzando su mejor punto en noviembre (7.0%). No obstante, repuntó drásticamente en enero (10.9%) antes de estabilizarse en febrero (9.2%).</p>
                     </div>
@@ -1254,30 +1264,56 @@
         }
 
             // Gráfico DANE - Desocupación
-        const ctxDesocupacion = document.getElementById('graficoDesocupacion');
-        if (ctxDesocupacion) {
-            new Chart(ctxDesocupacion, {
-                type: 'line',
-                data: {
-                    labels: ['May 2025', 'Nov 2025', 'Dic 2025', 'Ene 2026', 'Feb 2026'],
-                    datasets: [{
-                        label: 'Tasa de Desocupación (%)',
-                        data: [9.0, 7.0, 9.5, 10.9, 9.2], // Ajustado según texto
-                        borderColor: '#9C0623',
-                        backgroundColor: 'rgba(156, 6, 35, 0.1)',
-                        pointBackgroundColor: '#DF0832',
-                        pointRadius: 5,
-                        pointHoverRadius: 8,
-                        fill: true,
-                        tension: 0.3
-                    }]
+       // Gráfico DANE - Diagrama de Sankey con Plotly
+        const divSankey = document.getElementById('graficoSankey');
+        if (divSankey) {
+            const data = [{
+                type: "sankey",
+                arrangement: "snap",
+                node: {
+                    pad: 20,
+                    thickness: 22,
+                    line: { color: "rgba(0,0,0,0.1)", width: 0.5 },
+                    // Traducimos los labels cambiando \n por <br> de HTML
+                    label: [
+                        "Jóvenes en edad de trabajar<br><b>11,1 M</b>",
+                        "Fuerza de trabajo<br><b>6,1 M</b>",
+                        "Fuera de la fuerza de trabajo<br><b>5,0 M</b>",
+                        "Ocupados<br><b>5,2 M</b>",
+                        "Desocupados<br><b>0,907 M</b>",
+                        "Ni estudian ni trabajan (NINIs)<br><b>2,38 M</b>",
+                        "Estudian o actividades del hogar<br><b>2,62 M</b>"
+                    ],
+                    // Tus colores institucionales de Colab
+                    color: ['#F25E5E', '#F58A8A', '#D95C5C', '#F2B6B6', '#BF7171', '#E88B6D', '#A64D4D']
                 },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: { y: { min: 6, max: 12, ticks: { callback: v => v + '%' } } }
+                link: {
+                    source: [0, 0, 1, 1, 2, 2],
+                    target: [1, 2, 3, 4, 5, 6],
+                    value: [6.10, 5.00, 5.20, 0.907, 2.38, 2.62],
+                    color: [
+                        'rgba(242,94,94,0.25)',
+                        'rgba(245,138,138,0.25)',
+                        'rgba(217,92,92,0.25)',
+                        'rgba(242,182,182,0.35)',
+                        'rgba(191,113,113,0.35)',
+                        'rgba(232,139,109,0.35)'
+                    ]
                 }
-            });
+            }];
+
+            const layout = {
+                font: { family: 'Montserrat, sans-serif', size: 10, color: '#374151' },
+                margin: { l: 5, r: 5, t: 15, b: 15 },
+                hovermode: 'x'
+            };
+
+            const config = { 
+                responsive: true, 
+                displayModeBar: false // Oculta la barra de herramientas molesta de Plotly
+            };
+
+            Plotly.newPlot('graficoSankey', data, layout, config);
         }
 
         // Gráfico DANE - Ocupación vs Desocupación Histórica Joven
