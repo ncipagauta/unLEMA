@@ -694,33 +694,29 @@
                 </div>
 
                 <!-- Gráficos de Evolución y Tasa de Ocupación -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-                    <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
-                        <h4 class="text-center font-bold text-gray-900 mb-2 text-sm md:text-base">Evolución de la desocupación nacional</h4>
-                        <p class="text-center text-xs text-gray-500 mb-6">Variación porcentual (May 2025 - Feb 2026)</p>
-                        <div class="relative h-64 w-full">
-                            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
-                        <h4 class="text-center font-bold text-gray-900 mb-2 text-sm md:text-base">Flujo del Mercado Laboral Juvenil</h4>
-                        <p class="text-center text-xs text-gray-500 mb-4">Diagrama de Sankey • Proporciones en Millones (Jun-Ago 2025)</p>
-                        
-                        <div id="graficoSankey" style="height: 290px;" class="w-full"></div>
-                        
-                        <p class="text-xs text-gray-500 mt-4 text-justify">
-                            Este diagrama de flujo representa proporcionalmente la distribución macro de la población joven en edad de trabajar, visibilizando con precisión la transición hacia la fuerza laboral activa y los subgrupos fuera de ella.
-                        </p>
-                    </div>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-4 text-justify">El periodo inició en 9.0%, alcanzando su mejor punto en noviembre (7.0%). No obstante, repuntó drásticamente en enero (10.9%) antes de estabilizarse en febrero (9.2%).</p>
-                    </div>
-                    <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
-                        <h4 class="text-center font-bold text-gray-900 mb-2 text-sm md:text-base">Comparativa Histórica Juvenil (Jun-Ago)</h4>
-                        <p class="text-center text-xs text-gray-500 mb-6">Tasas de Ocupación vs. Desocupación (2023 - 2025)</p>
-                        <div class="relative h-64 w-full">
-                            <canvas id="graficoOcupacionDesocupacion"></canvas>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-4 text-justify">Muestra la relación del mercado juvenil en el trimestre móvil. En 2025, la ocupación repuntó levemente al <strong>46,9%</strong>, mientras que la desocupación cayó significativamente al <strong>14,8%</strong>.</p>
-                    </div>
+               <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
+                <h4 class="text-center font-bold text-gray-900 mb-2 text-sm md:text-base">Flujo del Mercado Laboral Juvenil</h4>
+                <p class="text-center text-xs text-gray-500 mb-4">Diagrama de Sankey • Proporciones en Millones (Jun-Ago 2025)</p>
+                
+                <div id="graficoSankey" style="height: 290px;" class="w-full"></div>
+                
+                <p class="text-xs text-gray-500 mt-4 text-justify">
+                    Este diagrama de flujo representa proporcionalmente la distribución macro de la población joven en edad de trabajar, visibilizando con precisión la transición hacia la fuerza laboral activa y los subgrupos fuera de ella.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
+                <h4 class="text-center font-bold text-gray-900 mb-2 text-sm md:text-base">Comparativa Histórica Juvenil (Jun-Ago)</h4>
+                <p class="text-center text-xs text-gray-500 mb-6">Tasas de Ocupación vs. Desocupación (2023 - 2025)</p>
+                <div class="relative h-64 w-full">
+                    <canvas id="graficoOcupacionDesocupacion"></canvas>
                 </div>
+                <p class="text-xs text-gray-500 mt-4 text-justify">Muestra la relación del mercado juvenil en el trimestre móvil. En 2025, la ocupación repuntó levemente al <strong>46,9%</strong>, mientras que la desocupación cayó significativamente al <strong>14,8%</strong>.</p>
+            </div>
+
+        </div>
 
                 <!-- CONTEXTO EMPRENDIMIENTO Y ACADÉMICO (Textos) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
