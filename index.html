@@ -955,6 +955,65 @@
                 </div>
             </div>
 
+            <div class="mb-20">
+                <div class="flex items-center justify-center gap-3 mb-10">
+                    <span class="h-[1px] w-16 bg-gray-300"></span>
+                    <h3 class="text-2xl font-black text-gray-900 text-center">El pulso en las Facultades</h3>
+                    <span class="h-[1px] w-16 bg-gray-300"></span>
+                </div>
+                <p class="text-center text-sm text-gray-600 font-light max-w-2xl mx-auto mb-8">
+                    Las prioridades cambian drásticamente dependiendo del área de estudio. Selecciona una facultad para ver su "huella motivacional" principal.
+                </p>
+
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-center">
+                    
+                    <div class="w-full md:w-1/3 flex flex-col gap-3">
+                        <label class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Elige una Facultad</label>
+                        <select id="selector-facultad" class="w-full bg-gray-50 border border-gray-200 text-gray-700 text-sm font-bold rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#00A19B] transition-all cursor-pointer">
+                            <option value="artes">Artes</option>
+                            <option value="ciencias">Ciencias</option>
+                            <option value="odontologia">Odontología</option>
+                            <option value="veterinaria">Med. Veterinaria y Zootecnia</option>
+                            <option value="ingenieria">Ingeniería</option>
+                        </select>
+                        
+                        <div id="texto-facultad" class="mt-4 text-xs text-gray-600 text-justify font-light leading-relaxed border-l-2 border-[#00A19B] pl-4">
+                            </div>
+                    </div>
+
+                    <div class="w-full md:w-2/3 relative h-64">
+                        <canvas id="graficoFacultadHuella"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-10">
+                <div class="bg-gradient-to-br from-[#FDFBF7] to-gray-50 rounded-3xl p-8 border border-gray-200/60 shadow-sm relative overflow-hidden">
+                    
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#F15A5A]/5 rounded-full blur-3xl transition-colors duration-500" id="bg-glow-gender"></div>
+
+                    <div class="text-center mb-8 relative z-10">
+                        <h3 class="text-2xl font-black text-gray-900 mb-2">Una lectura desde el Género</h3>
+                        <p class="text-xs text-gray-500 font-light">Compara cómo varían las prioridades principales al ingresar al mercado laboral.</p>
+                    </div>
+
+                    <div class="flex items-center justify-center mb-10 relative z-10">
+                        <span class="text-sm font-black text-[#F15A5A] transition-colors duration-300" id="label-fem">FEMENINO</span>
+                        
+                        <label class="relative inline-flex items-center cursor-pointer mx-4">
+                            <input type="checkbox" id="switch-genero" class="sr-only peer">
+                            <div class="w-16 h-8 bg-[#F15A5A] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-[#00A19B]"></div>
+                        </label>
+                        
+                        <span class="text-sm font-bold text-gray-400 transition-colors duration-300" id="label-masc">MASCULINO</span>
+                    </div>
+
+                    <div class="relative h-72 w-full max-w-4xl mx-auto z-10">
+                        <canvas id="graficoGeneroSwitch"></canvas>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 
@@ -1585,6 +1644,145 @@
         if(btnMotLaboral) btnMotLaboral.addEventListener('click', () => actualizarGraficoMotivaciones('laboral', btnMotLaboral));
         if(btnMotAcademico) btnMotAcademico.addEventListener('click', () => actualizarGraficoMotivaciones('academico', btnMotAcademico));
         if(btnMotEmprender) btnMotEmprender.addEventListener('click', () => actualizarGraficoMotivaciones('emprender', btnMotEmprender));
+
+
+        // ==========================================
+        // SECCIÓN 3: ESCÁNER POR FACULTADES
+        // ==========================================
+        const datosFacultades = {
+            artes: {
+                labels: ['Seguridad Económica (Trabajar)', 'Motivos Personales (Estudiar)', 'Indep. Laboral (Emprender)'],
+                data: [68.0, 36.3, 33.3], // Porcentajes aproximados basados en frecuencia/total
+                texto: "En Artes, aunque la seguridad económica es vital para trabajar, resalta una fuerte inclinación hacia la independencia laboral al momento de emprender."
+            },
+            odontologia: {
+                labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)', 'Necesidad Laboral (Estudiar)'],
+                data: [36.4, 45.5, 30.0],
+                texto: "Un comportamiento atípico: Odontología es la única facultad donde la 'Experiencia Práctica' (45.5%) supera a la seguridad económica al decidir trabajar."
+            },
+            veterinaria: {
+                labels: ['Seguridad Económica (Trabajar)', 'Influencia Familiar (Estudiar)', 'Necesidad Laboral (Estudiar)'],
+                data: [66.7, 33.3, 33.3],
+                texto: "En Veterinaria destaca un alto porcentaje (16.7%) que ve el trabajo como un puente para emprender, y un fuerte peso de la familia (33.3%) al decidir estudiar."
+            },
+            ciencias: {
+                labels: ['Seguridad Económica (Trabajar)', 'Motivos Personales (Estudiar)', 'Experiencia Pregrado (Estudiar)'],
+                data: [56.2, 38.0, 20.6],
+                texto: "Al ser la facultad con mayor inclinación hacia la continuidad académica, la experiencia en el pregrado y la vocación científica son sus principales motores."
+            },
+            ingenieria: {
+                labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)', 'Becas (Estudiar)'],
+                data: [59.7, 35.0, 28.5],
+                texto: "Para los ingenieros, la obtención de becas (28.5%) es un factor crítico y condicionante para decidir continuar con formación de posgrado."
+            }
+        };
+
+        const ctxFacultad = document.getElementById('graficoFacultadHuella');
+        let chartFacultad;
+
+        if (ctxFacultad) {
+            chartFacultad = new Chart(ctxFacultad, {
+                type: 'bar',
+                data: {
+                    labels: datosFacultades.artes.labels,
+                    datasets: [{
+                        label: 'Impacto (%)',
+                        data: datosFacultades.artes.data,
+                        backgroundColor: ['#F15A5A', '#00A19B', '#9C0623'],
+                        borderRadius: 8,
+                        barPercentage: 0.6
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, max: 80, ticks: { callback: v => v + '%' } },
+                        x: { ticks: { font: { size: 10 } } }
+                    }
+                }
+            });
+
+            document.getElementById('texto-facultad').innerText = datosFacultades.artes.texto;
+
+            document.getElementById('selector-facultad').addEventListener('change', function(e) {
+                const fac = e.target.value;
+                chartFacultad.data.labels = datosFacultades[fac].labels;
+                chartFacultad.data.datasets[0].data = datosFacultades[fac].data;
+                chartFacultad.update();
+                document.getElementById('texto-facultad').innerText = datosFacultades[fac].texto;
+            });
+        }
+
+        // ==========================================
+        // SECCIÓN 4: SWITCH DE GÉNERO
+        // ==========================================
+        const dataGenero = {
+            femenino: {
+                data: [63.7, 27.4, 34.7, 20.6],
+                color: '#F15A5A'
+            },
+            masculino: {
+                data: [56.0, 35.4, 36.9, 22.8],
+                color: '#00A19B'
+            }
+        };
+
+        const ctxGeneroSwitch = document.getElementById('graficoGeneroSwitch');
+        let chartGeneroSwitch;
+
+        if (ctxGeneroSwitch) {
+            chartGeneroSwitch = new Chart(ctxGeneroSwitch, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        ['Trabajar:', 'Seguridad Económica'], 
+                        ['Trabajar:', 'Experiencia Práctica'], 
+                        ['Estudiar:', 'Motivos Personales'], 
+                        ['Estudiar:', 'Exp. en Pregrado']
+                    ],
+                    datasets: [{
+                        label: '% de Preferencia',
+                        data: dataGenero.femenino.data,
+                        backgroundColor: dataGenero.femenino.color,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, max: 70, ticks: { callback: v => v + '%' } }
+                    }
+                }
+            });
+
+            const switchGenero = document.getElementById('switch-genero');
+            const labelFem = document.getElementById('label-fem');
+            const labelMasc = document.getElementById('label-masc');
+            const bgGlow = document.getElementById('bg-glow-gender');
+
+            switchGenero.addEventListener('change', function() {
+                const isMasc = this.checked;
+                const activeData = isMasc ? dataGenero.masculino : dataGenero.femenino;
+                
+                // Actualizar estilos del texto y el fondo mágico
+                if (isMasc) {
+                    labelFem.className = "text-sm font-bold text-gray-400 transition-colors duration-300";
+                    labelMasc.className = "text-sm font-black text-[#00A19B] transition-colors duration-300";
+                    bgGlow.className = "absolute -right-20 -top-20 w-64 h-64 bg-[#00A19B]/10 rounded-full blur-3xl transition-colors duration-500";
+                } else {
+                    labelFem.className = "text-sm font-black text-[#F15A5A] transition-colors duration-300";
+                    labelMasc.className = "text-sm font-bold text-gray-400 transition-colors duration-300";
+                    bgGlow.className = "absolute -right-20 -top-20 w-64 h-64 bg-[#F15A5A]/5 rounded-full blur-3xl transition-colors duration-500";
+                }
+
+                // Animar el cambio en la gráfica
+                chartGeneroSwitch.data.datasets[0].data = activeData.data;
+                chartGeneroSwitch.data.datasets[0].backgroundColor = activeData.color;
+                chartGeneroSwitch.update();
+            });
+        }
 
         // Inicializar Animación de Créditos
         if(creditCards.length > 0) {
