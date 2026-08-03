@@ -81,8 +81,6 @@
         .credit-card {
             position: relative;
             overflow: hidden;
-            border-radius: 1rem;
-            aspect-ratio: 3/4;
             cursor: pointer;
             background-color: #f3f4f6;
         }
@@ -95,12 +93,11 @@
         .credit-info {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.8);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 1.5rem;
+            padding: 1.2rem;
             text-align: center;
             opacity: 0;
             transition: opacity 0.4s ease;
@@ -153,17 +150,6 @@
 </head>
 <body class="bg-white">
 
-    <header class="relative py-28 px-6 text-center bg-[#FDFBF7] overflow-hidden">
-        <div class="slideshow-bg"></div>
-        <div class="relative max-w-5xl mx-auto z-10">
-            <p class="text-xs font-bold tracking-[0.3em] text-gray-400 uppercase mb-5">Red Estudiantil de Acompañamiento Integral - REDai</p>
-            <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-4">
-                Laboratorio Estudiantil de Proyección Profesional
-            </h1>
-        </div>
-        <div class="linea-degradado-lema"></div>
-    </header>
-
     <section class="w-full mt-4 mb-16 relative z-20">
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 w-full shadow-md">
             <div class="lema-box color-box-1">
@@ -192,8 +178,37 @@
             </div>
         </div>
     </section>
+
+    <!-- CAMBIO 2: Título a la izquierda y cuadro superpuesto con el logo LEPP a la derecha -->
+    <header class="relative py-24 md:py-32 px-6 bg-[#FDFBF7] overflow-hidden">
+        <div class="slideshow-bg"></div>
+        
+        <!-- Degradado para asegurar que el texto izquierdo sea legible sin oscurecer toda la imagen -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent z-0"></div>
+
+        <div class="relative max-w-6xl mx-auto z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+            <!-- Título Izquierda -->
+            <div class="md:w-3/5 text-left">
+                <p class="text-xs md:text-sm font-bold tracking-[0.3em] text-[#DF0832] uppercase mb-4 drop-shadow-sm">Red Estudiantil de Acompañamiento Integral - REDai</p>
+                <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight">
+                    Laboratorio Estudiantil de Proyección Profesional
+                </h1>
+            </div>
             
-            <!-- SECCIÓN QUIÉNES SOMOS MOVIDA AQUÍ (SOLO VISIBLE EN INFORME 1) -->
+            <!-- Cuadro LEPP Derecha superponiendo imágenes -->
+            <div class="md:w-2/5 flex justify-center md:justify-end">
+                <div class="bg-white/40 backdrop-blur-xl border border-white/60 shadow-2xl rounded-[2.5rem] p-10 transform rotate-3 hover:rotate-0 transition duration-500 flex items-center justify-center">
+                    <span class="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#00A19B] via-[#EC7920] to-[#DF0832] drop-shadow-lg tracking-widest">
+                        LEPP
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="linea-degradado-lema z-20"></div>
+    </header>
+
+            
+            <!-- SECCIÓN QUIÉNES SOMOS MOVIDA AQUÍ  -->
             <section class="py-16 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 border-b border-gray-100">
                 <div class="space-y-6">
                     <div class="relative h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner group">
@@ -1046,101 +1061,110 @@
     </main>
 
     <!-- CRÉDITOS REDISEÑADOS Y CON NUEVO LAYOUT -->
-<section class="py-20 px-6 bg-[#FDFBF7] border-t border-gray-100 relative overflow-hidden">
-        <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#00A19B]/5 rounded-full blur-3xl"></div>
-        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-[#DF0832]/5 rounded-full blur-3xl"></div>
-        <div class="max-w-6xl mx-auto relative z-10">
+
+    <!-- CAMBIO 4: CRÉDITOS REDISEÑADOS Y OPTIMIZADOS -->
+    <section class="py-24 px-6 bg-[#FDFBF7] border-t border-gray-200/60 relative overflow-hidden">
+        <!-- Decoraciones de fondo -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#00A19B]/10 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-[#DF0832]/5 to-transparent rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-16">
                 <span class="inline-block bg-white text-gray-600 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-2 shadow-sm border border-gray-200/60">Detrás del Proyecto</span>
-                <h2 class="text-3xl md:text-4xl font-black text-gray-900 leading-tight">Equipo de Trabajo unLEMA</h2>
-                <p class="text-sm text-gray-500 mt-2 max-w-xl mx-auto font-light">Esfuerzo conjunto para la recolección, análisis y visualización del panorama de egreso institucional.</p>
+                <h2 class="text-3xl md:text-5xl font-black text-gray-900 leading-tight">Equipo unLEMA</h2>
+                <p class="text-sm md:text-base text-gray-500 mt-4 max-w-2xl mx-auto font-light">Esfuerzo conjunto para la recolección, análisis y visualización del panorama de egreso institucional de la Sede Bogotá.</p>
             </div>
 
-            <div class="mb-16">
-                <div class="flex items-center gap-3 mb-8 pb-3 border-b border-gray-200/80">
-                    <span class="w-2.5 h-2.5 rounded-full bg-[#00A19B] shadow-sm"></span>
-                    <h3 class="text-xs font-bold text-gray-900 uppercase tracking-widest">Diseño, creación y ejecución de la encuesta (2024-I | 2025-II)</h3>
+            <!-- Contenedor Principal Flex: Desarrolladores y Diseñadores -->
+            <div class="flex flex-col lg:flex-row gap-8 mb-8 items-stretch">
+                
+                <!-- DESTACADO: EQUIPO SEMESTRE ACTUAL (3 Estudiantes) -->
+                <div class="lg:w-3/5 bg-white p-8 md:p-10 rounded-[2.5rem] shadow-xl border-t-8 border-[#00A19B] relative flex flex-col justify-center">
+                    <div class="absolute -top-6 left-8 bg-[#00A19B] text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md uppercase tracking-widest flex items-center gap-2">
+                        <i data-lucide="code-2" class="w-4 h-4"></i> Proyecto Actual (2026-I)
+                    </div>
+                    
+                    <h3 class="text-xl md:text-2xl font-black text-gray-900 mb-2 mt-4 text-center">Análisis de Datos y Desarrollo Tecnológico</h3>
+                    <p class="text-xs text-gray-500 text-center mb-8">Responsables del procesamiento estadístico y la arquitectura web.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                        <div class="credit-card rounded-3xl aspect-[3/4] shadow-md border-b-4 border-[#00A19B]">
+                            <img src="img/DSC06227.JPG" alt="Narly Tatiana Cipagauta">
+                            <div class="credit-info bg-gradient-to-t from-[#00A19B]/95 to-[#00A19B]/80">
+                                <h4 class="text-base font-black text-white mb-1">Narly Cipagauta</h4>
+                                <p class="text-[11px] text-gray-100 leading-tight">Ciencias de la Computación<br><strong class="text-white mt-1 block">Programación y Web</strong></p>
+                            </div>
+                        </div>
+                        <div class="credit-card rounded-3xl aspect-[3/4] shadow-md border-b-4 border-[#EC7920]">
+                            <img src="img/DSC06220.JPG" alt="Nicolas Rodriguez">
+                            <div class="credit-info bg-gradient-to-t from-[#EC7920]/95 to-[#EC7920]/80">
+                                <h4 class="text-base font-black text-white mb-1">Nicolas Rodriguez</h4>
+                                <p class="text-[11px] text-gray-100 leading-tight">Ingeniería Electrónica<br><strong class="text-white mt-1 block">Gestión Digital y Reportes</strong></p>
+                            </div>
+                        </div>
+                        <div class="credit-card rounded-3xl aspect-[3/4] shadow-md border-b-4 border-[#DF0832]">
+                            <img src="img/DSC06228.JPG" alt="Daniel Felipe Contreras">
+                            <div class="credit-info bg-gradient-to-t from-[#DF0832]/95 to-[#DF0832]/80">
+                                <h4 class="text-base font-black text-white mb-1">Daniel Contreras</h4>
+                                <p class="text-[11px] text-gray-100 leading-tight">Ingeniería Química<br><strong class="text-white mt-1 block">Análisis de Datos</strong></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-                    <div class="credit-card border-b-4 border-[#4CB07D]">
-                        <img src="img/DSC06215.JPG" alt="Diego Alejandro Navas Montenegro">
-                        <div class="credit-info">
-                            <h4 class="text-sm font-bold text-white mb-2">Diego Alejandro Navas Montenegro</h4>
-                            <p class="text-xs text-gray-200 font-light">Estudiante de ingeniería eléctrica. Investigador. Diseñador encuesta</p>
-                        </div>
-                    </div>
-                    <div class="credit-card border-b-4 border-[#98BF5F]">
-                        <img src="img/DSC06276.JPG" alt="David Marquez">
-                        <div class="credit-info">
-                            <h4 class="text-sm font-bold text-white mb-2">David Esteban Marquez</h4>
-                            <p class="text-xs text-gray-200 font-light">Estudiante de estadística. Muestrista</p>
-                        </div>
-                    </div>
-                    <div class="credit-card border-b-4 border-[#CFD938]">
-                        <img src="img/DSC06204.JPG" alt="Daniel Felipe Bohórquez Calderón">
-                        <div class="credit-info">
-                            <h4 class="text-sm font-bold text-white mb-2">Daniel Felipe Bohórquez Calderón</h4>
-                            <p class="text-xs text-gray-200 font-light">Estudiante de Estadística. Colaborador en diseño del muestreo</p>
-                        </div>
-                    </div>
-                    <div class="credit-card border-b-4 border-[#EC7920]">
-                        <img src="img/DSC06207.JPG" alt="Valentina Hormaza Quintero">
-                        <div class="credit-info">
-                            <h4 class="text-sm font-bold text-white mb-2">Valentina Hormaza Quintero</h4>
-                            <p class="text-xs text-gray-200 font-light">Investigadora. Diseñadora encuestal</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="mb-16">
-                <div class="flex items-center gap-3 mb-8 pb-3 border-b border-gray-200/80">
-                    <span class="w-2.5 h-2.5 rounded-full bg-[#DF0832] shadow-sm"></span>
-                    <h3 class="text-xs font-bold text-gray-900 uppercase tracking-widest">Análisis de Datos y Desarrollo Tecnológico (2026-I)</h3>
-                </div>
-                <div class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-                    <div class="credit-card border-b-4 border-[#00A19B] w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)]">
-                        <img src="img/DSC06227.JPG" alt="Narly Tatiana Cipagauta">
-                        <div class="credit-info">
-                            <h4 class="text-sm font-bold text-white mb-2">Narly Tatiana Cipagauta Mora</h4>
-                            <p class="text-xs text-gray-200 font-light">Estudiante de Ciencias de la computación. Programadora y Desarrolladora Web.</p>
+                <!-- DISEÑO DE ENCUESTA (4 Estudiantes) -->
+                <div class="lg:w-2/5 bg-white p-8 md:p-10 rounded-[2.5rem] shadow-lg border border-gray-100 flex flex-col justify-center">
+                    <h3 class="text-lg font-bold text-gray-900 mb-1 text-center">Diseño, Muestreo y Ejecución</h3>
+                    <p class="text-xs text-gray-400 text-center mb-8 uppercase tracking-widest">(2024-I | 2025-II)</p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="credit-card rounded-2xl aspect-square shadow-sm border-l-4 border-[#4CB07D]">
+                            <img src="img/DSC06215.JPG" alt="Diego Alejandro Navas">
+                            <div class="credit-info bg-black/85 p-4">
+                                <h4 class="text-[13px] font-bold text-white mb-1">Diego Navas</h4>
+                                <p class="text-[9px] text-gray-300">Diseño Encuesta</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="credit-card border-b-4 border-[#EC7920] w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)]">
-                        <img src="img/DSC06220.JPG" alt="Nicolas Rodriguez">
-                        <div class="credit-info">
-                            <h4 class="text-sm font-bold text-white mb-2">Nicolas Rodriguez Cardenas</h4>
-                            <p class="text-xs text-gray-200 font-light">Estudiante de Ingeniería Electrónica. Gestor de contenido digital y redactor de informes</p>
+                        <div class="credit-card rounded-2xl aspect-square shadow-sm border-l-4 border-[#98BF5F]">
+                            <img src="img/DSC06276.JPG" alt="David Marquez">
+                            <div class="credit-info bg-black/85 p-4">
+                                <h4 class="text-[13px] font-bold text-white mb-1">David Marquez</h4>
+                                <p class="text-[9px] text-gray-300">Muestreo Estadístico</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="credit-card border-b-4 border-[#DF0832] w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)]">
-                        <img src="img/DSC06228.JPG" alt="Daniel Felipe Contreras">
-                        <div class="credit-info">
-                            <h4 class="text-sm font-bold text-white mb-2">Daniel Felipe Contreras Camargo</h4>
-                            <p class="text-xs text-gray-200 font-light">Estudiante de Ingeniería Química. Analista de Datos</p>
+                        <div class="credit-card rounded-2xl aspect-square shadow-sm border-l-4 border-[#CFD938]">
+                            <img src="img/DSC06204.JPG" alt="Daniel Bohórquez">
+                            <div class="credit-info bg-black/85 p-4">
+                                <h4 class="text-[13px] font-bold text-white mb-1">Daniel Bohórquez</h4>
+                                <p class="text-[9px] text-gray-300">Diseño Muestreo</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <div class="flex items-center gap-3 mb-8 pb-3 border-b border-gray-200/80">
-                    <span class="w-2.5 h-2.5 rounded-full bg-[#98BF5F] shadow-sm"></span>
-                    <h3 class="text-xs font-bold text-gray-900 uppercase tracking-widest">Director del Proyecto</h3>
-                </div>
-                <div class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-                    <div class="credit-card border-b-4 border-[#00A19B] w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)]">
-                        <img src="img/DSC06287.JPG" alt="Fabián Andrés Meneses">
-                        <div class="credit-info">
-                            <h4 class="text-sm font-bold text-white mb-2">Fabián Andrés Meneses</h4>
-                            <p class="text-xs text-gray-200 font-light">Psicólogo. Especialista en Estadística Aplicada. Líder estrategia REDai y del Laboratorio LEPP.</p>
+                        <div class="credit-card rounded-2xl aspect-square shadow-sm border-l-4 border-[#EC7920]">
+                            <img src="img/DSC06207.JPG" alt="Valentina Hormaza">
+                            <div class="credit-info bg-black/85 p-4">
+                                <h4 class="text-[13px] font-bold text-white mb-1">Valentina Hormaza</h4>
+                                <p class="text-[9px] text-gray-300">Diseño Encuesta</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- DIRECTOR DEL PROYECTO -->
+            <div class="max-w-sm mx-auto bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col items-center">
+                <div class="w-10 h-10 bg-[#F3F4F6] text-[#9C0623] rounded-full flex items-center justify-center mb-4"><i data-lucide="award" class="w-5 h-5"></i></div>
+                <h3 class="text-sm font-bold text-gray-900 mb-6 uppercase tracking-widest text-center">Dirección del Proyecto</h3>
+                <div class="credit-card rounded-3xl aspect-square w-full max-w-[220px] shadow-md border-b-4 border-[#9C0623]">
+                    <img src="img/DSC06287.JPG" alt="Fabián Andrés Meneses">
+                    <div class="credit-info bg-gradient-to-t from-[#9C0623]/95 to-[#9C0623]/80">
+                        <h4 class="text-base font-black text-white mb-1">Fabián Meneses</h4>
+                        <p class="text-[11px] text-gray-100 leading-tight">Líder Estrategia REDai y Laboratorio LEPP</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
 
     <footer class="py-8 text-center text-gray-400 text-[10px] tracking-widest uppercase border-t bg-gray-50/50">
         <p>Universidad Nacional de Colombia | unLEMA | Red de Acompañamiento Integral REDai 2026</p>
