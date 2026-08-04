@@ -146,15 +146,14 @@
             85% { background-image: url('img/IMG_4771 (1).jpeg'); }
         }
 
-        /* Ocultar barra de scroll en el carrusel de créditos */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
-</head>
-<body class="bg-white">
+        <!-- Encabezado Unificado: Banner unLEMA y Título LEPP con fotos de fondo continuas -->
+    <header class="relative pb-24 md:pb-32 bg-[#FDFBF7] overflow-hidden flex flex-col">
+        <!-- Imágenes de fondo y degradado (ahora cubren todo el espacio desde arriba) -->
+        <div class="slideshow-bg"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent z-0"></div>
 
-    <section class="w-full mt-4 mb-16 relative z-20">
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 w-full shadow-md">
+        <!-- 1. Banner unLEMA integrado en la parte superior sin sombras que lo separen -->
+        <div class="w-full relative z-30 grid grid-cols-6">
             <div class="lema-box color-box-1">
                 <span class="letter">U</span>
                 <span class="full-text">UNIVERSIDAD</span>
@@ -180,17 +179,9 @@
                 <span class="full-text">ACADÉMICO</span>
             </div>
         </div>
-    </section>
 
-    <!-- CAMBIO 2: Título a la izquierda y cuadro superpuesto con el logo LEPP a la derecha -->
-    <header class="relative pt-12 pb-24 md:pt-16 md:pb-32 px-6 bg-[#FDFBF7] overflow-hidden">
-        <div class="slideshow-bg"></div>
-        
-        <!-- Degradado para asegurar que el texto izquierdo sea legible sin oscurecer toda la imagen -->
-       <div class="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent z-0"></div>
-
-        <!-- Contenedor del título y logo LEPP más juntos -->
-        <div class="relative max-w-5xl mx-auto z-10 flex flex-col md:flex-row items-center justify-center md:justify-start gap-8 md:gap-16 mt-4">
+        <!-- 2. Contenedor del título y logo LEPP más juntos -->
+        <div class="relative max-w-5xl mx-auto z-10 flex flex-col md:flex-row items-center justify-center md:justify-start gap-8 md:gap-16 mt-12 md:mt-16 px-6">
             
             <!-- Título Izquierda -->
             <div class="md:w-3/5 text-left md:text-right flex flex-col items-start md:items-end">
@@ -209,8 +200,12 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Línea degradada inferior -->
         <div class="linea-degradado-lema z-20"></div>
     </header>
+
+   
             
             <!-- SECCIÓN QUIÉNES SOMOS MOVIDA AQUÍ  -->
             <section class="py-16 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 border-b border-gray-100">
