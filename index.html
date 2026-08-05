@@ -279,13 +279,13 @@
     </nav>
 
     <main id="contenido-informes" class="relative min-h-[400px] border-t border-gray-100">
-
         <!-- INFORME 1: Contextualización y Metodología -->
         <div id="tab-content-1" class="tab-content hidden">
             
-            <div class="space-y-12 animate-fade-in pb-12 pt-8 px-4 md:px-0">
+            <div class="space-y-16 animate-fade-in pb-12 pt-8 px-4 md:px-0">
+                
                 <!-- Encabezado del Informe -->
-                <div class="text-center max-w-4xl mx-auto mb-12">
+                <div class="text-center max-w-4xl mx-auto mb-8">
                     <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4 leading-tight">
                         Entre realidades y paradigmas
                     </h2>
@@ -294,80 +294,95 @@
                     </p>
                 </div>
 
-                <!-- Sección 1: ¿Por qué nace esta encuesta? (3 Necesidades) -->
-                <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100 max-w-6xl mx-auto">
-                    <h3 class="text-xl font-bold text-[#9c0623] mb-6 flex items-center gap-3">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        Comprendiendo el egreso: El origen del estudio
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="bg-[#FDFBF7] p-6 rounded-2xl border-t-4 border-[#b84b5c] hover:shadow-md transition">
-                            <h4 class="font-bold text-gray-800 mb-2">Asimetrías en los miedos</h4>
-                            <p class="text-sm text-gray-600 leading-relaxed">
-                                Identificamos grandes contrastes: estudiantes de Ciencias Humanas temen a un mercado saturado, mientras que los de Artes o Salud apuntan más al emprendimiento.
-                            </p>
-                        </div>
-                        <div class="bg-[#FDFBF7] p-6 rounded-2xl border-t-4 border-[#c56a76] hover:shadow-md transition">
-                            <h4 class="font-bold text-gray-800 mb-2">Falta de mediciones</h4>
-                            <p class="text-sm text-gray-600 leading-relaxed">
-                                A pesar de la normativa institucional, no existían instrumentos sistemáticos para capturar las intenciones, expectativas y temores frente al futuro postuniversitario.
-                            </p>
-                        </div>
-                        <div class="bg-[#FDFBF7] p-6 rounded-2xl border-t-4 border-[#d28991] hover:shadow-md transition">
-                            <h4 class="font-bold text-gray-800 mb-2">Interés estudiantil</h4>
-                            <p class="text-sm text-gray-600 leading-relaxed">
-                                Los jóvenes buscan integrar el trabajo con la vida personal. Hay una necesidad urgente de explorar retos y fortalecer los recursos de apoyo institucional.
-                            </p>
+                <!-- ¿Qué es la encuesta? (Contexto Rápido) -->
+                <div class="max-w-5xl mx-auto bg-gradient-to-br from-[#9c0623] to-[#b84b5c] rounded-3xl p-8 md:p-10 shadow-2xl text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
+                        <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2zm0-6h2v4h-2z"/></svg>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">El Propósito</span>
+                        <h3 class="text-2xl md:text-3xl font-black mb-4">Una encuesta hecha por estudiantes, para estudiantes</h3>
+                        <p class="text-white/90 md:text-lg leading-relaxed max-w-3xl mb-6">
+                            Buscamos escuchar las voces de quienes están a punto de dar el salto al mundo profesional. Esta encuesta fue diseñada para describir las <strong>intenciones, motivaciones, desafíos percibidos y preocupaciones</strong> de los estudiantes de pregrado de la Sede Bogotá, con edades entre 18 y 28 años y un avance de carrera superior al 70%.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="bg-black/20 px-4 py-2 rounded-lg flex items-center gap-2">
+                                <i data-lucide="target" class="w-5 h-5"></i> <span>Exploración de expectativas</span>
+                            </div>
+                            <div class="bg-black/20 px-4 py-2 rounded-lg flex items-center gap-2">
+                                <i data-lucide="users" class="w-5 h-5"></i> <span>Identificación de redes de apoyo</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sección 2: Estructura de la Encuesta -->
-                <div class="bg-[#FDFBF7] rounded-3xl p-8 border border-gray-200 max-w-6xl mx-auto">
-                    <div class="text-center max-w-2xl mx-auto mb-8">
-                        <h3 class="text-2xl font-black text-gray-900 mb-3">Diseño de la Encuesta 2025</h3>
-                        <p class="text-gray-600 text-sm">Un instrumento adaptativo de <strong>45 preguntas</strong> totales, ramificado en tres trayectorias principales según las intenciones a corto plazo de cada estudiante.</p>
+                <!-- Storytelling: El Viaje de la Encuesta (Línea de tiempo) -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-10">
+                        <h3 class="text-2xl font-black text-gray-900">¿Cómo llegamos hasta aquí?</h3>
+                        <p class="text-gray-500 mt-2">El proceso detrás de la recolección de datos</p>
                     </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="bg-white p-5 rounded-xl shadow-sm flex flex-col items-center text-center">
-                            <div class="w-12 h-12 bg-[#9c0623]/10 text-[#9c0623] rounded-full flex items-center justify-center mb-3 font-bold text-xl">1</div>
-                            <h4 class="font-bold text-gray-900">Empleabilidad</h4>
-                            <p class="text-xs text-gray-500 mt-2">13 preguntas específicas sobre inserción al mercado laboral.</p>
+
+                    <div class="relative border-l-4 border-[#e9c3c1] ml-4 md:ml-8 space-y-12 pb-4">
+                        
+                        <!-- Fase 1 -->
+                        <div class="relative pl-8 md:pl-12 group">
+                            <div class="absolute -left-[14px] md:-left-[18px] top-1 w-6 h-6 md:w-8 md:h-8 bg-[#9c0623] rounded-full border-4 border-white shadow-md group-hover:scale-125 transition-transform"></div>
+                            <h4 class="font-bold text-xl text-gray-900 mb-2">1. Reconocimiento de necesidades</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed bg-[#FDFBF7] p-4 rounded-xl border border-gray-100 shadow-sm mt-2">
+                                Todo comenzó identificando asimetrías: mientras en Ciencias Humanas preocupaba un mercado saturado, en Artes se apuntaba al emprendimiento. Pese a las normativas, no existían mediciones concretas sobre los temores y retos que sentían los estudiantes frente al egreso.
+                            </p>
                         </div>
-                        <div class="bg-white p-5 rounded-xl shadow-sm flex flex-col items-center text-center">
-                            <div class="w-12 h-12 bg-[#9c0623]/10 text-[#9c0623] rounded-full flex items-center justify-center mb-3 font-bold text-xl">2</div>
-                            <h4 class="font-bold text-gray-900">Emprendimiento</h4>
-                            <p class="text-xs text-gray-500 mt-2">18 preguntas orientadas a la creación de proyectos propios.</p>
+
+                        <!-- Fase 2 -->
+                        <div class="relative pl-8 md:pl-12 group">
+                            <div class="absolute -left-[14px] md:-left-[18px] top-1 w-6 h-6 md:w-8 md:h-8 bg-[#c56a76] rounded-full border-4 border-white shadow-md group-hover:scale-125 transition-transform"></div>
+                            <h4 class="font-bold text-xl text-gray-900 mb-2">2. Construcción del instrumento</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed bg-[#FDFBF7] p-4 rounded-xl border border-gray-100 shadow-sm mt-2">
+                                Tras revisiones conceptuales y pruebas piloto, consolidamos una encuesta dinámica de <strong>45 preguntas</strong>. Dependiendo de los planes del estudiante a corto plazo, la encuesta se dividió en tres grandes trayectorias: <strong>Empleabilidad (13 preguntas), Emprendimiento (18 preguntas) y Desarrollo del Conocimiento (9 preguntas)</strong>.
+                            </p>
                         </div>
-                        <div class="bg-white p-5 rounded-xl shadow-sm flex flex-col items-center text-center">
-                            <div class="w-12 h-12 bg-[#9c0623]/10 text-[#9c0623] rounded-full flex items-center justify-center mb-3 font-bold text-xl">3</div>
-                            <h4 class="font-bold text-gray-900">Desarrollo del Conocimiento</h4>
-                            <p class="text-xs text-gray-500 mt-2">9 preguntas enfocadas en continuar estudios (posgrados).</p>
+
+                        <!-- Fase 3 -->
+                        <div class="relative pl-8 md:pl-12 group">
+                            <div class="absolute -left-[14px] md:-left-[18px] top-1 w-6 h-6 md:w-8 md:h-8 bg-[#dfa7ab] rounded-full border-4 border-white shadow-md group-hover:scale-125 transition-transform"></div>
+                            <h4 class="font-bold text-xl text-gray-900 mb-2">3. Muestreo y recolección de voces</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed bg-[#FDFBF7] p-4 rounded-xl border border-gray-100 shadow-sm mt-2">
+                                Aplicamos un muestreo probabilístico estratificado por facultades. Mediante envíos masivos de correos institucionales, invitamos a los estudiantes seleccionados a contar su perspectiva, logrando recoger las expectativas de cientos de jóvenes de la Sede Bogotá.
+                            </p>
+                        </div>
+
+                        <!-- Fase 4 -->
+                        <div class="relative pl-8 md:pl-12 group">
+                            <div class="absolute -left-[14px] md:-left-[18px] top-1 w-6 h-6 md:w-8 md:h-8 bg-gray-800 rounded-full border-4 border-white shadow-md group-hover:scale-125 transition-transform"></div>
+                            <h4 class="font-bold text-xl text-gray-900 mb-2">4. Nacimiento del LEPP</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed bg-[#FDFBF7] p-4 rounded-xl border border-gray-100 shadow-sm mt-2">
+                                Para analizar y divulgar todos estos hallazgos, el equipo de estudiantes creó el <strong>Laboratorio Estudiantil de Proyección Profesional (LEPP)</strong>, consolidando este esfuerzo en una estrategia institucional de monitoreo constante.
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Sección 3: Ficha Técnica (Dashboard de Datos) -->
-                <div class="max-w-6xl mx-auto">
-                    <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">Impacto y Muestreo</h3>
+                <div class="max-w-5xl mx-auto bg-gray-50 p-8 rounded-3xl border border-gray-200">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">El alcance del estudio en cifras</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                        <div class="bg-white p-6 rounded-2xl shadow border border-gray-100 text-center">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
                             <p class="text-sm text-gray-500 font-medium mb-1">Población Objetivo</p>
                             <p class="text-3xl font-black text-[#9c0623]">5.716</p>
-                            <p class="text-[10px] text-gray-400 mt-2 uppercase tracking-wide">Estudiantes (Sede Bogotá)</p>
+                            <p class="text-[10px] text-gray-400 mt-2 uppercase tracking-wide">Estudiantes Sede Bogotá</p>
                         </div>
-                        <div class="bg-white p-6 rounded-2xl shadow border border-gray-100 text-center">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
                             <p class="text-sm text-gray-500 font-medium mb-1">Muestra Teórica</p>
                             <p class="text-3xl font-black text-gray-800">3.002</p>
                             <p class="text-[10px] text-gray-400 mt-2 uppercase tracking-wide">Muestreo Estratificado</p>
                         </div>
-                        <div class="bg-[#9c0623] p-6 rounded-2xl shadow-lg text-center transform hover:scale-105 transition">
+                        <div class="bg-[#9c0623] p-6 rounded-2xl shadow-lg text-center transform hover:-translate-y-1 transition">
                             <p class="text-sm text-white/80 font-medium mb-1">Respuestas</p>
                             <p class="text-4xl font-black text-white">522</p>
                             <p class="text-[10px] text-white/70 mt-2 uppercase tracking-wide">Participantes finales</p>
                         </div>
-                        <div class="bg-white p-6 rounded-2xl shadow border border-gray-100 text-center">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
                             <p class="text-sm text-gray-500 font-medium mb-1">Tasa de Respuesta</p>
                             <p class="text-3xl font-black text-gray-800">17.3%</p>
                             <p class="text-[10px] text-gray-400 mt-2 uppercase tracking-wide">Margen error: ±4.1%</p>
@@ -376,60 +391,56 @@
                     
                     <!-- Botón para descargar Ficha Técnica -->
                     <div class="flex flex-col items-center justify-center gap-2">
-                        <p class="text-xs text-center text-gray-400">
-                            *Estudiantes activos 2025-1, avance de carrera ≥70%, edades 18-28 años.
-                        </p>
-                        <!-- Reemplaza el href="#" con el enlace real a tu ficha técnica -->
                         <a href="img/Ficha técnica.pdf" target="_blank" class="mt-2 inline-flex items-center gap-2 px-6 py-2 border-2 border-gray-800 text-gray-800 font-bold text-sm rounded-full hover:bg-gray-800 hover:text-white transition">
-                            <i data-lucide="file-bar-chart" class="w-4 h-4"></i> DESCARGAR FICHA TÉCNICA DETALLADA
+                            <i data-lucide="file-bar-chart" class="w-4 h-4"></i> VER FICHA TÉCNICA Y DISEÑO MUESTRAL
                         </a>
                     </div>
                 </div>
 
                 <!-- Sección 4: Próximos Informes (Mapa de Ruta) -->
-                <div class="border-t-2 border-gray-100 pt-10 max-w-6xl mx-auto">
-                    <h3 class="text-xl font-bold text-gray-900 mb-8 text-center">¿Qué viene a continuación?</h3>
+                <div class="border-t-2 border-gray-100 pt-12 max-w-6xl mx-auto">
+                    <h3 class="text-2xl font-black text-gray-900 mb-8 text-center">¿Qué descubriremos en los siguientes informes?</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="flex gap-4 items-start">
+                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
                             <span class="text-2xl font-black text-[#dfa7ab]">02</span>
                             <div>
                                 <h5 class="font-bold text-gray-800 text-sm">Contexto y Trayectorias</h5>
-                                <p class="text-xs text-gray-500 mt-1">Panorama general de las trayectorias elegidas y su relación con las facultades.</p>
+                                <p class="text-xs text-gray-500 mt-1">Panorama general de las decisiones de egreso y su relación con las facultades.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4 items-start">
+                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
                             <span class="text-2xl font-black text-[#dfa7ab]">03</span>
                             <div>
                                 <h5 class="font-bold text-gray-800 text-sm">Motivaciones</h5>
-                                <p class="text-xs text-gray-500 mt-1">El motor detrás de la elección de cada estudiante al egresar.</p>
+                                <p class="text-xs text-gray-500 mt-1">El motor personal y profesional detrás de la elección de cada estudiante.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4 items-start">
+                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
                             <span class="text-2xl font-black text-[#dfa7ab]">04</span>
                             <div>
                                 <h5 class="font-bold text-gray-800 text-sm">Desafíos Percibidos</h5>
-                                <p class="text-xs text-gray-500 mt-1">Los principales obstáculos anticipados en cada trayectoria.</p>
+                                <p class="text-xs text-gray-500 mt-1">Los principales obstáculos que se anticipan al salir de la universidad.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4 items-start">
+                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
                             <span class="text-2xl font-black text-[#dfa7ab]">05</span>
                             <div>
                                 <h5 class="font-bold text-gray-800 text-sm">Miedos y Preocupaciones</h5>
-                                <p class="text-xs text-gray-500 mt-1">Temores y diferencias observadas entre grupos poblacionales.</p>
+                                <p class="text-xs text-gray-500 mt-1">Ansiedades frente al futuro y diferencias observadas entre grupos.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4 items-start">
+                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
                             <span class="text-2xl font-black text-[#dfa7ab]">06</span>
                             <div>
                                 <h5 class="font-bold text-gray-800 text-sm">Redes de Apoyo</h5>
-                                <p class="text-xs text-gray-500 mt-1">Personas, recursos y servicios a los que recurren los próximos egresados.</p>
+                                <p class="text-xs text-gray-500 mt-1">A quién acuden los estudiantes y qué servicios institucionales utilizan.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4 items-start">
+                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
                             <span class="text-2xl font-black text-[#dfa7ab]">07</span>
                             <div>
                                 <h5 class="font-bold text-gray-800 text-sm">Expectativas Futuras</h5>
-                                <p class="text-xs text-gray-500 mt-1">Prioridades personales e interés en el acompañamiento institucional.</p>
+                                <p class="text-xs text-gray-500 mt-1">Interés real en el acompañamiento institucional post-universitario.</p>
                             </div>
                         </div>
                     </div>
