@@ -28,7 +28,7 @@
 
         /* Línea Divisoria en Degradado adaptada */
         .linea-degradado-lema {
-            background: linear-gradient(to right, #9c0623, #f3c1a8, #fbf1e9);
+            background: linear-gradient(to right, #fae6df, #f3c1a8, #ff3735, #ec4e53, #fae6df);
             height: 5px;
             width: 100%;
             position: absolute;
@@ -37,15 +37,18 @@
         }
 
         /* Efecto Hover y Clase Activa Automática para U-N-L-E-M-A */
-        .lema-box {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            overflow: hidden;
-            position: relative;
+        .lema-box .full-text {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.4s ease;
+            position: absolute;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            color: #c00022; /* Nuevo tono de letras */
+            text-align: center;
+            padding: 0 10px;
+            text-shadow: 1px 1px 3px rgba(255,255,255,0.8); /* Sombra ajustada para contraste */
         }
         .lema-box .full-text {
             opacity: 0;
@@ -63,9 +66,9 @@
         .lema-box .letter {
             font-size: 3rem;
             font-weight: 900;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(192, 0, 34, 0.45); /* #c00022 con opacidad */
             transition: all 0.4s ease;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+            text-shadow: 1px 1px 4px rgba(255,255,255,0.3);
         }
         .lema-box:hover .letter, .lema-box.active-lema .letter {
             transform: scale(0.3);
@@ -130,21 +133,32 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0;
-            opacity: 0.75; /* AUMENTADO PARA QUE SE VEAN MÁS LAS FOTOS */
-            background-size: cover;
-            background-position: center;
-            animation: changeBg 35s infinite ease-in-out;
+            opacity: 0.75; 
+            overflow: hidden;
+        }
+        .slideshow-track {
+            display: flex;
+            width: 700%; /* 7 imágenes = 700% */
+            height: 100%;
+            animation: slideBg 35s infinite ease-in-out;
+        }
+        .slideshow-track img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Mantiene la proporción sin deformar */
+            flex-shrink: 0;
+        }
+        @keyframes slideBg {
+            0%, 100% { transform: translateX(0); }
+            14% { transform: translateX(-14.28%); }
+            28% { transform: translateX(-28.57%); }
+            42% { transform: translateX(-42.85%); }
+            57% { transform: translateX(-57.14%); }
+            71% { transform: translateX(-71.42%); }
+            85% { transform: translateX(-85.71%); }
         }
         
-        @keyframes changeBg {
-            0%, 100% { background-image: url('img/FONDO_1.jpg'); }
-            14% { background-image: url('img/FONDO_2.jpeg'); }
-            28% { background-image: url('img/FONDO_3.jpeg'); }
-            42% { background-image: url('img/FONDO_4.jpeg'); }
-            57% { background-image: url('img/FONDO_5.jpeg'); }
-            71% { background-image: url('img/FONDO_6.jpeg' }
-            85% { background-image: url('img/FONDO_7.jpeg'); }
-        }
+       
     </style>
 </head>
 <body class="bg-white">
@@ -152,8 +166,17 @@
 <!--/* Encabezado Unificado: Banner unLEMA y Título LEPP con fotos de fondo continuas */-->
     <header class="relative pb-24 md:pb-32 bg-[#FDFBF7] overflow-hidden flex flex-col">
         <!--/*Imágenes de fondo y degradado (ahora cubren todo el espacio desde arriba) */-->
-        <div class="slideshow-bg"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent z-0"></div>
+        <div class="slideshow-bg">
+            <div class="slideshow-track">
+                <img src="img/FONDO_1.jpg" alt="Fondo 1">
+                <img src="img/FONDO_2.jpeg" alt="Fondo 2">
+                <img src="img/FONDO_3.jpeg" alt="Fondo 3">
+                <img src="img/FONDO_4.jpeg" alt="Fondo 4">
+                <img src="img/FONDO_5.jpeg" alt="Fondo 5">
+                <img src="img/FONDO_6.jpeg" alt="Fondo 6">
+                <img src="img/FONDO_7.jpeg" alt="Fondo 7">
+            </div>
+        </div>
 
         <!--/*Banner unLEMA integrado en la parte superior sin sombras que lo separen */-->
         <div class="w-full relative z-30 grid grid-cols-6">
@@ -207,16 +230,16 @@
                 <div class="space-y-6">
                     <div class="relative h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner group">
                         <div id="redai-carousel" class="flex w-full h-full transition-transform duration-500 ease-in-out">
-                            <img src="img/REDAI_1.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 1">
-                            <img src="img/REDAI_2.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 2">
-                            <img src="img/REDAI_3.jpeg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 3">
-                            <img src="img/REDAI_4.jpeg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 4">
-                            <img src="img/REDAI_5.jpeg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 5">
-                            <img src="img/REDAI_6.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 6">
-                            <img src="img/REDAI_7.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 7">
-                            <img src="img/REDAI_8.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 8">
-                            <img src="img/REDAI_9.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 9">
-                            <img src="img/REDAI_10.jpeg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="REDai Foto 10">
+                            <img src="img/REDAI_1.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 1">
+                            <img src="img/REDAI_2.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 2">
+                            <img src="img/REDAI_3.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 3">
+                            <img src="img/REDAI_4.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 4">
+                            <img src="img/REDAI_5.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 5">
+                            <img src="img/REDAI_6.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 6">
+                            <img src="img/REDAI_7.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 7">
+                            <img src="img/REDAI_8.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 8">
+                            <img src="img/REDAI_9.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 9">
+                            <img src="img/REDAI_10.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 10">
                         </div>
                         <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full font-bold z-10">Comunidad REDai</span>
                         <button onclick="prevRedaiSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
@@ -233,14 +256,14 @@
                 <div class="space-y-6">
                     <div class="relative h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner group">
                         <div id="unlema-carousel" class="flex w-full h-full transition-transform duration-500 ease-in-out">
-                            <img src="img/UNLEMA_1.JPG" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 1">
-                            <img src="img/UNLEMA_2.JPG" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 2">
-                            <img src="img/UNLEMA_3.JPG" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 3">
-                            <img src="img/UNLEMA_4.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 4">
-                            <img src="img/UNLEMA_5.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 5">
-                            <img src="img/UNLEMA_6.JPG" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 6">
-                            <img src="img/UNLEMA_7.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 7">
-                            <img src="img/UNLEMA_8.jpg" class="w-full h-full object-cover flex-shrink-0 opacity-90" alt="unLEMA Foto 8">
+                            <img src="img/UNLEMA_1.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 1">
+                            <img src="img/UNLEMA_2.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 2">
+                            <img src="img/UNLEMA_3.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 3">
+                            <img src="img/UNLEMA_4.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 4">
+                            <img src="img/UNLEMA_5.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 5">
+                            <img src="img/UNLEMA_6.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 6">
+                            <img src="img/UNLEMA_7.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 7">
+                            <img src="img/UNLEMA_8.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 8">
                         </div>
                         <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full font-bold z-10">Iniciativa unLEMA</span>
                         <button onclick="prevUnlemaSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
@@ -255,21 +278,62 @@
                 </div>
             </section>
 
-        <nav class="max-w-6xl mx-auto px-6 mb-12">
+       <nav class="max-w-6xl mx-auto px-6 mb-12">
         <div class="text-center mb-8">
             <span class="inline-block bg-[#FBF1E9] text-[#9C0623] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-2">Índice de Resultados</span>
             <h2 class="text-2xl md:text-3xl font-black text-gray-900">Selecciona un Informe</h2>
         </div>
         
-        <div class="flex flex-wrap justify-center gap-3">
-            <button id="btn-inf-1" onclick="showTab(1, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">01. Contextualización y metodología</button>
-            <button id="btn-inf-2" onclick="showTab(2, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">02. Contexto y caracterización de las trayectorias de egreso</button>
-            <button id="btn-inf-3" onclick="showTab(3, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">03. Motivaciones frente al egreso</button>
-            <button id="btn-inf-4" onclick="showTab(4, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">04. Desafíos percibidos frente al egreso</button>
-            <button id="btn-inf-5" onclick="showTab(5, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">05. Miedos y preocupaciones frente al egreso</button>
-            <button id="btn-inf-6" onclick="showTab(6, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">06. Recursos y redes de apoyo</button>
-            <button id="btn-inf-7" onclick="showTab(7, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">07. Expectativas futuras y acompañamiento institucional</button>
-            <button id="btn-inf-8" onclick="showTab(8, true)" class="tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]">08. Informe final</button>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Tarjeta 1 -->
+            <div id="btn-inf-1" onclick="showTab(1, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#dfa7ab]">01</span>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm leading-tight">Contextualización y metodología</h5>
+                </div>
+            </div>
+            <!-- Tarjeta 2 -->
+            <div id="btn-inf-2" onclick="showTab(2, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#dfa7ab]">02</span>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm leading-tight">Contexto y caracterización</h5>
+                </div>
+            </div>
+            <!-- Tarjeta 3 -->
+            <div id="btn-inf-3" onclick="showTab(3, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#dfa7ab]">03</span>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm leading-tight">Motivaciones frente al egreso</h5>
+                </div>
+            </div>
+            <!-- Tarjeta 4 -->
+            <div id="btn-inf-4" onclick="showTab(4, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#dfa7ab]">04</span>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm leading-tight">Desafíos percibidos</h5>
+                </div>
+            </div>
+            <!-- Tarjeta 5 -->
+            <div id="btn-inf-5" onclick="showTab(5, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#dfa7ab]">05</span>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm leading-tight">Miedos y preocupaciones</h5>
+                </div>
+            </div>
+            <!-- Tarjeta 6 -->
+            <div id="btn-inf-6" onclick="showTab(6, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#dfa7ab]">06</span>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm leading-tight">Recursos y redes de apoyo</h5>
+                </div>
+            </div>
+            <!-- Tarjeta 7 -->
+            <div id="btn-inf-7" onclick="showTab(7, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#dfa7ab]">07</span>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm leading-tight">Expectativas y acompañamiento</h5>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -392,55 +456,6 @@
                     </div>
                 </div>
 
-                <!-- Sección 4: Próximos Informes (Mapa de Ruta) -->
-                <div class="border-t-2 border-gray-100 pt-12 max-w-6xl mx-auto">
-                    <h3 class="text-2xl font-black text-gray-900 mb-8 text-center">¿Qué descubriremos en los siguientes informes?</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
-                            <span class="text-2xl font-black text-[#dfa7ab]">02</span>
-                            <div>
-                                <h5 class="font-bold text-gray-800 text-sm">Contexto y Trayectorias</h5>
-                                <p class="text-xs text-gray-500 mt-1">Panorama general de las decisiones de egreso y su relación con las facultades.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
-                            <span class="text-2xl font-black text-[#dfa7ab]">03</span>
-                            <div>
-                                <h5 class="font-bold text-gray-800 text-sm">Motivaciones</h5>
-                                <p class="text-xs text-gray-500 mt-1">El motor personal y profesional detrás de la elección de cada estudiante.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
-                            <span class="text-2xl font-black text-[#dfa7ab]">04</span>
-                            <div>
-                                <h5 class="font-bold text-gray-800 text-sm">Desafíos Percibidos</h5>
-                                <p class="text-xs text-gray-500 mt-1">Los principales obstáculos que se anticipan al salir de la universidad.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
-                            <span class="text-2xl font-black text-[#dfa7ab]">05</span>
-                            <div>
-                                <h5 class="font-bold text-gray-800 text-sm">Miedos y Preocupaciones</h5>
-                                <p class="text-xs text-gray-500 mt-1">Ansiedades frente al futuro y diferencias observadas entre grupos.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
-                            <span class="text-2xl font-black text-[#dfa7ab]">06</span>
-                            <div>
-                                <h5 class="font-bold text-gray-800 text-sm">Redes de Apoyo</h5>
-                                <p class="text-xs text-gray-500 mt-1">A quién acuden los estudiantes y qué servicios institucionales utilizan.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-50">
-                            <span class="text-2xl font-black text-[#dfa7ab]">07</span>
-                            <div>
-                                <h5 class="font-bold text-gray-800 text-sm">Expectativas Futuras</h5>
-                                <p class="text-xs text-gray-500 mt-1">Interés real en el acompañamiento institucional post-universitario.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- INFORMES COMPLETOS CON NUEVA PALETA (Tu código original) -->
             <section class="py-20 bg-gray-50 px-6 border-t mt-8">
@@ -1002,10 +1017,10 @@
             }
         }
 
-        /* // Iluminar el botón activo con la nueva paleta (#9C0623 y #F3C1A8)*/
+       /* // Iluminar el botón activo con la nueva paleta (#9C0623)*/
         const activeBtn = document.getElementById('btn-inf-' + tabIndex);
         if (activeBtn) {
-            activeBtn.className = "tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-[#9C0623] bg-gradient-to-r from-[#9C0623] to-[#F3C1A8] text-white shadow-md";
+            activeBtn.className = "tab-menu-btn flex gap-4 items-start bg-gray-50 p-4 rounded-xl shadow-inner border-2 border-[#9C0623] cursor-pointer transition-all transform scale-105";
         }
 
         /* // Ocultar y Mostrar el Contenido*/
