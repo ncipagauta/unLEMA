@@ -954,7 +954,18 @@
             activeContent.classList.remove('hidden');
             activeContent.classList.add('block', 'active');
             // Disparar redimensionado leve para que los gráficos tomen su tamaño real
-            setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 50);
+            setTimeout(() => { 
+    // Redimensionar gráficos de Chart.js
+    window.dispatchEvent(new Event('resize')); 
+    
+    // Redimensionar Plotly si la pestaña seleccionada es la 2 (donde está el Sankey)
+    if (tabIndex === 2 && typeof Plotly !== 'undefined') {
+        const divSankey = document.getElementById('graficoSankey');
+        if (divSankey) {
+            Plotly.Plots.resize(divSankey);
+        }
+    }
+}, 50);
         }
 
         // Hacer Scroll Suave con validación de existencia del ancla
@@ -1028,7 +1039,9 @@ let graficoDinamicoInstance = null; // Variable global para guardar la instancia
 
 document.addEventListener("DOMContentLoaded", function() {
     // Inicializar Pestaña y Banner
-    showTab(1, false);
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 
     // Uso de Try-Catch para asegurar que si un gráfico falla, los carruseles sigan funcionando
     try {
@@ -1226,15 +1239,31 @@ window.cambiarFiltroDiferencial = function(categoria) {
             const btnMotEmprender = document.getElementById('btn-mot-emprender');
 
             function actualizarGraficoMotivaciones(tipo, btnActivo) {
-                if (!chartMotivaciones) return;
-                [btnMotLaboral, btnMotAcademico, btnMotEmprender].forEach(btn => { if(btn) btn.className = "px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-gray-900 bg-transparent"; });
-                if (btnActivo) btnActivo.className = `px-5 py-2 rounded-full text-xs font-bold transition-all text-white shadow-sm bg-[${datosMotivaciones[tipo].color}]`;
-                chartMotivaciones.data.labels = datosMotivaciones[tipo].labels;
-                chartMotivaciones.data.datasets[0].data = datosMotivaciones[tipo].data;
-                chartMotivaciones.data.datasets[0].backgroundColor = datosMotivaciones[tipo].color;
-                chartMotivaciones.data.datasets[0].hoverBackgroundColor = datosMotivaciones[tipo].hover;
-                chartMotivaciones.update();
-            }
+    if (!chartMotivaciones) return;
+    
+    // Restaurar todos los botones a su estado inactivo
+    [btnMotLaboral, btnMotAcademico, btnMotEmprender].forEach(btn => { 
+        if(btn) {
+            btn.className = "px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-gray-900 bg-transparent"; 
+            btn.style.backgroundColor = "transparent";
+            btn.style.color = ""; 
+        }
+    });
+    
+    // Aplicar estilos al botón activo usando estilos en línea
+    if (btnActivo) {
+        btnActivo.className = "px-5 py-2 rounded-full text-xs font-bold transition-all shadow-sm";
+        btnActivo.style.backgroundColor = datosMotivaciones[tipo].color;
+        btnActivo.style.color = "#ffffff";
+    }
+    
+    // Actualizar datos del gráfico
+    chartMotivaciones.data.labels = datosMotivaciones[tipo].labels;
+    chartMotivaciones.data.datasets[0].data = datosMotivaciones[tipo].data;
+    chartMotivaciones.data.datasets[0].backgroundColor = datosMotivaciones[tipo].color;
+    chartMotivaciones.data.datasets[0].hoverBackgroundColor = datosMotivaciones[tipo].hover;
+    chartMotivaciones.update();
+}
 
             if(btnMotLaboral) btnMotLaboral.addEventListener('click', () => actualizarGraficoMotivaciones('laboral', btnMotLaboral));
             if(btnMotAcademico) btnMotAcademico.addEventListener('click', () => actualizarGraficoMotivaciones('academico', btnMotAcademico));
