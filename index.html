@@ -36,39 +36,47 @@
             left: 0;
         }
 
-        /* Efecto Hover y Clase Activa Automática para U-N-L-E-M-A */
-        .lema-box .full-text {
-            opacity: 0;
-            transform: translateY(15px);
-            transition: all 0.4s ease;
-            position: absolute;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            color: #c00022; /* Nuevo tono de letras */
-            text-align: center;
-            padding: 0 10px;
-            text-shadow: 1px 1px 3px rgba(255,255,255,0.8); /* Sombra ajustada para contraste */
-        }
-        .lema-box .full-text {
-            opacity: 0;
-            transform: translateY(15px);
-            transition: all 0.4s ease;
-            position: absolute;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            color: white;
-            text-align: center;
-            padding: 0 10px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Sombra para leer mejor en tonos claros */
+        /* CONFIGURACIÓN DEL BANNER UNLEMA (CENTRAMIENTO) */
+        .lema-box {
+            position: relative;
+            height: 110px; /* Altura fija para que las letras se centren bien */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
         }
         .lema-box .letter {
             font-size: 3rem;
             font-weight: 900;
-            color: rgba(192, 0, 34, 0.45); /* #c00022 con opacidad */
+            color: rgba(192, 0, 34, 0.45); 
             transition: all 0.4s ease;
             text-shadow: 1px 1px 4px rgba(255,255,255,0.3);
+            display: block;
+            line-height: 1;
+        }
+
+        .lema-box .full-text {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.4s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex; /* Para centrar perfectamente las palabras */
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            color: white; /* Texto blanco para mejor lectura */
+            text-align: center;
+            padding: 0 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
         }
         .lema-box:hover .letter, .lema-box.active-lema .letter {
             transform: scale(0.3);
@@ -119,13 +127,18 @@
             background: linear-gradient(180deg, #fdfdfd 0%, #f3f4f6 100%);
         }
 
-        /* Contenedores de pestañas con transición de opacidad */
+        /* Contenedores de pestañas - Corrección para que se oculten y muestren bien */
         .tab-content {
-            transition: opacity 0.4s ease-in-out;
-            opacity: 0;
+            display: none; /* Por defecto ocultos */
+            animation: fadeIn 0.5s ease-in-out forwards;
         }
         .tab-content.active {
-            opacity: 1;
+            display: block; /* Solo se muestra el que tiene la clase active */
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Animación y visibilidad de las imágenes de fondo */
@@ -133,7 +146,7 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0;
-            opacity: 0.75; 
+            opacity: 0.85; 
             overflow: hidden;
         }
         .slideshow-track {
@@ -143,7 +156,7 @@
             animation: slideBg 35s infinite ease-in-out;
         }
         .slideshow-track img {
-            width: 100%;
+            width: 14.2857%;
             height: 100%;
             object-fit: cover; /* Mantiene la proporción sin deformar */
             flex-shrink: 0;
@@ -163,9 +176,38 @@
 </head>
 <body class="bg-white">
 
-<!--/* Encabezado Unificado: Banner unLEMA y Título LEPP con fotos de fondo continuas */-->
-    <header class="relative pb-24 md:pb-32 bg-[#FDFBF7] overflow-hidden flex flex-col">
-        <!--/*Imágenes de fondo y degradado (ahora cubren todo el espacio desde arriba) */-->
+    <!-- 1. BANNER UNLEMA INDEPENDIENTE (Posicionado arriba para que no tape las fotos) -->
+    <div class="w-full relative z-30 grid grid-cols-6 shadow-md">
+        <div class="lema-box color-box-1">
+            <span class="letter">U</span>
+            <span class="full-text">UNIVERSIDAD</span>
+        </div>
+        <div class="lema-box color-box-2">
+            <span class="letter">N</span>
+            <span class="full-text">NACIONAL</span>
+        </div>
+        <div class="lema-box color-box-3">
+            <span class="letter">L</span>
+            <span class="full-text">LABORAL</span>
+        </div>
+        <div class="lema-box color-box-4">
+            <span class="letter">E</span>
+            <span class="full-text">EMPRENDIMIENTO</span>
+        </div>
+        <div class="lema-box color-box-5">
+            <span class="letter">M</span>
+            <span class="full-text">MOVILIDAD</span>
+        </div>
+        <div class="lema-box color-box-6">
+            <span class="letter">A</span>
+            <span class="full-text">ACADÉMICO</span>
+        </div>
+    </div>
+
+    <!-- 2. ENCABEZADO CON FOTOS Y TÍTULO (Ahora se encuentra completamente debajo del banner) -->
+    <header class="relative py-28 md:py-36 bg-[#FDFBF7] overflow-hidden flex flex-col justify-center">
+        
+        <!-- Imágenes de fondo deslizando sin zoom exagerado -->
         <div class="slideshow-bg">
             <div class="slideshow-track">
                 <img src="img/FONDO_1.jpg" alt="Fondo 1">
@@ -176,164 +218,160 @@
                 <img src="img/FONDO_6.jpeg" alt="Fondo 6">
                 <img src="img/FONDO_7.jpeg" alt="Fondo 7">
             </div>
+            <!-- Capa oscura sutil para que el texto resalte mejor sobre las fotos nítidas -->
+            <div class="absolute inset-0 bg-white/40"></div> 
         </div>
 
-        <!--/*Banner unLEMA integrado en la parte superior sin sombras que lo separen */-->
-        <div class="w-full relative z-30 grid grid-cols-6">
-            <div class="lema-box color-box-1">
-                <span class="letter">U</span>
-                <span class="full-text">UNIVERSIDAD</span>
-            </div>
-            <div class="lema-box color-box-2">
-                <span class="letter">N</span>
-                <span class="full-text">NACIONAL</span>
-            </div>
-            <div class="lema-box color-box-3">
-                <span class="letter">L</span>
-                <span class="full-text">LABORAL</span>
-            </div>
-            <div class="lema-box color-box-4">
-                <span class="letter">E</span>
-                <span class="full-text">EMPRENDIMIENTO</span>
-            </div>
-            <div class="lema-box color-box-5">
-                <span class="letter">M</span>
-                <span class="full-text">MOVILIDAD</span>
-            </div>
-            <div class="lema-box color-box-6">
-                <span class="letter">A</span>
-                <span class="full-text">ACADÉMICO</span>
-            </div>
-        </div>
-
-        <!--/*Contenedor del título y logo LEPP más juntos */-->
-        <div class="relative max-w-5xl mx-auto z-10 flex flex-col md:flex-row items-center justify-center md:justify-start gap-8 md:gap-16 mt-12 md:mt-16 px-6">
-            
-           <!--/* Título Izquierda */-->
-            <div class="md:w-3/5 text-left md:text-right flex flex-col items-start md:items-end">
+        <!-- Contenedor del título y logo LEPP -->
+        <div class="relative max-w-5xl mx-auto z-10 flex flex-col md:flex-row items-center justify-center md:justify-start gap-8 px-6">
+           <!-- Título -->
+            <div class="md:w-3/4 text-center md:text-left flex flex-col items-center md:items-start mx-auto bg-white/70 backdrop-blur-sm p-8 rounded-3xl border border-white/50 shadow-lg">
                 <p class="text-xs md:text-sm font-bold tracking-[0.3em] text-[#9c0623] uppercase mb-4 drop-shadow-md">Red Estudiantil de Acompañamiento Integral - REDai</p>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight drop-shadow-lg text-left md:text-right">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight drop-shadow-lg text-center md:text-left">
                     Laboratorio Estudiantil de Proyección Profesional
                 </h1>
             </div>
         </div>
             
-        
-        <!--/* Línea degradada inferior */-->
+        <!-- Línea degradada inferior -->
         <div class="linea-degradado-lema z-20"></div>
     </header>
 
-   
-            
-           <!-- SECCIÓN QUIÉNES SOMOS MOVIDA AQUÍ  -->
-            <section class="py-16 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 border-b border-gray-100">
-                <div class="space-y-6">
-                    <div class="relative h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner group">
-                        <div id="redai-carousel" class="flex w-full h-full transition-transform duration-500 ease-in-out">
-                            <img src="img/REDAI_1.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 1">
-                            <img src="img/REDAI_2.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 2">
-                            <img src="img/REDAI_3.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 3">
-                            <img src="img/REDAI_4.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 4">
-                            <img src="img/REDAI_5.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 5">
-                            <img src="img/REDAI_6.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 6">
-                            <img src="img/REDAI_7.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 7">
-                            <img src="img/REDAI_8.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 8">
-                            <img src="img/REDAI_9.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 9">
-                            <img src="img/REDAI_10.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 10">
-                        </div>
-                        <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full font-bold z-10">Comunidad REDai</span>
-                        <button onclick="prevRedaiSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
-                        <button onclick="nextRedaiSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
-                    </div>
-                    <h3 class="text-2xl font-black text-gray-950 flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-full bg-[#9C0623]"></span> ¿Quiénes Somos? — REDai
-                    </h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        La <strong class="text-gray-900">Red Estudiantil de Acompañamiento Integral (REDai)</strong> es una estrategia de liderazgo del Área de Acompañamiento Integral de la Sede Bogotá. Desde 2017, impulsa iniciativas gestionadas por estudiantes para fortalecer la permanencia formativa, enriquecer la experiencia en los campus y nutrir el perfil profesional de nuestra comunidad universitaria.
-                    </p>
+    <!-- SECCIÓN QUIÉNES SOMOS -->
+    <section class="py-16 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 border-b border-gray-100">
+        <!-- Contenido Original ... -->
+        <div class="space-y-6">
+            <div class="relative h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner group">
+                <div id="redai-carousel" class="flex w-full h-full transition-transform duration-500 ease-in-out">
+                    <img src="img/REDAI_1.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 1">
+                    <img src="img/REDAI_2.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 2">
+                    <img src="img/REDAI_3.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 3">
+                    <img src="img/REDAI_4.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 4">
+                    <img src="img/REDAI_5.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 5">
+                    <img src="img/REDAI_6.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 6">
+                    <img src="img/REDAI_7.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 7">
+                    <img src="img/REDAI_8.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 8">
+                    <img src="img/REDAI_9.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 9">
+                    <img src="img/REDAI_10.jpeg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="REDai Foto 10">
                 </div>
+                <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full font-bold z-10">Comunidad REDai</span>
+                <button onclick="prevRedaiSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+                <button onclick="nextRedaiSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+            </div>
+            <h3 class="text-2xl font-black text-gray-950 flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#9C0623]"></span> ¿Quiénes Somos? — REDai
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+                La <strong class="text-gray-900">Red Estudiantil de Acompañamiento Integral (REDai)</strong> es una estrategia de liderazgo del Área de Acompañamiento Integral de la Sede Bogotá. Desde 2017, impulsa iniciativas gestionadas por estudiantes para fortalecer la permanencia formativa, enriquecer la experiencia en los campus y nutrir el perfil profesional de nuestra comunidad universitaria.
+            </p>
+        </div>
 
-                <div class="space-y-6">
-                    <div class="relative h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner group">
-                        <div id="unlema-carousel" class="flex w-full h-full transition-transform duration-500 ease-in-out">
-                            <img src="img/UNLEMA_1.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 1">
-                            <img src="img/UNLEMA_2.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 2">
-                            <img src="img/UNLEMA_3.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 3">
-                            <img src="img/UNLEMA_4.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 4">
-                            <img src="img/UNLEMA_5.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 5">
-                            <img src="img/UNLEMA_6.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 6">
-                            <img src="img/UNLEMA_7.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 7">
-                            <img src="img/UNLEMA_8.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 8">
-                        </div>
-                        <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full font-bold z-10">Iniciativa unLEMA</span>
-                        <button onclick="prevUnlemaSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
-                        <button onclick="nextUnlemaSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
-                    </div>
-                    <h3 class="text-2xl font-black text-gray-950 flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-full bg-[#00A19B]"></span> ¿Quiénes Somos? — unLEMA
-                    </h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        <strong class="text-gray-900">unLEMA</strong> es un equipo especializado de REDai encargado de complementar de manera activa los programas de Proyección Profesional y Preparación para el Cambio. Nos enfocamos en investigar, medir e interpretar las expectativas reales de los estudiantes de la Universidad Nacional frente a su egreso, tendiendo puentes entre sus necesidades y el apoyo institucional.
-                    </p>
+        <div class="space-y-6">
+            <div class="relative h-64 bg-gray-100 rounded-3xl overflow-hidden shadow-inner group">
+                <div id="unlema-carousel" class="flex w-full h-full transition-transform duration-500 ease-in-out">
+                    <img src="img/UNLEMA_1.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 1">
+                    <img src="img/UNLEMA_2.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 2">
+                    <img src="img/UNLEMA_3.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 3">
+                    <img src="img/UNLEMA_4.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 4">
+                    <img src="img/UNLEMA_5.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 5">
+                    <img src="img/UNLEMA_6.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 6">
+                    <img src="img/UNLEMA_7.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 7">
+                    <img src="img/UNLEMA_8.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 8">
                 </div>
-            </section>
+                <span class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full font-bold z-10">Iniciativa unLEMA</span>
+                <button onclick="prevUnlemaSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+                <button onclick="nextUnlemaSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+            </div>
+            <h3 class="text-2xl font-black text-gray-950 flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#00A19B]"></span> ¿Quiénes Somos? — unLEMA
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+                <strong class="text-gray-900">unLEMA</strong> es un equipo especializado de REDai encargado de complementar de manera activa los programas de Proyección Profesional y Preparación para el Cambio. Nos enfocamos en investigar, medir e interpretar las expectativas reales de los estudiantes de la Universidad Nacional frente a su egreso, tendiendo puentes entre sus necesidades y el apoyo institucional.
+            </p>
+        </div>
+        
+    </section>
 
-       <nav class="max-w-6xl mx-auto px-6 mb-12">
+    <nav class="max-w-6xl mx-auto px-6 mb-12">
         <div class="text-center mb-8">
             <span class="inline-block bg-[#FBF1E9] text-[#9C0623] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-2">Índice de Resultados</span>
             <h2 class="text-2xl md:text-3xl font-black text-gray-900">Selecciona un Informe</h2>
         </div>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            
             <!-- Tarjeta 1 -->
-            <div id="btn-inf-1" onclick="showTab(1, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+            <button id="btn-inf-1" onclick="showTab(1, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
                 <span class="text-3xl font-black text-[#dfa7ab]">01</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Contextualización y metodología</h5>
+                    <p class="text-xs text-gray-500 mt-1 font-medium">Bases y estructura metodológica del estudio.</p>
                 </div>
-            </div>
+            </button>
+
             <!-- Tarjeta 2 -->
-            <div id="btn-inf-2" onclick="showTab(2, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+            <button id="btn-inf-2" onclick="showTab(2, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
                 <span class="text-3xl font-black text-[#dfa7ab]">02</span>
                 <div>
-                    <h5 class="font-bold text-gray-800 text-sm leading-tight">Contexto y caracterización</h5>
+                    <h5 class="font-bold text-gray-800 text-sm leading-tight">Contexto y trayectorias</h5>
+                    <p class="text-xs text-gray-500 mt-1 font-medium">Panorama general de las tres trayectorias y de la intención de los estudiantes frente al egreso.</p>
                 </div>
-            </div>
+            </button>
+
             <!-- Tarjeta 3 -->
-            <div id="btn-inf-3" onclick="showTab(3, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+            <button id="btn-inf-3" onclick="showTab(3, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
                 <span class="text-3xl font-black text-[#dfa7ab]">03</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Motivaciones frente al egreso</h5>
+                    <p class="text-xs text-gray-500 mt-1 font-medium">Principales razones e impulsos en la toma de decisiones.</p>
                 </div>
-            </div>
+            </button>
+
             <!-- Tarjeta 4 -->
-            <div id="btn-inf-4" onclick="showTab(4, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+            <button id="btn-inf-4" onclick="showTab(4, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
                 <span class="text-3xl font-black text-[#dfa7ab]">04</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Desafíos percibidos</h5>
+                    <p class="text-xs text-gray-500 mt-1 font-medium">Retos y barreras percibidos en la trayectoria posterior al egreso.</p>
                 </div>
-            </div>
+            </button>
+
             <!-- Tarjeta 5 -->
-            <div id="btn-inf-5" onclick="showTab(5, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+            <button id="btn-inf-5" onclick="showTab(5, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
                 <span class="text-3xl font-black text-[#dfa7ab]">05</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Miedos y preocupaciones</h5>
+                    <p class="text-xs text-gray-500 mt-1 font-medium">Principales preocupaciones según la trayectoria profesional.</p>
                 </div>
-            </div>
+            </button>
+
             <!-- Tarjeta 6 -->
-            <div id="btn-inf-6" onclick="showTab(6, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+            <button id="btn-inf-6" onclick="showTab(6, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
                 <span class="text-3xl font-black text-[#dfa7ab]">06</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Apoyo institucional percibido</h5>
+                    <p class="text-xs text-gray-500 mt-1 font-medium">Búsqueda de apoyo autónomo a través de los canales institucionales.</p>
                 </div>
-            </div>
+            </button>
+
             <!-- Tarjeta 7 -->
-            <div id="btn-inf-7" onclick="showTab(7, true)" class="tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+            <button id="btn-inf-7" onclick="showTab(7, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
                 <span class="text-3xl font-black text-[#dfa7ab]">07</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Redes de apoyo</h5>
+                    <p class="text-xs text-gray-500 mt-1 font-medium">A quienes acudirían los estudiantes al momento de transitar la vida profesional.</p>
                 </div>
-            </div>
+            </button>
+
+            <!-- Tarjeta 8 (NUEVA) -->
+            <button id="btn-inf-8" onclick="showTab(8, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#dfa7ab]">08</span>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm leading-tight">Expectativas hacia el futuro</h5>
+                    <p class="text-xs text-gray-500 mt-1 font-medium">Valores y expectativas de los estudiantes en su vida profesional.</p>
+                </div>
+            </button>
+
         </div>
     </nav>
 
@@ -1684,6 +1722,33 @@
         }
         unlemaTimer = setInterval(nextUnlemaSlide, 4000); 
     });
-</script>
+<script>
+        // Función para cambiar entre los informes
+        function switchTab(tabId) {
+            // 1. Ocultar todos los informes quitándoles la clase 'active'
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 2. Mostrar solo el informe que el usuario clickeó
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+
+            // 3. Reiniciar el diseño de todos los botones (ponerlos en gris)
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-[#9C0623]', 'bg-[#9C0623]/5');
+                btn.classList.add('border-transparent', 'bg-gray-50');
+            });
+
+            // 4. Poner el diseño de "Activo" (color rojo/granate) al botón clickeado
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-transparent', 'bg-gray-50');
+                activeBtn.classList.add('border-[#9C0623]', 'bg-[#9C0623]/5');
+            }
+        }
+    </script>
 </body>
 </html>
