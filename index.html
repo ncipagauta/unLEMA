@@ -18,12 +18,15 @@
         body { font-family: 'Ancizar Sans', sans-serif; }
         
         /* Colores unLEMA para las 6 Cajas */
-        .color-box-1 { background-color: #b84b5c; } /* U - Rojo mate */
-        .color-box-2 { background-color: #c56a76; } /* N */
-        .color-box-3 { background-color: #d28991; } /* L */
-        .color-box-4 { background-color: #dfa7ab; } /* E */
-        .color-box-5 { background-color: #e9c3c1; } /* M */
-        .color-box-6 { background-color: #f1ded6; } /* A - Crema mate */
+        .color-box-1 { background-color: #c00022; } /* U */
+        .color-box-2 { background-color: #ec4e53; } /* N */
+        .color-box-3 { background-color: #ff3735; } /* L */
+        .color-box-4 { background-color: #f3c1a8; } /* E */
+        .color-box-5 { background-color: #fae6df; } /* M */
+        .color-box-6 { background-color: #000000; } /* A */
+
+        /* Para que el texto sea legible en el fondo crema */
+        .color-box-5 .full-text { color: #000000 !important; }
 
         /* Línea Divisoria en Degradado adaptada */
         .linea-degradado-lema {
@@ -45,15 +48,16 @@
             cursor: pointer;
             overflow: hidden;
         }
-        .lema-box .letter {
+       .lema-box .letter {
             font-size: 3rem;
             font-weight: 900;
-            color: rgba(192, 0, 34, 0.45); 
+            color: rgba(255, 255, 255, 0.5); 
             transition: all 0.4s ease;
-            text-shadow: 1px 1px 4px rgba(255,255,255,0.3);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
             display: block;
             line-height: 1;
         }
+        .color-box-5 .letter { color: rgba(0,0,0,0.3); } /* Letra oscura para caja clara */
 
         .lema-box .full-text {
             opacity: 0;
@@ -250,7 +254,7 @@
                 <button onclick="nextRedaiSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
             </div>
             <h3 class="text-2xl font-black text-gray-950 flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-[#9C0623]"></span> ¿Quiénes Somos? — REDai
+                <span class="w-3 h-3 rounded-full bg-[#c00022]"></span> ¿Quiénes Somos? — REDai
             </h3>
             <p class="text-sm text-gray-600 leading-relaxed">
                 La <strong class="text-gray-900">Red Estudiantil de Acompañamiento Integral (REDai)</strong> es una estrategia de liderazgo del Área de Acompañamiento Integral de la Sede Bogotá. Desde 2017, impulsa iniciativas gestionadas por estudiantes para fortalecer la permanencia formativa, enriquecer la experiencia en los campus y nutrir el perfil profesional de nuestra comunidad universitaria.
@@ -265,7 +269,7 @@
                     <img src="img/UNLEMA_3.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 3">
                     <img src="img/UNLEMA_4.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 4">
                     <img src="img/UNLEMA_5.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 5">
-                    <img src="img/UNLEMA_6.JPG" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 6">
+                    <img src="img/UNLEMA_6.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 6">
                     <img src="img/UNLEMA_7.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 7">
                     <img src="img/UNLEMA_8.jpg" class="w-full h-full object-contain bg-gray-200 flex-shrink-0 opacity-90" alt="unLEMA Foto 8">
                 </div>
@@ -274,7 +278,7 @@
                 <button onclick="nextUnlemaSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full z-10 transition"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
             </div>
             <h3 class="text-2xl font-black text-gray-950 flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-[#00A19B]"></span> ¿Quiénes Somos? — unLEMA
+                <span class="w-3 h-3 rounded-full bg-[#000000]"></span> ¿Quiénes Somos? — unLEMA
             </h3>
             <p class="text-sm text-gray-600 leading-relaxed">
                 <strong class="text-gray-900">unLEMA</strong> es un equipo especializado de REDai encargado de complementar de manera activa los programas de Proyección Profesional y Preparación para el Cambio. Nos enfocamos en investigar, medir e interpretar las expectativas reales de los estudiantes de la Universidad Nacional frente a su egreso, tendiendo puentes entre sus necesidades y el apoyo institucional.
@@ -284,62 +288,62 @@
 
     <nav class="max-w-6xl mx-auto px-6 mb-12">
         <div class="text-center mb-8">
-            <span class="inline-block bg-[#FBF1E9] text-[#9C0623] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-2">Índice de Resultados</span>
+           <span class="inline-block bg-[#fae6df] text-[#c00022] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-2">Índice de Resultados</span>
             <h2 class="text-2xl md:text-3xl font-black text-gray-900">Selecciona un Informe</h2>
         </div>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <button id="btn-inf-1" onclick="showTab(1, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
-                <span class="text-3xl font-black text-[#dfa7ab]">01</span>
+            <button id="btn-inf-1" onclick="showTab(1, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#c00022] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#ec4e53]">01</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Contextualización y metodología</h5>
                     <p class="text-xs text-gray-500 mt-1 font-medium">Bases y estructura metodológica del estudio.</p>
                 </div>
             </button>
-            <button id="btn-inf-2" onclick="showTab(2, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
-                <span class="text-3xl font-black text-[#dfa7ab]">02</span>
+            <button id="btn-inf-2" onclick="showTab(2, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#c00022] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#ec4e53]">02</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Contexto y trayectorias</h5>
                     <p class="text-xs text-gray-500 mt-1 font-medium">Panorama general de las tres trayectorias y de la intención de los estudiantes frente al egreso.</p>
                 </div>
             </button>
-            <button id="btn-inf-3" onclick="showTab(3, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
-                <span class="text-3xl font-black text-[#dfa7ab]">03</span>
+            <button id="btn-inf-3" onclick="showTab(3, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#c00022] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#ec4e53]">03</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Motivaciones frente al egreso</h5>
                     <p class="text-xs text-gray-500 mt-1 font-medium">Principales razones e impulsos en la toma de decisiones.</p>
                 </div>
             </button>
-            <button id="btn-inf-4" onclick="showTab(4, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
-                <span class="text-3xl font-black text-[#dfa7ab]">04</span>
+            <button id="btn-inf-4" onclick="showTab(4, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#c00022] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#ec4e53]">04</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Desafíos percibidos</h5>
                     <p class="text-xs text-gray-500 mt-1 font-medium">Retos y barreras percibidos en la trayectoria posterior al egreso.</p>
                 </div>
             </button>
-            <button id="btn-inf-5" onclick="showTab(5, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
-                <span class="text-3xl font-black text-[#dfa7ab]">05</span>
+            <button id="btn-inf-5" onclick="showTab(5, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#c00022] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#ec4e53]">05</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Miedos y preocupaciones</h5>
                     <p class="text-xs text-gray-500 mt-1 font-medium">Principales preocupaciones según la trayectoria profesional.</p>
                 </div>
             </button>
-            <button id="btn-inf-6" onclick="showTab(6, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
-                <span class="text-3xl font-black text-[#dfa7ab]">06</span>
+            <button id="btn-inf-6" onclick="showTab(6, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#c00022] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#ec4e53]">06</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Apoyo institucional percibido</h5>
                     <p class="text-xs text-gray-500 mt-1 font-medium">Búsqueda de apoyo autónomo a través de los canales institucionales.</p>
                 </div>
             </button>
-            <button id="btn-inf-7" onclick="showTab(7, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
-                <span class="text-3xl font-black text-[#dfa7ab]">07</span>
+            <button id="btn-inf-7" onclick="showTab(7, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#c00022] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#ec4e53]">07</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Redes de apoyo</h5>
                     <p class="text-xs text-gray-500 mt-1 font-medium">A quienes acudirían los estudiantes al momento de transitar la vida profesional.</p>
                 </div>
             </button>
-            <button id="btn-inf-8" onclick="showTab(8, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all">
-                <span class="text-3xl font-black text-[#dfa7ab]">08</span>
+            <button id="btn-inf-8" onclick="showTab(8, true)" class="tab-menu-btn w-full text-left flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#c00022] cursor-pointer transition-all">
+                <span class="text-3xl font-black text-[#ec4e53]">08</span>
                 <div>
                     <h5 class="font-bold text-gray-800 text-sm leading-tight">Expectativas hacia el futuro</h5>
                     <p class="text-xs text-gray-500 mt-1 font-medium">Valores y expectativas de los estudiantes en su vida profesional.</p>
@@ -456,10 +460,11 @@
                         <a href="img/Informe No. 1 (1).pdf" target="_blank" class="text-[#9C0623] font-bold text-sm flex items-center gap-1 hover:underline">
                             DESCARGAR PDF <i data-lucide="download" class="w-4 h-4"></i>
                         </a>
+                        </div>
                     </div>
-                </div>
-            </section>
-        </div>
+             </section>
+            </div>
+        </div>    
 
         <div id="tab-content-2" class="tab-content hidden py-16 px-6 max-w-6xl mx-auto">
             <div class="text-center mb-16 max-w-4xl mx-auto">
