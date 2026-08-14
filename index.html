@@ -1179,15 +1179,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 data: window.datosDiferencial['genero'],
                 options: optionsBarrasApiladas
             });
-        }
-
-    } catch (e) {
-        console.error("Error inicializando los gráficos: ", e);
-    }
-});
 
 // Función global para actualizar el gráfico desde los botones HTML
-function cambiarFiltroDiferencial(categoria) {
+window.cambiarFiltroDiferencial = function(categoria) {
     if(!graficoDinamicoInstance) return;
 
     // Actualizar datos del gráfico
