@@ -1007,17 +1007,17 @@
     <script>
     lucide.createIcons();
 
-     // -- 1. SISTEMA DE PESTAÑAS Y SCROLL SUAVE (COLORES ACTUALIZADOS) --
+// -- 1. SISTEMA DE PESTAÑAS Y SCROLL SUAVE (COLORES ACTUALIZADOS) --
     function showTab(tabIndex, doScroll = false) {
-        /* // Resetear todos los botones del menú*/
+        /* // Resetear todos los botones del menú a su estado inactivo de TARJETA */
         for (let i = 1; i <= 8; i++) {
             const btn = document.getElementById('btn-inf-' + i);
             if (btn) {
-                btn.className = "tab-menu-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all border-2 border-gray-200 text-gray-500 hover:border-[#9C0623] hover:text-[#9C0623]";
+                btn.className = "tab-menu-btn flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border-2 border-transparent hover:border-[#9C0623] cursor-pointer transition-all";
             }
         }
 
-       /* // Iluminar el botón activo con la nueva paleta (#9C0623)*/
+       /* // Iluminar el botón activo con la nueva paleta (#9C0623) y estilo resaltado */
         const activeBtn = document.getElementById('btn-inf-' + tabIndex);
         if (activeBtn) {
             activeBtn.className = "tab-menu-btn flex gap-4 items-start bg-gray-50 p-4 rounded-xl shadow-inner border-2 border-[#9C0623] cursor-pointer transition-all transform scale-105";
@@ -1039,7 +1039,7 @@
             setTimeout(() => {
                 activeContent.classList.add('active');
                 window.dispatchEvent(new Event('resize'));
-            },150);
+            }, 150);
         }
 
         /* // Hacer Scroll Suave al Contenedor si el usuario hizo clic*/
