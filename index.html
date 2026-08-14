@@ -918,14 +918,8 @@
     </footer>
 
     <script>
-    // Inicializar íconos de manera segura
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-
-    // 1. SISTEMA DE PESTAÑAS MEJORADO Y CORREGIDO
+    // 1. SISTEMA DE PESTAÑAS
     function showTab(tabIndex, doScroll = false) {
-        // Resetear botones manteniendo sus clases funcionales completas
         for (let i = 1; i <= 8; i++) {
             const btn = document.getElementById('btn-inf-' + i);
             if (btn) {
@@ -933,13 +927,11 @@
             }
         }
 
-        // Iluminar el botón activo 
         const activeBtn = document.getElementById('btn-inf-' + tabIndex);
         if (activeBtn) {
             activeBtn.className = "tab-menu-btn w-full text-left flex gap-4 items-start bg-gray-50 p-4 rounded-xl shadow-inner border-2 border-[#9C0623] cursor-pointer transition-all transform scale-105";
         }
 
-        // Ocultar Contenidos y Remover clases para evitar conflictos de Tailwind
         for (let i = 1; i <= 8; i++) {
             const content = document.getElementById('tab-content-' + i);
             if (content) {
@@ -948,27 +940,20 @@
             }
         }
 
-        // Mostrar nuevo contenido inmediatamente (Sin timeouts para evitar problemas con librerias)
         const activeContent = document.getElementById('tab-content-' + tabIndex);
         if (activeContent) {
             activeContent.classList.remove('hidden');
             activeContent.classList.add('block', 'active');
-            // Disparar redimensionado leve para que los gráficos tomen su tamaño real
+            
             setTimeout(() => { 
-    // Redimensionar gráficos de Chart.js
-    window.dispatchEvent(new Event('resize')); 
-    
-    // Redimensionar Plotly si la pestaña seleccionada es la 2 (donde está el Sankey)
-    if (tabIndex === 2 && typeof Plotly !== 'undefined') {
-        const divSankey = document.getElementById('graficoSankey');
-        if (divSankey) {
-            Plotly.Plots.resize(divSankey);
-        }
-    }
-}, 50);
+                window.dispatchEvent(new Event('resize')); 
+                if (tabIndex === 2 && typeof Plotly !== 'undefined') {
+                    const divSankey = document.getElementById('graficoSankey');
+                    if (divSankey) Plotly.Plots.resize(divSankey);
+                }
+            }, 50);
         }
 
-        // Hacer Scroll Suave con validación de existencia del ancla
         if(doScroll) {
             const anchor = document.getElementById('contenido-informes');
             if (anchor) {
@@ -985,10 +970,14 @@
         }
     }
 
-    // -- 2. ANIMACIÓN AUTOMÁTICA BANNER U-N-L-E-M-A --
+    // -- VARIABLES GLOBALES DE ANIMACIONES --
     let currentLemaIndex = 0;
-    const lemaBoxes = document.querySelectorAll('.lema-box');
+    let lemaBoxes = [];
     let lemaTimer;
+
+    let currentCreditIndex = 0;
+    let creditCards = [];
+    let creditTimer;
 
     function animateLema() {
         if(lemaBoxes.length === 0) return;
@@ -1007,11 +996,6 @@
         lemaBoxes.forEach(box => box.classList.remove('active-lema'));
     }
 
-    // -- 3. ANIMACIÓN AUTOMÁTICA DE CRÉDITOS --
-    let currentCreditIndex = 0;
-    const creditCards = document.querySelectorAll('.credit-card');
-    let creditTimer;
-
     function animateCredits() {
         if(creditCards.length === 0) return;
         creditCards.forEach(card => card.classList.remove('active-credit'));
@@ -1029,195 +1013,190 @@
         creditCards.forEach(card => card.classList.remove('active-credit'));
     }
 
-   //INFORME #2
+    // -- VARIABLES DE CARRUSELES Y GRÁFICO GLOBAL --
+    let currentRedaiIndex = 0; 
+    const totalRedaiSlides = 10; 
+    let redaiTimer;
 
+    let currentUnlemaIndex = 0; 
+    const totalUnlemaSlides = 8; 
+    let unlemaTimer;
 
-        // -- 4. CARRUSELES FOTOGRÁFICOS Y GRÁFICOS (DOM Content Loaded) --
-let currentRedaiIndex = 0; const totalRedaiSlides = 10; let redaiTimer;
-let currentUnlemaIndex = 0; const totalUnlemaSlides = 8; let unlemaTimer;
-let graficoDinamicoInstance = null; // Variable global para guardar la instancia del nuevo gráfico
+    let graficoDinamicoInstance = null; 
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Inicializar Pestaña y Banner
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    // ==============================================================
+    // INICIALIZACIÓN DEL DOM
+    // ==============================================================
+    document.addEventListener("DOMContentLoaded", function() {
+        // Única llamada a Lucide segura
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
 
-    // Uso de Try-Catch para asegurar que si un gráfico falla, los carruseles sigan funcionando
-    try {
-        const ctxTrayectorias = document.getElementById('graficoTrayectorias');
-        if (ctxTrayectorias) {
-            new Chart(ctxTrayectorias, {
-                type: 'pie',
-                data: {
-                    labels: ['Trabajar', 'Estudiar', 'Emprender'],
-                    datasets: [{
-                        data: [63.6, 31.4, 5.0],
-                        counts: [332, 164, 26],
-                        backgroundColor: ['#F15A5A', '#F29B9B', '#9D0A2C'],
-                        borderWidth: 3,
-                        borderColor: '#ffffff',
-                        hoverOffset: 12
-                    }]
-                },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                            labels: { font: { family: "'Montserrat', sans-serif", size: 13, weight: '500' }, color: '#374151', padding: 20, usePointStyle: true, pointStyle: 'circle' }
-                        },
-                        tooltip: {
-                            backgroundColor: 'rgba(17, 24, 39, 0.9)', padding: 14, titleFont: { family: "'Montserrat', sans-serif", size: 14, weight: 'bold' }, bodyFont: { family: "'Montserrat', sans-serif", size: 13 }, cornerRadius: 8,
-                            callbacks: {
-                                label: function(context) {
-                                    const label = context.label || '';
-                                    const percentage = context.raw || 0;
-                                    const count = context.dataset.counts ? context.dataset.counts[context.dataIndex] : 0;
-                                    return ` ${label}: ${percentage}% (${count} estudiantes)`;
+        // Asignación de variables del DOM que antes estaban afuera
+        lemaBoxes = document.querySelectorAll('.lema-box');
+        creditCards = document.querySelectorAll('.credit-card');
+
+        try {
+            // GRÁFICO 1
+            const ctxTrayectorias = document.getElementById('graficoTrayectorias');
+            if (ctxTrayectorias) {
+                new Chart(ctxTrayectorias, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Trabajar', 'Estudiar', 'Emprender'],
+                        datasets: [{
+                            data: [63.6, 31.4, 5.0], counts: [332, 164, 26], backgroundColor: ['#F15A5A', '#F29B9B', '#9D0A2C'], borderWidth: 3, borderColor: '#ffffff', hoverOffset: 12
+                        }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'right', labels: { font: { family: "'Montserrat', sans-serif", size: 13, weight: '500' }, color: '#374151', padding: 20, usePointStyle: true, pointStyle: 'circle' } },
+                            tooltip: {
+                                backgroundColor: 'rgba(17, 24, 39, 0.9)', padding: 14, titleFont: { family: "'Montserrat', sans-serif", size: 14, weight: 'bold' }, bodyFont: { family: "'Montserrat', sans-serif", size: 13 }, cornerRadius: 8,
+                                callbacks: {
+                                    label: function(context) {
+                                        const label = context.label || '';
+                                        const percentage = context.raw || 0;
+                                        const count = context.dataset.counts ? context.dataset.counts[context.dataIndex] : 0;
+                                        return ` ${label}: ${percentage}% (${count} estudiantes)`;
+                                    }
                                 }
                             }
                         }
                     }
-                }
-            });
-        }
+                });
+            }
 
-        const ctxFacultades = document.getElementById('graficoFacultades');
-        if (ctxFacultades) {
-            new Chart(ctxFacultades, {
-                type: 'bar',
-                data: {
-                    labels: ['Artes', 'Ciencias', 'C. Agrarias', 'C. Económicas', 'C. Humanas', 'Derecho, C.P. y S.', 'Enfermería', 'Ingeniería', 'Medicina', 'Med. Veterinaria y Z.', 'Odontología'],
-                    datasets: [
-                        { label: 'Trabajar', data: [52.1, 44.4, 84.6, 72.6, 56.2, 67.6, 64.7, 74.0, 69.2, 66.7, 78.6], counts: [25, 32, 11, 53, 54, 25, 11, 77, 27, 6, 11], backgroundColor: '#F15A5A', borderWidth: 1, borderColor: '#ffffff' },
-                        { label: 'Estudiar', data: [35.4, 54.2, 7.7, 21.9, 40.6, 29.7, 35.3, 21.1, 23.1, 11.1, 21.4], counts: [17, 39, 1, 16, 39, 11, 6, 22, 9, 1, 3], backgroundColor: '#F29B9B', borderWidth: 1, borderColor: '#ffffff' },
-                        { label: 'Emprender', data: [12.5, 1.4, 7.7, 5.5, 3.1, 2.7, 0.0, 4.8, 7.7, 22.2, 0.0], counts: [6, 1, 1, 4, 3, 1, 0, 5, 3, 2, 0], backgroundColor: '#9D0A2C', borderWidth: 1, borderColor: '#ffffff' }
-                    ]
-                },
-                options: {
+            // GRÁFICO 2
+            const ctxFacultades = document.getElementById('graficoFacultades');
+            if (ctxFacultades) {
+                new Chart(ctxFacultades, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Artes', 'Ciencias', 'C. Agrarias', 'C. Económicas', 'C. Humanas', 'Derecho, C.P. y S.', 'Enfermería', 'Ingeniería', 'Medicina', 'Med. Veterinaria y Z.', 'Odontología'],
+                        datasets: [
+                            { label: 'Trabajar', data: [52.1, 44.4, 84.6, 72.6, 56.2, 67.6, 64.7, 74.0, 69.2, 66.7, 78.6], counts: [25, 32, 11, 53, 54, 25, 11, 77, 27, 6, 11], backgroundColor: '#F15A5A', borderWidth: 1, borderColor: '#ffffff' },
+                            { label: 'Estudiar', data: [35.4, 54.2, 7.7, 21.9, 40.6, 29.7, 35.3, 21.1, 23.1, 11.1, 21.4], counts: [17, 39, 1, 16, 39, 11, 6, 22, 9, 1, 3], backgroundColor: '#F29B9B', borderWidth: 1, borderColor: '#ffffff' },
+                            { label: 'Emprender', data: [12.5, 1.4, 7.7, 5.5, 3.1, 2.7, 0.0, 4.8, 7.7, 22.2, 0.0], counts: [6, 1, 1, 4, 3, 1, 0, 5, 3, 2, 0], backgroundColor: '#9D0A2C', borderWidth: 1, borderColor: '#ffffff' }
+                        ]
+                    },
+                    options: {
+                        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                        scales: { x: { stacked: true, max: 100, ticks: { callback: function(value) { return value + '%'; }, font: { size: 11 } }, grid: { color: '#f3f4f6' } }, y: { stacked: true, ticks: { font: { size: 12, weight: '500' } }, grid: { display: false } } },
+                        plugins: { legend: { position: 'top', labels: { font: { size: 12 }, usePointStyle: true, padding: 20 } }, tooltip: { backgroundColor: 'rgba(17, 24, 39, 0.9)', padding: 12, cornerRadius: 8, callbacks: { label: function(context) { const label = context.dataset.label; const percentage = context.raw; const count = context.dataset.counts ? context.dataset.counts[context.dataIndex] : 0; if (count === 0) { return ` ${label}: 0% (Ningún estudiante)`; } const textoEstudiantes = count === 1 ? 'estudiante' : 'estudiantes'; return ` ${label}: ${percentage}% (${count} ${textoEstudiantes})`; } } } }
+                    }
+                });
+            }
+
+            // GRÁFICO SANKEY
+            const divSankey = document.getElementById('graficoSankey');
+            if (divSankey && typeof Plotly !== 'undefined') {
+                const data = [{
+                    type: "sankey", arrangement: "snap",
+                    node: { 
+                        pad: 20, thickness: 22, 
+                        line: { color: "rgba(0,0,0,0.1)", width: 0.5 }, 
+                        label: ["Jóvenes en edad de trabajar<br><b>11,1 M</b>", "Fuerza de trabajo<br><b>6,1 M</b>", "Fuera de la fuerza de trabajo<br><b>5,0 M</b>", "Ocupados<br><b>5,2 M</b>", "Desocupados<br><b>0,907 M</b>", "Ni estudian ni trabajan (NINIs)<br><b>2,38 M</b>", "Estudian o actividades del hogar<br><b>2,62 M</b>"], 
+                        color: ['#F25E5E', '#F58A8A', '#D95C5C', '#F2B6B6', '#BF7171', '#E88B6D', '#A64D4D'],
+                        hovertemplate: "%{label}<extra></extra>"
+                    },
+                    link: { 
+                        source: [0, 0, 1, 1, 2, 2], target: [1, 2, 3, 4, 5, 6], value: [6.10, 5.00, 5.20, 0.907, 2.38, 2.62], 
+                        color: ['rgba(242,94,94,0.25)', 'rgba(245,138,138,0.25)', 'rgba(217,92,92,0.25)', 'rgba(242,182,182,0.35)', 'rgba(191,113,113,0.35)', 'rgba(232,139,109,0.35)'],
+                        hovertemplate: "%{value} Millones<extra></extra>"
+                    }
+                }];
+                const layout = { font: { family: 'Montserrat, sans-serif', size: 10, color: '#374151' }, margin: { l: 5, r: 5, t: 15, b: 15 }, hovermode: 'x' };
+                const config = { responsive: true, displayModeBar: false };
+                Plotly.newPlot('graficoSankey', data, layout, config);
+            }
+
+            // GRÁFICO DINÁMICO DIFERENCIAL
+            const ctxDinamico = document.getElementById('graficoDinamicoDiferencial');
+            if (ctxDinamico) {
+                const colorTrabajar = '#c00022'; 
+                const colorEstudiar = '#ec4e53';
+                const colorEmprender = '#f3c1a8'; 
+
+                window.datosDiferencial = {
+                    genero: {
+                        labels: ['Femenino', 'Masculino', 'No binario', 'Prefiero no decirlo'],
+                        datasets: [
+                            { label: 'Trabajar', data: [65.7, 62.5, 33.3, 80.0], counts: [153, 173, 2, 4], backgroundColor: colorTrabajar },
+                            { label: 'Estudiar', data: [31.3, 31.0, 50.0, 20.0], counts: [73, 86, 3, 1], backgroundColor: colorEstudiar },
+                            { label: 'Emprender', data: [3.0, 6.5, 16.7, 0.0], counts: [7, 18, 1, 0], backgroundColor: colorEmprender }
+                        ]
+                    },
+                    admision: {
+                        labels: ['Regular', 'PAES', 'PEAMA'],
+                        datasets: [
+                            { label: 'Trabajar', data: [63.1, 65.5, 70.4], counts: [294, 19, 19], backgroundColor: colorTrabajar },
+                            { label: 'Estudiar', data: [31.8, 34.5, 22.2], counts: [148, 10, 6], backgroundColor: colorEstudiar },
+                            { label: 'Emprender', data: [5.2, 0.0, 7.4], counts: [24, 0, 2], backgroundColor: colorEmprender }
+                        ]
+                    },
+                    enfoque: {
+                        labels: ['Ninguna', 'Discapacidad', 'Desplazamiento', 'Pobreza extrema', 'LGBTIQ+', 'Campesina', 'Indígena', 'Víctimas del conflicto', 'Negra/Afro/Raizal'],
+                        datasets: [
+                            { label: 'Trabajar', data: [66.0, 50.0, 60.0, 50.0, 54.3, 46.1, 58.3, 87.5, 66.7], counts: [252, 4, 3, 2, 51, 6, 7, 14, 10], backgroundColor: colorTrabajar },
+                            { label: 'Estudiar', data: [28.5, 37.5, 40.0, 50.0, 41.5, 53.9, 33.3, 12.5, 33.3], counts: [109, 3, 2, 2, 39, 7, 4, 2, 5], backgroundColor: colorEstudiar },
+                            { label: 'Emprender', data: [5.5, 12.5, 0.0, 0.0, 4.3, 0.0, 8.3, 0.0, 0.0], counts: [21, 1, 0, 0, 4, 0, 1, 0, 0], backgroundColor: colorEmprender }
+                        ]
+                    }
+                };
+
+                const optionsBarrasApiladas = {
                     indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-                    scales: { x: { stacked: true, max: 100, ticks: { callback: function(value) { return value + '%'; }, font: { size: 11 } }, grid: { color: '#f3f4f6' } }, y: { stacked: true, ticks: { font: { size: 12, weight: '500' } }, grid: { display: false } } },
-                    plugins: { legend: { position: 'top', labels: { font: { size: 12 }, usePointStyle: true, padding: 20 } }, tooltip: { backgroundColor: 'rgba(17, 24, 39, 0.9)', padding: 12, cornerRadius: 8, callbacks: { label: function(context) { const label = context.dataset.label; const percentage = context.raw; const count = context.dataset.counts ? context.dataset.counts[context.dataIndex] : 0; if (count === 0) { return ` ${label}: 0% (Ningún estudiante)`; } const textoEstudiantes = count === 1 ? 'estudiante' : 'estudiantes'; return ` ${label}: ${percentage}% (${count} ${textoEstudiantes})`; } } } }
-                }
-            });
-        }
-
-        const divSankey = document.getElementById('graficoSankey');
-        if (divSankey && typeof Plotly !== 'undefined') {
-            const data = [{
-                type: "sankey", arrangement: "snap",
-                node: { 
-                    pad: 20, thickness: 22, 
-                    line: { color: "rgba(0,0,0,0.1)", width: 0.5 }, 
-                    label: ["Jóvenes en edad de trabajar<br><b>11,1 M</b>", "Fuerza de trabajo<br><b>6,1 M</b>", "Fuera de la fuerza de trabajo<br><b>5,0 M</b>", "Ocupados<br><b>5,2 M</b>", "Desocupados<br><b>0,907 M</b>", "Ni estudian ni trabajan (NINIs)<br><b>2,38 M</b>", "Estudian o actividades del hogar<br><b>2,62 M</b>"], 
-                    color: ['#F25E5E', '#F58A8A', '#D95C5C', '#F2B6B6', '#BF7171', '#E88B6D', '#A64D4D'],
-                    hovertemplate: "%{label}<extra></extra>" // Oculta source/target en nodos
-                },
-                link: { 
-                    source: [0, 0, 1, 1, 2, 2], 
-                    target: [1, 2, 3, 4, 5, 6], 
-                    value: [6.10, 5.00, 5.20, 0.907, 2.38, 2.62], 
-                    color: ['rgba(242,94,94,0.25)', 'rgba(245,138,138,0.25)', 'rgba(217,92,92,0.25)', 'rgba(242,182,182,0.35)', 'rgba(191,113,113,0.35)', 'rgba(232,139,109,0.35)'],
-                    hovertemplate: "%{value} Millones<extra></extra>" // Oculta el default de source -> target
-                }
-            }];
-            const layout = { font: { family: 'Montserrat, sans-serif', size: 10, color: '#374151' }, margin: { l: 5, r: 5, t: 15, b: 15 }, hovermode: 'x' };
-            const config = { responsive: true, displayModeBar: false };
-            Plotly.newPlot('graficoSankey', data, layout, config);
-        }
-
-        // ==========================================
-        // LÓGICA DEL NUEVO GRÁFICO DINÁMICO
-        // ==========================================
-        const ctxDinamico = document.getElementById('graficoDinamicoDiferencial');
-        if (ctxDinamico) {
-            // Paleta del proyecto
-            const colorTrabajar = '#c00022'; 
-            const colorEstudiar = '#ec4e53';
-            const colorEmprender = '#f3c1a8'; 
-
-            // Datos por categoría
-            window.datosDiferencial = {
-                genero: {
-                    labels: ['Femenino', 'Masculino', 'No binario', 'Prefiero no decirlo'],
-                    datasets: [
-                        { label: 'Trabajar', data: [65.7, 62.5, 33.3, 80.0], counts: [153, 173, 2, 4], backgroundColor: colorTrabajar },
-                        { label: 'Estudiar', data: [31.3, 31.0, 50.0, 20.0], counts: [73, 86, 3, 1], backgroundColor: colorEstudiar },
-                        { label: 'Emprender', data: [3.0, 6.5, 16.7, 0.0], counts: [7, 18, 1, 0], backgroundColor: colorEmprender }
-                    ]
-                },
-                admision: {
-                    labels: ['Regular', 'PAES', 'PEAMA'],
-                    datasets: [
-                        { label: 'Trabajar', data: [63.1, 65.5, 70.4], counts: [294, 19, 19], backgroundColor: colorTrabajar },
-                        { label: 'Estudiar', data: [31.8, 34.5, 22.2], counts: [148, 10, 6], backgroundColor: colorEstudiar },
-                        { label: 'Emprender', data: [5.2, 0.0, 7.4], counts: [24, 0, 2], backgroundColor: colorEmprender }
-                    ]
-                },
-                enfoque: {
-                    labels: ['Ninguna', 'Discapacidad', 'Desplazamiento', 'Pobreza extrema', 'LGBTIQ+', 'Campesina', 'Indígena', 'Víctimas del conflicto', 'Negra/Afro/Raizal'],
-                    datasets: [
-                        { label: 'Trabajar', data: [66.0, 50.0, 60.0, 50.0, 54.3, 46.1, 58.3, 87.5, 66.7], counts: [252, 4, 3, 2, 51, 6, 7, 14, 10], backgroundColor: colorTrabajar },
-                        { label: 'Estudiar', data: [28.5, 37.5, 40.0, 50.0, 41.5, 53.9, 33.3, 12.5, 33.3], counts: [109, 3, 2, 2, 39, 7, 4, 2, 5], backgroundColor: colorEstudiar },
-                        { label: 'Emprender', data: [5.5, 12.5, 0.0, 0.0, 4.3, 0.0, 8.3, 0.0, 0.0], counts: [21, 1, 0, 0, 4, 0, 1, 0, 0], backgroundColor: colorEmprender }
-                    ]
-                }
-            };
-
-            const optionsBarrasApiladas = {
-                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-                scales: { 
-                    x: { stacked: true, max: 100, ticks: { callback: v => v + '%', font: { size: 12 } }, grid: { color: '#f3f4f6' } }, 
-                    y: { stacked: true, ticks: { font: { size: 12, weight: '500' } }, grid: { display: false } } 
-                },
-                plugins: { 
-                    legend: { position: 'top', labels: { usePointStyle: true, padding: 20, font: { size: 13 } } }, 
-                    tooltip: { 
-                        backgroundColor: 'rgba(17,24,39,0.9)', padding: 14, cornerRadius: 8, titleFont: { size: 13 }, bodyFont: { size: 13 },
-                        callbacks: { 
-                            label: function(ctx) { 
-                                const val = Number(ctx.raw).toFixed(1); 
-                                const count = ctx.dataset.counts ? ctx.dataset.counts[ctx.dataIndex] : 0; 
-                                return ` ${ctx.dataset.label}: ${val}% (${count} personas)`; 
+                    scales: { 
+                        x: { stacked: true, max: 100, ticks: { callback: v => v + '%', font: { size: 12 } }, grid: { color: '#f3f4f6' } }, 
+                        y: { stacked: true, ticks: { font: { size: 12, weight: '500' } }, grid: { display: false } } 
+                    },
+                    plugins: { 
+                        legend: { position: 'top', labels: { usePointStyle: true, padding: 20, font: { size: 13 } } }, 
+                        tooltip: { 
+                            backgroundColor: 'rgba(17,24,39,0.9)', padding: 14, cornerRadius: 8, titleFont: { size: 13 }, bodyFont: { size: 13 },
+                            callbacks: { 
+                                label: function(ctx) { 
+                                    const val = Number(ctx.raw).toFixed(1); 
+                                    const count = ctx.dataset.counts ? ctx.dataset.counts[ctx.dataIndex] : 0; 
+                                    return ` ${ctx.dataset.label}: ${val}% (${count} personas)`; 
+                                } 
                             } 
                         } 
-                    } 
+                    }
+                };
+
+                graficoDinamicoInstance = new Chart(ctxDinamico, {
+                    type: 'bar',
+                    data: window.datosDiferencial['genero'],
+                    options: optionsBarrasApiladas
+                });
+
+                window.cambiarFiltroDiferencial = function(categoria) {
+                    if(!graficoDinamicoInstance || !window.datosDiferencial[categoria]) return;
+
+                    graficoDinamicoInstance.data = window.datosDiferencial[categoria];
+                    graficoDinamicoInstance.update();
+
+                    const botones = ['genero', 'admision', 'enfoque'];
+                    botones.forEach(btn => {
+                        const elemento = document.getElementById(`btn-${btn}`);
+                        if(elemento) {
+                            if(btn === categoria) {
+                                elemento.classList.remove('text-gray-500');
+                                elemento.classList.add('bg-white', 'text-gray-900', 'shadow-sm', 'border', 'border-gray-200');
+                            } else {
+                                elemento.classList.remove('bg-white', 'text-gray-900', 'shadow-sm', 'border', 'border-gray-200');
+                                elemento.classList.add('text-gray-500');
+                            }
+                        }
+                    });
                 }
-            };
+            }
 
-            // Inicializar con la primera categoría (Género)
-            graficoDinamicoInstance = new Chart(ctxDinamico, {
-                type: 'bar',
-                data: window.datosDiferencial['genero'],
-                options: optionsBarrasApiladas
-            });
-
-// Función global para actualizar el gráfico desde los botones HTML
-window.cambiarFiltroDiferencial = function(categoria) {
-    if(!graficoDinamicoInstance) return;
-
-    // Actualizar datos del gráfico
-    graficoDinamicoInstance.data = window.datosDiferencial[categoria];
-    graficoDinamicoInstance.update();
-
-    // Actualizar estilos de los botones (simulando "active")
-    const botones = ['genero', 'admision', 'enfoque'];
-    botones.forEach(btn => {
-        const elemento = document.getElementById(`btn-${btn}`);
-        if(btn === categoria) {
-            elemento.classList.remove('text-gray-500');
-            elemento.classList.add('bg-white', 'text-gray-900', 'shadow-sm', 'border', 'border-gray-200');
-        } else {
-            elemento.classList.remove('bg-white', 'text-gray-900', 'shadow-sm', 'border', 'border-gray-200');
-            elemento.classList.add('text-gray-500');
-        }
-    });
-}
-
-        
-            
-            // GRÁFICOS INFORME #03
+            // GRÁFICO MOTIVACIONES
             const datosMotivaciones = {
                 laboral: { labels: ['Seguridad económica', 'Experiencia práctica', 'Preparación para estudiar', 'Preparación para emprender', 'Otras (Desconocimiento, familia)'], data: [59.6, 31.6, 4.2, 1.5, 3.1], color: '#F15A5A', hover: '#D95151' },
                 academico: { labels: ['Motivaciones personales', 'Experiencia en el pregrado', 'Optar a un trabajo específico', 'Obtener una beca', 'Influencia familiar', 'Otras'], data: [35.9, 21.8, 15.4, 13.8, 10.6, 2.5], color: '#00A19B', hover: '#008F8A' },
@@ -1239,36 +1218,34 @@ window.cambiarFiltroDiferencial = function(categoria) {
             const btnMotEmprender = document.getElementById('btn-mot-emprender');
 
             function actualizarGraficoMotivaciones(tipo, btnActivo) {
-    if (!chartMotivaciones) return;
-    
-    // Restaurar todos los botones a su estado inactivo
-    [btnMotLaboral, btnMotAcademico, btnMotEmprender].forEach(btn => { 
-        if(btn) {
-            btn.className = "px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-gray-900 bg-transparent"; 
-            btn.style.backgroundColor = "transparent";
-            btn.style.color = ""; 
-        }
-    });
-    
-    // Aplicar estilos al botón activo usando estilos en línea
-    if (btnActivo) {
-        btnActivo.className = "px-5 py-2 rounded-full text-xs font-bold transition-all shadow-sm";
-        btnActivo.style.backgroundColor = datosMotivaciones[tipo].color;
-        btnActivo.style.color = "#ffffff";
-    }
-    
-    // Actualizar datos del gráfico
-    chartMotivaciones.data.labels = datosMotivaciones[tipo].labels;
-    chartMotivaciones.data.datasets[0].data = datosMotivaciones[tipo].data;
-    chartMotivaciones.data.datasets[0].backgroundColor = datosMotivaciones[tipo].color;
-    chartMotivaciones.data.datasets[0].hoverBackgroundColor = datosMotivaciones[tipo].hover;
-    chartMotivaciones.update();
-}
+                if (!chartMotivaciones) return;
+                
+                [btnMotLaboral, btnMotAcademico, btnMotEmprender].forEach(btn => { 
+                    if(btn) {
+                        btn.className = "px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-gray-900 bg-transparent"; 
+                        btn.style.backgroundColor = "transparent";
+                        btn.style.color = ""; 
+                    }
+                });
+                
+                if (btnActivo) {
+                    btnActivo.className = "px-5 py-2 rounded-full text-xs font-bold transition-all shadow-sm";
+                    btnActivo.style.backgroundColor = datosMotivaciones[tipo].color;
+                    btnActivo.style.color = "#ffffff";
+                }
+                
+                chartMotivaciones.data.labels = datosMotivaciones[tipo].labels;
+                chartMotivaciones.data.datasets[0].data = datosMotivaciones[tipo].data;
+                chartMotivaciones.data.datasets[0].backgroundColor = datosMotivaciones[tipo].color;
+                chartMotivaciones.data.datasets[0].hoverBackgroundColor = datosMotivaciones[tipo].hover;
+                chartMotivaciones.update();
+            }
 
             if(btnMotLaboral) btnMotLaboral.addEventListener('click', () => actualizarGraficoMotivaciones('laboral', btnMotLaboral));
             if(btnMotAcademico) btnMotAcademico.addEventListener('click', () => actualizarGraficoMotivaciones('academico', btnMotAcademico));
             if(btnMotEmprender) btnMotEmprender.addEventListener('click', () => actualizarGraficoMotivaciones('emprender', btnMotEmprender));
 
+            // GRÁFICO FACULTADES Y SELECTOR
             const datosFacultades = {
                 artes: { labels: ['Seguridad Económica (Trabajar)', 'Motivos Personales (Estudiar)', 'Indep. Laboral (Emprender)'], data: [68.0, 36.3, 33.3], texto: "En Artes, aunque la seguridad económica es vital para trabajar, resalta una fuerte inclinación hacia la independencia laboral al momento de emprender." },
                 odontologia: { labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)', 'Necesidad Laboral (Estudiar)'], data: [36.4, 45.5, 30.0], texto: "Un comportamiento atípico: Odontología es la única facultad donde la 'Experiencia Práctica' (45.5%) supera a la seguridad económica al decidir trabajar." },
@@ -1293,14 +1270,17 @@ window.cambiarFiltroDiferencial = function(categoria) {
                 if(selectFacultad) {
                     selectFacultad.addEventListener('change', function(e) {
                         const fac = e.target.value;
-                        chartFacultad.data.labels = datosFacultades[fac].labels;
-                        chartFacultad.data.datasets[0].data = datosFacultades[fac].data;
-                        chartFacultad.update();
-                        if(txtFacultad) txtFacultad.innerText = datosFacultades[fac].texto;
+                        if(datosFacultades[fac]) { // Validación de seguridad añadida
+                            chartFacultad.data.labels = datosFacultades[fac].labels;
+                            chartFacultad.data.datasets[0].data = datosFacultades[fac].data;
+                            chartFacultad.update();
+                            if(txtFacultad) txtFacultad.innerText = datosFacultades[fac].texto;
+                        }
                     });
                 }
             }
 
+            // GRÁFICO GÉNERO
             const dataGenero = {
                 femenino: { data: [63.7, 27.4, 34.7, 20.6], color: '#F15A5A' },
                 masculino: { data: [56.0, 35.4, 36.9, 22.8], color: '#00A19B' }
@@ -1345,6 +1325,7 @@ window.cambiarFiltroDiferencial = function(categoria) {
             console.error("Error al inicializar gráficos, pero el script principal continuará.", error);
         }
 
+        // --- INICIAR ANIMACIONES RE-POSICIONADAS ---
         if(lemaBoxes.length > 0) {
             lemaBoxes.forEach(box => {
                 box.addEventListener('mouseenter', stopLemaAnimation);
@@ -1363,38 +1344,52 @@ window.cambiarFiltroDiferencial = function(categoria) {
             startCreditAnimation();
         }
 
-        // Lógicas de Carruseles seguras
+        // --- LÓGICA DE CARRUSELES CORREGIDA ---
         const redaiCarousel = document.getElementById('redai-carousel');
         const unlemaCarousel = document.getElementById('unlema-carousel');
 
         window.updateRedaiCarousel = function() {
             if (redaiCarousel) redaiCarousel.style.transform = `translateX(-${currentRedaiIndex * 100}%)`;
         }
+        
         window.nextRedaiSlide = function() {
-            currentRedaiIndex = (currentRedaiIndex + 1) % totalRedaiSlides; updateRedaiCarousel(); resetRedaiTimer();
+            currentRedaiIndex = (currentRedaiIndex + 1) % totalRedaiSlides; 
+            window.updateRedaiCarousel(); 
         }
+        
         window.prevRedaiSlide = function() {
-            currentRedaiIndex = (currentRedaiIndex - 1 + totalRedaiSlides) % totalRedaiSlides; updateRedaiCarousel(); resetRedaiTimer();
+            currentRedaiIndex = (currentRedaiIndex - 1 + totalRedaiSlides) % totalRedaiSlides; 
+            window.updateRedaiCarousel(); 
+            window.resetRedaiTimer(); // Solo reiniciar si el usuario navega manual
         }
+        
         window.resetRedaiTimer = function() {
-            clearInterval(redaiTimer); redaiTimer = setInterval(nextRedaiSlide, 4000);
+            clearInterval(redaiTimer); 
+            redaiTimer = setInterval(window.nextRedaiSlide, 4000); // Referencia explícita corregida
         }
-        redaiTimer = setInterval(nextRedaiSlide, 4000);
+        redaiTimer = setInterval(window.nextRedaiSlide, 4000);
 
         window.updateUnlemaCarousel = function() {
             if (unlemaCarousel) unlemaCarousel.style.transform = `translateX(-${currentUnlemaIndex * 100}%)`;
         }
+        
         window.nextUnlemaSlide = function() {
-            currentUnlemaIndex = (currentUnlemaIndex + 1) % totalUnlemaSlides; updateUnlemaCarousel(); resetUnlemaTimer();
+            currentUnlemaIndex = (currentUnlemaIndex + 1) % totalUnlemaSlides; 
+            window.updateUnlemaCarousel(); 
         }
+        
         window.prevUnlemaSlide = function() {
-            currentUnlemaIndex = (currentUnlemaIndex - 1 + totalUnlemaSlides) % totalUnlemaSlides; updateUnlemaCarousel(); resetUnlemaTimer();
+            currentUnlemaIndex = (currentUnlemaIndex - 1 + totalUnlemaSlides) % totalUnlemaSlides; 
+            window.updateUnlemaCarousel(); 
+            window.resetUnlemaTimer(); 
         }
+        
         window.resetUnlemaTimer = function() {
-            clearInterval(unlemaTimer); unlemaTimer = setInterval(nextUnlemaSlide, 4000);
+            clearInterval(unlemaTimer); 
+            unlemaTimer = setInterval(window.nextUnlemaSlide, 4000);
         }
-        unlemaTimer = setInterval(nextUnlemaSlide, 4000); 
+        unlemaTimer = setInterval(window.nextUnlemaSlide, 4000); 
     });
-    </script>
+</script>
 </body>
 </html>
