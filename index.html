@@ -741,27 +741,35 @@
                 </div>
             </div>
 
-            <div class="mb-20">
-                <div class="flex items-center justify-center gap-3 mb-10">
-                    <span class="h-[1px] w-16 bg-gray-300"></span>
-                    <h3 class="text-2xl font-black text-gray-900 text-center">El pulso en las Facultades</h3>
-                    <span class="h-[1px] w-16 bg-gray-300"></span>
-                </div>
-                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-full md:w-1/3 flex flex-col gap-3">
-                        <label class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Elige una Facultad</label>
-                        <select id="selector-facultad" class="w-full bg-gray-50 border border-gray-200 text-gray-700 text-sm font-bold rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#c00022] transition-all cursor-pointer">
-                            <option value="artes">Artes</option>
-                            <option value="ciencias">Ciencias</option>
-                            <option value="odontologia">Odontología</option>
-                            <option value="veterinaria">Med. Veterinaria y Zootecnia</option>
-                            <option value="ingenieria">Ingeniería</option>
-                        </select>
-                        <div id="texto-facultad" class="mt-4 text-xs text-gray-600 text-justify font-light leading-relaxed border-l-2 border-[#fae6df] pl-4"></div>
-                    </div>
-                    <div class="w-full md:w-2/3 relative h-64"><canvas id="graficoFacultadHuella"></canvas></div>
-                </div>
-            </div>
+           <div class="mb-20">
+    <div class="flex items-center justify-center gap-3 mb-10">
+        <span class="h-[1px] w-16 bg-gray-300"></span>
+        <h3 class="text-2xl font-black text-gray-900 text-center">El pulso en las Facultades</h3>
+        <span class="h-[1px] w-16 bg-gray-300"></span>
+    </div>
+    <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-center">
+        <div class="w-full md:w-1/3 flex flex-col gap-3">
+            <label class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Elige una Facultad</label>
+            <select id="selector-facultad" class="w-full bg-gray-50 border border-gray-200 text-gray-700 text-sm font-bold rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#c00022] transition-all cursor-pointer">
+                <option value="artes">Facultad de Artes</option>
+                <option value="ciencias">Facultad de Ciencias</option>
+                <option value="ciencias_agrarias">Facultad de Ciencias Agrarias</option>
+                <option value="ciencias_economicas">Facultad de Ciencias Económicas</option>
+                <option value="ciencias_humanas">Facultad de Ciencias Humanas</option>
+                <option value="derecho">Facultad de Derecho, Ciencias Políticas y Sociales</option>
+                <option value="enfermeria">Facultad de Enfermería</option>
+                <option value="ingenieria">Facultad de Ingeniería</option>
+                <option value="medicina">Facultad de Medicina</option>
+                <option value="odontologia">Facultad de Odontología</option>
+                <option value="veterinaria">Facultad de Med. Veterinaria y Zootecnia</option>
+            </select>
+            <div id="texto-facultad" class="mt-4 text-xs text-gray-600 text-justify font-light leading-relaxed border-l-2 border-[#fae6df] pl-4"></div>
+        </div>
+        <div class="w-full md:w-2/3 relative h-64">
+            <canvas id="graficoFacultadHuella"></canvas>
+        </div>
+    </div>
+</div>
 
             <div class="mb-10">
                 <div class="bg-gradient-to-br from-[#FDFBF7] to-gray-50 rounded-3xl p-8 border border-gray-200/60 shadow-sm relative overflow-hidden">
@@ -1245,40 +1253,66 @@
             if(btnMotAcademico) btnMotAcademico.addEventListener('click', () => actualizarGraficoMotivaciones('academico', btnMotAcademico));
             if(btnMotEmprender) btnMotEmprender.addEventListener('click', () => actualizarGraficoMotivaciones('emprender', btnMotEmprender));
 
-            // GRÁFICO FACULTADES Y SELECTOR
-            const datosFacultades = {
-                artes: { labels: ['Seguridad Económica (Trabajar)', 'Motivos Personales (Estudiar)', 'Indep. Laboral (Emprender)'], data: [68.0, 36.3, 33.3], texto: "En Artes, aunque la seguridad económica es vital para trabajar, resalta una fuerte inclinación hacia la independencia laboral al momento de emprender." },
-                odontologia: { labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)', 'Necesidad Laboral (Estudiar)'], data: [36.4, 45.5, 30.0], texto: "Un comportamiento atípico: Odontología es la única facultad donde la 'Experiencia Práctica' (45.5%) supera a la seguridad económica al decidir trabajar." },
-                veterinaria: { labels: ['Seguridad Económica (Trabajar)', 'Influencia Familiar (Estudiar)', 'Necesidad Laboral (Estudiar)'], data: [66.7, 33.3, 33.3], texto: "En Veterinaria destaca un alto porcentaje (16.7%) que ve el trabajo como un puente para emprender, y un fuerte peso de la familia (33.3%) al decidir estudiar." },
-                ciencias: { labels: ['Seguridad Económica (Trabajar)', 'Motivos Personales (Estudiar)', 'Experiencia Pregrado (Estudiar)'], data: [56.2, 38.0, 20.6], texto: "Al ser la facultad con mayor inclinación hacia la continuidad académica, la experiencia en el pregrado y la vocación científica son sus principales motores." },
-                ingenieria: { labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)', 'Becas (Estudiar)'], data: [59.7, 35.0, 28.5], texto: "Para los ingenieros, la obtención de becas (28.5%) es un factor crítico y condicionante para decidir continuar con formación de posgrado." }
-            };
+// GRÁFICO FACULTADES Y SELECTOR
+const datosFacultades = {
+    artes: { labels: ['Seguridad Económica (Trabajar)', 'Motivos Personales (Estudiar)', 'Indep. Laboral (Emprender)'], data: [68.0, 36.3, 33.3], texto: "En Artes, aunque la seguridad económica es vital para trabajar, resalta una fuerte inclinación hacia la independencia laboral al momento de emprender." },
+    odontologia: { labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)', 'Necesidad Laboral (Estudiar)'], data: [36.4, 45.5, 30.0], texto: "Un comportamiento atípico: Odontología es la única facultad donde la 'Experiencia Práctica' (45.5%) supera a la seguridad económica al decidir trabajar." },
+    veterinaria: { labels: ['Seguridad Económica (Trabajar)', 'Influencia Familiar (Estudiar)', 'Necesidad Laboral (Estudiar)'], data: [66.7, 33.3, 33.3], texto: "En Veterinaria destaca un alto porcentaje (16.7%) que ve el trabajo como un puente para emprender, y un fuerte peso de la familia (33.3%) al decidir estudiar." },
+    ciencias: { labels: ['Seguridad Económica (Trabajar)', 'Motivos Personales (Estudiar)', 'Experiencia Pregrado (Estudiar)'], data: [56.2, 38.0, 20.6], texto: "Al ser la facultad con mayor inclinación hacia la continuidad académica, la experiencia en el pregrado y la vocación científica son sus principales motores." },
+    ingenieria: { labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)', 'Becas (Estudiar)'], data: [59.7, 35.0, 28.5], texto: "Para los ingenieros, la obtención de becas (28.5%) es un factor crítico y condicionante para decidir continuar con formación de posgrado." },
+    
+    // Facultades nuevas extraídas del gráfico
+    ciencias_agrarias: { labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)'], data: [54.5, 45.5], texto: "En Ciencias Agrarias, la motivación se divide fuertemente entre garantizar la seguridad económica (54.5%) y obtener experiencia práctica vital en el campo (45.5%)." },
+    ciencias_economicas: { labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)', 'Prep. para Estudios (Estudiar)'], data: [50.9, 39.6, 5.7], texto: "Para Ciencias Económicas, existe un balance estrecho entre asegurar ingresos (50.9%) y ganar experiencia laboral relevante para perfilar su carrera (39.6%)." },
+    ciencias_humanas: { labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)', 'Prep. para Estudios (Estudiar)'], data: [64.8, 14.8, 7.4], texto: "En Ciencias Humanas, la seguridad económica domina (64.8%), acompañada en menor medida por la búsqueda de experiencia y el deseo de seguir estudiando." },
+    derecho: { labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)', 'Prep. para Emprender (Emprender)'], data: [64.0, 32.0, 4.0], texto: "Los egresados de Derecho buscan mayormente seguridad económica (64.0%) y experiencia práctica en el ámbito jurídico (32.0%), con una leve intención de emprender." },
+    enfermeria: { labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)'], data: [63.6, 36.4], texto: "La Facultad de Enfermería muestra una clara tendencia práctica-laboral, donde la seguridad económica (63.6%) y la experiencia clínica (36.4%) son los motores principales." },
+    medicina: { labels: ['Seguridad Económica (Trabajar)', 'Experiencia Práctica (Trabajar)'], data: [66.7, 33.3], texto: "En Medicina, las prioridades están totalmente marcadas por la seguridad económica (66.7%) seguida de la necesidad inminente de afianzar experiencia práctica (33.3%)." }
+};
 
-            const ctxFacultad = document.getElementById('graficoFacultadHuella');
-            let chartFacultad;
-            if (ctxFacultad) {
-                chartFacultad = new Chart(ctxFacultad, {
-                    type: 'bar',
-                    data: { labels: datosFacultades.artes.labels, datasets: [{ label: 'Impacto (%)', data: datosFacultades.artes.data, backgroundColor: ['#F15A5A', '#00A19B', '#9C0623'], borderRadius: 8, barPercentage: 0.6 }] },
-                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 80, ticks: { callback: v => v + '%' } }, x: { ticks: { font: { size: 10 } } } } }
-                });
+const ctxFacultad = document.getElementById('graficoFacultadHuella');
+let chartFacultad;
 
-                const txtFacultad = document.getElementById('texto-facultad');
-                const selectFacultad = document.getElementById('selector-facultad');
-                
-                if(txtFacultad) txtFacultad.innerText = datosFacultades.artes.texto;
-                if(selectFacultad) {
-                    selectFacultad.addEventListener('change', function(e) {
-                        const fac = e.target.value;
-                        if(datosFacultades[fac]) { // Validación de seguridad añadida
-                            chartFacultad.data.labels = datosFacultades[fac].labels;
-                            chartFacultad.data.datasets[0].data = datosFacultades[fac].data;
-                            chartFacultad.update();
-                            if(txtFacultad) txtFacultad.innerText = datosFacultades[fac].texto;
-                        }
-                    });
-                }
+if (ctxFacultad) {
+    chartFacultad = new Chart(ctxFacultad, {
+        type: 'bar',
+        data: { 
+            labels: datosFacultades.artes.labels, 
+            datasets: [{ 
+                label: 'Impacto (%)', 
+                data: datosFacultades.artes.data, 
+                backgroundColor: ['#F15A5A', '#00A19B', '#9C0623'], 
+                borderRadius: 8, 
+                barPercentage: 0.6 
+            }] 
+        },
+        options: { 
+            responsive: true, 
+            maintainAspectRatio: false, 
+            plugins: { legend: { display: false } }, 
+            scales: { 
+                y: { beginAtZero: true, max: 80, ticks: { callback: v => v + '%' } }, 
+                x: { ticks: { font: { size: 10 } } } 
+            } 
+        }
+    });
+
+    const txtFacultad = document.getElementById('texto-facultad');
+    const selectFacultad = document.getElementById('selector-facultad');
+    
+    if(txtFacultad) txtFacultad.innerText = datosFacultades.artes.texto;
+    if(selectFacultad) {
+        selectFacultad.addEventListener('change', function(e) {
+            const fac = e.target.value;
+            if(datosFacultades[fac]) { // Validación de seguridad
+                chartFacultad.data.labels = datosFacultades[fac].labels;
+                chartFacultad.data.datasets[0].data = datosFacultades[fac].data;
+                chartFacultad.update();
+                if(txtFacultad) txtFacultad.innerText = datosFacultades[fac].texto;
             }
+        });
+    }
+}
 
             // GRÁFICO GÉNERO
             const dataGenero = {
