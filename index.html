@@ -827,11 +827,217 @@
             </div>            
         </div>
 
-        <div id="tab-content-4" class="tab-content hidden py-20 px-6 text-center max-w-xl mx-auto">
-            <div class="w-16 h-16 bg-lime-50 text-lime-600 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="graduation-cap" class="w-8 h-8"></i></div>
-            <h2 class="text-2xl font-black text-gray-900 mb-2">Informe #04: Desafíos percibidos frente al egreso</h2>
-            <p class="text-gray-500 font-light text-sm">El equipo unLEMA se encuentra consolidando la información. Muy pronto estará disponible.</p>
+           <!-- INFORME 4 -->
+
+        <div id="tab-content-4" class="tab-content hidden py-12 px-4 sm:px-6 w-full max-w-5xl mx-auto font-sans">
+    
+    <style>
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <div class="text-center mb-12">
+        <div class="w-20 h-20 bg-[#fae6df] text-[#c00022] rounded-full flex items-center justify-center mx-auto mb-4 shadow-md transition-transform hover:scale-110">
+            <i data-lucide="graduation-cap" class="w-10 h-10"></i>
         </div>
+        <h2 class="text-3xl md:text-4xl font-black text-[#000000] mb-4 tracking-tight">Informe #04: Desafíos percibidos frente al egreso</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
+            Basado en la experiencia de <strong>522 estudiantes</strong> de la Universidad Nacional, analizamos el nivel de preparación y las habilidades blandas necesarias para afrontar las tres grandes trayectorias después del pregrado.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-[#fae6df] rounded-2xl p-6 text-center shadow-sm border-b-4 border-[#ff3735] hover:-translate-y-2 transition-all duration-300">
+            <div class="flex justify-center mb-3 text-[#ec4e53]">
+                <i data-lucide="briefcase" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-lg font-bold text-[#000000]">Trayectoria Laboral</h3>
+            <p class="text-4xl font-black text-[#c00022] my-2">63.6%</p>
+            <p class="text-sm text-gray-700">De los estudiantes eligen esta ruta</p>
+        </div>
+        
+        <div class="bg-[#fae6df] rounded-2xl p-6 text-center shadow-sm border-b-4 border-[#f3c1a8] hover:-translate-y-2 transition-all duration-300">
+            <div class="flex justify-center mb-3 text-[#ec4e53]">
+                <i data-lucide="book-open" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-lg font-bold text-[#000000]">Continuar Estudios</h3>
+            <p class="text-4xl font-black text-[#c00022] my-2">31.4%</p>
+            <p class="text-sm text-gray-700">Buscan realizar un posgrado</p>
+        </div>
+
+        <div class="bg-[#fae6df] rounded-2xl p-6 text-center shadow-sm border-b-4 border-[#c00022] hover:-translate-y-2 transition-all duration-300">
+            <div class="flex justify-center mb-3 text-[#ec4e53]">
+                <i data-lucide="lightbulb" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-lg font-bold text-[#000000]">Emprendimiento</h3>
+            <p class="text-4xl font-black text-[#c00022] my-2">4.9%</p>
+            <p class="text-sm text-gray-700">Planean crear su propio negocio</p>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+        
+        <div class="flex flex-col sm:flex-row border-b border-gray-200 bg-gray-50">
+            <button onclick="mostrarTrayectoria('laboral')" id="btn-laboral" class="tab-informe-btn flex-1 py-4 px-6 font-bold text-lg text-center transition-colors duration-200 border-b-4 border-[#c00022] bg-[#fae6df] text-[#c00022]">
+                Mercado Laboral
+            </button>
+            <button onclick="mostrarTrayectoria('estudios')" id="btn-estudios" class="tab-informe-btn flex-1 py-4 px-6 font-bold text-lg text-center transition-colors duration-200 border-b-4 border-transparent text-gray-500 hover:bg-[#fae6df]/50">
+                Seguir Estudiando
+            </button>
+            <button onclick="mostrarTrayectoria('emprender')" id="btn-emprender" class="tab-informe-btn flex-1 py-4 px-6 font-bold text-lg text-center transition-colors duration-200 border-b-4 border-transparent text-gray-500 hover:bg-[#fae6df]/50">
+                Emprender
+            </button>
+        </div>
+        
+        <div class="p-6 md:p-10">
+            
+            <div id="content-laboral" class="tab-informe-content block fade-in">
+                <div class="flex flex-col md:flex-row gap-10 items-center">
+                    <div class="flex-1 w-full">
+                        <h3 class="text-2xl font-black text-[#000000] mb-4 flex items-center gap-2">
+                            <i data-lucide="target" class="text-[#ec4e53]"></i> Mayores Desafíos (Habilidades Blandas)
+                        </h3>
+                        <p class="text-gray-600 mb-6 text-sm">El networking se consolida como el principal reto a la hora de buscar empleo para nuestros egresados.</p>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-semibold text-[#000000]">Networking</span>
+                                <span class="text-sm font-bold text-[#c00022]">66.3%</span>
+                            </div>
+                            <div class="w-full bg-[#fae6df] rounded-full h-3">
+                                <div class="bg-[#ff3735] h-3 rounded-full" style="width: 66.3%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-semibold text-[#000000]">Innovación</span>
+                                <span class="text-sm font-bold text-[#c00022]">51.8%</span>
+                            </div>
+                            <div class="w-full bg-[#fae6df] rounded-full h-3">
+                                <div class="bg-[#ec4e53] h-3 rounded-full" style="width: 51.8%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-semibold text-[#000000]">Gestión de recursos</span>
+                                <span class="text-sm font-bold text-[#c00022]">50.9%</span>
+                            </div>
+                            <div class="w-full bg-[#fae6df] rounded-full h-3">
+                                <div class="bg-[#f3c1a8] h-3 rounded-full" style="width: 50.9%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-1/3 bg-[#fae6df]/40 rounded-2xl p-6 border border-[#f3c1a8] text-center">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-[#c00022] mx-auto mb-3"></i>
+                        <h4 class="text-[#000000] font-bold mb-1">Nivel de Preparación</h4>
+                        <div class="text-5xl font-black text-[#c00022] my-2">3 / 5</div>
+                        <p class="text-xs text-gray-600 uppercase font-bold tracking-wider mt-2">Nivel Intermedio</p>
+                        <p class="text-sm mt-3 text-gray-700">El 48.5% se considera en niveles altos (4-5) para insertarse al mercado laboral.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-estudios" class="tab-informe-content hidden fade-in">
+                <div class="flex flex-col md:flex-row gap-10 items-center">
+                    <div class="flex-1 w-full">
+                        <h3 class="text-2xl font-black text-[#000000] mb-4 flex items-center gap-2">
+                            <i data-lucide="users" class="text-[#ec4e53]"></i> Mayores Desafíos (Habilidades Blandas)
+                        </h3>
+                        <p class="text-gray-600 mb-6 text-sm">El trabajo conjunto y acoplarse a nuevos entornos son los retos que más inquietan a futuros posgraduados.</p>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-semibold text-[#000000]">Trabajo en equipo</span>
+                                <span class="text-sm font-bold text-[#c00022]">57.3%</span>
+                            </div>
+                            <div class="w-full bg-[#fae6df] rounded-full h-3">
+                                <div class="bg-[#ff3735] h-3 rounded-full" style="width: 57.3%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-semibold text-[#000000]">Adaptación al cambio</span>
+                                <span class="text-sm font-bold text-[#c00022]">57.3%</span>
+                            </div>
+                            <div class="w-full bg-[#fae6df] rounded-full h-3">
+                                <div class="bg-[#ec4e53] h-3 rounded-full" style="width: 57.3%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-semibold text-[#000000]">Comunicación asertiva</span>
+                                <span class="text-sm font-bold text-[#c00022]">54.9%</span>
+                            </div>
+                            <div class="w-full bg-[#fae6df] rounded-full h-3">
+                                <div class="bg-[#f3c1a8] h-3 rounded-full" style="width: 54.9%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-1/3 bg-[#fae6df]/40 rounded-2xl p-6 border border-[#f3c1a8] text-center">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-[#c00022] mx-auto mb-3"></i>
+                        <h4 class="text-[#000000] font-bold mb-1">Nivel de Preparación</h4>
+                        <div class="text-5xl font-black text-[#c00022] my-2">4 / 5</div>
+                        <p class="text-xs text-gray-600 uppercase font-bold tracking-wider mt-2">Nivel Alto</p>
+                        <p class="text-sm mt-3 text-gray-700">La trayectoria con mayor confianza: el 69.5% se considera altamente preparado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-emprender" class="tab-informe-content hidden fade-in">
+                <div class="flex flex-col md:flex-row gap-10 items-center">
+                    <div class="flex-1 w-full">
+                        <h3 class="text-2xl font-black text-[#000000] mb-4 flex items-center gap-2">
+                            <i data-lucide="rocket" class="text-[#ec4e53]"></i> Mayores Desafíos (Habilidades Blandas)
+                        </h3>
+                        <p class="text-gray-600 mb-6 text-sm">Gestionar recursos y lidiar con la crítica representan las verdaderas pruebas de fuego para el emprendedor.</p>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-semibold text-[#000000]">Gestión de recursos</span>
+                                <span class="text-sm font-bold text-[#c00022]">73.1%</span>
+                            </div>
+                            <div class="w-full bg-[#fae6df] rounded-full h-3">
+                                <div class="bg-[#ff3735] h-3 rounded-full" style="width: 73.1%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-semibold text-[#000000]">Networking</span>
+                                <span class="text-sm font-bold text-[#c00022]">57.7%</span>
+                            </div>
+                            <div class="w-full bg-[#fae6df] rounded-full h-3">
+                                <div class="bg-[#ec4e53] h-3 rounded-full" style="width: 57.7%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-semibold text-[#000000]">Apertura a la crítica</span>
+                                <span class="text-sm font-bold text-[#c00022]">53.9%</span>
+                            </div>
+                            <div class="w-full bg-[#fae6df] rounded-full h-3">
+                                <div class="bg-[#f3c1a8] h-3 rounded-full" style="width: 53.9%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-1/3 bg-[#fae6df]/40 rounded-2xl p-6 border border-[#f3c1a8] text-center">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-[#c00022] mx-auto mb-3"></i>
+                        <h4 class="text-[#000000] font-bold mb-1">Nivel de Preparación</h4>
+                        <div class="text-5xl font-black text-[#c00022] my-2">3 / 5</div>
+                        <p class="text-xs text-gray-600 uppercase font-bold tracking-wider mt-2">Nivel Intermedio</p>
+                        <p class="text-sm mt-3 text-gray-700">El 46.1% se sitúa en nivel intermedio, señalando una necesidad de apoyo institucional.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
         <div id="tab-content-5" class="tab-content hidden py-20 px-6 text-center max-w-xl mx-auto">
             <div class="w-16 h-16 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="alert-circle" class="w-8 h-8"></i></div>
             <h2 class="text-2xl font-black text-gray-900 mb-2">Informe #05: Miedos y preocupaciones frente al egreso.</h2>
@@ -1459,6 +1665,36 @@ if (ctxFacultad) {
         }
         unlemaTimer = setInterval(window.nextUnlemaSlide, 4000); 
     });
+
+        function mostrarTrayectoria(tabName) {
+        // 1. Ocultar todo el contenido de las pestañas
+        const contents = document.querySelectorAll('.tab-informe-content');
+        contents.forEach(content => {
+            content.classList.remove('block');
+            content.classList.add('hidden');
+        });
+
+        // 2. Restaurar los estilos inactivos de todos los botones
+        const buttons = document.querySelectorAll('.tab-informe-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('border-[#c00022]', 'bg-[#fae6df]', 'text-[#c00022]');
+            btn.classList.add('border-transparent', 'text-gray-500');
+        });
+
+        // 3. Mostrar el contenido seleccionado
+        document.getElementById('content-' + tabName).classList.remove('hidden');
+        document.getElementById('content-' + tabName).classList.add('block');
+
+        // 4. Aplicar estilos de "activo" al botón presionado
+        const activeBtn = document.getElementById('btn-' + tabName);
+        activeBtn.classList.remove('border-transparent', 'text-gray-500');
+        activeBtn.classList.add('border-[#c00022]', 'bg-[#fae6df]', 'text-[#c00022]');
+        
+        // Refrescar los iconos de Lucide por si se generaron dinámicamente
+        if(typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    }
 </script>
 </body>
 </html>
