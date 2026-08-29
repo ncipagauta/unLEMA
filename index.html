@@ -837,6 +837,11 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* Estilos integrados del Dashboard Interactivo */
+        .dashboard-card { background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); padding: 20px; border-top: 4px solid #c00022; }
+        .icon-active { color: #ff3735; }
+        .icon-inactive { color: #f3c1a8; }
+        
     </style>
 
     <div class="text-center mb-12">
@@ -1037,6 +1042,79 @@
             
         </div>
     </div>
+            <!-- INICIO: Dashboard Interactivo Chart.js Integrado -->
+    <div class="pt-6 border-t border-gray-200">
+        <header class="mb-8 text-center">
+            <h3 class="text-2xl font-bold text-[#c00022] mb-2">Análisis Interactivo de Resultados</h3>
+            <p class="text-gray-700">Exploración detallada de preparación, estudios, emprendimiento y brechas de género.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <!-- Gráfica 1: Falta de Preparación -->
+            <div class="dashboard-card">
+                <h4 class="text-lg font-bold text-[#c00022] mb-4"><i class="fa-solid fa-briefcase mr-2"></i>Falta de preparación laboral</h4>
+                <canvas id="chartPreparacion"></canvas>
+            </div>
+
+            <!-- Gráfica 2: Lugar de Estudios -->
+            <div class="dashboard-card">
+                <h4 class="text-lg font-bold text-[#c00022] mb-4"><i class="fa-solid fa-graduation-cap mr-2"></i>Lugar esperado para estudiar</h4>
+                <div class="relative h-64 w-full flex justify-center">
+                    <canvas id="chartEstudios"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Gráfica 3: Tiempo Emprendimiento -->
+            <div class="dashboard-card">
+                <h4 class="text-lg font-bold text-[#c00022] mb-4"><i class="fa-solid fa-lightbulb mr-2"></i>Expectativas de tiempo al emprender</h4>
+                <canvas id="chartEmprendimiento"></canvas>
+            </div>
+
+            <!-- Tarjeta 4: Pictograma Género -->
+            <div class="dashboard-card flex flex-col justify-between">
+                <div>
+                    <h4 class="text-lg font-bold text-[#c00022] mb-2"><i class="fa-solid fa-venus-mars mr-2"></i>Preparación percibida por Género</h4>
+                    <p class="text-sm text-gray-600 mb-6">La mediana revela diferencias claras: los hombres se perciben más preparados que las mujeres para el mundo laboral.</p>
+                </div>
+                
+                <div class="flex justify-around items-center mb-4">
+                    <!-- Femenino -->
+                    <div class="text-center p-4 bg-[#fae6df] rounded-lg w-2/5">
+                        <i class="fa-solid fa-person-dress text-5xl text-[#ec4e53] mb-3"></i>
+                        <h5 class="font-bold text-base">Mujeres</h5>
+                        <p class="text-xs font-semibold mb-2">Mediana: 3 / 5</p>
+                        <div class="text-lg">
+                            <i class="fa-solid fa-star icon-active"></i>
+                            <i class="fa-solid fa-star icon-active"></i>
+                            <i class="fa-solid fa-star icon-active"></i>
+                            <i class="fa-solid fa-star icon-inactive"></i>
+                            <i class="fa-solid fa-star icon-inactive"></i>
+                        </div>
+                    </div>
+
+                    <!-- Masculino -->
+                    <div class="text-center p-4 bg-[#f3c1a8] rounded-lg w-2/5">
+                        <i class="fa-solid fa-person text-5xl text-[#c00022] mb-3"></i>
+                        <h5 class="font-bold text-base">Hombres</h5>
+                        <p class="text-xs font-semibold mb-2">Mediana: 4 / 5</p>
+                        <div class="text-lg">
+                            <i class="fa-solid fa-star icon-active"></i>
+                            <i class="fa-solid fa-star icon-active"></i>
+                            <i class="fa-solid fa-star icon-active"></i>
+                            <i class="fa-solid fa-star icon-active"></i>
+                            <i class="fa-solid fa-star icon-inactive"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-center text-gray-500 mt-2">*Datos extraídos de la autopercepción en escala Likert (1 a 5).</p>
+            </div>
+        </div>
+    </div>
+    <!-- FIN: Dashboard Interactivo -->
+
+            
 </div>
         <div id="tab-content-5" class="tab-content hidden py-20 px-6 text-center max-w-xl mx-auto">
             <div class="w-16 h-16 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="alert-circle" class="w-8 h-8"></i></div>
@@ -1695,6 +1773,94 @@ if (ctxFacultad) {
             lucide.createIcons();
         }
     }
+
+        // Configuración de colores basados en tu paleta
+        const colors = {
+            darkred: '#c00022',
+            lightpink: '#fae6df',
+            peach: '#f3c1a8',
+            brightred: '#ff3735',
+            softred: '#ec4e53',
+            black: '#000000'
+        };
+
+        // 1. Gráfica: Falta de preparación (Barras Horizontales)
+        const ctxPrep = document.getElementById('chartPreparacion').getContext('2d');
+        new Chart(ctxPrep, {
+            type: 'bar',
+            data: {
+                labels: ['Vida Profesional (CV, LinkedIn)', 'Preparación Académica (Idiomas, Prog.)', 'Habilidades Blandas', 'Otros', 'Todas las anteriores'],
+                datasets: [{
+                    label: '% de Estudiantes',
+                    data: [58.91, 20.24, 17.82, 1.81, 1.21],
+                    backgroundColor: colors.softred,
+                    hoverBackgroundColor: colors.darkred,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y', // Hace la gráfica horizontal
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { beginAtZero: true, max: 70 }
+                }
+            }
+        });
+
+        // 2. Gráfica: Lugar para estudiar (Doughnut)
+        const ctxEstudios = document.getElementById('chartEstudios').getContext('2d');
+        new Chart(ctxEstudios, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'UNAL (51.8%)', 
+                    'Exterior Presencial (40.2%)', 
+                    'Colombia Otra Uni (6.1%)', 
+                    'Exterior Virtual (1.8%)'
+                ],
+                datasets: [{
+                    data: [51.83, 40.24, 6.10, 1.83],
+                    backgroundColor: [colors.darkred, colors.brightred, colors.softred, colors.peach],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right' }
+                }
+            }
+        });
+
+        // 3. Gráfica: Emprendimiento (Barras Verticales)
+        const ctxEmp = document.getElementById('chartEmprendimiento').getContext('2d');
+        new Chart(ctxEmp, {
+            type: 'bar',
+            data: {
+                labels: ['Menos de 4 hrs', '4 a 8 hrs', '8 a 12 hrs', 'Más de 12 hrs'],
+                datasets: [{
+                    label: '% de Estudiantes',
+                    data: [7.69, 46.15, 30.77, 15.38],
+                    backgroundColor: colors.brightred,
+                    hoverBackgroundColor: colors.darkred,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { beginAtZero: true, max: 60 }
+                }
+            }
+        });
 </script>
 </body>
 </html>
