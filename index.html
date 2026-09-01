@@ -1134,44 +1134,56 @@
     </div>        
 </div>
 
-        <!-- INFORME 5 -->
-        
-        <div id="tab-content-5" class="tab-content hidden py-16 px-6 text-center max-w-4xl mx-auto font-sans">
+        <div id="tab-content-5" class="tab-content hidden py-16 px-4 md:px-8 text-center max-w-5xl mx-auto font-sans">
     
-    <!-- Encabezado del Informe -->
+    <!-- ENCABEZADO -->
     <div class="w-20 h-20 bg-[#fae6df] text-[#c00022] rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-[#f3c1a8]">
         <i data-lucide="bar-chart-2" class="w-10 h-10"></i>
     </div>
     <h2 class="text-4xl font-black text-[#000000] mb-4 tracking-tight">Informe #05: Entre realidades y paradigmas</h2>
-    <p class="text-gray-500 font-medium mb-12 max-w-2xl mx-auto">Explora de manera interactiva los principales temores y expectativas de los estudiantes frente a su egreso, analizados desde múltiples perspectivas.</p>
+    <p class="text-gray-500 font-medium mb-16 max-w-3xl mx-auto text-lg">Explora de manera interactiva los principales temores y expectativas de los estudiantes frente a su egreso, analizados desde múltiples perspectivas.</p>
 
-    <!-- SECCIÓN 1: Infografía Dinámica (Top de Miedos) -->
+    <!-- SECCIÓN 1: El Podio de la Incertidumbre Laboral -->
+    <div class="mb-20 bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+        <h3 class="text-3xl font-black text-[#000000] mb-3">El Podio de la Incertidumbre Laboral</h3>
+        <p class="text-gray-500 mb-12 font-medium">Los tres mayores miedos al enfrentarse al mercado de trabajo (Alta preocupación).</p>
+        
+        <div class="flex items-end justify-center h-72 gap-2 md:gap-8 border-b-2 border-[#fae6df] pb-2 relative">
+            <!-- Plata (2do Lugar) -->
+            <div class="w-1/3 md:w-32 flex flex-col items-center">
+                <span class="text-2xl font-bold text-[#ff3735] mb-2 podio-val" data-target="47.6">0%</span>
+                <div class="w-full bg-[#ff3735] rounded-t-xl transition-all duration-[1500ms] ease-out h-0 opacity-90 hover:opacity-100" data-height="65%"></div>
+                <span class="mt-4 text-sm font-bold text-gray-600 text-center leading-tight">Salario<br>Bajo</span>
+            </div>
+            <!-- Oro (1er Lugar) -->
+            <div class="w-1/3 md:w-40 flex flex-col items-center relative z-10">
+                <div class="absolute -top-10 text-[#f3c1a8] animate-bounce"><i data-lucide="crown" class="w-8 h-8"></i></div>
+                <span class="text-4xl font-black text-[#c00022] mb-2 podio-val" data-target="56.0">0%</span>
+                <div class="w-full bg-[#c00022] rounded-t-xl shadow-2xl transition-all duration-[1500ms] ease-out h-0" data-height="95%"></div>
+                <span class="mt-4 text-base font-black text-[#000000] text-center leading-tight">Falta de<br>Experiencia</span>
+            </div>
+            <!-- Bronce (3er Lugar) -->
+            <div class="w-1/3 md:w-32 flex flex-col items-center">
+                <span class="text-xl font-bold text-[#ec4e53] mb-2 podio-val" data-target="46.7">0%</span>
+                <div class="w-full bg-[#ec4e53] rounded-t-xl transition-all duration-[1500ms] ease-out h-0 opacity-80 hover:opacity-100" data-height="55%"></div>
+                <span class="mt-4 text-sm font-bold text-gray-600 text-center leading-tight">Poca<br>Oferta</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 2: Infografía Dinámica (Top Académico y Emprendimiento) -->
     <div class="mb-20 text-left bg-white p-8 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden">
         <div class="absolute -right-16 -top-16 w-48 h-48 bg-[#fae6df] rounded-full opacity-50 z-0"></div>
-        <h3 class="text-2xl font-black text-[#c00022] mb-2 relative z-10">El Top de los Miedos Universitarios</h3>
-        <p class="text-gray-600 mb-8 relative z-10 text-sm">Porcentaje de estudiantes que reportan el nivel máximo de preocupación según su camino elegido.</p>
-        
+        <h3 class="text-2xl font-black text-[#c00022] mb-8 relative z-10">Otros Miedos Latentes</h3>
         <div class="space-y-8 relative z-10">
-            <!-- Trayectoria Laboral -->
-            <div>
-                <div class="flex justify-between mb-2 items-end">
-                    <span class="font-bold text-[#000000]">Mundo Laboral: <span class="font-normal">Falta de experiencia</span></span>
-                    <span class="text-2xl text-[#c00022] font-black tracking-tighter" id="val-laboral">0%</span>
-                </div>
-                <div class="w-full bg-[#fae6df] rounded-full h-5 shadow-inner">
-                    <div class="bg-[#c00022] h-5 rounded-full transition-all duration-1000 ease-out w-0 relative" data-target="56.0">
-                        <div class="absolute right-0 top-0 bottom-0 w-4 bg-white opacity-20 rounded-full animate-pulse"></div>
-                    </div>
-                </div>
-            </div>
             <!-- Trayectoria Académica -->
             <div>
                 <div class="flex justify-between mb-2 items-end">
-                    <span class="font-bold text-[#000000]">Posgrado: <span class="font-normal">Falta de recursos económicos</span></span>
-                    <span class="text-2xl text-[#ff3735] font-black tracking-tighter" id="val-academica">0%</span>
+                    <span class="font-bold text-[#000000]">Posgrado: <span class="font-normal text-gray-600">Falta de recursos económicos</span></span>
+                    <span class="text-2xl text-[#c00022] font-black tracking-tighter bar-val" data-target="76.2">0%</span>
                 </div>
                 <div class="w-full bg-[#fae6df] rounded-full h-5 shadow-inner">
-                    <div class="bg-[#ff3735] h-5 rounded-full transition-all duration-1000 ease-out w-0 relative" data-target="76.2">
+                    <div class="bg-[#c00022] h-5 rounded-full transition-all duration-[1500ms] ease-out w-0 relative progress-bar" data-width="76.2%">
                         <div class="absolute right-0 top-0 bottom-0 w-4 bg-white opacity-20 rounded-full animate-pulse"></div>
                     </div>
                 </div>
@@ -1179,11 +1191,11 @@
             <!-- Emprendimiento -->
             <div>
                 <div class="flex justify-between mb-2 items-end">
-                    <span class="font-bold text-[#000000]">Emprender: <span class="font-normal">Inseguridad del éxito</span></span>
-                    <span class="text-2xl text-[#ec4e53] font-black tracking-tighter" id="val-emprender">0%</span>
+                    <span class="font-bold text-[#000000]">Emprender: <span class="font-normal text-gray-600">Inseguridad del éxito</span></span>
+                    <span class="text-2xl text-[#ec4e53] font-black tracking-tighter bar-val" data-target="53.8">0%</span>
                 </div>
                 <div class="w-full bg-[#fae6df] rounded-full h-5 shadow-inner">
-                    <div class="bg-[#ec4e53] h-5 rounded-full transition-all duration-1000 ease-out w-0 relative" data-target="53.8">
+                    <div class="bg-[#ec4e53] h-5 rounded-full transition-all duration-[1500ms] ease-out w-0 relative progress-bar" data-width="53.8%">
                         <div class="absolute right-0 top-0 bottom-0 w-4 bg-white opacity-20 rounded-full animate-pulse"></div>
                     </div>
                 </div>
@@ -1191,79 +1203,143 @@
         </div>
     </div>
 
-    <!-- SECCIÓN 2: Interruptor Brecha de Género -->
-    <div class="mb-20 bg-[#fae6df] p-10 rounded-3xl shadow-xl relative">
-        <h3 class="text-3xl font-black text-[#000000] mb-3">La Incertidumbre tiene Género</h3>
-        <p class="text-[#c00022] mb-8 font-medium">Compara en tiempo real los niveles de alta preocupación.</p>
+    <!-- SECCIÓN 3: Lo que menos nos quita el sueño (Flip Cards) -->
+    <div class="mb-24">
+        <h3 class="text-3xl font-black text-[#000000] mb-3">Lo que menos nos quita el sueño</h3>
+        <p class="text-gray-500 mb-10 font-medium">Pasa el cursor sobre las tarjetas para desmitificar los miedos (Niveles más bajos de preocupación).</p>
         
-        <!-- Toggle Button -->
-        <div class="flex justify-center items-center space-x-6 mb-10">
-            <span class="text-xl font-black text-[#000000] transition-colors" id="label-mujeres">Mujeres</span>
-            <button id="gender-toggle" class="w-20 h-10 bg-[#c00022] rounded-full p-1 flex items-center transition-colors duration-300 shadow-inner focus:outline-none focus:ring-4 focus:ring-[#f3c1a8]">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Tarjeta 1 -->
+            <div class="group h-64 w-full [perspective:1000px] cursor-pointer">
+                <div class="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-lg rounded-2xl">
+                    <!-- Frente -->
+                    <div class="absolute inset-0 [backface-visibility:hidden] bg-[#fae6df] rounded-2xl p-6 flex flex-col items-center justify-center border-2 border-[#f3c1a8]">
+                        <i data-lucide="users" class="w-10 h-10 text-[#c00022] mb-4"></i>
+                        <h4 class="font-black text-xl text-[#000000] text-center">¿Falta de Diversidad e Inclusión en el trabajo?</h4>
+                    </div>
+                    <!-- Reverso -->
+                    <div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#000000] rounded-2xl p-6 flex flex-col items-center justify-center text-white">
+                        <span class="text-5xl font-black text-[#f3c1a8] mb-2">61.1%</span>
+                        <p class="text-center text-sm font-light">De los estudiantes no sienten preocupación por este factor (Nivel 1).</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Tarjeta 2 -->
+            <div class="group h-64 w-full [perspective:1000px] cursor-pointer">
+                <div class="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-lg rounded-2xl">
+                    <div class="absolute inset-0 [backface-visibility:hidden] bg-[#f3c1a8] rounded-2xl p-6 flex flex-col items-center justify-center border-2 border-[#fae6df]">
+                        <i data-lucide="lightbulb-off" class="w-10 h-10 text-[#c00022] mb-4"></i>
+                        <h4 class="font-black text-xl text-[#000000] text-center">¿Falta de conocimientos para emprender?</h4>
+                    </div>
+                    <div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#000000] rounded-2xl p-6 flex flex-col items-center justify-center text-white">
+                        <span class="text-5xl font-black text-[#fae6df] mb-2">53.8%</span>
+                        <p class="text-center text-sm font-light">Afirma tener poca o nula preocupación al respecto (Niveles 1 y 2).</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Tarjeta 3 -->
+            <div class="group h-64 w-full [perspective:1000px] cursor-pointer">
+                <div class="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-lg rounded-2xl">
+                    <div class="absolute inset-0 [backface-visibility:hidden] bg-[#fae6df] rounded-2xl p-6 flex flex-col items-center justify-center border-2 border-[#f3c1a8]">
+                        <i data-lucide="door-open" class="w-10 h-10 text-[#c00022] mb-4"></i>
+                        <h4 class="font-black text-xl text-[#000000] text-center">¿Miedo a desertar del posgrado?</h4>
+                    </div>
+                    <div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#000000] rounded-2xl p-6 flex flex-col items-center justify-center text-white">
+                        <span class="text-5xl font-black text-[#f3c1a8] mb-2">54.3%</span>
+                        <p class="text-center text-sm font-light">Tiene niveles muy bajos de preocupación frente a la deserción.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 4: Interruptor Brecha de Género -->
+    <div class="mb-24 bg-[#fae6df] p-8 md:p-12 rounded-3xl shadow-xl relative">
+        <h3 class="text-3xl font-black text-[#000000] mb-3">La Incertidumbre tiene Género</h3>
+        <p class="text-[#c00022] mb-10 font-medium">Compara en tiempo real los niveles de alta preocupación.</p>
+        
+        <div class="flex justify-center items-center space-x-6 mb-12">
+            <span class="text-xl font-black text-[#000000] transition-colors cursor-pointer" id="label-mujeres">Mujeres</span>
+            <button id="gender-toggle" class="w-20 h-10 bg-[#c00022] rounded-full p-1 flex items-center transition-colors duration-300 shadow-inner focus:outline-none">
                 <div class="w-8 h-8 bg-white rounded-full shadow-md transform transition-transform duration-300" id="toggle-knob"></div>
             </button>
-            <span class="text-xl font-medium text-gray-500 transition-colors" id="label-hombres">Hombres</span>
+            <span class="text-xl font-medium text-gray-500 transition-colors cursor-pointer" id="label-hombres">Hombres</span>
         </div>
 
-        <!-- Tarjetas de Estadísticas -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-[#c00022] transform hover:-translate-y-2 transition-transform">
                 <div class="w-10 h-10 bg-[#fae6df] rounded-full flex items-center justify-center mb-4"><i data-lucide="briefcase" class="text-[#c00022] w-5 h-5"></i></div>
                 <h4 class="text-sm text-gray-500 font-bold uppercase tracking-widest mb-1">Laboral</h4>
                 <div class="text-5xl font-black text-[#c00022] data-stat transition-opacity duration-300" data-mujeres="72.6%" data-hombres="54.3%">72.6%</div>
-                <p class="text-xs mt-3 text-gray-400 font-medium">Reportan alta preocupación</p>
             </div>
             <div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-[#ff3735] transform hover:-translate-y-2 transition-transform">
                 <div class="w-10 h-10 bg-[#fae6df] rounded-full flex items-center justify-center mb-4"><i data-lucide="graduation-cap" class="text-[#ff3735] w-5 h-5"></i></div>
                 <h4 class="text-sm text-gray-500 font-bold uppercase tracking-widest mb-1">Académica</h4>
                 <div class="text-5xl font-black text-[#ff3735] data-stat transition-opacity duration-300" data-mujeres="59.5%" data-hombres="36.7%">59.5%</div>
-                <p class="text-xs mt-3 text-gray-400 font-medium">Reportan alta preocupación</p>
             </div>
             <div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-[#000000] transform hover:-translate-y-2 transition-transform">
                 <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-4"><i data-lucide="rocket" class="text-[#000000] w-5 h-5"></i></div>
                 <h4 class="text-sm text-gray-500 font-bold uppercase tracking-widest mb-1">Emprender</h4>
                 <div class="text-5xl font-black text-[#000000] data-stat transition-opacity duration-300" data-mujeres="12.5%" data-hombres="50.0%">12.5%</div>
-                <p class="text-xs mt-3 text-gray-400 font-medium">Reportan alta preocupación</p>
             </div>
         </div>
     </div>
 
-    <!-- SECCIÓN 3: Mapa de Calor por Facultad -->
-    <div class="mb-16">
-        <h3 class="text-3xl font-black text-[#000000] mb-3">Mapa de Calor: El Salto Laboral</h3>
-        <p class="text-gray-500 mb-8 font-medium">Nivel de preocupación (Mediana) por facultad al pensar en el mercado laboral.</p>
+    <!-- SECCIÓN 5: Mapas y Alertas por Facultad -->
+    <div class="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
         
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm font-bold text-white">
-            <!-- Nivel 4 (Alta preocupación) -> Dark red & Bright red -->
-            <div class="bg-[#c00022] p-6 rounded-xl flex flex-col items-center justify-center text-center shadow-md transition-all hover:scale-105 cursor-pointer"><span>Artes</span><span class="text-xs font-normal text-[#f3c1a8] mt-1">Nivel 4</span></div>
-            <div class="bg-[#c00022] p-6 rounded-xl flex flex-col items-center justify-center text-center shadow-md transition-all hover:scale-105 cursor-pointer"><span>Ingeniería</span><span class="text-xs font-normal text-[#f3c1a8] mt-1">Nivel 4</span></div>
-            <div class="bg-[#ff3735] p-6 rounded-xl flex flex-col items-center justify-center text-center shadow-md transition-all hover:scale-105 cursor-pointer"><span>Medicina</span><span class="text-xs font-normal text-[#fae6df] mt-1">Nivel 4</span></div>
-            <div class="bg-[#ff3735] p-6 rounded-xl flex flex-col items-center justify-center text-center shadow-md transition-all hover:scale-105 cursor-pointer"><span>Enfermería</span><span class="text-xs font-normal text-[#fae6df] mt-1">Nivel 4</span></div>
-            
-            <div class="bg-[#ec4e53] p-6 rounded-xl flex flex-col items-center justify-center text-center shadow-md transition-all hover:scale-105 cursor-pointer"><span>Odontología</span><span class="text-xs font-normal text-[#fae6df] mt-1">Nivel 4</span></div>
-            <div class="bg-[#ec4e53] p-6 rounded-xl flex flex-col items-center justify-center text-center shadow-md transition-all hover:scale-105 cursor-pointer"><span>Derecho</span><span class="text-xs font-normal text-[#fae6df] mt-1">Nivel 4</span></div>
-            <div class="bg-[#ec4e53] p-6 rounded-xl flex flex-col items-center justify-center text-center shadow-md transition-all hover:scale-105 cursor-pointer"><span>Ciencias Humanas</span><span class="text-xs font-normal text-[#fae6df] mt-1">Nivel 4</span></div>
-            <div class="bg-[#ec4e53] p-6 rounded-xl flex flex-col items-center justify-center text-center shadow-md transition-all hover:scale-105 cursor-pointer"><span>Medicina Vet.</span><span class="text-xs font-normal text-[#fae6df] mt-1">Nivel 4</span></div>
+        <!-- Izquierda: Mapa de Calor Laboral -->
+        <div>
+            <h3 class="text-2xl font-black text-[#000000] mb-2 text-left">El Salto Laboral</h3>
+            <p class="text-gray-500 mb-6 font-medium text-left text-sm">Facultades con alta preocupación (Nivel 4).</p>
+            <div class="grid grid-cols-2 gap-3 text-sm font-bold text-white">
+                <div class="bg-[#c00022] p-4 rounded-xl shadow-md text-center">Artes</div>
+                <div class="bg-[#c00022] p-4 rounded-xl shadow-md text-center">Ingeniería</div>
+                <div class="bg-[#ff3735] p-4 rounded-xl shadow-md text-center">Medicina</div>
+                <div class="bg-[#ff3735] p-4 rounded-xl shadow-md text-center">Enfermería</div>
+                <div class="bg-[#ec4e53] p-4 rounded-xl shadow-md text-center">Odontología</div>
+                <div class="bg-[#ec4e53] p-4 rounded-xl shadow-md text-center">Derecho</div>
+                <div class="bg-[#f3c1a8] text-[#c00022] p-4 rounded-xl shadow-sm text-center col-span-2">Ciencias Económicas y Ciencias <span class="font-normal opacity-80">(Nivel 3)</span></div>
+            </div>
+        </div>
 
-            <!-- Nivel 3 (Preocupación Media) -> Lighter peach, text dark -->
-            <div class="bg-[#f3c1a8] text-[#c00022] p-6 rounded-xl flex flex-col items-center justify-center text-center shadow-sm transition-all hover:scale-105 hover:bg-[#fae6df] cursor-pointer md:col-start-2"><span>C. Económicas</span><span class="text-xs font-normal opacity-75 mt-1">Nivel 3</span></div>
-            <div class="bg-[#f3c1a8] text-[#c00022] p-6 rounded-xl flex flex-col items-center justify-center text-center shadow-sm transition-all hover:scale-105 hover:bg-[#fae6df] cursor-pointer"><span>Ciencias</span><span class="text-xs font-normal opacity-75 mt-1">Nivel 3</span></div>
+        <!-- Derecha: Alerta Académica -->
+        <div>
+            <h3 class="text-2xl font-black text-[#000000] mb-2 text-left flex items-center">
+                Zonas de Alta Tensión Académica
+                <div class="w-3 h-3 bg-[#c00022] rounded-full ml-3 animate-ping"></div>
+            </h3>
+            <p class="text-gray-500 mb-6 font-medium text-left text-sm">Facultades con mayor estrés por estudiar un posgrado.</p>
+            
+            <div class="bg-white border-2 border-[#c00022] rounded-2xl p-6 relative shadow-lg mb-4">
+                <div class="absolute -top-4 -right-4 w-10 h-10 bg-[#c00022] text-white rounded-full flex items-center justify-center shadow-lg">
+                    <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                </div>
+                <h4 class="text-xl font-black text-[#000000] mb-1">Ciencias Agrarias</h4>
+                <p class="text-[#c00022] font-bold text-sm">Nivel Máximo de Preocupación (Mediana 5.0)</p>
+            </div>
+            
+            <div class="bg-[#fae6df] rounded-2xl p-6 border border-[#f3c1a8]">
+                <h4 class="text-md font-black text-[#000000] mb-2">Preocupación Alta (Mediana 4.0)</h4>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Odontología, Enfermería, Derecho, Ciencias Políticas y Sociales, y Medicina.
+                </p>
+            </div>
         </div>
     </div>
 
-    <!-- SECCIÓN 4: Llamado a la acción (CTA) -->
-    <div class="mt-16 p-1 relative rounded-3xl bg-gradient-to-r from-[#c00022] via-[#ff3735] to-[#ec4e53] shadow-2xl group">
-        <div class="bg-white rounded-[23px] px-8 py-12 relative overflow-hidden transition-colors duration-500 group-hover:bg-transparent group-hover:text-white">
+    <!-- SECCIÓN 6: Llamado a la acción (CTA) -->
+    <div class="p-1 relative rounded-3xl bg-gradient-to-r from-[#c00022] via-[#ff3735] to-[#ec4e53] shadow-2xl group">
+        <div class="bg-white rounded-[23px] px-8 py-14 relative overflow-hidden transition-colors duration-500 group-hover:bg-transparent group-hover:text-white">
             <div class="relative z-10 flex flex-col items-center">
                 <div class="w-16 h-16 bg-[#fae6df] group-hover:bg-white/20 text-[#c00022] group-hover:text-white rounded-full flex items-center justify-center mb-6 transition-colors">
                     <i data-lucide="search" class="w-8 h-8"></i>
                 </div>
-                <h3 class="text-3xl font-black text-[#000000] group-hover:text-white transition-colors duration-500 mb-4">¿Tu facultad es la que tiene más miedo?</h3>
+                <h3 class="text-3xl font-black text-[#000000] group-hover:text-white transition-colors duration-500 mb-4">Descubre el análisis a profundidad</h3>
                 <p class="text-gray-600 group-hover:text-white/90 transition-colors duration-500 mb-8 max-w-lg mx-auto text-lg">
-                    Descubre los datos exactos, las preocupaciones específicas (¿salario, experiencia, sobrecualificación?) y lee el análisis detallado.
+                    Conoce cómo mitigar estos miedos, la metodología exacta y más hallazgos reveladores.
                 </p>
-                <!-- Recuerda cambiar href="URL_DEL_PDF" por la ruta real de tu archivo en github -->
-                <a href="URL_DEL_PDF" target="_blank" class="inline-flex items-center justify-center px-10 py-5 bg-[#000000] text-white font-black text-lg rounded-full shadow-lg hover:bg-white hover:text-[#c00022] transform hover:scale-105 transition-all duration-300">
+                <a href="URL_DEL_PDF" target="_blank" class="inline-flex items-center justify-center px-10 py-5 bg-[#000000] text-white font-black text-lg rounded-full shadow-xl hover:bg-white hover:text-[#c00022] transform hover:scale-105 transition-all duration-300">
                     <i data-lucide="book-open" class="w-6 h-6 mr-3"></i>
                     Leer Informe Completo
                 </a>
@@ -1272,8 +1348,6 @@
     </div>
 
 </div>
-
-
         
         <div id="tab-content-6" class="tab-content hidden py-20 px-6 text-center max-w-xl mx-auto">
             <div class="w-16 h-16 bg-yellow-50 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="network" class="w-8 h-8"></i></div>
@@ -2016,52 +2090,52 @@ if (ctxFacultad) {
             }
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
+       document.addEventListener('DOMContentLoaded', () => {
     
-    /* -------------------------------------------------------------
-       1. ANIMACIÓN DE LA INFOGRAFÍA (Barras e Intersection Observer)
-       ------------------------------------------------------------- */
-    
-    // Configuramos el observador para saber cuándo el usuario hace scroll hacia las barras
+    // 1. ANIMACIÓN MEDIANTE INTERSECTION OBSERVER (Scroll)
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.3 // Se activa cuando el 30% del elemento es visible
+        threshold: 0.2 // Se activa cuando el 20% es visible
     };
 
     const statsObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const bar = entry.target;
-                const targetValue = parseFloat(bar.getAttribute('data-target'));
+                const target = entry.target;
+
+                // Si es un elemento del PODIO (crecimiento vertical)
+                if (target.hasAttribute('data-height')) {
+                    target.style.height = target.getAttribute('data-height');
+                    const textContainer = target.previousElementSibling;
+                    const targetValue = parseFloat(textContainer.getAttribute('data-target'));
+                    animateValue(textContainer, 0, targetValue, 1500);
+                } 
+                // Si es una BARRA HORIZONTAL
+                else if (target.hasAttribute('data-width')) {
+                    target.style.width = target.getAttribute('data-width');
+                    const textContainer = target.parentElement.previousElementSibling.querySelector('.bar-val');
+                    const targetValue = parseFloat(textContainer.getAttribute('data-target'));
+                    animateValue(textContainer, 0, targetValue, 1500);
+                }
                 
-                // Animar el ancho de la barra
-                bar.style.width = targetValue + '%';
-                
-                // Animar el contador de números
-                const textContainer = bar.parentElement.previousElementSibling.querySelector('span:last-child');
-                animateValue(textContainer, 0, targetValue, 1500); // 1500ms de duración
-                
-                // Dejar de observar una vez animado
-                observer.unobserve(bar);
+                observer.unobserve(target); // Solo animar la primera vez
             }
         });
     }, observerOptions);
 
-    // Seleccionamos todas las barras y las observamos
-    document.querySelectorAll('[data-target]').forEach(bar => {
-        statsObserver.observe(bar);
+    // Observar elementos del podio y barras
+    document.querySelectorAll('[data-height], [data-width]').forEach(el => {
+        statsObserver.observe(el);
     });
 
-    // Función matemática para animar los números incrementando gradualmente
+    // Función matemática para animar los números (Counter)
     function animateValue(obj, start, end, duration) {
         let startTimestamp = null;
         const step = (timestamp) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            
-            // Efecto easeOutQuart para que frene suavemente al final
-            const easeProgress = 1 - Math.pow(1 - progress, 4);
+            const easeProgress = 1 - Math.pow(1 - progress, 4); // Ease Out Quart
             const currentVal = (easeProgress * (end - start) + start).toFixed(1);
             
             obj.innerHTML = currentVal + '%';
@@ -2075,63 +2149,47 @@ if (ctxFacultad) {
         window.requestAnimationFrame(step);
     }
 
-    /* -------------------------------------------------------------
-       2. INTERRUPTOR DE BRECHA DE GÉNERO
-       ------------------------------------------------------------- */
-    
+    // 2. INTERRUPTOR BRECHA DE GÉNERO
     const toggleBtn = document.getElementById('gender-toggle');
     const knob = document.getElementById('toggle-knob');
     const labelMujeres = document.getElementById('label-mujeres');
     const labelHombres = document.getElementById('label-hombres');
     const statElements = document.querySelectorAll('.data-stat');
     
-    // Estado inicial (Mujeres = true)
     let isMujeres = true;
 
-    toggleBtn.addEventListener('click', () => {
+    // Permitir clic también en los textos
+    labelMujeres.addEventListener('click', () => { if(!isMujeres) toggleGender(); });
+    labelHombres.addEventListener('click', () => { if(isMujeres) toggleGender(); });
+    toggleBtn.addEventListener('click', toggleGender);
+
+    function toggleGender() {
         isMujeres = !isMujeres;
-        
-        // Efecto visual de desvanecimiento suave para los números
-        statElements.forEach(el => el.classList.add('opacity-0'));
+        statElements.forEach(el => el.classList.add('opacity-0')); // Efecto fade out
         
         setTimeout(() => {
             if (isMujeres) {
-                // Estilo botón
                 knob.classList.remove('translate-x-10');
                 toggleBtn.classList.replace('bg-[#000000]', 'bg-[#c00022]');
-                
-                // Estilos etiquetas (Resaltar Mujeres)
                 labelMujeres.classList.replace('text-gray-500', 'text-[#000000]');
                 labelMujeres.classList.replace('font-medium', 'font-black');
                 labelHombres.classList.replace('text-[#000000]', 'text-gray-500');
                 labelHombres.classList.replace('font-black', 'font-medium');
-
-                // Cambiar Datos
-                statElements.forEach(stat => {
-                    stat.textContent = stat.getAttribute('data-mujeres');
-                });
+                statElements.forEach(stat => stat.textContent = stat.getAttribute('data-mujeres'));
             } else {
-                // Estilo botón
                 knob.classList.add('translate-x-10');
                 toggleBtn.classList.replace('bg-[#c00022]', 'bg-[#000000]');
-                
-                // Estilos etiquetas (Resaltar Hombres)
                 labelHombres.classList.replace('text-gray-500', 'text-[#000000]');
                 labelHombres.classList.replace('font-medium', 'font-black');
                 labelMujeres.classList.replace('text-[#000000]', 'text-gray-500');
                 labelMujeres.classList.replace('font-black', 'font-medium');
-
-                // Cambiar Datos
-                statElements.forEach(stat => {
-                    stat.textContent = stat.getAttribute('data-hombres');
-                });
+                statElements.forEach(stat => stat.textContent = stat.getAttribute('data-hombres'));
             }
-            // Regresar opacidad
-            statElements.forEach(el => el.classList.remove('opacity-0'));
-        }, 150); // Tiempo que dura oculto el número para el cambio
-    });
+            statElements.forEach(el => el.classList.remove('opacity-0')); // Efecto fade in
+        }, 150);
+    }
     
-    // Inicializar iconos de Lucide (si estás usando la librería por CDN)
+    // Inicializar íconos de Lucide
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
