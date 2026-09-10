@@ -502,125 +502,133 @@
                     </div>
                 </div>
 
-                <!-- Línea de Tiempo Serpenteante -->
-<div class="max-w-6xl mx-auto px-4 py-10 bg-[#fae6df]/30 rounded-3xl">
+                <!-- Línea de Tiempo Profesional -->
+<div class="max-w-6xl mx-auto px-4 py-12 bg-[#fae6df]/30 rounded-3xl">
     <!-- Encabezado -->
-    <div class="text-center mb-12">
+    <div class="text-center mb-16">
         <h3 class="text-3xl font-black text-gray-900">¿Cómo llegamos hasta aquí?</h3>
         <p class="text-gray-600 mt-2 text-base">El proceso detrás de la recolección de datos</p>
     </div>
 
-    <!-- Contenedor Principal de la Línea de Tiempo -->
-    <div class="relative max-w-4xl mx-auto flex flex-col">
+    <!-- Contenedor de la Línea de Tiempo -->
+    <div class="relative max-w-5xl mx-auto">
+        
+        <!-- Espina Central Continua (Línea con degradado) -->
+        <div class="absolute left-6 md:left-1/2 top-6 bottom-6 w-1 bg-gradient-to-b from-[#c00022] via-[#ff3735] to-[#f3c1a8] transform -translate-x-1/2 rounded-full hidden md:block"></div>
+        <!-- Espina Lateral para Vista Móvil -->
+        <div class="absolute left-6 top-6 bottom-6 w-1 bg-gradient-to-b from-[#c00022] via-[#ff3735] to-[#f3c1a8] transform -translate-x-1/2 rounded-full md:hidden"></div>
 
-        <!-- PASO 1: 2024 (Derecha) -->
-        <div class="relative flex flex-col md:flex-row items-stretch group py-2">
-            <!-- Columna Izquierda (Vacía en escritorio) -->
-            <div class="hidden md:block w-1/2 pr-8"></div>
+        <div class="space-y-12">
 
-            <!-- Centro: Arco + Círculo del Año -->
-            <div class="relative z-10 flex items-center justify-center w-24 shrink-0 min-h-[140px]">
-                <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path d="M 50 25 C 95 25 95 75 50 75 L 50 100" stroke="#c00022" stroke-width="8" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke" />
-                    <line x1="50" y1="50" x2="100" y2="50" stroke="#c00022" stroke-width="8" vector-effect="non-scaling-stroke" />
-                </svg>
-                <div class="relative z-20 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-white group-hover:scale-105 transition-transform">
-                    <span class="text-[#c00022] font-black text-lg">2024</span>
+            <!-- PASO 1: 2024 (Derecha) -->
+            <div class="relative flex flex-col md:flex-row items-center group">
+                <!-- Lado Izquierdo Vacío (Escritorio) -->
+                <div class="hidden md:block w-1/2 pr-12 text-right"></div>
+
+                <!-- Nodo Central (Badge Año) -->
+                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-20 flex items-center justify-center">
+                    <div class="w-14 h-14 bg-white rounded-full shadow-lg border-4 border-[#c00022] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-[#c00022] font-black text-sm">2024</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Contenido (Derecha) -->
+                <div class="w-full md:w-1/2 pl-16 md:pl-12">
+                    <div class="bg-[#c00022] text-white p-7 rounded-2xl shadow-xl relative transition-all duration-300 hover:-translate-y-1">
+                        <!-- Conector visual (flecha sutil) -->
+                        <div class="hidden md:block absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-[#c00022] rotate-45 rounded-sm"></div>
+                        
+                        <span class="inline-block text-xs uppercase tracking-wider font-bold bg-white/20 px-3 py-1 rounded-full mb-3">Fase 1</span>
+                        <h4 class="font-bold text-xl mb-2 text-white">1. Reconocimiento de necesidades</h4>
+                        <p class="text-sm text-white/90 leading-relaxed font-normal">
+                            Todo comenzó identificando asimetrías: mientras en Ciencias Humanas preocupaba un mercado saturado, en Artes se apuntaba al emprendimiento. Pese a normativas como Acuerdo 028 de 2010 (SAE) y Acuerdo 16 de 2017 (Subsistema Estratégico de Información), no hay instrumentos ni datos que capturen sistemáticamente las intenciones, expectativas y preocupaciones de los estudiantes frente a su futuro.
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Columna Derecha: Tarjeta de Contenido -->
-            <div class="w-full md:w-1/2 pl-0 md:pl-8 mt-4 md:mt-0 flex items-center">
-                <div class="bg-[#c00022] text-white p-6 rounded-2xl shadow-xl w-full">
-                    <h4 class="font-bold text-xl mb-2 text-white">1. Reconocimiento de necesidades</h4>
-                    <p class="text-sm text-white/90 leading-relaxed">
-                        Todo comenzó identificando asimetrías: mientras en Ciencias Humanas preocupaba un mercado saturado, en Artes se apuntaba al emprendimiento. Pese a normativas como Acuerdo 028 de 2010 (SAE) y Acuerdo 16 de 2017 (Subsistema Estratégico de Información), no hay instrumentos ni datos que capturen sistemáticamente las intenciones, expectativas y preocupaciones de los estudiantes frente a su futuro.
-                    </p>
+            <!-- PASO 2: 2025 (Izquierda) -->
+            <div class="relative flex flex-col md:flex-row-reverse items-center group">
+                <!-- Lado Derecho Vacío (Escritorio) -->
+                <div class="hidden md:block w-1/2 pl-12"></div>
+
+                <!-- Nodo Central (Badge Año) -->
+                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-20 flex items-center justify-center">
+                    <div class="w-14 h-14 bg-white rounded-full shadow-lg border-4 border-[#ff3735] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-[#ff3735] font-black text-sm">2025</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Contenido (Izquierda) -->
+                <div class="w-full md:w-1/2 pl-16 md:pl-0 md:pr-12">
+                    <div class="bg-[#ff3735] text-white p-7 rounded-2xl shadow-xl relative transition-all duration-300 hover:-translate-y-1">
+                        <!-- Conector visual (flecha sutil) -->
+                        <div class="hidden md:block absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-[#ff3735] rotate-45 rounded-sm"></div>
+                        
+                        <span class="inline-block text-xs uppercase tracking-wider font-bold bg-white/20 px-3 py-1 rounded-full mb-3">Fase 2</span>
+                        <h4 class="font-bold text-xl mb-2 text-white">2. Construcción del instrumento</h4>
+                        <p class="text-sm text-white/90 leading-relaxed font-normal">
+                            Tras revisiones conceptuales y pruebas piloto, consolidamos una encuesta dinámica de <strong class="text-white underline decoration-2">45 preguntas</strong>. Dependiendo de los planes del estudiante a corto plazo, la encuesta se dividió en tres grandes trayectorias: <strong class="text-white">Empleabilidad (13 preguntas), Emprendimiento (18 preguntas) y Desarrollo del Conocimiento (9 preguntas)</strong>.
+                        </p>
+                    </div>
                 </div>
             </div>
+
+            <!-- PASO 3: 2025 (Derecha) -->
+            <div class="relative flex flex-col md:flex-row items-center group">
+                <!-- Lado Izquierdo Vacío (Escritorio) -->
+                <div class="hidden md:block w-1/2 pr-12 text-right"></div>
+
+                <!-- Nodo Central (Badge Año) -->
+                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-20 flex items-center justify-center">
+                    <div class="w-14 h-14 bg-white rounded-full shadow-lg border-4 border-[#ec4e53] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-[#ec4e53] font-black text-sm">2025</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Contenido (Derecha) -->
+                <div class="w-full md:w-1/2 pl-16 md:pl-12">
+                    <div class="bg-[#ec4e53] text-white p-7 rounded-2xl shadow-xl relative transition-all duration-300 hover:-translate-y-1">
+                        <!-- Conector visual (flecha sutil) -->
+                        <div class="hidden md:block absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-[#ec4e53] rotate-45 rounded-sm"></div>
+                        
+                        <span class="inline-block text-xs uppercase tracking-wider font-bold bg-white/20 px-3 py-1 rounded-full mb-3">Fase 3</span>
+                        <h4 class="font-bold text-xl mb-2 text-white">3. Muestreo y recolección de voces</h4>
+                        <p class="text-sm text-white/90 leading-relaxed font-normal">
+                            Aplicamos un muestreo probabilístico estratificado por facultades. Mediante envíos masivos de correos institucionales, invitamos a los estudiantes seleccionados a contar su perspectiva, logrando recoger las expectativas de cientos de jóvenes de la Sede Bogotá.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASO 4: 2026 (Izquierda) -->
+            <div class="relative flex flex-col md:flex-row-reverse items-center group">
+                <!-- Lado Derecho Vacío (Escritorio) -->
+                <div class="hidden md:block w-1/2 pl-12"></div>
+
+                <!-- Nodo Central (Badge Año) -->
+                <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-20 flex items-center justify-center">
+                    <div class="w-14 h-14 bg-white rounded-full shadow-lg border-4 border-[#f3c1a8] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-[#c00022] font-black text-sm">2026</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Contenido (Izquierda) -->
+                <div class="w-full md:w-1/2 pl-16 md:pl-0 md:pr-12">
+                    <div class="bg-[#f3c1a8] text-gray-900 p-7 rounded-2xl shadow-xl border border-[#fae6df] relative transition-all duration-300 hover:-translate-y-1">
+                        <!-- Conector visual (flecha sutil) -->
+                        <div class="hidden md:block absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-[#f3c1a8] rotate-45 rounded-sm"></div>
+                        
+                        <span class="inline-block text-xs uppercase tracking-wider font-bold bg-[#c00022]/10 text-[#c00022] px-3 py-1 rounded-full mb-3">Fase 4</span>
+                        <h4 class="font-bold text-xl mb-2 text-[#c00022]">4. Nacimiento del LEPP</h4>
+                        <p class="text-sm text-gray-800 leading-relaxed font-normal">
+                            Para analizar y divulgar todos estos hallazgos, el equipo de estudiantes creó el <strong>Laboratorio Estudiantil de Proyección Profesional (LEPP)</strong>, consolidando este esfuerzo en una estrategia institucional de monitoreo constante.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
-        <!-- PASO 2: 2025 (Izquierda) -->
-        <div class="relative flex flex-col md:flex-row-reverse items-stretch group py-2">
-            <!-- Columna Derecha (Vacía en escritorio) -->
-            <div class="hidden md:block w-1/2 pl-8"></div>
-
-            <!-- Centro: Arco + Círculo del Año -->
-            <div class="relative z-10 flex items-center justify-center w-24 shrink-0 min-h-[140px]">
-                <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path d="M 50 0 L 50 25 C 5 25 5 75 50 75 L 50 100" stroke="#ff3735" stroke-width="8" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke" />
-                    <line x1="50" y1="50" x2="0" y2="50" stroke="#ff3735" stroke-width="8" vector-effect="non-scaling-stroke" />
-                </svg>
-                <div class="relative z-20 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-white group-hover:scale-105 transition-transform">
-                    <span class="text-[#ff3735] font-black text-lg">2025</span>
-                </div>
-            </div>
-
-            <!-- Columna Izquierda: Tarjeta de Contenido -->
-            <div class="w-full md:w-1/2 pr-0 md:pr-8 mt-4 md:mt-0 flex items-center">
-                <div class="bg-[#ff3735] text-white p-6 rounded-2xl shadow-xl w-full">
-                    <h4 class="font-bold text-xl mb-2 text-white">2. Construcción del instrumento</h4>
-                    <p class="text-sm text-white/90 leading-relaxed">
-                        Tras revisiones conceptuales y pruebas piloto, consolidamos una encuesta dinámica de <strong class="text-white underline decoration-2">45 preguntas</strong>. Dependiendo de los planes del estudiante a corto plazo, la encuesta se dividió en tres grandes trayectorias: <strong class="text-white">Empleabilidad (13 preguntas), Emprendimiento (18 preguntas) y Desarrollo del Conocimiento (9 preguntas)</strong>.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- PASO 3: 2025 (Derecha) -->
-        <div class="relative flex flex-col md:flex-row items-stretch group py-2">
-            <!-- Columna Izquierda (Vacía en escritorio) -->
-            <div class="hidden md:block w-1/2 pr-8"></div>
-
-            <!-- Centro: Arco + Círculo del Año -->
-            <div class="relative z-10 flex items-center justify-center w-24 shrink-0 min-h-[140px]">
-                <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path d="M 50 0 L 50 25 C 95 25 95 75 50 75 L 50 100" stroke="#ec4e53" stroke-width="8" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke" />
-                    <line x1="50" y1="50" x2="100" y2="50" stroke="#ec4e53" stroke-width="8" vector-effect="non-scaling-stroke" />
-                </svg>
-                <div class="relative z-20 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-white group-hover:scale-105 transition-transform">
-                    <span class="text-[#ec4e53] font-black text-lg">2025</span>
-                </div>
-            </div>
-
-            <!-- Columna Derecha: Tarjeta de Contenido -->
-            <div class="w-full md:w-1/2 pl-0 md:pl-8 mt-4 md:mt-0 flex items-center">
-                <div class="bg-[#ec4e53] text-white p-6 rounded-2xl shadow-xl w-full">
-                    <h4 class="font-bold text-xl mb-2 text-white">3. Muestreo y recolección de voces</h4>
-                    <p class="text-sm text-white/90 leading-relaxed">
-                        Aplicamos un muestreo probabilístico estratificado por facultades. Mediante envíos masivos de correos institucionales, invitamos a los estudiantes seleccionados a contar su perspectiva, logrando recoger las expectativas de cientos de jóvenes de la Sede Bogotá.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- PASO 4: 2026 (Izquierda) -->
-        <div class="relative flex flex-col md:flex-row-reverse items-stretch group py-2">
-            <!-- Columna Derecha (Vacía en escritorio) -->
-            <div class="hidden md:block w-1/2 pl-8"></div>
-
-            <!-- Centro: Arco + Círculo del Año -->
-            <div class="relative z-10 flex items-center justify-center w-24 shrink-0 min-h-[140px]">
-                <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path d="M 50 0 L 50 25 C 5 25 5 75 50 75" stroke="#f3c1a8" stroke-width="8" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke" />
-                    <line x1="50" y1="50" x2="0" y2="50" stroke="#f3c1a8" stroke-width="8" vector-effect="non-scaling-stroke" />
-                </svg>
-                <div class="relative z-20 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-white group-hover:scale-105 transition-transform">
-                    <span class="text-[#c00022] font-black text-lg">2026</span>
-                </div>
-            </div>
-
-            <!-- Columna Izquierda: Tarjeta de Contenido -->
-            <div class="w-full md:w-1/2 pr-0 md:pr-8 mt-4 md:mt-0 flex items-center">
-                <div class="bg-[#f3c1a8] text-gray-900 p-6 rounded-2xl shadow-xl border border-[#fae6df] w-full">
-                    <h4 class="font-bold text-xl mb-2 text-[#c00022]">4. Nacimiento del LEPP</h4>
-                    <p class="text-sm text-gray-800 leading-relaxed">
-                        Para analizar y divulgar todos estos hallazgos, el equipo de estudiantes creó el <strong>Laboratorio Estudiantil de Proyección Profesional (LEPP)</strong>, consolidando este esfuerzo en una estrategia institucional de monitoreo constante.
-                    </p>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
 
