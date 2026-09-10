@@ -505,35 +505,33 @@
                 <!-- Línea de Tiempo Serpenteante -->
 <div class="max-w-6xl mx-auto px-4 py-10 bg-[#fae6df]/30 rounded-3xl">
     <!-- Encabezado -->
-    <div class="text-center mb-16">
+    <div class="text-center mb-12">
         <h3 class="text-3xl font-black text-gray-900">¿Cómo llegamos hasta aquí?</h3>
         <p class="text-gray-600 mt-2 text-base">El proceso detrás de la recolección de datos</p>
     </div>
 
     <!-- Contenedor Principal de la Línea de Tiempo -->
-    <div class="relative max-w-4xl mx-auto">
+    <div class="relative max-w-4xl mx-auto flex flex-col">
 
         <!-- PASO 1: 2024 (Derecha) -->
-        <div class="relative flex flex-col md:flex-row items-center my-4 group">
+        <div class="relative flex flex-col md:flex-row items-stretch group py-2">
             <!-- Columna Izquierda (Vacía en escritorio) -->
             <div class="hidden md:block w-1/2 pr-8"></div>
 
             <!-- Centro: Arco + Círculo del Año -->
-            <div class="relative z-10 flex items-center justify-center w-24 h-28 shrink-0">
-                <!-- Arco curvado hacia la derecha -->
-                <svg class="absolute w-24 h-28 overflow-visible" viewBox="0 0 100 120" fill="none">
-                    <path d="M 50 0 A 45 45 0 0 1 50 90" stroke="#c00022" stroke-width="12" stroke-linecap="round" />
-                    <line x1="50" y1="45" x2="100" y2="45" stroke="#c00022" stroke-width="12" />
+            <div class="relative z-10 flex items-center justify-center w-24 shrink-0 min-h-[140px]">
+                <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M 50 25 C 95 25 95 75 50 75 L 50 100" stroke="#c00022" stroke-width="8" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+                    <line x1="50" y1="50" x2="100" y2="50" stroke="#c00022" stroke-width="8" vector-effect="non-scaling-stroke" />
                 </svg>
-                <!-- Círculo Central Blanco -->
                 <div class="relative z-20 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-white group-hover:scale-105 transition-transform">
                     <span class="text-[#c00022] font-black text-lg">2024</span>
                 </div>
             </div>
 
             <!-- Columna Derecha: Tarjeta de Contenido -->
-            <div class="w-full md:w-1/2 pl-0 md:pl-8 mt-4 md:mt-0">
-                <div class="bg-[#c00022] text-white p-6 rounded-2xl shadow-xl">
+            <div class="w-full md:w-1/2 pl-0 md:pl-8 mt-4 md:mt-0 flex items-center">
+                <div class="bg-[#c00022] text-white p-6 rounded-2xl shadow-xl w-full">
                     <h4 class="font-bold text-xl mb-2 text-white">1. Reconocimiento de necesidades</h4>
                     <p class="text-sm text-white/90 leading-relaxed">
                         Todo comenzó identificando asimetrías: mientras en Ciencias Humanas preocupaba un mercado saturado, en Artes se apuntaba al emprendimiento. Pese a normativas como Acuerdo 028 de 2010 (SAE) y Acuerdo 16 de 2017 (Subsistema Estratégico de Información), no hay instrumentos ni datos que capturen sistemáticamente las intenciones, expectativas y preocupaciones de los estudiantes frente a su futuro.
@@ -543,26 +541,24 @@
         </div>
 
         <!-- PASO 2: 2025 (Izquierda) -->
-        <div class="relative flex flex-col md:flex-row-reverse items-center my-4 group">
+        <div class="relative flex flex-col md:flex-row-reverse items-stretch group py-2">
             <!-- Columna Derecha (Vacía en escritorio) -->
             <div class="hidden md:block w-1/2 pl-8"></div>
 
             <!-- Centro: Arco + Círculo del Año -->
-            <div class="relative z-10 flex items-center justify-center w-24 h-28 shrink-0">
-                <!-- Arco curvado hacia la izquierda -->
-                <svg class="absolute w-24 h-28 overflow-visible" viewBox="0 0 100 120" fill="none">
-                    <path d="M 50 0 A 45 45 0 0 0 50 90" stroke="#ff3735" stroke-width="12" stroke-linecap="round" />
-                    <line x1="50" y1="45" x2="0" y2="45" stroke="#ff3735" stroke-width="12" />
+            <div class="relative z-10 flex items-center justify-center w-24 shrink-0 min-h-[140px]">
+                <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M 50 0 L 50 25 C 5 25 5 75 50 75 L 50 100" stroke="#ff3735" stroke-width="8" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+                    <line x1="50" y1="50" x2="0" y2="50" stroke="#ff3735" stroke-width="8" vector-effect="non-scaling-stroke" />
                 </svg>
-                <!-- Círculo Central Blanco -->
                 <div class="relative z-20 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-white group-hover:scale-105 transition-transform">
                     <span class="text-[#ff3735] font-black text-lg">2025</span>
                 </div>
             </div>
 
             <!-- Columna Izquierda: Tarjeta de Contenido -->
-            <div class="w-full md:w-1/2 pr-0 md:pr-8 mt-4 md:mt-0">
-                <div class="bg-[#ff3735] text-white p-6 rounded-2xl shadow-xl">
+            <div class="w-full md:w-1/2 pr-0 md:pr-8 mt-4 md:mt-0 flex items-center">
+                <div class="bg-[#ff3735] text-white p-6 rounded-2xl shadow-xl w-full">
                     <h4 class="font-bold text-xl mb-2 text-white">2. Construcción del instrumento</h4>
                     <p class="text-sm text-white/90 leading-relaxed">
                         Tras revisiones conceptuales y pruebas piloto, consolidamos una encuesta dinámica de <strong class="text-white underline decoration-2">45 preguntas</strong>. Dependiendo de los planes del estudiante a corto plazo, la encuesta se dividió en tres grandes trayectorias: <strong class="text-white">Empleabilidad (13 preguntas), Emprendimiento (18 preguntas) y Desarrollo del Conocimiento (9 preguntas)</strong>.
@@ -572,26 +568,24 @@
         </div>
 
         <!-- PASO 3: 2025 (Derecha) -->
-        <div class="relative flex flex-col md:flex-row items-center my-4 group">
+        <div class="relative flex flex-col md:flex-row items-stretch group py-2">
             <!-- Columna Izquierda (Vacía en escritorio) -->
             <div class="hidden md:block w-1/2 pr-8"></div>
 
             <!-- Centro: Arco + Círculo del Año -->
-            <div class="relative z-10 flex items-center justify-center w-24 h-28 shrink-0">
-                <!-- Arco curvado hacia la derecha -->
-                <svg class="absolute w-24 h-28 overflow-visible" viewBox="0 0 100 120" fill="none">
-                    <path d="M 50 0 A 45 45 0 0 1 50 90" stroke="#ec4e53" stroke-width="12" stroke-linecap="round" />
-                    <line x1="50" y1="45" x2="100" y2="45" stroke="#ec4e53" stroke-width="12" />
+            <div class="relative z-10 flex items-center justify-center w-24 shrink-0 min-h-[140px]">
+                <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M 50 0 L 50 25 C 95 25 95 75 50 75 L 50 100" stroke="#ec4e53" stroke-width="8" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+                    <line x1="50" y1="50" x2="100" y2="50" stroke="#ec4e53" stroke-width="8" vector-effect="non-scaling-stroke" />
                 </svg>
-                <!-- Círculo Central Blanco -->
                 <div class="relative z-20 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-white group-hover:scale-105 transition-transform">
                     <span class="text-[#ec4e53] font-black text-lg">2025</span>
                 </div>
             </div>
 
             <!-- Columna Derecha: Tarjeta de Contenido -->
-            <div class="w-full md:w-1/2 pl-0 md:pl-8 mt-4 md:mt-0">
-                <div class="bg-[#ec4e53] text-white p-6 rounded-2xl shadow-xl">
+            <div class="w-full md:w-1/2 pl-0 md:pl-8 mt-4 md:mt-0 flex items-center">
+                <div class="bg-[#ec4e53] text-white p-6 rounded-2xl shadow-xl w-full">
                     <h4 class="font-bold text-xl mb-2 text-white">3. Muestreo y recolección de voces</h4>
                     <p class="text-sm text-white/90 leading-relaxed">
                         Aplicamos un muestreo probabilístico estratificado por facultades. Mediante envíos masivos de correos institucionales, invitamos a los estudiantes seleccionados a contar su perspectiva, logrando recoger las expectativas de cientos de jóvenes de la Sede Bogotá.
@@ -601,26 +595,24 @@
         </div>
 
         <!-- PASO 4: 2026 (Izquierda) -->
-        <div class="relative flex flex-col md:flex-row-reverse items-center my-4 group">
+        <div class="relative flex flex-col md:flex-row-reverse items-stretch group py-2">
             <!-- Columna Derecha (Vacía en escritorio) -->
             <div class="hidden md:block w-1/2 pl-8"></div>
 
             <!-- Centro: Arco + Círculo del Año -->
-            <div class="relative z-10 flex items-center justify-center w-24 h-28 shrink-0">
-                <!-- Arco curvado hacia la izquierda -->
-                <svg class="absolute w-24 h-28 overflow-visible" viewBox="0 0 100 120" fill="none">
-                    <path d="M 50 0 A 45 45 0 0 0 50 90" stroke="#f3c1a8" stroke-width="12" stroke-linecap="round" />
-                    <line x1="50" y1="45" x2="0" y2="45" stroke="#f3c1a8" stroke-width="12" />
+            <div class="relative z-10 flex items-center justify-center w-24 shrink-0 min-h-[140px]">
+                <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M 50 0 L 50 25 C 5 25 5 75 50 75" stroke="#f3c1a8" stroke-width="8" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+                    <line x1="50" y1="50" x2="0" y2="50" stroke="#f3c1a8" stroke-width="8" vector-effect="non-scaling-stroke" />
                 </svg>
-                <!-- Círculo Central Blanco -->
                 <div class="relative z-20 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-white group-hover:scale-105 transition-transform">
                     <span class="text-[#c00022] font-black text-lg">2026</span>
                 </div>
             </div>
 
             <!-- Columna Izquierda: Tarjeta de Contenido -->
-            <div class="w-full md:w-1/2 pr-0 md:pr-8 mt-4 md:mt-0">
-                <div class="bg-[#f3c1a8] text-gray-900 p-6 rounded-2xl shadow-xl border border-[#fae6df]">
+            <div class="w-full md:w-1/2 pr-0 md:pr-8 mt-4 md:mt-0 flex items-center">
+                <div class="bg-[#f3c1a8] text-gray-900 p-6 rounded-2xl shadow-xl border border-[#fae6df] w-full">
                     <h4 class="font-bold text-xl mb-2 text-[#c00022]">4. Nacimiento del LEPP</h4>
                     <p class="text-sm text-gray-800 leading-relaxed">
                         Para analizar y divulgar todos estos hallazgos, el equipo de estudiantes creó el <strong>Laboratorio Estudiantil de Proyección Profesional (LEPP)</strong>, consolidando este esfuerzo en una estrategia institucional de monitoreo constante.
@@ -631,7 +623,6 @@
 
     </div>
 </div>
-
 
 
                 
