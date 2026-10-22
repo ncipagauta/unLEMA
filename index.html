@@ -8,6 +8,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <!-- Enlaces para renderizar fórmulas (KaTeX) - Colócalos en el <head> de tu HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
 
     <style>
         /* Tipografía Ancizar Sans */
@@ -168,6 +173,81 @@
             71% { transform: translateX(-71.42%); }
             85% { transform: translateX(-85.71%); }
         }
+
+        .metrics-container {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.indicator-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border-left: 6px solid #2563eb;
+}
+
+.indicator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.indicator-title {
+  font-size: 1.3rem;
+  color: #1e293b;
+  margin: 0;
+}
+
+.badge {
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.formula-container {
+  background-color: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.2rem;
+  overflow-x: auto;
+}
+
+.variables-list {
+  margin-top: 15px;
+}
+
+.variable-item {
+  background: #f1f5f9;
+  margin-bottom: 8px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.variable-symbol {
+  font-weight: bold;
+  color: #0f172a;
+}
+
+.example-box {
+  margin-top: 15px;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #166534;
+}
     </style>
 </head>
 <body class="bg-white">
@@ -763,22 +843,92 @@
             </div>
         </div>
 
-        <div class="metrics-grid">
-  <!-- Tarjeta TGP -->
-  <div class="metric-card">
-    <h3>Tasa Global de Participación (TGP)</h3>
-    <p>Porcentaje de la población en edad de trabajar que participa activamente en el mercado laboral.</p>
-    <div class="formula-box">
-      $$\text{TGP} = \left( \frac{\text{Fuerza de trabajo (FT)}}{\text{Población en edad de trabajar (PET)}} \right) \times 100$$
+
+        <div class="metrics-container">
+  <h2>Principales Indicadores del Mercado Laboral (DANE)</h2>
+
+  <!-- 1. Tasa Global de Participación (TGP) -->
+  <div class="indicator-card">
+    <div class="indicator-header">
+      <h3 class="indicator-title">1. Tasa Global de Participación (TGP)</h3>
+      <span class="badge">Mide Oferta Laboral</span>
     </div>
-    <div class="calculator-inputs">
-      <input type="number" id="ft-input" placeholder="FT (Fuerza de trabajo)">
-      <input type="number" id="pet-input" placeholder="PET (Población edad trabajar)">
-      <button onclick="calcularTGP()">Calcular TGP</button>
-      <div id="tgp-result" class="result-display">-- %</div>
+    <p>Refleja la presión que ejerce la población sobre el mercado de trabajo, al medir el porcentaje de personas en edad de trabajar que se encuentran vinculadas o buscando empleo de forma activa[cite: 1].</p>
+    
+    <div class="formula-container">
+      $$\text{TGP} = \left( \frac{\text{Fuerza de Trabajo }(FT)}{\text{Población en Edad de Trabajar }(PET)} \right) \times 100$$
+    </div>
+
+    <div class="variables-list">
+      <div class="variable-item">
+        <span class="variable-symbol">FT (Fuerza de Trabajo):</span> Es la suma de las personas ocupadas más las personas desocupadas.
+      </div>
+      <div class="variable-item">
+        <span class="variable-symbol">PET (Población en Edad de Trabajar):</span> Población total en edad legal para trabajar.
+      </div>
+    </div>
+
+    <div class="example-box">
+      <strong>Ejemplo práctico:</strong> Si en una ciudad hay 100,000 personas en edad de trabajar ($PET$) y 65,000 de ellas están empleadas o buscando empleo ($FT$), la $\text{TGP} = (65,000 / 100,000) \times 100 = 65\%$.
+    </div>
+  </div>
+
+  <!-- 2. Tasa de Ocupación (TO) -->
+  <div class="indicator-card" style="border-left-color: #10b981;">
+    <div class="indicator-header">
+      <h3 class="indicator-title">2. Tasa de Ocupación (TO)</h3>
+      <span class="badge" style="background:#ecfdf5; color:#10b981;">Mide Capacidad de Generación de Empleo</span>
+    </div>
+    <p>Muestra la proporción de la población en edad de trabajar que efectivamente se encuentra empleada o desempeñando una actividad económica remunerada[cite: 1].</p>
+    
+    <div class="formula-container">
+      $$\text{TO} = \left( \frac{\text{Población Ocupada }(OC)}{\text{Población en Edad de Trabajar }(PET)} \right) \times 100$$
+    </div>
+
+    <div class="variables-list">
+      <div class="variable-item">
+        <span class="variable-symbol">OC (Población Ocupada):</span> Personas que desempeñan una actividad económica remunerada o trabajan de forma independiente[cite: 1].
+      </div>
+      <div class="variable-item">
+        <span class="variable-symbol">PET (Población en Edad de Trabajar):</span> Total de personas aptas para trabajar[cite: 1].
+      </div>
+    </div>
+
+    <div class="example-box">
+      <strong>Ejemplo práctico:</strong> Si de esas 100,000 personas ($PET$), 58,000 están trabajando ($OC$), la $\text{TO} = (58,000 / 100,000) \times 100 = 58\%$.
+    </div>
+  </div>
+
+  <!-- 3. Tasa de Desocupación (TD) -->
+  <div class="indicator-card" style="border-left-color: #ef4444;">
+    <div class="indicator-header">
+      <h3 class="indicator-title">3. Tasa de Desocupación (TD)</h3>
+      <span class="badge" style="background:#fef2f2; color:#ef4444;">Mide Desempleo Activo</span>
+    </div>
+    <p>Representa el porcentaje de personas de la fuerza laboral que no tienen empleo, pero se encuentran disponibles y buscando uno activamente[cite: 1].</p>
+    
+    <div class="formula-container">
+      $$\text{TD} = \left( \frac{\text{Personas Desocupadas }(DS)}{\text{Fuerza de Trabajo }(FT)} \right) \times 100$$
+    </div>
+
+    <div class="variables-list">
+      <div class="variable-item">
+        <span class="variable-symbol">DS (Personas Desocupadas):</span> Personas sin empleo disponibles y buscando trabajo activamente[cite: 1].
+      </div>
+      <div class="variable-item">
+        <span class="variable-symbol">FT (Fuerza de Trabajo):</span> Total de la oferta laboral ($OC + DS$)[cite: 1].
+      </div>
+    </div>
+
+    <div class="example-box" style="background-color: #fff1f2; border-color: #fecdd3; color: #9f1239;">
+      <strong>Ejemplo práctico:</strong> Si de 65,000 personas en la Fuerza de Trabajo ($FT$), 7,000 están desocupadas ($DS$), la $\text{TD} = (7,000 / 65,000) \times 100 = 10.77\%$.
     </div>
   </div>
 </div>
+
+
+
+        
 
         <div class="mb-16">
             <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 w-full">
