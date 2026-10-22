@@ -174,79 +174,100 @@
             85% { transform: translateX(-85.71%); }
         }
 
-        .metrics-container {
-  max-width: 900px;
+        :root {
+  --color-primary: #c00022;
+  --color-accent: #ff3735;
+  --color-medium: #ec4e53;
+  --color-soft: #f3c1a8;
+  --color-bg-light: #fae6df;
+}
+
+.banners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 1000px;
   margin: 0 auto;
   font-family: system-ui, -apple-system, sans-serif;
 }
 
-.indicator-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 25px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  border-left: 6px solid #2563eb;
+.banner-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid var(--color-soft);
+  border-top: 4px solid var(--color-primary);
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(192, 0, 34, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.indicator-header {
+.banner-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(192, 0, 34, 0.12);
+}
+
+.banner-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 12px;
+  margin-bottom: 8px;
 }
 
-.indicator-title {
-  font-size: 1.3rem;
-  color: #1e293b;
+.banner-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
   margin: 0;
 }
 
-.badge {
-  background-color: #eff6ff;
-  color: #2563eb;
-  font-weight: bold;
-  padding: 4px 12px;
-  border-radius: 20px;
+.banner-tag {
+  background-color: var(--color-bg-light);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--color-soft);
+}
+
+.banner-desc {
   font-size: 0.85rem;
+  color: #4a5568;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
 }
 
-.formula-container {
-  background-color: #f8fafc;
-  padding: 15px;
-  border-radius: 8px;
+.banner-formula {
+  background-color: var(--color-bg-light);
+  border-radius: 6px;
+  padding: 8px;
   text-align: center;
-  margin: 20px 0;
-  font-size: 1.2rem;
-  overflow-x: auto;
-}
-
-.variables-list {
-  margin-top: 15px;
-}
-
-.variable-item {
-  background: #f1f5f9;
-  margin-bottom: 8px;
-  padding: 10px 14px;
-  border-radius: 6px;
   font-size: 0.95rem;
+  margin-bottom: 12px;
+  color: #111827;
 }
 
-.variable-symbol {
-  font-weight: bold;
-  color: #0f172a;
-}
-
-.example-box {
-  margin-top: 15px;
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  padding: 12px 16px;
+.banner-vars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.78rem;
+  background-color: #fff;
+  padding: 8px;
   border-radius: 6px;
-  font-size: 0.9rem;
-  color: #166534;
+  border: 1px dashed var(--color-soft);
+}
+
+.banner-var-item {
+  color: #374151;
+}
+
+.banner-var-symbol {
+  font-weight: bold;
+  color: var(--color-medium);
 }
     </style>
 </head>
@@ -844,88 +865,69 @@
         </div>
 
 
-        <div class="metrics-container">
-  <h2>Principales Indicadores del Mercado Laboral (DANE)</h2>
+        <div class="banners-grid">
 
-  <!-- 1. Tasa Global de Participación (TGP) -->
-  <div class="indicator-card">
-    <div class="indicator-header">
-      <h3 class="indicator-title">1. Tasa Global de Participación (TGP)</h3>
-      <span class="badge">Mide Oferta Laboral</span>
-    </div>
-    <p>Refleja la presión que ejerce la población sobre el mercado de trabajo, al medir el porcentaje de personas en edad de trabajar que se encuentran vinculadas o buscando empleo de forma activa[cite: 1].</p>
-    
-    <div class="formula-container">
-      $$\text{TGP} = \left( \frac{\text{Fuerza de Trabajo }(FT)}{\text{Población en Edad de Trabajar }(PET)} \right) \times 100$$
-    </div>
-
-    <div class="variables-list">
-      <div class="variable-item">
-        <span class="variable-symbol">FT (Fuerza de Trabajo):</span> Es la suma de las personas ocupadas más las personas desocupadas.
+  <!-- 1. TGP -->
+  <div class="banner-card">
+    <div>
+      <div class="banner-header">
+        <h3 class="banner-title">TGP (Participación)</h3>
+        <span class="banner-tag">Oferta</span>
       </div>
-      <div class="variable-item">
-        <span class="variable-symbol">PET (Población en Edad de Trabajar):</span> Población total en edad legal para trabajar.
+      <p class="banner-desc">Porcentaje de personas en edad de trabajar que participan en el mercado laboral.</p>
+      
+      <div class="banner-formula">
+        $$\text{TGP} = \frac{FT}{PET} \times 100$$
       </div>
     </div>
 
-    <div class="example-box">
-      <strong>Ejemplo práctico:</strong> Si en una ciudad hay 100,000 personas en edad de trabajar ($PET$) y 65,000 de ellas están empleadas o buscando empleo ($FT$), la $\text{TGP} = (65,000 / 100,000) \times 100 = 65\%$.
+    <div class="banner-vars">
+      <div class="banner-var-item"><span class="banner-var-symbol">FT:</span> Fuerza de Trabajo ($OC + DS$)[cite: 1]</div>
+      <div class="banner-var-item"><span class="banner-var-symbol">PET:</span> Población Edad Trabajar[cite: 1]</div>
     </div>
   </div>
 
-  <!-- 2. Tasa de Ocupación (TO) -->
-  <div class="indicator-card" style="border-left-color: #10b981;">
-    <div class="indicator-header">
-      <h3 class="indicator-title">2. Tasa de Ocupación (TO)</h3>
-      <span class="badge" style="background:#ecfdf5; color:#10b981;">Mide Capacidad de Generación de Empleo</span>
-    </div>
-    <p>Muestra la proporción de la población en edad de trabajar que efectivamente se encuentra empleada o desempeñando una actividad económica remunerada[cite: 1].</p>
-    
-    <div class="formula-container">
-      $$\text{TO} = \left( \frac{\text{Población Ocupada }(OC)}{\text{Población en Edad de Trabajar }(PET)} \right) \times 100$$
-    </div>
-
-    <div class="variables-list">
-      <div class="variable-item">
-        <span class="variable-symbol">OC (Población Ocupada):</span> Personas que desempeñan una actividad económica remunerada o trabajan de forma independiente[cite: 1].
+  <!-- 2. TO -->
+  <div class="banner-card" style="border-top-color: var(--color-medium);">
+    <div>
+      <div class="banner-header">
+        <h3 class="banner-title">TO (Ocupación)</h3>
+        <span class="banner-tag" style="background-color: #fef2f2; color: var(--color-medium);">Empleo</span>
       </div>
-      <div class="variable-item">
-        <span class="variable-symbol">PET (Población en Edad de Trabajar):</span> Total de personas aptas para trabajar[cite: 1].
+      <p class="banner-desc">Proporción de personas ocupadas respecto a la población en edad de trabajar[cite: 1].</p>
+      
+      <div class="banner-formula">
+        $$\text{TO} = \frac{OC}{PET} \times 100$$
       </div>
     </div>
 
-    <div class="example-box">
-      <strong>Ejemplo práctico:</strong> Si de esas 100,000 personas ($PET$), 58,000 están trabajando ($OC$), la $\text{TO} = (58,000 / 100,000) \times 100 = 58\%$.
+    <div class="banner-vars">
+      <div class="banner-var-item"><span class="banner-var-symbol">OC:</span> Población Ocupada[cite: 1]</div>
+      <div class="banner-var-item"><span class="banner-var-symbol">PET:</span> Población Edad Trabajar[cite: 1]</div>
     </div>
   </div>
 
-  <!-- 3. Tasa de Desocupación (TD) -->
-  <div class="indicator-card" style="border-left-color: #ef4444;">
-    <div class="indicator-header">
-      <h3 class="indicator-title">3. Tasa de Desocupación (TD)</h3>
-      <span class="badge" style="background:#fef2f2; color:#ef4444;">Mide Desempleo Activo</span>
-    </div>
-    <p>Representa el porcentaje de personas de la fuerza laboral que no tienen empleo, pero se encuentran disponibles y buscando uno activamente[cite: 1].</p>
-    
-    <div class="formula-container">
-      $$\text{TD} = \left( \frac{\text{Personas Desocupadas }(DS)}{\text{Fuerza de Trabajo }(FT)} \right) \times 100$$
-    </div>
-
-    <div class="variables-list">
-      <div class="variable-item">
-        <span class="variable-symbol">DS (Personas Desocupadas):</span> Personas sin empleo disponibles y buscando trabajo activamente[cite: 1].
+  <!-- 3. TD -->
+  <div class="banner-card" style="border-top-color: var(--color-accent);">
+    <div>
+      <div class="banner-header">
+        <h3 class="banner-title">TD (Desocupación)</h3>
+        <span class="banner-tag" style="background-color: #fff1f2; color: var(--color-accent);">Desempleo</span>
       </div>
-      <div class="variable-item">
-        <span class="variable-symbol">FT (Fuerza de Trabajo):</span> Total de la oferta laboral ($OC + DS$)[cite: 1].
+      <p class="banner-desc">Porcentaje de la fuerza laboral que busca empleo sin conseguirlo[cite: 1].</p>
+      
+      <div class="banner-formula">
+        $$\text{TD} = \frac{DS}{FT} \times 100$$
       </div>
     </div>
 
-    <div class="example-box" style="background-color: #fff1f2; border-color: #fecdd3; color: #9f1239;">
-      <strong>Ejemplo práctico:</strong> Si de 65,000 personas en la Fuerza de Trabajo ($FT$), 7,000 están desocupadas ($DS$), la $\text{TD} = (7,000 / 65,000) \times 100 = 10.77\%$.
+    <div class="banner-vars">
+      <div class="banner-var-item"><span class="banner-var-symbol">DS:</span> Personas Desocupadas[cite: 1]</div>
+      <div class="banner-var-item"><span class="banner-var-symbol">FT:</span> Fuerza de Trabajo[cite: 1]</div>
     </div>
   </div>
+
 </div>
-
 
 
         
