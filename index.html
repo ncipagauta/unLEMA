@@ -763,6 +763,23 @@
             </div>
         </div>
 
+        <div class="metrics-grid">
+  <!-- Tarjeta TGP -->
+  <div class="metric-card">
+    <h3>Tasa Global de Participación (TGP)</h3>
+    <p>Porcentaje de la población en edad de trabajar que participa activamente en el mercado laboral.</p>
+    <div class="formula-box">
+      $$\text{TGP} = \left( \frac{\text{Fuerza de trabajo (FT)}}{\text{Población en edad de trabajar (PET)}} \right) \times 100$$
+    </div>
+    <div class="calculator-inputs">
+      <input type="number" id="ft-input" placeholder="FT (Fuerza de trabajo)">
+      <input type="number" id="pet-input" placeholder="PET (Población edad trabajar)">
+      <button onclick="calcularTGP()">Calcular TGP</button>
+      <div id="tgp-result" class="result-display">-- %</div>
+    </div>
+  </div>
+</div>
+
         <div class="mb-16">
             <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 w-full">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
