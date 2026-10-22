@@ -144,6 +144,12 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        header {
+          position: relative;
+          z-index: 10; /* Menor que el z-30 del banner para evitar solapamientos raros */
+          clear: both;
+        }
+
         /* Animación y visibilidad de las imágenes de fondo */
        .slideshow-bg {
             position: absolute;
