@@ -906,89 +906,23 @@
         </div>
 
 
-        <div class="metrics-container">
 
-  <!-- Cuadro de contexto previo -->
-  <div class="intro-context-box">
-    <p class="intro-text">
-      <strong>Fuerza de trabajo (FT):</strong> Comprende al grupo de personas en edad de trabajar que se encuentran ocupadas o buscando empleo activamente.<br>
-      <strong>Población en edad de trabajar (PET):</strong> Comprende a las personas que tienen la edad legal para laborar (mayores a 15 años).
-    </p>
-    <p class="source-link-container">
-      Fuente de información: 
-      <a href="https://microdatos.dane.gov.co/index.php/catalog/853" target="_blank" rel="noopener noreferrer" class="dane-link">
-        DANE - Gran Encuesta Integrada de Hogares
-      </a>
-    </p>
-  </div>
-
-        <div class="banners-grid">
-
-  <!-- 1. TGP -->
-  <div class="banner-card">
-    <div>
-      <div class="banner-header">
-        <h3 class="banner-title">TGP (Participación)</h3>
-        <span class="banner-tag">Oferta</span>
-      </div>
-      <p class="banner-desc">Porcentaje de personas en edad de trabajar que participan en el mercado laboral.</p>
-      
-      <div class="banner-formula">
-        $$\text{TGP} = \frac{FT}{PET} \times 100$$
-      </div>
-    </div>
-
-    <div class="banner-vars">
-      <div class="banner-var-item"><span class="banner-var-symbol">FT:</span> Fuerza de Trabajo ($OC + DS$)</div>
-      <div class="banner-var-item"><span class="banner-var-symbol">PET:</span> Población Edad Trabajar</div>
-    </div>
-  </div>
-
-  <!-- 2. TO -->
-  <div class="banner-card" style="border-top-color: var(--color-medium);">
-    <div>
-      <div class="banner-header">
-        <h3 class="banner-title">TO (Ocupación)</h3>
-        <span class="banner-tag" style="background-color: #fef2f2; color: var(--color-medium);">Empleo</span>
-      </div>
-      <p class="banner-desc">Proporción de personas ocupadas respecto a la población en edad de trabajar.</p>
-      
-      <div class="banner-formula">
-        $$\text{TO} = \frac{OC}{PET} \times 100$$
-      </div>
-    </div>
-
-    <div class="banner-vars">
-      <div class="banner-var-item"><span class="banner-var-symbol">OC:</span> Población Ocupada</div>
-      <div class="banner-var-item"><span class="banner-var-symbol">PET:</span> Población Edad Trabajar</div>
-    </div>
-  </div>
-
-  <!-- 3. TD -->
-  <div class="banner-card" style="border-top-color: var(--color-accent);">
-    <div>
-      <div class="banner-header">
-        <h3 class="banner-title">TD (Desocupación)</h3>
-        <span class="banner-tag" style="background-color: #fff1f2; color: var(--color-accent);">Desempleo</span>
-      </div>
-      <p class="banner-desc">Porcentaje de la fuerza laboral que busca empleo sin conseguirlo.</p>
-      
-      <div class="banner-formula">
-        $$\text{TD} = \frac{DS}{FT} \times 100$$
-      </div>
-    </div>
-
-    <div class="banner-vars">
-      <div class="banner-var-item"><span class="banner-var-symbol">DS:</span> Personas Desocupadas</div>
-      <div class="banner-var-item"><span class="banner-var-symbol">FT:</span> Fuerza de Trabajo</div>
-    </div>
-  </div>
-
+ <!-- Cuadro de contexto informativo independiente -->
+<div class="intro-context-box">
+  <p class="intro-text">
+    <strong>Fuerza de trabajo (FT):</strong> Comprende al grupo de personas en edad de trabajar que se encuentran ocupadas o buscando empleo activamente[cite: 1].<br>
+    <strong>Población en edad de trabajar (PET):</strong> Comprende a las personas que tienen la edad legal para laborar (mayores a 15 años)[cite: 1].
+  </p>
+  <p class="source-link-container">
+    Fuente de información: 
+    <a href="https://microdatos.dane.gov.co/index.php/catalog/853" target="_blank" rel="noopener noreferrer" class="dane-link">
+      DANE - Gran Encuesta Integrada de Hogares
+    </a>
+  </p>
 </div>
-</div>
-
 
         
+      
 
         <div class="mb-16">
             <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 w-full">
@@ -1047,10 +981,6 @@
     </div>
 </div>
 
-
-
-
-
         
     <div class="mb-12">
     <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
@@ -1061,71 +991,9 @@
         <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 max-w-3xl mx-auto mb-16">
     <h4 class="text-center font-bold text-gray-900 mb-2 text-lg">Elección de las trayectorias después del egreso</h4>
     <div class="relative h-80 w-full flex justify-center"><canvas id="graficoTrayectorias"></canvas></div>
-    
-    <!-- Pie de gráfico / Nota -->
-    <div class="mt-4 pt-3 border-t border-gray-100 flex items-start gap-1.5 text-xs text-gray-500">
-        <span class="font-semibold text-gray-700 whitespace-nowrap">Nota:</span>
-        <p class="leading-relaxed">Los datos presentados sobre la trayectoria de emprendimiento deben interpretarse con precaución debido al reducido tamaño de la muestra.</p>
-    </div>
 </div>
         
 
-        <div class="mb-8">
-            <h4 class="text-xl font-bold text-gray-900 text-center mb-6">El Panorama por Facultades</h4>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
-                <div class="bg-[#F15A5A]/10 p-6 rounded-2xl border border-[#F15A5A]/20 flex flex-col items-center text-center">
-                    <div class="w-10 h-10 bg-[#F15A5A] text-white rounded-full flex items-center justify-center mb-3"><i data-lucide="briefcase" class="w-5 h-5"></i></div>
-                    <p class="text-xs text-gray-600"><strong>C. Agrarias (84.6%)</strong> y <strong>Odontología (78.6%)</strong> registran la mayor proporción de elección hacia el mercado laboral.</p>
-                </div>
-                <div class="bg-[#F29B9B]/10 p-6 rounded-2xl border border-[#F29B9B]/30 flex flex-col items-center text-center">
-                    <div class="w-10 h-10 bg-[#F29B9B] text-white rounded-full flex items-center justify-center mb-3"><i data-lucide="book-open" class="w-5 h-5"></i></div>
-                    <p class="text-xs text-gray-600">La <strong>Facultad de Ciencias (54.2%)</strong> es la única con una mayoría de encuestados orientados a continuar su formación.</p>
-                </div>
-                <div class="bg-[#9D0A2C]/10 p-6 rounded-2xl border border-[#9D0A2C]/20 flex flex-col items-center text-center">
-                    <div class="w-10 h-10 bg-[#9D0A2C] text-white rounded-full flex items-center justify-center mb-3"><i data-lucide="rocket" class="w-5 h-5"></i></div>
-                    <p class="text-xs text-gray-600"><strong>Med. Veterinaria (22.2%)</strong> y <strong>Artes (12.5%)</strong> presentan los mayores porcentajes de intención de emprender.</p>
-                </div>
-            </div>
-            
-            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 max-w-5xl mx-auto w-full">
-                <div class="relative h-[500px] w-full"><canvas id="graficoFacultades"></canvas></div>
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <div class="bg-[#FBF1E9] rounded-3xl p-8 mb-10 border border-[#F3C1A8]/50">
-            <h3 class="text-2xl font-black text-[#9C0623] mb-2">Más allá del promedio general</h3>
-            <p class="text-sm text-gray-700 mb-8 font-light">Al desagregar los datos generales, se observan variaciones descriptivas importantes.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-[#fae6df]">
-                    <h4 class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Identidad de Género</h4>
-                    <p class="text-xs text-gray-800 leading-relaxed font-light">Se evidenció que los hombres muestran el doble de propensión hacia el <strong>emprendimiento (6,5%)</strong> en comparación con las mujeres (3,0%).</p>
-                </div>
-                <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-[#EC7920]">
-                    <h4 class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Tipo de Admisión</h4>
-                    <p class="text-xs text-gray-800 leading-relaxed font-light">Los estudiantes de <strong>admisión PAES</strong> mostraron la mayor concentración en la decisión de continuar estudiando con un <strong>34,5%</strong>.</p>
-                </div>
-                <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-[#9C0623]">
-                    <h4 class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Enfoque Diferencial</h4>
-                    <p class="text-xs text-gray-800 leading-relaxed font-light">La población identificada como <strong>víctima del conflicto armado</strong> registra la mayor intención de insertarse directamente al mercado laboral con un <strong>87,5%</strong>.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECCIÓN NUEVA: Gráfico Dinámico Unificado -->
-        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 max-w-5xl mx-auto w-full mb-8">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 border-b border-gray-100 pb-4">
-                <h5 class="text-xl md:text-2xl font-black text-gray-900">Desagregación de Trayectorias</h5>
-                <div class="inline-flex bg-gray-100 rounded-lg p-1" role="group">
-                    <button onclick="cambiarFiltroDiferencial('genero')" id="btn-genero" class="px-5 py-2 rounded-md text-sm font-bold bg-white text-gray-900 shadow-sm transition-all border border-gray-200">Género</button>
-                    <button onclick="cambiarFiltroDiferencial('admision')" id="btn-admision" class="px-5 py-2 rounded-md text-sm font-bold text-gray-500 hover:text-gray-900 transition-all">Admisión</button>
-                    <button onclick="cambiarFiltroDiferencial('enfoque')" id="btn-enfoque" class="px-5 py-2 rounded-md text-sm font-bold text-gray-500 hover:text-gray-900 transition-all">Enfoque</button>
-                </div>
-            </div>
-            <div class="relative h-[400px] w-full"><canvas id="graficoDinamicoDiferencial"></canvas></div>
-        </div>
-    </div>
 
     <section class="py-20 bg-gray-50 px-6 border-t mt-16 rounded-3xl mb-8">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
