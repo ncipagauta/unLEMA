@@ -1059,49 +1059,32 @@
         <div class="relative h-80 w-full flex justify-center"><canvas id="graficoTrayectorias"></canvas></div>
     </div>
 
-    <div class="mb-20">
-        <!-- Subtítulo añadido para mejorar la experiencia en móviles y escritorio -->
-        <p class="text-sm font-medium text-gray-500 text-center mb-8">Toca o pasa el cursor sobre cada tarjeta para ver la proporción de estudiantes que seleccionaron la trayectoria a elegir despues de graduarse</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-[#fae6df] rounded-2xl p-6 text-center shadow-sm border-b-4 border-[#ff3735] hover:-translate-y-2 transition-all duration-300">
+            <div class="flex justify-center mb-3 text-[#ec4e53]">
+                <i data-lucide="briefcase" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-lg font-bold text-[#000000]">Trayectoria Laboral</h3>
+            <p class="text-4xl font-black text-[#c00022] my-2">63.6%</p>
+            <p class="text-sm text-gray-700">De los estudiantes eligen esta ruta</p>
+        </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <!-- Tarjeta 1: Trabajar (#c00022) -->
-            <div class="group relative bg-white h-48 rounded-3xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer">
-                <div class="absolute inset-0 bg-[#c00022] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-center z-10">
-                    <span class="text-4xl font-black mb-2">63.6%</span>
-                </div>
-                <div class="absolute inset-0 flex flex-col items-center justify-center group-hover:scale-95 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-[#c00022]/10 text-[#c00022] rounded-full flex items-center justify-center mb-3">
-                        <i data-lucide="briefcase" class="w-7 h-7"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-900 text-lg">Para Trabajar</h4>
-                </div>
+        <div class="bg-[#fae6df] rounded-2xl p-6 text-center shadow-sm border-b-4 border-[#f3c1a8] hover:-translate-y-2 transition-all duration-300">
+            <div class="flex justify-center mb-3 text-[#ec4e53]">
+                <i data-lucide="book-open" class="w-8 h-8"></i>
             </div>
+            <h3 class="text-lg font-bold text-[#000000]">Continuar Estudios</h3>
+            <p class="text-4xl font-black text-[#c00022] my-2">31.4%</p>
+            <p class="text-sm text-gray-700">Buscan realizar un posgrado</p>
+        </div>
 
-            <!-- Tarjeta 2: Estudiar (#f3c1a8) -->
-            <div class="group relative bg-white h-48 rounded-3xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer">
-                <div class="absolute inset-0 bg-[#f3c1a8] text-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-center z-10">
-                    <span class="text-4xl font-black mb-2">31.4%</span>
-                </div>
-                <div class="absolute inset-0 flex flex-col items-center justify-center group-hover:scale-95 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-[#f3c1a8]/30 text-[#e0895c] rounded-full flex items-center justify-center mb-3">
-                        <i data-lucide="book-open" class="w-7 h-7"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-900 text-lg">Para Estudiar</h4>
-                </div>
+        <div class="bg-[#fae6df] rounded-2xl p-6 text-center shadow-sm border-b-4 border-[#c00022] hover:-translate-y-2 transition-all duration-300">
+            <div class="flex justify-center mb-3 text-[#ec4e53]">
+                <i data-lucide="lightbulb" class="w-8 h-8"></i>
             </div>
-
-            <!-- Tarjeta 3: Emprender (#fae6df) -->
-            <div class="group relative bg-white h-48 rounded-3xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer">
-                <div class="absolute inset-0 bg-[#fae6df] text-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-center z-10">
-                    <span class="text-4xl font-black mb-2">5.0%</span>
-                </div>
-                <div class="absolute inset-0 flex flex-col items-center justify-center group-hover:scale-95 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-[#fae6df]/60 text-[#d6856a] rounded-full flex items-center justify-center mb-3">
-                        <i data-lucide="rocket" class="w-7 h-7"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-900 text-lg">Para Emprender</h4>
-                </div>
-            </div>
+            <h3 class="text-lg font-bold text-[#000000]">Emprendimiento</h3>
+            <p class="text-4xl font-black text-[#c00022] my-2">4.9%</p>
+            <p class="text-sm text-gray-700">Planean crear su propio negocio</p>
         </div>
     </div>
 
@@ -1188,20 +1171,199 @@
         </div>
 
             <div class="mb-20">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-                    <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900">Explorador de Motivaciones</h3>
+    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+        <!-- Controles de Navegación -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
+            <div>
+                <h3 class="text-xl font-bold text-gray-900">Explorador de Motivaciones</h3>
+            </div>
+            <div class="flex bg-gray-50 p-1.5 rounded-full border border-gray-200">
+                <button id="btn-mot-laboral" class="px-5 py-2 rounded-full text-xs font-bold transition-all bg-[#F15A5A] text-white shadow-sm" onclick="cambiarMotivacion('laboral')">Trabajar</button>
+                <button id="btn-mot-academico" class="px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-[#ff3735] bg-transparent" onclick="cambiarMotivacion('academico')">Estudiar</button>
+                <button id="btn-mot-emprender" class="px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-[#9C0623] bg-transparent" onclick="cambiarMotivacion('emprender')">Emprender</button>
+            </div>
+        </div>
+
+        <!-- Contenedor de las Motivaciones -->
+        <div class="p-2 md:p-6">
+            
+            <!-- SECCIÓN: TRABAJAR -->
+            <div id="mot-laboral" class="block fade-in">
+                <h3 class="text-2xl font-black text-[#000000] mb-6 flex items-center gap-2">
+                    <i data-lucide="briefcase" class="text-[#ec4e53]"></i> Motivaciones para Trabajar
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 mb-8">
+                    <!-- Barras de datos -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Seguridad económica</span>
+                            <span class="text-sm font-bold text-[#c00022]">59.6%</span>
                         </div>
-                        <div class="flex bg-gray-50 p-1.5 rounded-full border border-gray-200">
-                            <button id="btn-mot-laboral" class="px-5 py-2 rounded-full text-xs font-bold transition-all bg-[#F15A5A] text-white shadow-sm">Trabajar</button>
-                            <button id="btn-mot-academico" class="px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-[#ff3735]">Estudiar</button>
-                            <button id="btn-mot-emprender" class="px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-[#9C0623]">Emprender</button>
-                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ff3735] h-3 rounded-full" style="width: 59.6%"></div></div>
                     </div>
-                    <div class="relative h-80 w-full"><canvas id="graficoMotivacionesDinámico"></canvas></div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Experiencia práctica</span>
+                            <span class="text-sm font-bold text-[#c00022]">31.6%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ec4e53] h-3 rounded-full" style="width: 31.6%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Preparación para estudiar</span>
+                            <span class="text-sm font-bold text-[#c00022]">4.2%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#f3c1a8] h-3 rounded-full" style="width: 4.2%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Otras (Desconocimiento, familia)</span>
+                            <span class="text-sm font-bold text-[#c00022]">3.1%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ff3735] h-3 rounded-full" style="width: 3.1%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Preparación para emprender</span>
+                            <span class="text-sm font-bold text-[#c00022]">1.5%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ec4e53] h-3 rounded-full" style="width: 1.5%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Contexto -->
+                <div class="bg-[#fae6df]/30 p-6 rounded-2xl border border-[#fae6df]">
+                    <p class="text-sm text-gray-700 leading-relaxed text-justify">
+                        Al indagar por las principales motivaciones de quienes planean ingresar al mercado laboral tras el egreso, las respuestas se concentran en dos factores clave: la seguridad económica y la adquisición de experiencia práctica. En conjunto, ambas razones representan el 91,27 % de la muestra (303 de 332 personas), evidenciando que las expectativas de inserción laboral priorizan la estabilidad financiera y el fortalecimiento profesional durante los primeros años.
+                    </p>
                 </div>
             </div>
+
+            <!-- SECCIÓN: ESTUDIAR -->
+            <div id="mot-academico" class="hidden fade-in">
+                <h3 class="text-2xl font-black text-[#000000] mb-6 flex items-center gap-2">
+                    <i data-lucide="book-open" class="text-[#ec4e53]"></i> Motivaciones para Estudiar
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 mb-8">
+                    <!-- Barras de datos -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Motivaciones personales</span>
+                            <span class="text-sm font-bold text-[#c00022]">35.9%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ff3735] h-3 rounded-full" style="width: 35.9%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Experiencia en el pregrado</span>
+                            <span class="text-sm font-bold text-[#c00022]">21.8%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ec4e53] h-3 rounded-full" style="width: 21.8%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Optar a un trabajo específico</span>
+                            <span class="text-sm font-bold text-[#c00022]">15.4%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#f3c1a8] h-3 rounded-full" style="width: 15.4%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Obtener una beca</span>
+                            <span class="text-sm font-bold text-[#c00022]">13.8%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ff3735] h-3 rounded-full" style="width: 13.8%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Influencia familiar</span>
+                            <span class="text-sm font-bold text-[#c00022]">10.6%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ec4e53] h-3 rounded-full" style="width: 10.6%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Otras</span>
+                            <span class="text-sm font-bold text-[#c00022]">2.5%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#f3c1a8] h-3 rounded-full" style="width: 2.5%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Contexto -->
+                <div class="bg-[#fae6df]/30 p-6 rounded-2xl border border-[#fae6df]">
+                    <p class="text-sm text-gray-700 leading-relaxed text-justify">
+                        Al indagar por las principales motivaciones de quienes planean continuar estudiando tras el egreso, las respuestas se muestran más dispersas que en la trayectoria laboral. Las motivaciones personales constituyen la razón predominante con el 35,90 % de la muestra (135 personas), seguidas por la experiencia vivida en el pregrado con el 21,81 % (82 personas) y la necesidad de un posgrado para acceder a un trabajo específico con el 15,43 % (58 personas). En conjunto, estas tres razones representan el 73,14 % del total, evidenciando que la decisión de continuar la formación académica responde principalmente a intereses personales y de cualificación profesional.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SECCIÓN: EMPRENDER -->
+            <div id="mot-emprender" class="hidden fade-in">
+                <h3 class="text-2xl font-black text-[#000000] mb-6 flex items-center gap-2">
+                    <i data-lucide="rocket" class="text-[#ec4e53]"></i> Motivaciones para Emprender
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 mb-8">
+                    <!-- Barras de datos -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Independencia laboral</span>
+                            <span class="text-sm font-bold text-[#c00022]">23.1%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ff3735] h-3 rounded-full" style="width: 23.1%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Flexibilidad / Oportunidades</span>
+                            <span class="text-sm font-bold text-[#c00022]">23.1%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ec4e53] h-3 rounded-full" style="width: 23.1%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Independencia financiera</span>
+                            <span class="text-sm font-bold text-[#c00022]">19.2%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#f3c1a8] h-3 rounded-full" style="width: 19.2%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Generación de empleo</span>
+                            <span class="text-sm font-bold text-[#c00022]">15.4%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ff3735] h-3 rounded-full" style="width: 15.4%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Espíritu innovador</span>
+                            <span class="text-sm font-bold text-[#c00022]">11.5%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#ec4e53] h-3 rounded-full" style="width: 11.5%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-semibold text-[#000000]">Otras</span>
+                            <span class="text-sm font-bold text-[#c00022]">7.7%</span>
+                        </div>
+                        <div class="w-full bg-[#fae6df] rounded-full h-3"><div class="bg-[#f3c1a8] h-3 rounded-full" style="width: 7.7%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Contexto -->
+                <div class="bg-[#fae6df]/30 p-6 rounded-2xl border border-[#fae6df]">
+                    <p class="text-sm text-gray-700 leading-relaxed text-justify">
+                        <!-- ESPACIO PARA INGRESAR TEXTO DE EMPRENDER -->
+                        [Aqui falta el texto explicativo para la sección de emprendimiento]
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 
            <div class="mb-20">
     <div class="flex items-center justify-center gap-3 mb-10">
@@ -1299,34 +1461,6 @@
         </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <div class="bg-[#fae6df] rounded-2xl p-6 text-center shadow-sm border-b-4 border-[#ff3735] hover:-translate-y-2 transition-all duration-300">
-            <div class="flex justify-center mb-3 text-[#ec4e53]">
-                <i data-lucide="briefcase" class="w-8 h-8"></i>
-            </div>
-            <h3 class="text-lg font-bold text-[#000000]">Trayectoria Laboral</h3>
-            <p class="text-4xl font-black text-[#c00022] my-2">63.6%</p>
-            <p class="text-sm text-gray-700">De los estudiantes eligen esta ruta</p>
-        </div>
-        
-        <div class="bg-[#fae6df] rounded-2xl p-6 text-center shadow-sm border-b-4 border-[#f3c1a8] hover:-translate-y-2 transition-all duration-300">
-            <div class="flex justify-center mb-3 text-[#ec4e53]">
-                <i data-lucide="book-open" class="w-8 h-8"></i>
-            </div>
-            <h3 class="text-lg font-bold text-[#000000]">Continuar Estudios</h3>
-            <p class="text-4xl font-black text-[#c00022] my-2">31.4%</p>
-            <p class="text-sm text-gray-700">Buscan realizar un posgrado</p>
-        </div>
-
-        <div class="bg-[#fae6df] rounded-2xl p-6 text-center shadow-sm border-b-4 border-[#c00022] hover:-translate-y-2 transition-all duration-300">
-            <div class="flex justify-center mb-3 text-[#ec4e53]">
-                <i data-lucide="lightbulb" class="w-8 h-8"></i>
-            </div>
-            <h3 class="text-lg font-bold text-[#000000]">Emprendimiento</h3>
-            <p class="text-4xl font-black text-[#c00022] my-2">4.9%</p>
-            <p class="text-sm text-gray-700">Planean crear su propio negocio</p>
-        </div>
-    </div>
 
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
         
@@ -2255,6 +2389,24 @@
             if(btnMotLaboral) btnMotLaboral.addEventListener('click', () => actualizarGraficoMotivaciones('laboral', btnMotLaboral));
             if(btnMotAcademico) btnMotAcademico.addEventListener('click', () => actualizarGraficoMotivaciones('academico', btnMotAcademico));
             if(btnMotEmprender) btnMotEmprender.addEventListener('click', () => actualizarGraficoMotivaciones('emprender', btnMotEmprender));
+
+
+            function cambiarMotivacion(tipo) {
+        // Ocultar todos
+        document.getElementById('mot-laboral').classList.replace('block', 'hidden');
+        document.getElementById('mot-academico').classList.replace('block', 'hidden');
+        document.getElementById('mot-emprender').classList.replace('block', 'hidden');
+
+        // Resetear clases de botones
+        const styleInactivo = "px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-gray-900 bg-transparent";
+        document.getElementById('btn-mot-laboral').className = styleInactivo;
+        document.getElementById('btn-mot-academico').className = styleInactivo;
+        document.getElementById('btn-mot-emprender').className = styleInactivo;
+
+        // Activar la sección correspondiente
+        document.getElementById('mot-' + tipo).classList.replace('hidden', 'block');
+        document.getElementById('btn-mot-' + tipo).className = "px-5 py-2 rounded-full text-xs font-bold transition-all bg-[#F15A5A] text-white shadow-sm";
+    }
 
 // GRÁFICO FACULTADES Y SELECTOR
 const datosFacultades = {
