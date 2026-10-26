@@ -2339,56 +2339,6 @@
                 Plotly.newPlot('graficoSankey', data, layout, config);
             }
 
-           
-
-            // GRÁFICO MOTIVACIONES
-            const datosMotivaciones = {
-                laboral: { labels: ['Seguridad económica', 'Experiencia práctica', 'Preparación para estudiar', 'Preparación para emprender', 'Otras (Desconocimiento, familia)'], data: [59.6, 31.6, 4.2, 1.5, 3.1], color: '#c00022', hover: '#e0895c', textColor: '#111827' },
-                academico: { labels: ['Motivaciones personales', 'Experiencia en el pregrado', 'Optar a un trabajo específico', 'Obtener una beca', 'Influencia familiar', 'Otras'], data: [35.9, 21.8, 15.4, 13.8, 10.6, 2.5], color: '#c00022', hover: '#e0895c' , textColor: '#111827' },
-                emprender: { labels: ['Independencia laboral', 'Independencia financiera', 'Generación de empleo', 'Flexibilidad / Oportunidades', 'Espíritu innovador', 'Otras'], data: [23.1, 19.2, 15.4, 23.1, 11.5, 7.7], color: '#c00022', hover: '#e0895c', textColor: '#111827' }
-            };
-
-            const ctxMotivaciones = document.getElementById('graficoMotivacionesDinámico');
-            let chartMotivaciones;
-            if (ctxMotivaciones) {
-                chartMotivaciones = new Chart(ctxMotivaciones, {
-                    type: 'bar',
-                    data: { labels: datosMotivaciones.laboral.labels, datasets: [{ label: '% de Estudiantes', data: datosMotivaciones.laboral.data, backgroundColor: datosMotivaciones.laboral.color, hoverBackgroundColor: datosMotivaciones.laboral.hover, borderRadius: 6, borderWidth: 0 }] },
-                    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(17,24,39,0.9)', padding: 12, cornerRadius: 8, callbacks: { label: function(context) { return ` ${context.raw}%`; } } } }, scales: { x: { beginAtZero: true, max: 70, grid: { color: '#f3f4f6' }, ticks: { callback: v => v + '%', font: { size: 11 } } }, y: { grid: { display: false }, ticks: { font: { size: 11, weight: '500' } } } } }
-                });
-            }
-
-            const btnMotLaboral = document.getElementById('btn-mot-laboral');
-            const btnMotAcademico = document.getElementById('btn-mot-academico');
-            const btnMotEmprender = document.getElementById('btn-mot-emprender');
-
-            function actualizarGraficoMotivaciones(tipo, btnActivo) {
-                if (!chartMotivaciones) return;
-                
-                [btnMotLaboral, btnMotAcademico, btnMotEmprender].forEach(btn => { 
-                    if(btn) {
-                        btn.className = "px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-gray-900 bg-transparent"; 
-                        btn.style.backgroundColor = "transparent";
-                        btn.style.color = ""; 
-                    }
-                });
-                
-                if (btnActivo) {
-                    btnActivo.className = "px-5 py-2 rounded-full text-xs font-bold transition-all shadow-sm";
-                    btnActivo.style.backgroundColor = datosMotivaciones[tipo].color;
-                    btnActivo.style.color = datosMotivaciones[tipo].textColor;
-                }
-                
-                chartMotivaciones.data.labels = datosMotivaciones[tipo].labels;
-                chartMotivaciones.data.datasets[0].data = datosMotivaciones[tipo].data;
-                chartMotivaciones.data.datasets[0].backgroundColor = datosMotivaciones[tipo].color;
-                chartMotivaciones.data.datasets[0].hoverBackgroundColor = datosMotivaciones[tipo].hover;
-                chartMotivaciones.update();
-            }
-
-            if(btnMotLaboral) btnMotLaboral.addEventListener('click', () => actualizarGraficoMotivaciones('laboral', btnMotLaboral));
-            if(btnMotAcademico) btnMotAcademico.addEventListener('click', () => actualizarGraficoMotivaciones('academico', btnMotAcademico));
-            if(btnMotEmprender) btnMotEmprender.addEventListener('click', () => actualizarGraficoMotivaciones('emprender', btnMotEmprender));
 
 
             function cambiarMotivacion(tipo) {
