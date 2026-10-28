@@ -1611,7 +1611,11 @@ según la facultad y el género, con el propósito de identificar fortalezas y o
     </div>
 </section>
 
-
+            <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="w-3 h-3 rounded-full bg-[#DF0832]"></span>
+            <h3 class="text-xl font-bold text-[#c00022] italic uppercase tracking-wide"> ¿Qué tan preparados se sienten los estudiantes? Percepción ante el empleo, el estudio y el emprendimiento</h3>
+        </div>
+            
 <!-- ============================================================= -->
 <!-- SECCIÓN 2 · NIVEL DE PREPARACIÓN (mediana escala Likert)      -->
 <!-- ============================================================= -->
@@ -1689,82 +1693,295 @@ según la facultad y el género, con el propósito de identificar fortalezas y o
     </section>
 
 
+            <!-- ============================================================= -->
+<!-- 1 · GÉNERO (laboral destacada)                                -->
+<!-- ============================================================= -->
+<section id="seccion-genero" class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-10 mb-10">
 
-            
+    <div class="text-center md:text-left mb-8 max-w-3xl">
+        <span class="inline-block bg-[#fae6df] text-[#c00022] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3">Lectura por género</span>
+        <h3 class="text-2xl md:text-3xl font-black text-[#000000] mb-2">¿Se perciben igual de preparados hombres y mujeres?</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+            La autopercepción del nivel de preparación se estudió en las tres trayectorias, pero solo en la laboral aparece una diferencia entre géneros.
+        </p>
+    </div>
 
+    <!-- TARJETA DESTACADA: LABORAL -->
+    <div class="relative rounded-3xl border-4 border-[#c00022] bg-gradient-to-br from-[#fae6df]/70 to-white p-6 md:p-8 mb-8">
+        <span class="absolute -top-4 left-6 bg-[#c00022] text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full flex items-center gap-2">
+            <i data-lucide="briefcase" class="w-4 h-4"></i> Mercado laboral · Diferencia relevante
+        </span>
 
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-2">
 
-
-            
-            <!-- INICIO: Dashboard Interactivo Chart.js Integrado -->
-    <div class="pt-6 border-t border-gray-200">
-        <header class="mb-8 text-center">
-            <h3 class="text-2xl font-bold text-[#c00022] mb-2">Análisis Interactivo de Resultados</h3>
-            <p class="text-gray-700">Exploración detallada de preparación, estudios, emprendimiento y brechas de género.</p>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <!-- Gráfica 1: Falta de Preparación -->
-            <div class="dashboard-card">
-                <h4 class="text-lg font-bold text-[#c00022] mb-4"><i class="fa-solid fa-briefcase mr-2"></i>Falta de preparación laboral</h4>
-                <canvas id="chartPreparacion"></canvas>
+            <!-- Pictograma -->
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Mujeres -->
+                <div class="text-center rounded-2xl bg-[#fae6df] p-5 border border-[#f3c1a8]">
+                    <svg viewBox="0 0 64 100" class="w-20 h-28 mx-auto text-[#ec4e53]" fill="currentColor" role="img" aria-label="Figura de mujer">
+                        <circle cx="32" cy="14" r="11"/>
+                        <path d="M32 28c-7 0-12 4-13 11L8 70h14v26a4 4 0 0 0 4 4h2a2 2 0 0 0 2-2V74h4v24a2 2 0 0 0 2 2h2a4 4 0 0 0 4-4V70h14L45 39c-1-7-6-11-13-11z"/>
+                    </svg>
+                    <h5 class="font-black text-lg mt-2 text-[#000000]">Mujeres</h5>
+                    <p class="text-xs font-semibold text-gray-600">Mediana: 3 · Moda: 3</p>
+                    <div class="flex justify-center gap-1.5 mt-3" aria-label="Nivel 3 de 5">
+                        <span class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center bg-white text-[#c00022] border border-[#f3c1a8]">1</span>
+                        <span class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center bg-white text-[#c00022] border border-[#f3c1a8]">2</span>
+                        <span class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center bg-[#c00022] text-white ring-4 ring-[#f3c1a8]">3</span>
+                        <span class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center bg-white text-[#c00022] border border-[#f3c1a8]">4</span>
+                        <span class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center bg-white text-[#c00022] border border-[#f3c1a8]">5</span>
+                    </div>
+                </div>
+                <!-- Hombres -->
+                <div class="text-center rounded-2xl bg-[#f3c1a8] p-5 border border-[#ec4e53]/30">
+                    <svg viewBox="0 0 64 100" class="w-20 h-28 mx-auto text-[#c00022]" fill="currentColor" role="img" aria-label="Figura de hombre">
+                        <circle cx="32" cy="14" r="11"/>
+                        <path d="M18 30h28a8 8 0 0 1 8 8v28a4 4 0 0 1-8 0V46h-2v50a4 4 0 0 1-4 4h-2a2 2 0 0 1-2-2V68h-4v30a2 2 0 0 1-2 2h-2a4 4 0 0 1-4-4V46h-2v20a4 4 0 0 1-8 0V38a8 8 0 0 1 8-8z"/>
+                    </svg>
+                    <h5 class="font-black text-lg mt-2 text-[#000000]">Hombres</h5>
+                    <p class="text-xs font-semibold text-gray-700">Mediana: 4 · Moda: 4</p>
+                    <div class="flex justify-center gap-1.5 mt-3" aria-label="Nivel 4 de 5">
+                        <span class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center bg-white text-[#c00022] border border-[#f3c1a8]">1</span>
+                        <span class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center bg-white text-[#c00022] border border-[#f3c1a8]">2</span>
+                        <span class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center bg-white text-[#c00022] border border-[#f3c1a8]">3</span>
+                        <span class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center bg-[#c00022] text-white ring-4 ring-white">4</span>
+                        <span class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center bg-white text-[#c00022] border border-[#f3c1a8]">5</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Gráfica 2: Lugar de Estudios -->
-            <div class="dashboard-card">
-                <h4 class="text-lg font-bold text-[#c00022] mb-4"><i class="fa-solid fa-graduation-cap mr-2"></i>Lugar esperado para estudiar</h4>
-                <div class="relative h-64 w-full flex justify-center">
-                    <canvas id="chartEstudios"></canvas>
+            <!-- Barras comparativas -->
+            <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-4">Distribución de respuestas en la escala Likert</p>
+
+                <div class="mb-5">
+                    <div class="flex justify-between text-sm font-semibold mb-1"><span>Hombres · niveles altos (4 y 5)</span><span class="text-[#c00022] font-bold">53,71 %</span></div>
+                    <div class="w-full bg-white rounded-full h-3 border border-[#f3c1a8]"><div class="anim-bar h-full rounded-full" data-w="53.71" style="width:0;background:#c00022;transition:width .9s ease-out"></div></div>
+                </div>
+                <div class="mb-5">
+                    <div class="flex justify-between text-sm font-semibold mb-1"><span>Mujeres · niveles altos (4 y 5)</span><span class="text-[#c00022] font-bold">42,68 %</span></div>
+                    <div class="w-full bg-white rounded-full h-3 border border-[#f3c1a8]"><div class="anim-bar h-full rounded-full" data-w="42.68" style="width:0;background:#ec4e53;transition:width .9s ease-out"></div></div>
+                </div>
+                <div class="mb-5">
+                    <div class="flex justify-between text-sm font-semibold mb-1"><span>Mujeres · nivel 3</span><span class="text-[#c00022] font-bold">47,77 %</span></div>
+                    <div class="w-full bg-white rounded-full h-3 border border-[#f3c1a8]"><div class="anim-bar h-full rounded-full" data-w="47.77" style="width:0;background:#f3c1a8;transition:width .9s ease-out"></div></div>
                 </div>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Gráfica 3: Tiempo Emprendimiento -->
-            <div class="dashboard-card">
-                <h4 class="text-lg font-bold text-[#c00022] mb-4"><i class="fa-solid fa-lightbulb mr-2"></i>Expectativas de tiempo al emprender</h4>
-                <canvas id="chartEmprendimiento"></canvas>
+        <div class="bg-white/80 p-5 rounded-2xl border border-[#fae6df] mt-8">
+            <p class="text-sm text-gray-700 leading-relaxed text-justify">
+                La autopercepción del nivel de preparación para ingresar al mercado laboral presenta diferencias según el género. En los hombres, la tendencia se ubica en el nivel 4, mientras que en las mujeres corresponde al nivel 3, resultado que se refleja en la mediana y la moda de cada grupo. Asimismo, el 53,71 % de los hombres se percibe en los niveles altos de preparación (4 y 5), frente al 42,68 % de las mujeres. En contraste, cerca de la mitad de las mujeres (47,77 %) concentra sus respuestas en el nivel 3. Estos resultados podrían sugerir que los hombres se perciben a sí mismos como más preparados que las mujeres.
+            </p>
+        </div>
+    </div>
+
+    <!-- LAS OTRAS DOS TRAYECTORIAS: SIN BRECHA -->
+    <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3">En las otras dos trayectorias no se observa diferencia</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div class="rounded-2xl border border-gray-200 bg-gray-50 p-5 flex items-center gap-5">
+            <div class="flex shrink-0 gap-1 text-[#ec4e53]">
+                <svg viewBox="0 0 64 100" class="w-8 h-12" fill="currentColor" aria-hidden="true"><circle cx="32" cy="14" r="11"/><path d="M32 28c-7 0-12 4-13 11L8 70h14v26a4 4 0 0 0 4 4h2a2 2 0 0 0 2-2V74h4v24a2 2 0 0 0 2 2h2a4 4 0 0 0 4-4V70h14L45 39c-1-7-6-11-13-11z"/></svg>
+                <svg viewBox="0 0 64 100" class="w-8 h-12 text-[#c00022]" fill="currentColor" aria-hidden="true"><circle cx="32" cy="14" r="11"/><path d="M18 30h28a8 8 0 0 1 8 8v28a4 4 0 0 1-8 0V46h-2v50a4 4 0 0 1-4 4h-2a2 2 0 0 1-2-2V68h-4v30a2 2 0 0 1-2 2h-2a4 4 0 0 1-4-4V46h-2v20a4 4 0 0 1-8 0V38a8 8 0 0 1 8-8z"/></svg>
             </div>
-
-            <!-- Tarjeta 4: Pictograma Género -->
-            <div class="dashboard-card flex flex-col justify-between">
-                <div>
-                    <h4 class="text-lg font-bold text-[#c00022] mb-2"><i class="fa-solid fa-venus-mars mr-2"></i>Preparación percibida por Género</h4>
-                    <p class="text-sm text-gray-600 mb-6">La mediana revela diferencias claras: los hombres se perciben más preparados que las mujeres para el mundo laboral.</p>
-                </div>
-                
-                <div class="flex justify-around items-center mb-4">
-                    <!-- Femenino -->
-                    <div class="text-center p-4 bg-[#fae6df] rounded-lg w-2/5">
-                        <i class="fa-solid fa-person-dress text-5xl text-[#ec4e53] mb-3"></i>
-                        <h5 class="font-bold text-base">Mujeres</h5>
-                        <p class="text-xs font-semibold mb-2">Mediana: 3 / 5</p>
-                        <div class="text-lg">
-                            <i class="fa-solid fa-star icon-active"></i>
-                            <i class="fa-solid fa-star icon-active"></i>
-                            <i class="fa-solid fa-star icon-active"></i>
-                            <i class="fa-solid fa-star icon-inactive"></i>
-                            <i class="fa-solid fa-star icon-inactive"></i>
-                        </div>
-                    </div>
-
-                    <!-- Masculino -->
-                    <div class="text-center p-4 bg-[#f3c1a8] rounded-lg w-2/5">
-                        <i class="fa-solid fa-person text-5xl text-[#c00022] mb-3"></i>
-                        <h5 class="font-bold text-base">Hombres</h5>
-                        <p class="text-xs font-semibold mb-2">Mediana: 4 / 5</p>
-                        <div class="text-lg">
-                            <i class="fa-solid fa-star icon-active"></i>
-                            <i class="fa-solid fa-star icon-active"></i>
-                            <i class="fa-solid fa-star icon-active"></i>
-                            <i class="fa-solid fa-star icon-active"></i>
-                            <i class="fa-solid fa-star icon-inactive"></i>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-xs text-center text-gray-500 mt-2">*Datos extraídos de la autopercepción en escala Likert (1 a 5).</p>
+            <div>
+                <h5 class="font-black text-[#000000] flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-[#ec4e53]"></i> Seguir estudiando</h5>
+                <p class="text-sm text-gray-700">Tendencia hacia el <strong class="text-[#c00022]">nivel 4</strong> tanto en mujeres como en hombres.</p>
             </div>
         </div>
+
+        <div class="rounded-2xl border border-gray-200 bg-gray-50 p-5 flex items-center gap-5">
+            <div class="flex shrink-0 gap-1 text-[#ec4e53]">
+                <svg viewBox="0 0 64 100" class="w-8 h-12" fill="currentColor" aria-hidden="true"><circle cx="32" cy="14" r="11"/><path d="M32 28c-7 0-12 4-13 11L8 70h14v26a4 4 0 0 0 4 4h2a2 2 0 0 0 2-2V74h4v24a2 2 0 0 0 2 2h2a4 4 0 0 0 4-4V70h14L45 39c-1-7-6-11-13-11z"/></svg>
+                <svg viewBox="0 0 64 100" class="w-8 h-12 text-[#c00022]" fill="currentColor" aria-hidden="true"><circle cx="32" cy="14" r="11"/><path d="M18 30h28a8 8 0 0 1 8 8v28a4 4 0 0 1-8 0V46h-2v50a4 4 0 0 1-4 4h-2a2 2 0 0 1-2-2V68h-4v30a2 2 0 0 1-2 2h-2a4 4 0 0 1-4-4V46h-2v20a4 4 0 0 1-8 0V38a8 8 0 0 1 8-8z"/></svg>
+            </div>
+            <div>
+                <h5 class="font-black text-[#000000] flex items-center gap-2"><i data-lucide="rocket" class="w-4 h-4 text-[#ec4e53]"></i> Crear un negocio propio</h5>
+                <p class="text-sm text-gray-700">Tendencia hacia el <strong class="text-[#c00022]">nivel 3</strong> tanto en mujeres como en hombres.</p>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-[10px] text-gray-400 mt-6 text-center">Datos extraídos de la autopercepción en escala Likert (1 a 5).</p>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- 2 · BRECHAS DE INSERCIÓN LABORAL (barras)                     -->
+<!-- ============================================================= -->
+<section id="seccion-brechas" class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-10 mb-10">
+
+    <div class="text-center md:text-left mb-8 max-w-3xl">
+        <span class="inline-block bg-[#fae6df] text-[#c00022] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3">Mercado laboral</span>
+        <h3 class="text-2xl md:text-3xl font-black text-[#000000] mb-2">Brechas para la inserción laboral</h3>
+        <p class="text-gray-600 text-sm">¿En qué sienten los estudiantes que les falta preparación?</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+
+        <!-- Barras -->
+        <div class="lg:col-span-3 space-y-6">
+
+            <div>
+                <div class="flex justify-between gap-4 mb-1">
+                    <span class="text-sm font-bold text-[#000000]">Habilidades para ingresar al mercado laboral
+                        <span class="block text-xs font-normal text-gray-500">Hoja de vida, entrevistas, búsqueda de empleo y LinkedIn</span></span>
+                    <span class="text-right shrink-0"><span class="text-lg font-black text-[#c00022]">54,9 %</span><span class="block text-xs text-gray-500">195 estudiantes</span></span>
+                </div>
+                <div class="w-full bg-[#fae6df] rounded-full h-4"><div class="anim-bar h-full rounded-full" data-w="54.9" style="width:0;background:#ff3735;transition:width .9s ease-out"></div></div>
+            </div>
+
+            <div>
+                <div class="flex justify-between gap-4 mb-1">
+                    <span class="text-sm font-bold text-[#000000]">Habilidades académicas
+                        <span class="block text-xs font-normal text-gray-500">Idiomas, programación, habilidades propias de la carrera</span></span>
+                    <span class="text-right shrink-0"><span class="text-lg font-black text-[#c00022]">20,24 %</span><span class="block text-xs text-gray-500">67 estudiantes</span></span>
+                </div>
+                <div class="w-full bg-[#fae6df] rounded-full h-4"><div class="anim-bar h-full rounded-full" data-w="20.24" style="width:0;background:#ec4e53;transition:width .9s ease-out"></div></div>
+            </div>
+
+            <div>
+                <div class="flex justify-between gap-4 mb-1">
+                    <span class="text-sm font-bold text-[#000000]">Otros</span>
+                    <span class="text-right shrink-0"><span class="text-lg font-black text-[#c00022]">1,81 %</span><span class="block text-xs text-gray-500">6 estudiantes</span></span>
+                </div>
+                <div class="w-full bg-[#fae6df] rounded-full h-4"><div class="anim-bar h-full rounded-full" data-w="1.81" style="width:0;min-width:4px;background:#f3c1a8;transition:width .9s ease-out"></div></div>
+            </div>
+
+            <div>
+                <div class="flex justify-between gap-4 mb-1">
+                    <span class="text-sm font-bold text-[#000000]">Todas las anteriores</span>
+                    <span class="text-right shrink-0"><span class="text-lg font-black text-[#c00022]">1,21 %</span><span class="block text-xs text-gray-500">4 estudiantes</span></span>
+                </div>
+                <div class="w-full bg-[#fae6df] rounded-full h-4"><div class="anim-bar h-full rounded-full" data-w="1.21" style="width:0;min-width:4px;background:#f3c1a8;transition:width .9s ease-out"></div></div>
+            </div>
+        </div>
+
+        <!-- Lo que dijeron en "Otros" -->
+        <div class="lg:col-span-2 bg-[#fae6df]/40 rounded-2xl border border-[#f3c1a8] p-5">
+            <h4 class="font-black text-[#000000] flex items-center gap-2 mb-3"><i data-lucide="message-square-quote" class="w-5 h-5 text-[#c00022]"></i> Lo que mencionaron en «Otros»</h4>
+            <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#c00022] shrink-0"></i> Escasez de oportunidades laborales</li>
+                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#c00022] shrink-0"></i> Necesidad y exigencia de contar con experiencia previa</li>
+                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#c00022] shrink-0"></i> Fortalecimiento de redes de contacto (networking)</li>
+                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#c00022] shrink-0"></i> Conocimiento de normativas laborales</li>
+                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#c00022] shrink-0"></i> Que la Universidad fortalezca los vínculos con el sector laboral y facilite prácticas, pasantías y otras modalidades de inserción</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="bg-[#fae6df]/30 p-5 rounded-2xl border border-[#fae6df] mt-8">
+        <p class="text-sm text-gray-700 leading-relaxed text-justify">
+            La principal razón en la que los estudiantes encuestados perciben falta de preparación tiene que ver con las habilidades para ingresar al mercado laboral tales como redacción de hoja de vida, entrevistas, búsqueda de empleo y linkedin con un 54,9% (195 estudiantes), concentrando un poco más. Seguido de las habilidades académicas (idiomas, programación, habilidades propias de mi carrera)  con un 20,24% (67 estudiantes). Finalmente, la opción Otros representó el 1,81% (6 estudiantes) de las respuestas y reunió comentarios individuales de los estudiantes sobre aspectos no contemplados en las opciones de respuesta. Entre ellos se mencionan la escasez de oportunidades laborales, la necesidad y exigencia de contar con experiencia previa, el fortalecimiento de redes de contacto (networking), el conocimiento de normativas laborales, así como la importancia de que la Universidad fortalezca los vínculos con el sector laboral y facilite espacios de prácticas, pasantías y otras modalidades de inserción. Por su parte, la opción Todas las anteriores correspondió al 1,21% (4 estudiantes).
+        </p>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- 3 · LUGAR ESPERADO PARA ESTUDIAR (barra apilada)              -->
+<!-- ============================================================= -->
+<section id="seccion-estudios-lugar" class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-10 mb-10">
+
+    <div class="text-center md:text-left mb-8 max-w-3xl">
+        <span class="inline-block bg-[#fae6df] text-[#c00022] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3">Seguir estudiando</span>
+        <h3 class="text-2xl md:text-3xl font-black text-[#000000] mb-2">¿Dónde planean estudiar?</h3>
+        <p class="text-gray-600 text-sm">Lugar esperado por quienes eligieron continuar su formación.</p>
+    </div>
+
+    <!-- Dato clave -->
+    <div class="flex flex-col sm:flex-row items-center gap-5 bg-[#fae6df]/50 border border-[#f3c1a8] rounded-2xl p-5 mb-8">
+        <div class="text-5xl md:text-6xl font-black text-[#c00022] leading-none">92,07 %</div>
+        <p class="text-sm text-gray-700 text-center sm:text-left">se concentra en solo <strong>dos respuestas</strong>: estudiar en la misma Universidad o hacerlo fuera del país.</p>
+    </div>
+
+    <!-- Barra apilada 100 % -->
+    <div class="flex w-full h-12 rounded-xl overflow-hidden border border-white shadow-inner" role="img"
+         aria-label="Distribución del lugar esperado para estudiar">
+        <div class="anim-bar flex items-center justify-center text-white text-sm font-bold" data-w="51.83" style="width:0;background:#c00022;transition:width 1s ease-out">51,83 %</div>
+        <div class="anim-bar flex items-center justify-center text-white text-sm font-bold" data-w="40.24" style="width:0;background:#ec4e53;transition:width 1s ease-out">40,24 %</div>
+        <div class="anim-bar" data-w="6.10"  style="width:0;background:#f3c1a8;transition:width 1s ease-out"></div>
+        <div class="anim-bar" data-w="1.83"  style="width:0;background:#fae6df;transition:width 1s ease-out"></div>
+    </div>
+
+    <!-- Leyenda -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+        <div class="flex items-start gap-3"><span class="w-4 h-4 rounded mt-1 shrink-0" style="background:#c00022"></span>
+            <p class="text-sm text-gray-700"><strong>En la misma Universidad</strong><br>51,83 % · 85 estudiantes</p></div>
+        <div class="flex items-start gap-3"><span class="w-4 h-4 rounded mt-1 shrink-0" style="background:#ec4e53"></span>
+            <p class="text-sm text-gray-700"><strong>Fuera del país</strong><br>40,24 % · 66 estudiantes</p></div>
+        <div class="flex items-start gap-3"><span class="w-4 h-4 rounded mt-1 shrink-0" style="background:#f3c1a8"></span>
+            <p class="text-sm text-gray-700"><strong>En Colombia, en otra Universidad</strong><br>6,10 % · 10 personas</p></div>
+        <div class="flex items-start gap-3"><span class="w-4 h-4 rounded mt-1 shrink-0 border border-[#f3c1a8]" style="background:#fae6df"></span>
+            <p class="text-sm text-gray-700"><strong>Universidad extranjera, modalidad virtual</strong><br>1,83 % · 3 personas</p></div>
+    </div>
+
+    <div class="bg-[#fae6df]/30 p-5 rounded-2xl border border-[#fae6df] mt-8">
+        <p class="text-sm text-gray-700 leading-relaxed text-justify">
+            2 respuestas concentran el 92,07 % de las respuestas: 51,83 % (85 estudiantes) planean continuar sus estudios en la misma Universidad, mientras que el 40,24% (66 estudiantes) planea hacerlo fuera del país. Solamente 6,10 % (10 personas) planea estudiar en Colombia en otra Universidad distinta y 1,83 % (3 personas) en una universidad extranjera pero en modalidad virtual.
+        </p>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- 4 · TIEMPO AL EMPRENDER (pictograma de 26 personas)           -->
+<!-- ============================================================= -->
+<section id="seccion-emprender-tiempo" class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-10 mb-10">
+
+    <div class="text-center md:text-left mb-8 max-w-3xl">
+        <span class="inline-block bg-[#fae6df] text-[#c00022] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3">Emprender</span>
+        <h3 class="text-2xl md:text-3xl font-black text-[#000000] mb-2">¿Cuánto tiempo dedicarían al emprendimiento?</h3>
+        <p class="text-gray-600 text-sm">Horas que planean dedicar quienes eligieron crear un negocio propio.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+
+        <!-- Pictograma: 20 de 26 -->
+        <div>
+            <div class="flex items-end gap-3 mb-4">
+                <span class="text-5xl md:text-6xl font-black text-[#c00022] leading-none">76,92 %</span>
+                <span class="text-sm text-gray-700 pb-1">dedicarán entre <strong>4 y 12 horas</strong><br><span class="text-xs text-gray-500">20 estudiantes</span></span>
+            </div>
+            <!-- Se llena por JS: 26 figuras, 20 resaltadas -->
+            <div id="picto-emprender" class="flex flex-wrap gap-1.5" data-total="26" data-active="20"
+                 role="img" aria-label="20 de 26 estudiantes dedicarán entre 4 y 12 horas"></div>
+            <div class="flex flex-wrap gap-x-5 gap-y-1 mt-3 text-xs text-gray-500">
+                <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full" style="background:#c00022"></span> Entre 4 y 12 horas</span>
+                <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full" style="background:#f3c1a8"></span> Resto de la muestra</span>
+            </div>
+        </div>
+
+        <!-- Hasta 8 h vs más de 8 h -->
+        <div>
+            <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-4">Otra perspectiva: el umbral de las 8 horas</p>
+            <div class="flex w-full h-14 rounded-xl overflow-hidden shadow-inner" role="img" aria-label="53,85 % hasta 8 horas, 46,15 % más de 8 horas">
+                <div class="anim-bar flex items-center justify-center text-white text-sm font-bold" data-w="53.85" style="width:0;background:#ec4e53;transition:width 1s ease-out">53,85 %</div>
+                <div class="anim-bar flex items-center justify-center text-[#c00022] text-sm font-bold" data-w="46.15" style="width:0;background:#f3c1a8;transition:width 1s ease-out">46,15 %</div>
+            </div>
+            <div class="flex justify-between mt-3 text-sm text-gray-700">
+                <span><i data-lucide="clock" class="inline w-4 h-4 text-[#ec4e53] -mt-0.5"></i> <strong>Hasta 8 horas</strong></span>
+                <span><strong>Más de 8 horas</strong> <i data-lucide="clock-alert" class="inline w-4 h-4 text-[#c00022] -mt-0.5"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-[#fae6df]/30 p-5 rounded-2xl border border-[#fae6df] mt-8">
+        <p class="text-sm text-gray-700 leading-relaxed text-justify">
+            De acuerdo con los resultados consolidados, el 76,92% (20 estudiantes) dedicarán entre 4 y 12 horas en el emprendimiento. Desde otra perspectiva, el 53,85% planea dedicar hasta 8 horas al emprendimiento mientras que el 46,15% planea dedicar más de 8 horas al mismo.
+        </p>
+    </div>
+</section>
+
+
+
+
+
+
+
+            
+           
          <!-- Descarga de Informe -->
             <section class="py-20 bg-gray-50 px-6 border-t mt-8">
                 <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
@@ -1785,8 +2002,18 @@ según la facultad y el género, con el propósito de identificar fortalezas y o
                         </div>
                     </div>
              </section>
-    </div>        
+    </div>  
+
+
+            
 </div>
+
+
+
+
+
+
+        
 
         <div id="tab-content-5" class="tab-content hidden py-16 px-4 md:px-8 text-center max-w-5xl mx-auto font-sans">
     
@@ -2948,6 +3175,51 @@ if (target.hasAttribute('data-height')) {
         lucide.createIcons();
     }
 });
+
+        (function () {
+    var ids = ['seccion-genero', 'seccion-brechas', 'seccion-estudios-lugar', 'seccion-emprender-tiempo'];
+
+    // Pictograma de personas (sección emprender)
+    var picto = document.getElementById('picto-emprender');
+    if (picto) {
+        var total  = parseInt(picto.getAttribute('data-total'), 10);
+        var active = parseInt(picto.getAttribute('data-active'), 10);
+        var svg = function (color) {
+            return '<svg viewBox="0 0 64 100" class="w-6 h-9 md:w-7 md:h-10" fill="' + color + '" aria-hidden="true">' +
+                   '<circle cx="32" cy="14" r="11"/>' +
+                   '<path d="M18 30h28a8 8 0 0 1 8 8v28a4 4 0 0 1-8 0V46h-2v50a4 4 0 0 1-4 4h-2a2 2 0 0 1-2-2V68h-4v30a2 2 0 0 1-2 2h-2a4 4 0 0 1-4-4V46h-2v20a4 4 0 0 1-8 0V38a8 8 0 0 1 8-8z"/></svg>';
+        };
+        var html = '';
+        for (var i = 0; i < total; i++) { html += svg(i < active ? '#c00022' : '#f3c1a8'); }
+        picto.innerHTML = html;
+    }
+
+    // Anima las barras cuando la sección entra en pantalla
+    function llenar(sec) {
+        sec.querySelectorAll('.anim-bar').forEach(function (b) {
+            b.style.width = b.getAttribute('data-w') + '%';
+        });
+    }
+
+    var secciones = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { llenar(e.target); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.2 });
+        secciones.forEach(function (s) { io.observe(s); });
+    } else {
+        secciones.forEach(llenar);
+    }
+
+    // Íconos lucide (si ya está cargado en la página)
+    if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+})();
+
+
+        
 </script>
 </body>
 </html>
