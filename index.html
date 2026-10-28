@@ -1172,12 +1172,28 @@
 
             <div class="mb-20">
     <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+
         <!-- Controles de Navegación -->
-        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
-            <div>
-                <h3 class="text-xl font-bold text-gray-900">Explorador de Motivaciones</h3>
-            </div>
-        </div>
+<div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
+    <div>
+        <h3 class="text-xl font-bold text-gray-900">Explorador de Motivaciones</h3>
+    </div>
+
+    <div class="flex bg-gray-100 p-1 rounded-full">
+        <button id="btn-mot-laboral" type="button"
+            class="px-5 py-2 rounded-full text-xs font-bold transition-all bg-[#F15A5A] text-white shadow-sm">
+            Trabajar
+        </button>
+        <button id="btn-mot-academico" type="button"
+            class="px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-[#ff3735] bg-transparent">
+            Estudiar
+        </button>
+        <button id="btn-mot-emprender" type="button"
+            class="px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-[#ff3735] bg-transparent">
+            Emprender
+        </button>
+    </div>
+</div>
 
         <!-- Contenedor de las Motivaciones -->
         <div class="p-2 md:p-6">
@@ -2334,48 +2350,46 @@
                 Plotly.newPlot('graficoSankey', data, layout, config);
             }
 
+            
 
-    document.addEventListener('DOMContentLoaded', () => {
-    const btnLaboral = document.getElementById('btn-mot-laboral');
-    const btnAcademico = document.getElementById('btn-mot-academico');
-    const btnEmprender = document.getElementById('btn-mot-emprender');
 
-    const secLaboral = document.getElementById('mot-laboral');
-    const secAcademico = document.getElementById('mot-academico');
-    const secEmprender = document.getElementById('mot-emprender');
+            document.addEventListener('DOMContentLoaded', () => {
+    const botones = {
+        laboral:   document.getElementById('btn-mot-laboral'),
+        academico: document.getElementById('btn-mot-academico'),
+        emprender: document.getElementById('btn-mot-emprender')
+    };
+    const secciones = {
+        laboral:   document.getElementById('mot-laboral'),
+        academico: document.getElementById('mot-academico'),
+        emprender: document.getElementById('mot-emprender')
+    };
+
+    const estiloBase     = "px-5 py-2 rounded-full text-xs font-bold transition-all ";
+    const estiloInactivo = estiloBase + "text-gray-500 hover:text-[#ff3735] bg-transparent";
+    const estiloActivo   = estiloBase + "bg-[#F15A5A] text-white shadow-sm";
 
     function cambiarMotivacion(tipo) {
-        // 1. Ocultar todas las secciones
-        secLaboral.classList.replace('block', 'hidden');
-        secAcademico.classList.replace('block', 'hidden');
-        secEmprender.classList.replace('block', 'hidden');
-
-        // 2. Resetear el diseño de todos los botones
-        const estiloInactivo = "px-5 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-[#ff3735] bg-transparent";
-        btnLaboral.className = estiloInactivo;
-        btnAcademico.className = estiloInactivo;
-        btnEmprender.className = estiloInactivo;
-
-        // 3. Activar la sección y el botón seleccionado
-        if (tipo === 'laboral') {
-            secLaboral.classList.replace('hidden', 'block');
-            btnLaboral.className = "px-5 py-2 rounded-full text-xs font-bold transition-all bg-[#F15A5A] text-white shadow-sm";
-        } else if (tipo === 'academico') {
-            secAcademico.classList.replace('hidden', 'block');
-            btnAcademico.className = "px-5 py-2 rounded-full text-xs font-bold transition-all bg-[#F15A5A] text-white shadow-sm";
-        } else if (tipo === 'emprender') {
-            secEmprender.classList.replace('hidden', 'block');
-            btnEmprender.className = "px-5 py-2 rounded-full text-xs font-bold transition-all bg-[#F15A5A] text-white shadow-sm";
-        }
+        Object.keys(secciones).forEach(clave => {
+            const activo = clave === tipo;
+            secciones[clave].classList.toggle('hidden', !activo);
+            secciones[clave].classList.toggle('block', activo);
+            botones[clave].className = activo ? estiloActivo : estiloInactivo;
+        });
     }
-           // 4. Asignar los eventos a los botones (solo si existen en la página)
 
-    if (btnLaboral && btnAcademico && btnEmprender) {
-        btnLaboral.addEventListener('click', () => cambiarMotivacion('laboral'));
-        btnAcademico.addEventListener('click', () => cambiarMotivacion('academico'));
-        btnEmprender.addEventListener('click', () => cambiarMotivacion('emprender'));
+    // Asignar eventos solo si todo existe en la página
+    if (Object.values(botones).every(Boolean) && Object.values(secciones).every(Boolean)) {
+        Object.keys(botones).forEach(clave => {
+            botones[clave].addEventListener('click', () => cambiarMotivacion(clave));
+        });
+    } else {
+        console.warn('Explorador de motivaciones: faltan botones o secciones en el HTML.');
     }
 });
+
+
+   
         
 
 // GRÁFICO FACULTADES Y SELECTOR
