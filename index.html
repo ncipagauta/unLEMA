@@ -2373,13 +2373,7 @@
             btnEmprender.className = "px-5 py-2 rounded-full text-xs font-bold transition-all bg-[#F15A5A] text-white shadow-sm";
         }
     }
-
-    // 4. Asignar los eventos a los botones (solo si existen en la página)
-    if (btnLaboral && btnAcademico && btnEmprender) {
-        btnLaboral.addEventListener('click', () => cambiarMotivacion('laboral'));
-        btnAcademico.addEventListener('click', () => cambiarMotivacion('academico'));
-        btnEmprender.addEventListener('click', () => cambiarMotivacion('emprender'));
-    }
+window.cambiarMotivacion = cambiarMotivacion;
 });
         
 
