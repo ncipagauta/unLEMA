@@ -13,6 +13,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
         onload="renderMathInElement(document.body);"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         /* Tipografía Ancizar Sans */
@@ -2270,6 +2271,41 @@
             lucide.createIcons();
         }
 
+        (() => {
+    const botones = {
+        laboral:   document.getElementById('btn-mot-laboral'),
+        academico: document.getElementById('btn-mot-academico'),
+        emprender: document.getElementById('btn-mot-emprender')
+    };
+    const secciones = {
+        laboral:   document.getElementById('mot-laboral'),
+        academico: document.getElementById('mot-academico'),
+        emprender: document.getElementById('mot-emprender')
+    };
+
+    const estiloBase     = "px-5 py-2 rounded-full text-xs font-bold transition-all ";
+    const estiloInactivo = estiloBase + "text-gray-500 hover:text-[#ff3735] bg-transparent";
+    const estiloActivo   = estiloBase + "bg-[#F15A5A] text-white shadow-sm";
+
+    function cambiarMotivacion(tipo) {
+        Object.keys(secciones).forEach(clave => {
+            const activo = clave === tipo;
+            secciones[clave].classList.toggle('hidden', !activo);
+            secciones[clave].classList.toggle('block', activo);
+            botones[clave].className = activo ? estiloActivo : estiloInactivo;
+        });
+    }
+
+    // Asignar eventos solo si todo existe en la página
+    if (Object.values(botones).every(Boolean) && Object.values(secciones).every(Boolean)) {
+        Object.keys(botones).forEach(clave => {
+            botones[clave].addEventListener('click', () => cambiarMotivacion(clave));
+        });
+    } else {
+        console.warn('Explorador de motivaciones: faltan botones o secciones en el HTML.');
+    }
+})();
+
         // Asignación de variables del DOM que antes estaban afuera
         lemaBoxes = document.querySelectorAll('.lema-box');
         creditCards = document.querySelectorAll('.credit-card');
@@ -2351,42 +2387,6 @@
             }
 
             
-
-
-            document.addEventListener('DOMContentLoaded', () => {
-    const botones = {
-        laboral:   document.getElementById('btn-mot-laboral'),
-        academico: document.getElementById('btn-mot-academico'),
-        emprender: document.getElementById('btn-mot-emprender')
-    };
-    const secciones = {
-        laboral:   document.getElementById('mot-laboral'),
-        academico: document.getElementById('mot-academico'),
-        emprender: document.getElementById('mot-emprender')
-    };
-
-    const estiloBase     = "px-5 py-2 rounded-full text-xs font-bold transition-all ";
-    const estiloInactivo = estiloBase + "text-gray-500 hover:text-[#ff3735] bg-transparent";
-    const estiloActivo   = estiloBase + "bg-[#F15A5A] text-white shadow-sm";
-
-    function cambiarMotivacion(tipo) {
-        Object.keys(secciones).forEach(clave => {
-            const activo = clave === tipo;
-            secciones[clave].classList.toggle('hidden', !activo);
-            secciones[clave].classList.toggle('block', activo);
-            botones[clave].className = activo ? estiloActivo : estiloInactivo;
-        });
-    }
-
-    // Asignar eventos solo si todo existe en la página
-    if (Object.values(botones).every(Boolean) && Object.values(secciones).every(Boolean)) {
-        Object.keys(botones).forEach(clave => {
-            botones[clave].addEventListener('click', () => cambiarMotivacion(clave));
-        });
-    } else {
-        console.warn('Explorador de motivaciones: faltan botones o secciones en el HTML.');
-    }
-});
 
 
    
