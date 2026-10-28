@@ -1177,11 +1177,6 @@
             <div>
                 <h3 class="text-xl font-bold text-gray-900">Explorador de Motivaciones</h3>
             </div>
-            <div class="flex bg-gray-50 p-1.5 rounded-full border border-gray-200">
-               <button id="btn-mot-laboral" class="..." onclick="cambiarMotivacion('laboral')">Trabajar</button>
-                <button id="btn-mot-academico" class="..." onclick="cambiarMotivacion('academico')">Estudiar</button>
-                <button id="btn-mot-emprender" class="..." onclick="cambiarMotivacion('emprender')">Emprender</button>
-            </div>
         </div>
 
         <!-- Contenedor de las Motivaciones -->
@@ -2373,7 +2368,13 @@
             btnEmprender.className = "px-5 py-2 rounded-full text-xs font-bold transition-all bg-[#F15A5A] text-white shadow-sm";
         }
     }
-window.cambiarMotivacion = cambiarMotivacion;
+           // 4. Asignar los eventos a los botones (solo si existen en la página)
+
+    if (btnLaboral && btnAcademico && btnEmprender) {
+        btnLaboral.addEventListener('click', () => cambiarMotivacion('laboral'));
+        btnAcademico.addEventListener('click', () => cambiarMotivacion('academico'));
+        btnEmprender.addEventListener('click', () => cambiarMotivacion('emprender'));
+    }
 });
         
 
