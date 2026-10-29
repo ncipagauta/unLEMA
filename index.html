@@ -2059,8 +2059,121 @@ los principales desafíos que identifican en relación con las habilidades trans
   <!-- INFORME #5 -->      
 
         <div id="tab-content-5" class="tab-content hidden py-16 px-4 md:px-8 text-center max-w-5xl mx-auto font-sans">
-            
+
+            <!-- INFORME #5 -->      
+
+<style>
+    /* Animación de barras del Informe #05 */
+    .inf5-anim { transition: width .9s ease-out, height .9s ease-out; }
+    @media (prefers-reduced-motion: reduce) { .inf5-anim { transition: none; } }
+</style>
+
+<div id="tab-content-5" class="tab-content hidden py-12 px-4 sm:px-6 w-full max-w-5xl mx-auto font-sans">
+
+    <!-- ENCABEZADO -->
+    <div class="text-center mb-16 max-w-4xl mx-auto">
+        <span class="inline-block bg-gray-100 text-gray-600 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 border border-gray-200">Informe #05</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6 leading-tight">Percepciones y preocupaciones frente al egreso</h2>
+        <p class="text-gray-600 text-sm md:text-base leading-relaxed font-light text-justify">El tránsito de la vida universitaria al mundo profesional está lleno de expectativas, pero también de retos y temores. Como parte de la exploración realizada a través de la Encuesta de expectativa hacia el egreso 2025, en este informe se explora cuáles son las principales preocupaciones de los estudiantes próximos a graduarse de la sede Bogotá.</p>
+    </div>
+
+
+    <!-- ============================================================= -->
+    <!-- SECCIÓN 1 · NIVEL DE PREOCUPACIÓN                             -->
+    <!-- ============================================================= -->
+    <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+        <span class="w-3 h-3 rounded-full bg-[#DF0832] shrink-0"></span>
+        <h3 class="text-xl font-bold text-[#c00022] italic uppercase tracking-wide">¿Cuál es el nivel de preocupación percibido por los estudiantes?</h3>
+    </div>
+
+    <section id="inf5-nivel" class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 mb-16">
+        <div class="px-6 md:px-10 pt-8 pb-6 text-center md:text-left">
+            <span class="inline-block bg-[#fae6df] text-[#c00022] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3">Escala de 1 a 5</span>
+            <p class="text-gray-600 text-sm leading-relaxed text-justify">Con el fin de dimensionar el nivel de preocupación percibido, se aplicó una pregunta de selección única basada en una escala de valoración de 1 (Poco preocupado) a 5 (Muy preocupado), permitiendo examinar el nivel de preocupación con la que los estudiantes proyectan su trayectoria profesional.</p>
         </div>
+
+        <div class="flex flex-col sm:flex-row border-y border-gray-200 bg-gray-50" role="tablist" aria-label="Trayectoria">
+            <button type="button" role="tab" data-tab="laboral">Mercado Laboral</button>
+            <button type="button" role="tab" data-tab="estudios">Seguir Estudiando</button>
+            <button type="button" role="tab" data-tab="emprender">Emprender</button>
+        </div>
+
+        <div data-panel="laboral"   class="p-6 md:p-10"></div>
+        <div data-panel="estudios"  class="p-6 md:p-10 hidden"></div>
+        <div data-panel="emprender" class="p-6 md:p-10 hidden"></div>
+    </section>
+
+
+    <!-- ============================================================= -->
+    <!-- SECCIÓN 2 · FACTORES DE INCERTIDUMBRE                         -->
+    <!-- ============================================================= -->
+    <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+        <span class="w-3 h-3 rounded-full bg-[#DF0832] shrink-0"></span>
+        <h3 class="text-xl font-bold text-[#c00022] italic uppercase tracking-wide">Factores de Incertidumbre: Principales preocupaciones específicas según la trayectoria elegida</h3>
+    </div>
+
+    <section id="inf5-factores" class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 mb-16">
+        <div class="px-6 md:px-10 pt-8 pb-6 text-center md:text-left">
+            <span class="inline-block bg-[#fae6df] text-[#c00022] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3">Preocupaciones específicas</span>
+            <p class="text-gray-600 text-sm leading-relaxed">Elige una trayectoria y luego una preocupación para ver cómo se distribuyeron las respuestas de los estudiantes en cada nivel.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row border-y border-gray-200 bg-gray-50" role="tablist" aria-label="Trayectoria">
+            <button type="button" role="tab" data-tab="laboral">Mercado Laboral</button>
+            <button type="button" role="tab" data-tab="estudios">Seguir Estudiando</button>
+            <button type="button" role="tab" data-tab="emprender">Emprender</button>
+        </div>
+
+        <div data-panel="laboral"   class="p-6 md:p-10"></div>
+        <div data-panel="estudios"  class="p-6 md:p-10 hidden"></div>
+        <div data-panel="emprender" class="p-6 md:p-10 hidden"></div>
+    </section>
+
+
+    <!-- ============================================================= -->
+    <!-- SECCIÓN 3 · BRECHAS DE GÉNERO                                 -->
+    <!-- ============================================================= -->
+    <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+        <span class="w-3 h-3 rounded-full bg-[#DF0832] shrink-0"></span>
+        <h3 class="text-xl font-bold text-[#c00022] italic uppercase tracking-wide">¿Brechas de género? La preocupación vista desde el género</h3>
+    </div>
+
+    <section id="inf5-genero" class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 mb-10">
+        <div class="px-6 md:px-10 pt-8 pb-6 text-center md:text-left">
+            <span class="inline-block bg-[#fae6df] text-[#c00022] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3">Preocupación por género</span>
+            <p class="text-gray-600 text-sm leading-relaxed">¿Quiénes se preocupan más, las mujeres o los hombres? La comparación muestra el porcentaje de cada grupo que se ubica en los niveles más altos de preocupación (4 y 5), en cada trayectoria.</p>
+        </div>
+
+        <!-- Vista general: mancuerna (todas las trayectorias a la vez) -->
+        <div class="px-6 md:px-10 pb-8">
+            <div class="rounded-2xl border border-[#f3c1a8] bg-[#fae6df]/30 p-5 md:p-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+                    <h4 class="font-black text-[#000000] text-base">Niveles altos de preocupación (4 y 5), por género</h4>
+                    <div class="flex items-center gap-4 text-xs font-semibold text-gray-600">
+                        <span class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-[#ec4e53] text-white text-[10px] font-black flex items-center justify-center">M</span> Mujeres</span>
+                        <span class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-[#c00022] text-white text-[10px] font-black flex items-center justify-center">H</span> Hombres</span>
+                    </div>
+                </div>
+                <div id="inf5-mancuerna"></div>
+                <p class="text-[10px] text-gray-400 mt-4">pp = puntos porcentuales. La diferencia se calcula a partir de los porcentajes presentados.</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row border-y border-gray-200 bg-gray-50" role="tablist" aria-label="Trayectoria">
+            <button type="button" role="tab" data-tab="laboral">Mercado Laboral</button>
+            <button type="button" role="tab" data-tab="estudios">Seguir Estudiando</button>
+            <button type="button" role="tab" data-tab="emprender">Emprender</button>
+        </div>
+
+        <div data-panel="laboral"   class="p-6 md:p-10"></div>
+        <div data-panel="estudios"  class="p-6 md:p-10 hidden"></div>
+        <div data-panel="emprender" class="p-6 md:p-10 hidden"></div>
+    </section>
+
+</div>           
+        </div>
+
+        
 
         
         
@@ -2943,6 +3056,431 @@ if (target.hasAttribute('data-height')) {
     if (typeof lucide !== 'undefined') { lucide.createIcons(); }
 })();
 
+(function () {
+try {
+
+/* ================================================================
+   DATOS Y TEXTOS  (edita aquí si necesitas corregir algo)
+   ================================================================ */
+
+var TRAYECTORIAS = {
+    laboral:   { nombre: 'Mercado Laboral',   icono: 'briefcase' },
+    estudios:  { nombre: 'Seguir Estudiando', icono: 'book-open' },
+    emprender: { nombre: 'Emprender',         icono: 'rocket' }
+};
+
+/* ---- Sección 1 · nivel de preocupación (escala 1 a 5) ----
+   baja = niveles 1 y 2 · alta = niveles 4 y 5 · media (nivel 3) se calcula por diferencia */
+var DATOS_NIVEL = {
+    laboral: {
+        n: 332, baja: 41, alta: 209, pBaja: '12,35 %', pAlta: '63 %',
+        texto: 'Los datos muestran una clara tendencia hacia los niveles más altos de preocupación, siendo el nivel 4 la respuesta más frecuente. De los 332 estudiantes que planean ingresar al mercado laboral después del pregrado, el 63 % reporta niveles altos de preocupación (4 y 5), lo que representa 209 respuestas. En contraste, solo el 12,35 % (41 estudiantes) reportó baja preocupación (niveles 1 y 2).'
+    },
+    estudios: {
+        n: 164, baja: 41, alta: 77, pBaja: '25 %', pAlta: '47 %',
+        texto: 'Para los 164 estudiantes que planean continuar con estudios posteriores al pregrado, la percepción de preocupación presenta una tendencia hacia el nivel 3, aunque el nivel 4 corresponde a la respuesta más frecuente. Además, el 47 % reporta niveles altos de preocupación (4 y 5), lo que equivale a 77 estudiantes. En contraste, 41 estudiantes (25 %) reportaron baja preocupación (niveles 1 y 2).'
+    },
+    emprender: {
+        n: 26, baja: 6, alta: 10, pBaja: '23,07 %', pAlta: '38,5 %',
+        texto: 'Entre los 26 estudiantes que proyectan emprender después del egreso, la percepción de preocupación presenta una tendencia hacia el nivel 3, siendo este también el nivel con mayor frecuencia de respuestas (10 estudiantes; 38,5 %). Los niveles altos de preocupación (4 y 5) reúnen el 38,5 % de las respuestas, equivalente a 10 estudiantes. En contraste, 6 estudiantes (23,07 %) reportaron baja preocupación (niveles 1 y 2).'
+    }
+};
+
+/* ---- Sección 2 · preocupaciones específicas ----
+   c = cantidad de respuestas por nivel (1 … N). Los % se calculan: c / n.
+   Si quieres tu propio texto de contexto para una preocupación, agrega  texto: '...'  */
+var DATOS_FACTORES = {
+    laboral: { n: 332, niveles: 6, items: [
+        { id: 'exp',  nombre: 'Falta de experiencia laboral', c: [8, 22, 57, 59, 93, 93] },
+        { id: 'prep', nombre: 'Falta de preparación',         c: [41, 61, 70, 74, 37, 49] },
+        { id: 'ofer', nombre: 'Poca oferta de trabajo',       c: [20, 37, 55, 65, 65, 90] },
+        { id: 'busc', nombre: 'No sé cómo buscar trabajo',    c: [52, 102, 66, 51, 39, 22] },
+        { id: 'sal',  nombre: 'Salario bajo',                 c: [8, 48, 51, 67, 89, 69] },
+        { id: 'div',  nombre: 'Diversidad e Inclusión',       c: [203, 62, 33, 16, 9, 9] }
+    ]},
+    estudios: { n: 164, niveles: 5, items: [
+        { id: 'prep', nombre: 'No tener la suficiente preparación', c: [14, 33, 38, 32, 47] },
+        { id: 'rec',  nombre: 'Falta de recursos económicos',       c: [12, 11, 16, 44, 81] },
+        { id: 'des',  nombre: 'Desertar',                           c: [59, 30, 33, 27, 15] },
+        { id: 'sob',  nombre: 'Sobrecualificación',                 c: [46, 47, 29, 26, 16] },
+        { id: 'emo',  nombre: 'Falta de apoyo emocional',           c: [33, 41, 47, 34, 9] }
+    ]},
+    emprender: { n: 26, niveles: 4, items: [
+        { id: 'idea', nombre: 'No tener la seguridad de que la idea de negocio sea exitosa', c: [4, 8, 5, 9] },
+        { id: 'conoc',nombre: 'Falta de conocimientos para la creación de una empresa',      c: [9, 5, 8, 4] },
+        { id: 'sal',  nombre: 'No tener un salario fijo',                                    c: [8, 5, 9, 4] },
+        { id: 'inv',  nombre: 'Encontrar inversionistas',                                    c: [6, 7, 4, 9] }
+    ]}
+};
+
+/* ---- Sección 3 · género ----
+   a = niveles altos (4 y 5) · b = niveles bajos (1 y 2) · pct = como se presenta · v = valor numérico · c / n = conteos */
+var DATOS_GENERO = {
+    laboral: {
+        mayor: 'mujeres',
+        M: { n: 157, a: { pct: '72,6 %', v: 72.6, c: 114 }, b: { pct: '7 %',    v: 7.0,  c: 11 } },
+        H: { n: 175, a: { pct: '54,3 %', v: 54.3, c: 95  }, b: { pct: '17,1 %', v: 17.1, c: 30 } },
+        texto: 'Con base en los datos, se observa que las mujeres presentan un nivel de preocupación más alto frente al mundo laboral que los hombres: el 72,6% de las mujeres (114 de 157) se concentra en los niveles más altos (4 y 5), frente al 54,3% de los hombres (95 de 175) en esos mismos niveles. En el extremo opuesto, los niveles bajos (1 y 2) muestran una distribución inversa: solo el 7% de las mujeres (11 de 157) se ubica ahí, mientras que en los hombres esta proporción es más del doble, con el 17,1% (30 de 175).'
+    },
+    estudios: {
+        mayor: 'mujeres',
+        M: { n: 74, a: { pct: '59,5 %', v: 59.5, c: 44 }, b: { pct: '13,5 %', v: 13.5, c: 10 } },
+        H: { n: 90, a: { pct: '36,7 %', v: 36.7, c: 33 }, b: { pct: '34,4 %', v: 34.4, c: 31 } },
+        texto: 'Se observa que las mujeres presentan un nivel de preocupación más alto frente a los estudios posteriores al pregrado que los hombres: el 59,5% de las mujeres (44 de 74) se concentra en los niveles más altos (4 y 5), frente al 36,7% de los hombres (33 de 90) en esos mismos niveles. En el extremo opuesto, los niveles bajos (1 y 2) muestran una distribución inversa: sólo el 13,5% de las mujeres (10 de 74) se ubica ahí, mientras que en los hombres esta proporción es más del doble, con el 34,4% (31 de 90). A nivel general, sin distinción de género, el 47% del total de encuestados (77 de 164) se concentra en los niveles 4 y 5, y el 25% (41 de 164) en los niveles 1 y 2, lo que indica que la preocupación frente a la continuidad académica también es alta en la mayoría de la población, con una tendencia más marcada en las mujeres, aunque menos pronunciada que en la trayectoria laboral.'
+    },
+    emprender: {
+        mayor: 'hombres',
+        M: { n: 8,  a: { pct: '12,5 %', v: 12.5, c: 1 }, b: { pct: '62,5 %', v: 62.5, c: 5 } },
+        H: { n: 18, a: { pct: '50 %',   v: 50.0, c: 9 }, b: { pct: '5,6 %',  v: 5.6,  c: 1 } },
+        nota: 'Muestra pequeña: 8 mujeres y 18 hombres. Los porcentajes deben leerse con cautela.',
+        texto: 'Se observa un patrón inverso al de las trayectorias anteriores: los hombres presentan un nivel de preocupación más alto frente a la creación de su propio negocio que las mujeres: el 50% de los hombres (9 de 18) se concentra en los niveles más altos (4 y 5), frente al 12,5% de las mujeres (1 de 8) en esos mismos niveles. En el extremo opuesto, los niveles bajos (1 y 2) muestran también una distribución inversa a la vista en las otras trayectorias: el 62,5% de las mujeres (5 de 8) se ubica ahí, mientras que en los hombres esta proporción es marginal, con apenas el 5,6% (1 de 18).'
+    }
+};
+
+/* Aclaración de la escala de la sección 2 (confirma que sea la correcta) */
+var NOTA_ESCALA = function (N) { return 'Nivel 1 = menor preocupación · Nivel ' + N + ' = mayor preocupación'; };
+
+
+/* ================================================================
+   UTILIDADES
+   ================================================================ */
+var CLAVES = ['laboral', 'estudios', 'emprender'];
+var BTN_BASE = 'flex-1 py-4 px-6 font-bold text-lg text-center transition-colors duration-200 border-b-4 ';
+var BTN_ON   = BTN_BASE + 'border-[#c00022] bg-[#fae6df] text-[#c00022]';
+var BTN_OFF  = BTN_BASE + 'border-transparent text-gray-500 hover:bg-[#fae6df]/50';
+
+function $(id) { return document.getElementById(id); }
+function fmt(x, d) { return Number(x).toFixed(d === undefined ? 1 : d).replace('.', ','); }
+function pct(c, n) { return c / n * 100; }
+
+function mezcla(i, N) {                      // degradé durazno -> rojo según el nivel
+    var a = [243, 193, 168], b = [192, 0, 34], t = N > 1 ? i / (N - 1) : 1;
+    return 'rgb(' + a.map(function (v, k) { return Math.round(v + (b[k] - v) * t); }).join(',') + ')';
+}
+
+var SVG_MUJER = '<svg viewBox="0 0 64 100" class="w-16 h-24 mx-auto" fill="currentColor" role="img" aria-label="Figura de mujer"><circle cx="32" cy="14" r="11"/><path d="M32 28c-7 0-12 4-13 11L8 70h14v26a4 4 0 0 0 4 4h2a2 2 0 0 0 2-2V74h4v24a2 2 0 0 0 2 2h2a4 4 0 0 0 4-4V70h14L45 39c-1-7-6-11-13-11z"/></svg>';
+var SVG_HOMBRE = '<svg viewBox="0 0 64 100" class="w-16 h-24 mx-auto" fill="currentColor" role="img" aria-label="Figura de hombre"><circle cx="32" cy="14" r="11"/><path d="M18 30h28a8 8 0 0 1 8 8v28a4 4 0 0 1-8 0V46h-2v50a4 4 0 0 1-4 4h-2a2 2 0 0 1-2-2V68h-4v30a2 2 0 0 1-2 2h-2a4 4 0 0 1-4-4V46h-2v20a4 4 0 0 1-8 0V38a8 8 0 0 1 8-8z"/></svg>';
+
+/* Anima barras: ancho (data-w, en %) o alto (data-h, en px) */
+function reanimar(raiz) {
+    var els = raiz.querySelectorAll('[data-w],[data-h]');
+    Array.prototype.forEach.call(els, function (e) {
+        if (e.hasAttribute('data-w')) e.style.width = '0%'; else e.style.height = '0px';
+    });
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+        Array.prototype.forEach.call(els, function (e) {
+            if (e.hasAttribute('data-w')) e.style.width = e.getAttribute('data-w') + '%';
+            else e.style.height = e.getAttribute('data-h') + 'px';
+        });
+    }); });
+}
+
+/* Pestañas de una sección */
+function montarTabs(sec, alCambiar) {
+    var botones = sec.querySelectorAll(':scope > div > [data-tab]');
+    var paneles = sec.querySelectorAll(':scope > [data-panel]');
+    function activar(clave) {
+        Array.prototype.forEach.call(botones, function (b) {
+            var on = b.getAttribute('data-tab') === clave;
+            b.className = on ? BTN_ON : BTN_OFF;
+            b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        Array.prototype.forEach.call(paneles, function (p) {
+            var on = p.getAttribute('data-panel') === clave;
+            p.classList.toggle('hidden', !on);
+            if (on) reanimar(p);
+        });
+        if (alCambiar) alCambiar(clave);
+    }
+    Array.prototype.forEach.call(botones, function (b) {
+        b.addEventListener('click', function () { activar(b.getAttribute('data-tab')); });
+    });
+    activar('laboral');
+}
+
+function cabecera(clave, extra) {
+    var t = TRAYECTORIAS[clave];
+    return '<div class="flex flex-wrap items-center justify-between gap-3 mb-6">' +
+             '<h4 class="text-xl font-black text-[#000000] flex items-center gap-2"><i data-lucide="' + t.icono + '" class="text-[#ec4e53]"></i> ' + t.nombre + '</h4>' +
+             (extra || '') +
+           '</div>';
+}
+function chip(texto) { return '<span class="text-xs font-bold text-[#c00022] bg-[#fae6df] px-3 py-1 rounded-full">' + texto + '</span>'; }
+function cajaTexto(texto) {
+    return '<div class="bg-[#fae6df]/30 p-5 rounded-2xl border border-[#fae6df]"><p class="text-sm text-gray-700 leading-relaxed text-justify">' + texto + '</p></div>';
+}
+
+
+/* ================================================================
+   SECCIÓN 1 · NIVEL DE PREOCUPACIÓN
+   ================================================================ */
+function panelNivel(clave) {
+    var d = DATOS_NIVEL[clave], media = d.n - d.alta - d.baja;
+    var wB = pct(d.baja, d.n), wM = pct(media, d.n), wA = pct(d.alta, d.n);
+
+    function tile(titulo, valor, detalle, color, oscuro) {
+        return '<div class="rounded-2xl p-5 text-center border ' + (oscuro ? 'bg-[#c00022] border-[#c00022] text-white' : 'bg-white border-[#f3c1a8] text-[#000000]') + '">' +
+                 '<div class="w-8 h-1.5 rounded-full mx-auto mb-3" style="background:' + (oscuro ? '#fae6df' : color) + '"></div>' +
+                 '<div class="text-4xl font-black ' + (oscuro ? 'text-white' : 'text-[#c00022]') + '">' + valor + '</div>' +
+                 '<div class="text-xs font-bold uppercase tracking-wider mt-2 ' + (oscuro ? 'text-white' : 'text-gray-700') + '">' + titulo + '</div>' +
+                 '<div class="text-xs mt-1 ' + (oscuro ? 'text-white/80' : 'text-gray-500') + '">' + detalle + '</div>' +
+               '</div>';
+    }
+
+    return cabecera(clave, chip('n = ' + d.n + ' estudiantes')) +
+        '<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">' +
+            tile('Baja preocupación (1 y 2)', d.pBaja, d.baja + ' estudiantes', '#f3c1a8', false) +
+            tile('Nivel 3', fmt(wM, 1) + ' %', media + ' estudiantes*', '#ec4e53', false) +
+            tile('Alta preocupación (4 y 5)', d.pAlta, d.alta + ' estudiantes', '#c00022', true) +
+        '</div>' +
+        '<div class="mb-2 flex justify-between text-[11px] font-semibold text-gray-500"><span>1 · Poco preocupado</span><span>5 · Muy preocupado</span></div>' +
+        '<div class="flex w-full h-8 rounded-xl overflow-hidden border border-[#fae6df] mb-2" role="img" aria-label="Distribución de la preocupación: baja ' + fmt(wB, 1) + ' %, nivel 3 ' + fmt(wM, 1) + ' %, alta ' + fmt(wA, 1) + ' %">' +
+            '<div class="inf5-anim h-full" data-w="' + wB.toFixed(2) + '" style="width:0%;background:#f3c1a8" title="Baja (1 y 2): ' + d.baja + ' estudiantes"></div>' +
+            '<div class="inf5-anim h-full" data-w="' + wM.toFixed(2) + '" style="width:0%;background:#ec4e53" title="Nivel 3: ' + media + ' estudiantes"></div>' +
+            '<div class="inf5-anim h-full" data-w="' + wA.toFixed(2) + '" style="width:0%;background:#c00022" title="Alta (4 y 5): ' + d.alta + ' estudiantes"></div>' +
+        '</div>' +
+        '<p class="text-[10px] text-gray-400 mb-6">* El nivel 3 se obtiene por diferencia: total de estudiantes menos los niveles altos y bajos.</p>' +
+        cajaTexto(d.texto);
+}
+
+
+/* ================================================================
+   SECCIÓN 2 · PREOCUPACIONES ESPECÍFICAS
+   ================================================================ */
+var ALTO_AREA = 220, ALTO_MAX = 196;          // px del área de la gráfica y de la barra más alta
+
+function analizar(item, n, N) {
+    var p = item.c.map(function (c) { return pct(c, n); });
+    var max = Math.max.apply(null, item.c);
+    var modas = []; item.c.forEach(function (c, i) { if (c === max) modas.push(i + 1); });
+    return {
+        p: p, modas: modas, pModa: pct(max, n), cModa: max,
+        altos: pct(item.c[N - 1] + item.c[N - 2], n),
+        bajos: pct(item.c[0] + item.c[1], n)
+    };
+}
+
+function listaNiveles(arr) {
+    if (arr.length === 1) return 'el nivel ' + arr[0];
+    return 'los niveles ' + arr.slice(0, -1).join(', ') + ' y ' + arr[arr.length - 1];
+}
+
+function contextoAuto(item, a, n, N) {
+    var m = a.modas.length > 1
+        ? 'Los niveles más frecuentes fueron ' + a.modas.join(' y ') + ' (' + fmt(a.pModa) + ' % cada uno; ' + a.cModa + ' estudiantes)'
+        : 'El nivel más frecuente fue el ' + a.modas[0] + ' (' + fmt(a.pModa) + ' %; ' + a.cModa + ' estudiantes)';
+    return m + '. Los dos niveles más altos (' + (N - 1) + ' y ' + N + ') reúnen el ' + fmt(a.altos) +
+           ' % de las respuestas y los dos más bajos (1 y 2) el ' + fmt(a.bajos) + ' %.';
+}
+
+function graficaFactor(item, n, N) {
+    var a = analizar(item, n, N);
+    var tope = Math.ceil(Math.max.apply(null, a.p) / 10) * 10;
+    var ticks = [0, tope / 2, tope];
+    var y = ticks.map(function (t) {
+        var b = t / tope * ALTO_MAX;
+        return '<span class="absolute right-2 text-[10px] text-gray-400 -translate-y-1/2" style="bottom:' + b + 'px">' + fmt(t, 0) + '%</span>';
+    }).join('');
+    var rejilla = ticks.slice(1).map(function (t) {
+        return '<div class="absolute inset-x-0 border-t border-dashed border-gray-200" style="bottom:' + (t / tope * ALTO_MAX) + 'px"></div>';
+    }).join('');
+
+    var barras = item.c.map(function (c, i) {
+        var esModa = a.modas.indexOf(i + 1) !== -1;
+        return '<div class="flex-1 flex flex-col items-center justify-end h-full">' +
+                 '<span class="text-[11px] md:text-xs mb-1 ' + (esModa ? 'font-black text-[#c00022]' : 'font-semibold text-gray-700') + '">' + fmt(a.p[i]) + '%</span>' +
+                 '<div class="inf5-anim w-full rounded-t-md" data-h="' + (a.p[i] / tope * ALTO_MAX).toFixed(1) + '" style="height:0px;min-height:2px;background:' + mezcla(i, N) + '" title="Nivel ' + (i + 1) + ': ' + fmt(a.p[i]) + ' % (' + c + ' estudiantes)"></div>' +
+               '</div>';
+    }).join('');
+
+    var etiquetas = item.c.map(function (c, i) {
+        return '<div class="flex-1 text-center"><div class="text-xs font-bold text-[#000000]">' + (i + 1) + '</div><div class="text-[10px] text-gray-400">' + c + '</div></div>';
+    }).join('');
+
+    return '<div role="img" aria-label="Distribución de respuestas para ' + item.nombre + '">' +
+             '<div class="flex gap-2">' +
+               '<div class="relative w-10 shrink-0" style="height:' + ALTO_AREA + 'px">' + y + '</div>' +
+               '<div class="relative flex-1 border-l border-b border-gray-300" style="height:' + ALTO_AREA + 'px">' + rejilla +
+                 '<div class="absolute inset-0 flex items-end gap-1.5 md:gap-3 px-1.5 md:px-3">' + barras + '</div>' +
+               '</div>' +
+             '</div>' +
+             '<div class="flex gap-2 mt-1"><div class="w-10 shrink-0 text-[10px] text-gray-400 text-right pr-2 pt-1">nivel<br>n.º</div><div class="flex-1 flex gap-1.5 md:gap-3 px-1.5 md:px-3">' + etiquetas + '</div></div>' +
+             '<p class="text-[11px] text-gray-500 text-center mt-3">' + NOTA_ESCALA(N) + '</p>' +
+           '</div>';
+}
+
+function chips(a, N) {
+    function c(titulo, valor, oscuro) {
+        return '<div class="rounded-xl p-3 text-center border ' + (oscuro ? 'bg-[#c00022] border-[#c00022]' : 'bg-white border-[#f3c1a8]') + '">' +
+                 '<div class="text-lg sm:text-xl font-black whitespace-nowrap ' + (oscuro ? 'text-white' : 'text-[#c00022]') + '">' + valor + '</div>' +
+                 '<div class="text-[11px] font-semibold mt-0.5 ' + (oscuro ? 'text-white/90' : 'text-gray-600') + '">' + titulo + '</div></div>';
+    }
+    return '<div class="grid grid-cols-3 gap-3 mt-6 mb-5">' +
+        c('Niveles más bajos (1 y 2)', fmt(a.bajos) + ' %', false) +
+        c('Nivel más frecuente · ' + fmt(a.pModa) + ' %', a.modas.join(' y '), false) +
+        c('Niveles más altos (' + (N - 1) + ' y ' + N + ')', fmt(a.altos) + ' %', true) + '</div>';
+}
+
+function panelFactores(clave) {
+    var d = DATOS_FACTORES[clave];
+    var opciones = d.items.map(function (it) { return '<option value="' + it.id + '">' + it.nombre + '</option>'; }).join('');
+
+    return cabecera(clave, chip('n = ' + d.n + ' estudiantes · ' + d.items.length + ' preocupaciones')) +
+      '<div class="grid grid-cols-1 lg:grid-cols-5 gap-8">' +
+        '<div class="lg:col-span-3 min-w-0">' +
+          '<label for="inf5-sel-' + clave + '" class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Preocupación</label>' +
+          '<div class="relative mb-6">' +
+            '<select id="inf5-sel-' + clave + '" class="w-full appearance-none bg-white border-2 border-[#f3c1a8] rounded-xl py-3 pl-4 pr-12 font-bold text-[#000000] text-sm md:text-base focus:outline-none focus:border-[#c00022] cursor-pointer">' + opciones + '</select>' +
+            '<svg class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#c00022]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.5 7.5 10 12l4.5-4.5-1.4-1.4L10 9.2 6.9 6.1z"/></svg>' +
+          '</div>' +
+          '<div data-grafica></div>' +
+          '<div data-chips></div>' +
+          '<div data-contexto></div>' +
+        '</div>' +
+        '<aside class="lg:col-span-2 bg-[#fae6df]/40 rounded-2xl border border-[#f3c1a8] p-5 self-start">' +
+          '<h5 class="font-black text-[#000000] mb-1">De mayor a menor preocupación</h5>' +
+          '<p class="text-[11px] text-gray-500 mb-4">% en los dos niveles más altos. Toca una para verla.</p>' +
+          '<div data-ranking class="space-y-2"></div>' +
+        '</aside>' +
+      '</div>';
+}
+
+function iniciarFactores(clave, panel) {
+    var d = DATOS_FACTORES[clave], N = d.niveles;
+    var sel = panel.querySelector('select');
+    var ranking = panel.querySelector('[data-ranking]');
+
+    var orden = d.items.map(function (it) { return { it: it, v: analizar(it, d.n, N).altos }; })
+                       .sort(function (x, y) { return y.v - x.v; });
+
+    function mostrar(id) {
+        var item = d.items.filter(function (i) { return i.id === id; })[0];
+        var a = analizar(item, d.n, N);
+        sel.value = id;
+        panel.querySelector('[data-grafica]').innerHTML = graficaFactor(item, d.n, N);
+        panel.querySelector('[data-chips]').innerHTML = chips(a, N);
+        panel.querySelector('[data-contexto]').innerHTML = cajaTexto(item.texto || contextoAuto(item, a, d.n, N));
+        Array.prototype.forEach.call(ranking.children, function (b) {
+            var on = b.getAttribute('data-id') === id;
+            b.className = 'w-full text-left rounded-xl border-2 p-3 transition-colors ' + (on ? 'bg-white border-[#c00022]' : 'bg-white/60 border-transparent hover:border-[#f3c1a8]');
+        });
+        reanimar(panel.querySelector('[data-grafica]'));
+    }
+
+    ranking.innerHTML = orden.map(function (o) {
+        return '<button type="button" data-id="' + o.it.id + '">' +
+                 '<div class="flex justify-between gap-3 text-sm"><span class="font-semibold text-[#000000]">' + o.it.nombre + '</span><span class="font-black text-[#c00022] shrink-0">' + fmt(o.v) + ' %</span></div>' +
+                 '<div class="w-full bg-[#fae6df] rounded-full h-2 mt-2"><div class="inf5-anim h-full rounded-full" data-w="' + o.v.toFixed(1) + '" style="width:0%;background:#ec4e53"></div></div>' +
+               '</button>';
+    }).join('');
+
+    sel.addEventListener('change', function () { mostrar(sel.value); });
+    Array.prototype.forEach.call(ranking.children, function (b) {
+        b.addEventListener('click', function () { mostrar(b.getAttribute('data-id')); });
+    });
+    mostrar(orden[0].it.id);                    // arranca con la mayor preocupación
+}
+
+
+/* ================================================================
+   SECCIÓN 3 · GÉNERO
+   ================================================================ */
+function mancuerna() {
+    var filas = CLAVES.map(function (k) {
+        var g = DATOS_GENERO[k], t = TRAYECTORIAS[k];
+        var vm = g.M.a.v, vh = g.H.a.v, lo = Math.min(vm, vh), dif = Math.abs(vm - vh);
+        var quien = g.mayor === 'mujeres' ? 'más en mujeres' : 'más en hombres';
+        function punto(v, letra, color, etiqueta) {
+            return '<div class="absolute -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full text-white text-sm font-black flex items-center justify-center shadow-md ring-2 ring-white" style="left:' + v + '%;top:38%;background:' + color + '">' + letra + '</div>' +
+                   '<div class="absolute -translate-x-1/2 text-[11px] font-bold text-[#000000]" style="left:' + v + '%;top:calc(38% + 24px)">' + etiqueta + '</div>';
+        }
+        return '<div class="grid grid-cols-1 sm:grid-cols-[10rem_1fr_9rem] items-center gap-x-4 gap-y-1">' +
+                 '<div class="font-bold text-sm text-[#000000] flex items-center gap-2"><i data-lucide="' + t.icono + '" class="w-4 h-4 text-[#ec4e53]"></i>' + t.nombre + '</div>' +
+                 '<div class="relative h-16">' +
+                    [25, 50, 75].map(function (x) { return '<div class="absolute top-0 bottom-0 border-l border-dashed border-[#f3c1a8]/70" style="left:' + x + '%"></div>'; }).join('') +
+                    '<div class="absolute inset-x-0 h-1 rounded bg-[#fae6df]" style="top:calc(38% - 2px)"></div>' +
+                    '<div class="inf5-anim absolute h-1.5 rounded bg-[#ec4e53]/60" style="top:calc(38% - 3px);left:' + lo + '%;width:0%" data-w="' + dif.toFixed(1) + '"></div>' +
+                    punto(vh, 'H', '#c00022', g.H.a.pct) + punto(vm, 'M', '#ec4e53', g.M.a.pct) +
+                 '</div>' +
+                 '<div class="text-sm sm:text-right"><strong class="text-[#c00022] text-base">+' + fmt(dif) + ' pp</strong> <span class="text-gray-500 text-xs">' + quien + '</span></div>' +
+               '</div>';
+    }).join('<div class="h-1"></div>');
+
+    var eje = '<div class="grid grid-cols-1 sm:grid-cols-[10rem_1fr_9rem] gap-x-4 mt-1"><div class="hidden sm:block"></div>' +
+              '<div class="relative h-4 text-[10px] text-gray-400">' +
+                [0, 25, 50, 75, 100].map(function (x) { return '<span class="absolute -translate-x-1/2" style="left:' + x + '%">' + x + '%</span>'; }).join('') +
+              '</div><div class="hidden sm:block"></div></div>';
+    return filas + eje;
+}
+
+function panelGenero(clave) {
+    var g = DATOS_GENERO[clave];
+    var inversa = g.mayor === 'hombres';
+
+    function tarjeta(clave2, titulo, svg, d, fondo, color) {
+        function barra(etq, x, claro) {
+            return '<div class="mb-3 last:mb-0">' +
+                     '<div class="flex justify-between text-xs font-semibold text-gray-700 mb-1"><span>' + etq + '</span><span class="font-black text-[#c00022]">' + x.pct + '</span></div>' +
+                     '<div class="w-full bg-white/80 rounded-full h-2.5"><div class="inf5-anim h-full rounded-full" data-w="' + x.v + '" style="width:0%;min-width:3px;background:' + claro + '"></div></div>' +
+                     '<div class="text-[11px] text-gray-500 mt-0.5">' + x.c + ' de ' + d.n + '</div>' +
+                   '</div>';
+        }
+        return '<div class="rounded-2xl p-5 border border-[#f3c1a8] ' + fondo + '">' +
+                 '<div style="color:' + color + '">' + svg + '</div>' +
+                 '<h5 class="font-black text-lg text-center mt-2 mb-4 text-[#000000]">' + titulo + '</h5>' +
+                 barra('Niveles altos (4 y 5)', d.a, color) +
+                 barra('Niveles bajos (1 y 2)', d.b, '#f3c1a8') +
+               '</div>';
+    }
+
+    return cabecera(clave, chip(inversa ? 'Patrón inverso: mayor preocupación en hombres' : 'Mayor preocupación en mujeres')) +
+        '<div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">' +
+            tarjeta('M', 'Mujeres (n = ' + g.M.n + ')', SVG_MUJER, g.M, 'bg-[#fae6df]', '#ec4e53') +
+            tarjeta('H', 'Hombres (n = ' + g.H.n + ')', SVG_HOMBRE, g.H, 'bg-[#f3c1a8]/60', '#c00022') +
+        '</div>' +
+        (g.nota ? '<p class="text-xs text-[#c00022] font-semibold mb-4 flex items-center gap-2"><i data-lucide="info" class="w-4 h-4 shrink-0"></i>' + g.nota + '</p>' : '') +
+        cajaTexto(g.texto);
+}
+
+
+/* ================================================================
+   ARRANQUE
+   ================================================================ */
+var sNivel = $('inf5-nivel'), sFact = $('inf5-factores'), sGen = $('inf5-genero');
+if (!sNivel || !sFact || !sGen) return;
+
+CLAVES.forEach(function (k) {
+    sNivel.querySelector('[data-panel="' + k + '"]').innerHTML = panelNivel(k);
+    sFact.querySelector('[data-panel="' + k + '"]').innerHTML  = panelFactores(k);
+    sGen.querySelector('[data-panel="' + k + '"]').innerHTML   = panelGenero(k);
+});
+$('inf5-mancuerna').innerHTML = mancuerna();
+
+CLAVES.forEach(function (k) { iniciarFactores(k, sFact.querySelector('[data-panel="' + k + '"]')); });
+
+montarTabs(sNivel);
+montarTabs(sFact);
+montarTabs(sGen);
+
+/* Las barras crecen cuando la sección entra en pantalla */
+var secciones = [sNivel, sFact, sGen];
+if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) { reanimar(e.target); io.unobserve(e.target); }
+        });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    secciones.forEach(function (s) { io.observe(s); });
+} else {
+    secciones.forEach(reanimar);
+}
+
+if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+
+} catch (err) {
+    console.error('Informe #05:', err);
+}
+})();
 
         
 </script>
